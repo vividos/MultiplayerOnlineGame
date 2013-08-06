@@ -109,7 +109,7 @@ void Log::PatternLayout::Format(CString& cszOutput, const LoggingEventPtr spLogg
          cszReplaceString = spLoggingEvent->SourceFilename();
          break;
       case _T('l'): // location
-		  cszReplaceString = spLoggingEvent->SourceFilename();
+         cszReplaceString = spLoggingEvent->SourceFilename();
          break;
       case _T('L'): // source file line where log message occured
          cszReplaceString.Format(_T("%u"), spLoggingEvent->SourceLine());
