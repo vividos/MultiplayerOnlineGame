@@ -128,6 +128,9 @@
       <Filter>stream\header</Filter>
     </ClInclude>
     <ClInclude Include="ISO8601Parser.hpp" />
+    <ClInclude Include="RecursiveMutex.hpp">
+      <Filter>core\header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />

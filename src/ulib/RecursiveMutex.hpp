@@ -1,8 +1,8 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2008 Michael Fink
+// Copyright (C) 2008-2013 Michael Fink
 //
-/// \file Mutex.hpp mutex and lock classes
+/// \file RecursiveMutex.hpp recursive mutex class
 //
 #pragma once
 

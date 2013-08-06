@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2013 Michael Fink
 //
-//! \file IFileSystem.hpp Base file system
+//! \file BaseFileSystem.hpp Base file system
 //
 #pragma once
 

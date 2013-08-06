@@ -99,6 +99,7 @@
     <ClInclude Include="..\ulib\stream\TextStreamFilter.hpp" />
     <ClInclude Include="..\ulib\win32\DocHostUI.hpp" />
     <ClInclude Include="ISO8601Parser.hpp" />
+    <ClInclude Include="RecursiveMutex.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
