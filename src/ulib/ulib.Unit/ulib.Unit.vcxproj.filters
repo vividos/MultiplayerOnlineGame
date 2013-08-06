@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="TestCommandLineParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDateTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestReaderWriterMutex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CommandLineParser.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DateTime.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ReaderWriterMutex.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ISO8601Parser.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6f35d598-49cd-43c0-a979-e7bd76598a09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tested Files">
+      <UniqueIdentifier>{b1333eae-173e-443a-94f7-7e71446ad61c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CommandLineParser.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DateTime.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Exception.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ReaderWriterMutex.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ISO8601Parser.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
