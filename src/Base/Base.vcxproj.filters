@@ -122,9 +122,6 @@
     <ClInclude Include="IoServiceThread.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LightweightMutex.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Lockable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

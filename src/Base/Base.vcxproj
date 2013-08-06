@@ -110,7 +110,6 @@
     <ClInclude Include="IFileSystem.hpp" />
     <ClInclude Include="InstanceManager.hpp" />
     <ClInclude Include="IoServiceThread.hpp" />
-    <ClInclude Include="LightweightMutex.hpp" />
     <ClInclude Include="Lockable.hpp" />
     <ClInclude Include="Math.hpp" />
     <ClInclude Include="Matrix4d.hpp" />
