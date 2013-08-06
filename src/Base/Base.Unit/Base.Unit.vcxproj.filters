@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="TestAstronomyMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestHashedData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPlane3d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestRC4Encoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUuid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestVector3d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestZigzagSquareIterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestZipArchive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AstronomyMath.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HashedData.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Path.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Plane3d.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Uuid.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ZipArchive.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ZipArchiveFile.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ZlibDecompressor.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sha2.c">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ulib\DateTime.cpp">
+      <Filter>Tested Files\ulib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ulib\ISO8601Parser.cpp">
+      <Filter>Tested Files\ulib</Filter>
+    </ClCompile>
+    <ClCompile Include="TestByteStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Tested Files">
+      <UniqueIdentifier>{99fe50a7-9b61-4eb8-a738-0f9f9d6c6bed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{d1f81126-b3af-4364-b8f1-b81edbca676e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tested Files\ulib">
+      <UniqueIdentifier>{7a6415fb-b038-4ae6-888c-66d70664fa3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AstronomyMath.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ByteStream.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\HashedData.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Path.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Plane3d.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RC4Encoder.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Uuid.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Vector3d.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ZigzagSquareIterator.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ZipArchive.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ZipArchiveFile.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ZlibDecompressor.hpp">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sha2.h">
+      <Filter>Tested Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ulib\DateTime.hpp">
+      <Filter>Tested Files\ulib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ulib\ISO8601Parser.hpp">
+      <Filter>Tested Files\ulib</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
