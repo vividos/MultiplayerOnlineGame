@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}</ProjectGuid>
+    <RootNamespace>Base</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\boost.props" />
+    <Import Project="..\atl71-x86.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\boost.props" />
+    <Import Project="..\atl71-x86.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\thirdparty\zlib127\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;BASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\thirdparty\zlib127\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\thirdparty\zlib127\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;BASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\thirdparty\zlib127\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AsioHelper.cpp" />
+    <ClCompile Include="AstronomyMath.cpp" />
+    <ClCompile Include="BaseFileSystem.cpp" />
+    <ClCompile Include="Filesystem.cpp" />
+    <ClCompile Include="HashedData.cpp" />
+    <ClCompile Include="HighResolutionTimer.cpp" />
+    <ClCompile Include="Path.cpp" />
+    <ClCompile Include="Plane3d.cpp" />
+    <ClCompile Include="Quaternion4d.cpp" />
+    <ClCompile Include="sha2.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StringTools.cpp" />
+    <ClCompile Include="SystemInfo.cpp" />
+    <ClCompile Include="Uuid.cpp" />
+    <ClCompile Include="VirtualFileSystem.cpp" />
+    <ClCompile Include="ZipArchive.cpp" />
+    <ClCompile Include="ZipArchiveFile.cpp" />
+    <ClCompile Include="ZlibDecompressor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AABox.hpp" />
+    <ClInclude Include="ArrayMapper2D.hpp" />
+    <ClInclude Include="Asio.hpp" />
+    <ClInclude Include="AsioHelper.hpp" />
+    <ClInclude Include="AstronomyMath.hpp" />
+    <ClInclude Include="Base.hpp" />
+    <ClInclude Include="BaseFileSystem.hpp" />
+    <ClInclude Include="ByteStream.hpp" />
+    <ClInclude Include="Color.hpp" />
+    <ClInclude Include="ColorGradient.hpp" />
+    <ClInclude Include="FileFinder.hpp" />
+    <ClInclude Include="Filesystem.hpp" />
+    <ClInclude Include="HashedData.hpp" />
+    <ClInclude Include="HighResolutionTimer.hpp" />
+    <ClInclude Include="IFileSystem.hpp" />
+    <ClInclude Include="InstanceManager.hpp" />
+    <ClInclude Include="IoServiceThread.hpp" />
+    <ClInclude Include="LightweightMutex.hpp" />
+    <ClInclude Include="Lockable.hpp" />
+    <ClInclude Include="Math.hpp" />
+    <ClInclude Include="Matrix4d.hpp" />
+    <ClInclude Include="Path.hpp" />
+    <ClInclude Include="Plane3d.hpp" />
+    <ClInclude Include="Quaternion4d.hpp" />
+    <ClInclude Include="RC4Encoder.hpp" />
+    <ClInclude Include="SafeFlag.hpp" />
+    <ClInclude Include="sha2.h" />
+    <ClInclude Include="Singleton.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringTools.hpp" />
+    <ClInclude Include="SystemInfo.hpp" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ThreadPool.hpp" />
+    <ClInclude Include="TimedEffect.hpp" />
+    <ClInclude Include="Timer.hpp" />
+    <ClInclude Include="TraceOutputStopwatch.hpp" />
+    <ClInclude Include="Uuid.hpp" />
+    <ClInclude Include="Vector2d.hpp" />
+    <ClInclude Include="Vector3d.hpp" />
+    <ClInclude Include="..\version.h" />
+    <ClInclude Include="VirtualFileSystem.hpp" />
+    <ClInclude Include="ZigzagSquareIterator.hpp" />
+    <ClInclude Include="ZipArchive.hpp" />
+    <ClInclude Include="ZipArchiveFile.hpp" />
+    <ClInclude Include="ZlibDecompressor.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="versioninfo.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
