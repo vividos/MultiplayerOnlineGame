@@ -16,6 +16,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base", "Base\Base.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cppcheck", "cppcheck\cppcheck.vcxproj", "{190BDDB5-5CCA-4298-A7C8-758D72AF1D12}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "doxygen", "doxygen\doxygen.vcxproj", "{C1E05BF2-1AA0-4EB7-98AD-AE5B44265122}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -38,6 +40,10 @@ Global
 		{190BDDB5-5CCA-4298-A7C8-758D72AF1D12}.Debug|Win32.Build.0 = Debug|Win32
 		{190BDDB5-5CCA-4298-A7C8-758D72AF1D12}.Release|Win32.ActiveCfg = Release|Win32
 		{190BDDB5-5CCA-4298-A7C8-758D72AF1D12}.Release|Win32.Build.0 = Release|Win32
+		{C1E05BF2-1AA0-4EB7-98AD-AE5B44265122}.Debug|Win32.ActiveCfg = Default|Win32
+		{C1E05BF2-1AA0-4EB7-98AD-AE5B44265122}.Debug|Win32.Build.0 = Default|Win32
+		{C1E05BF2-1AA0-4EB7-98AD-AE5B44265122}.Release|Win32.ActiveCfg = Default|Win32
+		{C1E05BF2-1AA0-4EB7-98AD-AE5B44265122}.Release|Win32.Build.0 = Default|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -33,3 +33,4 @@ bin/
 *.opensdf
 *.sdf
 src/ipch/
+src/doxygen/doxygen-warnings.txt
