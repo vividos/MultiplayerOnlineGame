@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1">
+    <root name="Multiplayer Online Game"/>
+    <defines>
+        <define name="WIN32"/>
+        <define name="_WINDOWS"/>
+        <define name="STRICT"/>
+        <define name="NDEBUG"/>
+    </defines>
+    <paths>
+        <dir name="../"/>
+    </paths>
+</project>
