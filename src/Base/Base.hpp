@@ -17,7 +17,11 @@
 #ifdef BASE_EXPORTS
 #  define BASE_DECLSPEC __declspec(dllexport)
 #else
-#  define BASE_DECLSPEC __declspec(dllimport)
+#  ifdef UNIT_TEST
+#    define BASE_DECLSPEC
+#  else
+#    define BASE_DECLSPEC __declspec(dllimport)
+#  endif
 #endif
 
 // ignore common warnings

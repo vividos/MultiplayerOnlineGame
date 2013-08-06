@@ -15,26 +15,35 @@
 
    // this section is used when using ulib
 
-   /// this is used to import classes and functions from ulib
-   #define ULIB_DECLSPEC __declspec(dllimport)
+   #ifdef UNIT_TEST
 
-   // note: define ULIB_NO_AUTO_LINK in your project to disable auto-linking
-   #ifndef ULIB_NO_AUTO_LINK
+      // when unit testing, use static linking of single cpps
+      #define ULIB_DECLSPEC
 
-      /// library name
-      #define ULIB_AUTO_LINK_LIB "ulib.lib"
+   #else
 
-      // print lib to link to
-      #ifdef ULIB_VERBOSE_AUTO_LINK
-         #pragma message ("ulib: auto linking to " ULIB_AUTO_LINK_LIB)
-      #endif
+      /// this is used to import classes and functions from ulib
+      #define ULIB_DECLSPEC __declspec(dllimport)
 
-      // link in lib
-      #pragma comment (lib, ULIB_AUTO_LINK_LIB)
+      // note: define ULIB_NO_AUTO_LINK in your project to disable auto-linking
+      #ifndef ULIB_NO_AUTO_LINK
 
-      #undef ULIB_AUTO_LINK_LIB
+         /// library name
+         #define ULIB_AUTO_LINK_LIB "ulib.lib"
 
-   #endif // ULIB_NO_AUTO_LINK
+         // print lib to link to
+         #ifdef ULIB_VERBOSE_AUTO_LINK
+            #pragma message ("ulib: auto linking to " ULIB_AUTO_LINK_LIB)
+         #endif
+
+         // link in lib
+         #pragma comment (lib, ULIB_AUTO_LINK_LIB)
+
+         #undef ULIB_AUTO_LINK_LIB
+
+      #endif // ULIB_NO_AUTO_LINK
+
+   #endif // UNIT_TEST
 
 #else // ULIB_EXPORTS
 
