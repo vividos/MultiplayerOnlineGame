@@ -104,7 +104,7 @@ std::vector<TimeZone> TimeZone::EnumerateTimezones()
       REG_TZI_FORMAT tzi;
 
       // get binary data
-      BOOST_STATIC_ASSERT(sizeof(REG_TZI_FORMAT) == 44);
+      static_assert(sizeof(REG_TZI_FORMAT) == 44, "struct REG_TZI_FORMAT must have a size of 44");
 
       if (ERROR_SUCCESS != RegQueryValueEx(regKeyTimeZoneInfo.m_hKey, _T("TZI"), NULL, NULL, reinterpret_cast<LPBYTE>(&tzi), &dwLength))
          throw Exception(_T("couldn't enumerate timezones"), __FILE__, __LINE__);

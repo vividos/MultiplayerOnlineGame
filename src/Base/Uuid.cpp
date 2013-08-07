@@ -12,7 +12,7 @@
 #include <rpc.h>
 #pragma comment(lib, "Rpcrt4.lib")
 
-BOOST_STATIC_ASSERT(sizeof(Uuid) == 16);
+static_assert(sizeof(Uuid) == 16, "Uuid must have a size of 16 bytes");
 
 Uuid::Uuid(LPCTSTR pszUuid) throw()
 {
@@ -47,7 +47,7 @@ Uuid Uuid::New()
 Uuid Uuid::FromString(LPCTSTR pszUuid) throw()
 {
    // note: the next cast only works when TCHAR == WCHAR
-   BOOST_STATIC_ASSERT(sizeof(TCHAR) == sizeof(WCHAR));
+   static_cast(sizeof(TCHAR) == sizeof(WCHAR), "must compile using Unicode");
 
    RPC_WSTR w = reinterpret_cast<RPC_WSTR>(const_cast<LPTSTR>(pszUuid));
    GUID u;

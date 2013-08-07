@@ -17,7 +17,7 @@ MobileDisplayInfo::MobileDisplayInfo(WORD wInfo)
 template <unsigned int uiStartBit, unsigned int uiCount>
 unsigned int GetBits(WORD wValue)
 {
-   BOOST_STATIC_ASSERT(uiStartBit + uiCount <= sizeof(WORD)*8);
+   static_assert(uiStartBit + uiCount <= sizeof(WORD)*8, "start bit and count must be less that 16 bits");
 
    wValue >>= uiStartBit;
    WORD wMask = (1 << uiCount) - 1;
@@ -27,7 +27,7 @@ unsigned int GetBits(WORD wValue)
 template <unsigned int uiStartBit, unsigned int uiCount>
 void SetBits(WORD& wValue, unsigned int uiNewValue)
 {
-   BOOST_STATIC_ASSERT(uiStartBit + uiCount <= sizeof(WORD)*8);
+   static_assert(uiStartBit + uiCount <= sizeof(WORD)*8, "start bit and count must be less that 16 bits");
 
    WORD wMask = (1 << uiCount) - 1;
    ATLASSERT(uiNewValue < unsigned(wMask));

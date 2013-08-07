@@ -96,7 +96,7 @@ T LeastCommonMultiple(T n, T m) throw()
 template <typename T>
 bool IsPowerOfTwo(T v)
 {
-   //BOOST_STATIC_ASSERT(true == boost::type_traits::is_integral_type(T));
+   //static_assert(true == boost::type_traits::is_integral_type(T), "T must be integral type");
    return v && !(v & (v - 1));
 }
 
