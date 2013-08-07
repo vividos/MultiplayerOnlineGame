@@ -1,0 +1,50 @@
+//
+// MultiplayerOnlineGame - multiplayer game project
+// Copyright (C) 2008-2013 Michael Fink
+//
+//! \file TimeBase.hpp Game time base
+//
+#pragma once
+
+// includes
+#include "Common.hpp"
+#include "HighResolutionTimer.hpp"
+
+/// game time index
+class TimeIndex
+{
+public:
+   /// ctor
+   TimeIndex(double dTime)
+      :m_dTime(dTime)
+   {
+   }
+
+   /// returns current time index
+   double Get() const throw() { return m_dTime; }
+
+   /// less operator
+   bool operator<(const TimeIndex& rhs) const throw() { return m_dTime < rhs.m_dTime; }
+
+private:
+   /// time index value
+   double m_dTime;
+};
+
+/// time base used in the game
+class COMMON_DECLSPEC TimeBase
+{
+public:
+   /// ctor; initializes time base
+   TimeBase() throw();
+
+   /// returns seconds and fractions since epoch;
+   TimeIndex Now() const throw();
+
+private:
+   /// offset to epoch in seconds
+   double m_dEpochOffset;
+
+   /// a timer that measures time since start
+   HighResolutionTimer m_timer;
+};

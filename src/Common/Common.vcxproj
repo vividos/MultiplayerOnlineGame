@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{54254FF9-AE31-4207-B98F-FB49BFE857A6}</ProjectGuid>
+    <RootNamespace>Common</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\boost.props" />
+    <Import Project="..\atl71-x86.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\boost.props" />
+    <Import Project="..\atl71-x86.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;COMMON_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
+      <ImportLibrary>..\..\lib\$(Configuration)\$(ProjectName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;COMMON_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
+      <ImportLibrary>..\..\lib\$(Configuration)\$(ProjectName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ActionMessage.cpp" />
+    <ClCompile Include="ActionRegistry.cpp" />
+    <ClCompile Include="AddRemoveObjectMessage.cpp" />
+    <ClCompile Include="CommandTranslator.cpp" />
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="CrashReporter.cpp" />
+    <ClCompile Include="MetricsManager.cpp" />
+    <ClCompile Include="Mobile.cpp" />
+    <ClCompile Include="MobileDisplayInfo.cpp" />
+    <ClCompile Include="MovementInfo.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ScatteredPointInterpolator.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionInitMessage.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TaskManager.cpp" />
+    <ClCompile Include="TimeBase.cpp" />
+    <ClCompile Include="UpdateObjectMovementMessage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Account.hpp" />
+    <ClInclude Include="Action.hpp" />
+    <ClInclude Include="ActionMessage.hpp" />
+    <ClInclude Include="ActionRegistry.hpp" />
+    <ClInclude Include="AddRemoveObjectMessage.hpp" />
+    <ClInclude Include="AsyncActionQueue.hpp" />
+    <ClInclude Include="AuthException.hpp" />
+    <ClInclude Include="AuthInfo.hpp" />
+    <ClInclude Include="Command.hpp" />
+    <ClInclude Include="CommandMessage.hpp" />
+    <ClInclude Include="CommandTranslator.hpp" />
+    <ClInclude Include="Common.hpp" />
+    <ClInclude Include="CommonDefines.hpp" />
+    <ClInclude Include="Controller.hpp" />
+    <ClInclude Include="ControllerProxy.hpp" />
+    <ClInclude Include="CrashReporter.hpp" />
+    <ClInclude Include="IActionQueue.hpp" />
+    <ClInclude Include="IAuthManager.hpp" />
+    <ClInclude Include="IClientAuthModule.hpp" />
+    <ClInclude Include="IController.hpp" />
+    <ClInclude Include="IEncryptModule.hpp" />
+    <ClInclude Include="IModel.hpp" />
+    <ClInclude Include="IServerAuthModule.hpp" />
+    <ClInclude Include="ISession.hpp" />
+    <ClInclude Include="LogCategories.hpp" />
+    <ClInclude Include="LogoutMessage.hpp" />
+    <ClInclude Include="Message.hpp" />
+    <ClInclude Include="MetricsManager.hpp" />
+    <ClInclude Include="Mobile.hpp" />
+    <ClInclude Include="MobileActions.hpp" />
+    <ClInclude Include="MobileDisplayInfo.hpp" />
+    <ClInclude Include="MovementInfo.hpp" />
+    <ClInclude Include="MovePlayerMessage.hpp" />
+    <ClInclude Include="MultiplayerOnlineGame.hpp" />
+    <ClInclude Include="Object.hpp" />
+    <ClInclude Include="ObjectMap.hpp" />
+    <ClInclude Include="PingMessages.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="RawMessage.hpp" />
+    <ClInclude Include="RC4EncryptModule.hpp" />
+    <ClInclude Include="ScatteredPointInterpolator.hpp" />
+    <ClInclude Include="Session.hpp" />
+    <ClInclude Include="SessionInitMessage.hpp" />
+    <ClInclude Include="SharedBuffer.hpp" />
+    <ClInclude Include="SRPAuthMessages.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TaskGroup.hpp" />
+    <ClInclude Include="TaskManager.hpp" />
+    <ClInclude Include="TextMessage.hpp" />
+    <ClInclude Include="TimeBase.hpp" />
+    <ClInclude Include="UpdateObjectMovementMessage.hpp" />
+    <ClInclude Include="ZoneInfo.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="versioninfo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.vcxproj">
+      <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
