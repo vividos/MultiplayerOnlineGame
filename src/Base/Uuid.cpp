@@ -47,7 +47,7 @@ Uuid Uuid::New()
 Uuid Uuid::FromString(LPCTSTR pszUuid) throw()
 {
    // note: the next cast only works when TCHAR == WCHAR
-   static_cast(sizeof(TCHAR) == sizeof(WCHAR), "must compile using Unicode");
+   static_assert(sizeof(TCHAR) == sizeof(WCHAR), "must compile using Unicode");
 
    RPC_WSTR w = reinterpret_cast<RPC_WSTR>(const_cast<LPTSTR>(pszUuid));
    GUID u;
