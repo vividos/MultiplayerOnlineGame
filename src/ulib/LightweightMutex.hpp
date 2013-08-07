@@ -42,7 +42,7 @@ private:
       LeaveCriticalSection(&m_cs);
    }
 
-   // so that Lock class can call Lock() and Unlock()
+   // so that MutexLock class can call Lock() and Unlock()
    friend MutexLock<LightweightMutex>;
    friend MutexUnLocker<LightweightMutex>;
 

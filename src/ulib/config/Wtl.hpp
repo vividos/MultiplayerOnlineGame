@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2009,2012 Michael Fink
+// Copyright (C) 2009,2012,2013 Michael Fink
 //
 /// \file Wtl.hpp configuration for WTL 8 or higher
 //
@@ -9,18 +9,19 @@
 // needed includes
 #include <ulib/config/Atl.hpp>
 
-// min and max macros are used in atlcom.h, etc., so temporarily define them here
 #ifndef min
+/// temporary definition of min for ATL headers
 #  define min(x,y) (x) < (y) ? (x) : (y)
 #endif
 
 #ifndef max
+/// temporary definition of max for ATL headers
 #  define max(x,y) (x) > (y) ? (x) : (y)
 #endif
 
 // WTL includes
 #include <atlapp.h>
-extern CAppModule _Module;
+extern CAppModule _Module; ///< app module
 #include <atlwin.h>
 #include <atlframe.h>
 #include <atlctrls.h>

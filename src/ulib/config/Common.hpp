@@ -1,8 +1,8 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2008,2009,2010,2012 Michael Fink
+// Copyright (C) 2008-2013 Michael Fink
 //
-/// \file Common.hpp common configuration
+/// \file ulib/config/Common.hpp common configuration
 //
 #pragma once
 

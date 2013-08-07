@@ -102,10 +102,10 @@ public:
 
    // operators
 
-   /// compare operator
+   /// equality operator
    bool operator==(const MovementInfo& rhs) const throw();
 
-   // inequality
+   /// inequality operator
    bool operator!=(const MovementInfo& rhs) const throw()
    {
       return !operator==(rhs);

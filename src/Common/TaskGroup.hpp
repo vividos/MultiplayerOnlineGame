@@ -20,6 +20,7 @@
 class TaskGroup
 {
 public:
+   /// task type
    typedef boost::function<void()> T_fnTask;
 
    /// ctor
@@ -67,6 +68,7 @@ public:
    }
 
 private:
+   /// runs one task
    void RunOneTask()
    {
       T_fnTask fnTask;
@@ -88,8 +90,10 @@ private:
    }
 
 private:
+   /// task list
    std::deque<T_fnTask> m_deqTaskList;
 
+   /// mutex to protect task list
    LightweightMutex m_mtxTaskList;
 
    /// io service to run tasks on

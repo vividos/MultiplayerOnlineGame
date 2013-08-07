@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2008 Michael Fink
+// Copyright (C) 2008,2013 Michael Fink
 //
 /// \file CriticalSection.hpp critical section class
 //
@@ -29,11 +29,13 @@ public:
    }
 
 private:
+   /// locks critical section
    void Lock() throw()
    {
       EnterCriticalSection(&m_cs);
    }
 
+   /// unlocks critical section
    void Unlock() throw()
    {
       LeaveCriticalSection(&m_cs);

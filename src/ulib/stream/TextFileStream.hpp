@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2006,2007,2008,2012 Michael Fink
+// Copyright (C) 2006,2007,2008,2012,2013 Michael Fink
 //
 /// \file TextFileStream.hpp text file stream
 //
@@ -41,6 +41,7 @@ public:
    bool AtEndOfStream() const throw(){ return m_fileStream.AtEndOfStream(); }
 
 private:
+   /// file stream
    FileStream m_fileStream;
 };
 

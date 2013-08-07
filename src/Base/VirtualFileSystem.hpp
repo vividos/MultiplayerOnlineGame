@@ -19,6 +19,7 @@ class IStream;
 /// virtual file system using zip archives
 class BASE_DECLSPEC VirtualFileSystem: public BaseFileSystem
 {
+   /// base class typedef
    typedef BaseFileSystem BaseClass;
 
 public:

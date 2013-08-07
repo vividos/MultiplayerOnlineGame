@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2008,2009,2012 Michael Fink
+// Copyright (C) 2008-2013 Michael Fink
 //
 /// \file ProgramOptions.hpp program options handling
 //
@@ -78,31 +78,38 @@ public:
    static void OutputConsole(const CString& cszText);
 
 private:
+   /// parses command line
    void Parse(CommandLineParser& parser);
 
+   /// calls single argument handler
    static bool CallSingleArgHandler(const std::vector<CString>& vecArgs, T_fnOptionHandlerSingleArg fnHandler)
    {
       ATLASSERT(vecArgs.size() == 1);
       return fnHandler(vecArgs[0]);
    }
 
+   /// sets string argument to storage variable
    static bool SetStringArgStorage(const CString& cszArg, CString& cszStorage)
    {
       cszStorage = cszArg;
       return true;
    }
 
+   /// sets bool argument to storage variable
    static bool SetBoolArgStorage(bool& bStorage)
    {
       bStorage = true;
       return true;
    }
 
+   /// outputs help
    bool OutputHelp();
 
 private:
+   /// info about a single option
    struct OptionInfo
    {
+      /// ctor
       OptionInfo(const CString& cszShortOptionChars,
          const CString& cszLongOption,
          const CString& cszHelpText,
@@ -116,18 +123,27 @@ private:
       {
       }
 
-      CString m_cszShortOptionChars;
-      CString m_cszLongOption;
-      CString m_cszHelpText;
-      unsigned int m_uiArgs;
+      CString m_cszShortOptionChars;   ///< collection of short option characters for this option
+      CString m_cszLongOption;         ///< text of long option
+      CString m_cszHelpText;           ///< help text
+      unsigned int m_uiArgs;           ///< number of args for this option
 
+      /// option handler to call
       T_fnOptionHandler m_fnOptionHandler;
    };
 
+   /// holds the program executable (first argument of command line)
    CString m_cszExecutable;
+
+   /// contains all options
    std::vector<OptionInfo> m_vecOptions;
+
+   /// function pointer to parameter handler
    T_fnParameterHandler m_fnParameterHandler;
+
+   /// function pointer to option output handler
    T_fnOptionOutputHandler m_fnOptionOutputHandler;
 
+   /// indicates if help option was handled
    bool m_bHandledHelp;
 };

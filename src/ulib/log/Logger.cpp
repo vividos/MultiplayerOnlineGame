@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2007,2008,2012 Michael Fink
+// Copyright (C) 2007,2008,2012,2013 Michael Fink
 //
 /// \file Logger.cpp Logger implementation
 //
@@ -17,8 +17,6 @@
 using Log::Logger;
 using Log::LoggerPtr;
 
-static LONG s_uiLoggerInitialized = 0;
-
 CString Logger::Name() throw()
 {
    // check if parent is the root logger
@@ -31,8 +29,10 @@ CString Logger::Name() throw()
       return Parent()->Name() + _T(".") + m_cszName;
 }
 
+/// once flag for root logger initialisation
 boost::once_flag g_rootLoggerOnceFlag = BOOST_ONCE_INIT;
 
+/// root logger
 static Log::LoggerPtr s_spRootLogger;
 
 void Logger::InitRootLogger()
@@ -40,7 +40,6 @@ void Logger::InitRootLogger()
    s_spRootLogger = Log::LoggerPtr(new Log::Logger(_T(""), Log::LoggerPtr()));
 }
 
-/// \todo implement MT
 LoggerPtr Logger::GetRootLogger()
 {
    boost::call_once(g_rootLoggerOnceFlag, &Logger::InitRootLogger);

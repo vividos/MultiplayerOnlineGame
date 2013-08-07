@@ -14,6 +14,7 @@ MobileDisplayInfo::MobileDisplayInfo(WORD wInfo)
 {
 }
 
+/// returns bits from WORD
 template <unsigned int uiStartBit, unsigned int uiCount>
 unsigned int GetBits(WORD wValue)
 {
@@ -24,6 +25,7 @@ unsigned int GetBits(WORD wValue)
    return wValue & wMask;
 }
 
+/// sets bits in WORD
 template <unsigned int uiStartBit, unsigned int uiCount>
 void SetBits(WORD& wValue, unsigned int uiNewValue)
 {

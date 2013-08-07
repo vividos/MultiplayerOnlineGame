@@ -17,7 +17,7 @@
 class SharedConstBuffer
 {
 public:
-   // construct from a given vector
+   /// construct from a given vector
    template <typename InputIterator>
    explicit SharedConstBuffer(InputIterator itBegin, InputIterator itEnd)
       :m_spData(new std::vector<unsigned char>(itBegin, itEnd)),
@@ -25,16 +25,20 @@ public:
    {
    }
 
+   /// returns data
    std::vector<unsigned char>& Data(){ return *m_spData; }
 
    // implement the ConstBufferSequence requirements
-   typedef boost::asio::const_buffer value_type;
-   typedef const boost::asio::const_buffer* const_iterator;
-   const boost::asio::const_buffer* begin() const { return &m_buffer; }
-   const boost::asio::const_buffer* end() const { return &m_buffer + 1; }
+   typedef boost::asio::const_buffer value_type;                           ///< buffer value type
+   typedef const boost::asio::const_buffer* const_iterator;                ///< const interator type
+   const boost::asio::const_buffer* begin() const { return &m_buffer; }    ///< buffer begin() method
+   const boost::asio::const_buffer* end() const { return &m_buffer + 1; }  ///< buffer end() method
 
 private:
+   /// shared data
    boost::shared_ptr<std::vector<unsigned char> > m_spData;
+
+   /// const buffer definition
    boost::asio::const_buffer m_buffer;
 };
 
@@ -53,15 +57,15 @@ public:
    std::vector<unsigned char>& Data(){ return *m_spData; }
 
    // implement the MutableBufferSequence requirements
-   typedef boost::asio::mutable_buffer value_type;
-   typedef const boost::asio::mutable_buffer* const_iterator;
-   const boost::asio::mutable_buffer* begin() const { return &m_buffer; }
-   const boost::asio::mutable_buffer* end() const { return &m_buffer + 1; }
+   typedef boost::asio::mutable_buffer value_type;                            ///< buffer value type
+   typedef const boost::asio::mutable_buffer* const_iterator;                 ///< const interator type
+   const boost::asio::mutable_buffer* begin() const { return &m_buffer; }     ///< buffer begin() method
+   const boost::asio::mutable_buffer* end() const { return &m_buffer + 1; }   ///< buffer end() method
 
 private:
    /// shared data
    boost::shared_ptr<std::vector<unsigned char> > m_spData;
 
-   /// buffer
+   /// mutable buffer definition
    boost::asio::mutable_buffer m_buffer;
 };

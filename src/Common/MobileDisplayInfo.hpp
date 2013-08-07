@@ -19,28 +19,34 @@ public:
    /// checks if all values are valid
    bool IsValid() const throw();
 
-   // 0-3: 4
+   /// returns base figure; values 0-3
    unsigned int BaseFigure() const throw();
+   /// sets base figure
    void BaseFigure(unsigned int uiBaseFigure) throw();
 
-   // 0-2: 3
+   /// returns skin color; values 0-2
    unsigned int SkinColor() const throw();
+   /// sets skin color
    void SkinColor(unsigned int uiSkinColor) throw();
 
-   // 0-7: 8
+   /// returns face style; values 0-7
    unsigned int FaceStyle() const throw();
+   /// sets face style
    void FaceStyle(unsigned int uiStyle) throw();
 
-   // 0-4: 5
+   /// returns hair color; values 0-4
    unsigned int HairColor() const throw();
+   /// sets hair color
    void HairColor(unsigned int uiColor) throw();
 
-   // 0-4: 5
+   /// returns pilosity hair style; values 0-4
    unsigned int PilosityHairStyle() const throw();
+   /// sets pilosity hair style
    void PilosityHairStyle(unsigned int uiStyle) throw();
 
-   // 0-11: 12
+   /// returns pilosity brow style; vaues 0-11
    unsigned int PilosityBrowStyle() const throw();
+   /// sets pilosity brow style
    void PilosityBrowStyle(unsigned int uiStyle) throw();
 
    /// returns info word
