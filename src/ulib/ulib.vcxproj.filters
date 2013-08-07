@@ -1,155 +1,174 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="config">
-      <UniqueIdentifier>{1dc26ac6-7c9a-44fc-8e2e-3cc1917e6545}</UniqueIdentifier>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{b4c9e601-878c-4af1-a93f-fe022cd98e00}</UniqueIdentifier>
     </Filter>
-    <Filter Include="core">
-      <UniqueIdentifier>{4c47e80e-de12-45e6-8154-2c363a84b968}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="core\header">
-      <UniqueIdentifier>{66633050-7d2d-48d7-b4ce-b41146e498eb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="core\source">
-      <UniqueIdentifier>{b3a664aa-bbd2-4b8e-9a9c-f77bd72ac689}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="log">
-      <UniqueIdentifier>{5e974ef5-e1ce-4756-a64a-5590845ce818}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="log\header">
+    <Filter Include="Header Files\log">
       <UniqueIdentifier>{442da65c-addb-4fc2-9e12-9d0ad6f8fb3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="log\source">
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5e974ef5-e1ce-4756-a64a-5590845ce818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\log">
       <UniqueIdentifier>{e8e53f6d-f2f8-4fbd-8d40-ec5498b2978d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="stream">
-      <UniqueIdentifier>{517e69b9-9cdc-4514-ab2f-9ce15062bee2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="stream\header">
+    <Filter Include="Header Files\stream">
       <UniqueIdentifier>{3c1e0a74-ba2c-460e-a29c-74c917d80b0e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="stream\source">
+    <Filter Include="Source Files\stream">
       <UniqueIdentifier>{808b8588-424b-42a1-9cce-1e800635e9ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="win32">
+    <Filter Include="Header Files\config">
+      <UniqueIdentifier>{1dc26ac6-7c9a-44fc-8e2e-3cc1917e6545}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\win32">
       <UniqueIdentifier>{73406447-f484-4197-a005-734c6d818ad7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ulib\config\Atl.hpp">
-      <Filter>config</Filter>
+      <Filter>Header Files\config</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\config\AutoLink.hpp">
-      <Filter>config</Filter>
+      <Filter>Header Files\config</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\config\Common.hpp">
-      <Filter>config</Filter>
+      <Filter>Header Files\config</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\config\CompileTimeWarningError.hpp">
-      <Filter>config</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\config\IosfwdFake.hpp">
-      <Filter>config</Filter>
+      <Filter>Header Files\config</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\config\Wtl.hpp">
-      <Filter>config</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\CommandLineParser.hpp">
-      <Filter>core\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\ProgramOptions.hpp">
-      <Filter>core\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\DateTime.hpp">
-      <Filter>core\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\Exception.hpp">
-      <Filter>core\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\ReaderWriterMutex.hpp">
-      <Filter>core\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\Event.hpp">
-      <Filter>core\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\Mutex.hpp">
-      <Filter>core\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\Observer.hpp">
-      <Filter>core\header</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ulib\ErrorMessage.hpp">
-      <Filter>core\header</Filter>
+      <Filter>Header Files\config</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\log\Appender.hpp">
-      <Filter>log\header</Filter>
+      <Filter>Header Files\log</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\log\LoggingEvent.hpp">
-      <Filter>log\header</Filter>
+      <Filter>Header Files\log</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\log\Layout.hpp">
-      <Filter>log\header</Filter>
+      <Filter>Header Files\log</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\log\Log.hpp">
-      <Filter>log\header</Filter>
+      <Filter>Header Files\log</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\log\Logger.hpp">
-      <Filter>log\header</Filter>
+      <Filter>Header Files\log</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h" />
     <ClInclude Include="..\ulib\stream\IStream.hpp">
-      <Filter>stream\header</Filter>
+      <Filter>Header Files\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\stream\StreamException.hpp">
-      <Filter>stream\header</Filter>
+      <Filter>Header Files\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\stream\FileStream.hpp">
-      <Filter>stream\header</Filter>
+      <Filter>Header Files\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\stream\ITextStream.hpp">
-      <Filter>stream\header</Filter>
+      <Filter>Header Files\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\stream\TextStreamFilter.hpp">
-      <Filter>stream\header</Filter>
+      <Filter>Header Files\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\log\TextStreamAppender.hpp">
-      <Filter>log\header</Filter>
+      <Filter>Header Files\log</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\win32\DocHostUI.hpp">
-      <Filter>win32</Filter>
+      <Filter>Header Files\win32</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\stream\EndianAwareFilter.hpp">
-      <Filter>stream\header</Filter>
+      <Filter>Header Files\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\stream\MemoryStream.hpp">
-      <Filter>stream\header</Filter>
+      <Filter>Header Files\stream</Filter>
     </ClInclude>
     <ClInclude Include="..\ulib\stream\TextFileStream.hpp">
-      <Filter>stream\header</Filter>
+      <Filter>Header Files\stream</Filter>
     </ClInclude>
-    <ClInclude Include="ISO8601Parser.hpp" />
+    <ClInclude Include="..\ulib\CommandLineParser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ulib\DateTime.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ulib\ErrorMessage.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ulib\Event.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ulib\Exception.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ulib\Mutex.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ulib\Observer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ulib\ProgramOptions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ulib\ReaderWriterMutex.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="RecursiveMutex.hpp">
-      <Filter>core\header</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalSection.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LightweightMutex.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MutexLock.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemException.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISO8601Parser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="log\Logger.cpp">
-      <Filter>log\source</Filter>
+      <Filter>Source Files\log</Filter>
     </ClCompile>
     <ClCompile Include="log\PatternLayout.cpp">
-      <Filter>log\source</Filter>
+      <Filter>Source Files\log</Filter>
     </ClCompile>
     <ClCompile Include="stream\FileStream.cpp">
-      <Filter>stream\source</Filter>
+      <Filter>Source Files\stream</Filter>
     </ClCompile>
     <ClCompile Include="stream\TextStreamFilter.cpp">
-      <Filter>stream\source</Filter>
+      <Filter>Source Files\stream</Filter>
     </ClCompile>
-    <ClCompile Include="CommandLineParser.cpp" />
-    <ClCompile Include="DateTime.cpp" />
-    <ClCompile Include="ISO8601Parser.cpp" />
-    <ClCompile Include="ProgramOptions.cpp" />
-    <ClCompile Include="ReaderWriterMutex.cpp" />
+    <ClCompile Include="CommandLineParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DateTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ISO8601Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgramOptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReaderWriterMutex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
