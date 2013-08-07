@@ -11,6 +11,7 @@
 #include <boost/noncopyable.hpp>
 #include <ulib/config/Atl.hpp>
 #include <ulib/Exception.hpp>
+#include <ulib/log/Logger.hpp>
 #include "Asio.hpp"
 
 /// export macro
