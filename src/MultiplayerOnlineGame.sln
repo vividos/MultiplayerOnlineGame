@@ -28,6 +28,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio", "Audio\Audio.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jsoncpp", "Thirdparty\jsoncpp\src\lib_json\lib_json.vcxproj", "{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data", "..\data\data.vcxproj", "{B7737583-1A2D-4F99-9CF8-335132391CBC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C21F9EA1-EF7F-4C03-A0CD-226D41C91877} = {C21F9EA1-EF7F-4C03-A0CD-226D41C91877}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildData", "..\data\tools\BuildData\BuildData.csproj", "{C21F9EA1-EF7F-4C03-A0CD-226D41C91877}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -66,6 +73,14 @@ Global
 		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}.Debug|Win32.Build.0 = Debug|Win32
 		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}.Release|Win32.ActiveCfg = Release|Win32
 		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}.Release|Win32.Build.0 = Release|Win32
+		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Debug|Win32.Build.0 = Debug|Win32
+		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Release|Win32.ActiveCfg = Release|Win32
+		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Release|Win32.Build.0 = Release|Win32
+		{C21F9EA1-EF7F-4C03-A0CD-226D41C91877}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{C21F9EA1-EF7F-4C03-A0CD-226D41C91877}.Debug|Win32.Build.0 = Debug|Any CPU
+		{C21F9EA1-EF7F-4C03-A0CD-226D41C91877}.Release|Win32.ActiveCfg = Release|Any CPU
+		{C21F9EA1-EF7F-4C03-A0CD-226D41C91877}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

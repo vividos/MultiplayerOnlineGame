@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="audio">
+      <UniqueIdentifier>{cf334d90-1382-49bd-9bc3-d4585f6a35f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="audio\music">
+      <UniqueIdentifier>{0565bf86-8e87-4e12-b7ad-9ff5e109d10d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="audio\music.json">
+      <Filter>audio</Filter>
+    </None>
+    <None Include="data.cfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="audio\music\A Mission.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Aftermath.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Air Prelude.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Arcadia.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Colossus.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Constance.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Dangerous.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Dragon and Toast.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Dreamy Flashback.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Earth Prelude.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Evening Fall - Harp.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\For Originz.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\For the Fallen.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Frost Waltz (Alternate).mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Interloper.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Nerves.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Procession of the King.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Road to Hell.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Schmetterling.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\The Forest and the Trees.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Time Passes.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Water Prelude.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+    <Media Include="audio\music\Zombie Hoodoo.mp3">
+      <Filter>audio\music</Filter>
+    </Media>
+  </ItemGroup>
+</Project>
