@@ -20,6 +20,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "doxygen", "doxygen\doxygen.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcxproj", "{54254FF9-AE31-4207-B98F-FB49BFE857A6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio", "Audio\Audio.vcxproj", "{7CBD4454-1736-4C34-8813-F64C38F7C9A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DAA1E880-4690-46C1-A9CB-C5C962F8C74C} = {DAA1E880-4690-46C1-A9CB-C5C962F8C74C}
+		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730} = {9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jsoncpp", "Thirdparty\jsoncpp\src\lib_json\lib_json.vcxproj", "{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -50,6 +58,14 @@ Global
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Debug|Win32.Build.0 = Debug|Win32
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Release|Win32.ActiveCfg = Release|Win32
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Release|Win32.Build.0 = Release|Win32
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6}.Debug|Win32.Build.0 = Debug|Win32
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6}.Release|Win32.ActiveCfg = Release|Win32
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6}.Release|Win32.Build.0 = Release|Win32
+		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}.Debug|Win32.Build.0 = Debug|Win32
+		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}.Release|Win32.ActiveCfg = Release|Win32
+		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
