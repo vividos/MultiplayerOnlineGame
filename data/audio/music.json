@@ -1,0 +1,20 @@
+[
+  {
+    "id": "music.arcadia",
+    "len": 96,
+    "file": "music\\Arcadia.ogg",
+    "tags": ["safe", "normal"]
+  },
+  {
+    "id": "music.frost-waltz-alternate",
+    "len": 135,
+    "file": "music\\Frost Waltz (Alternate).ogg",
+    "tags": ["normal"]
+  },
+  {
+    "id": "music.schmetterling",
+    "len": 62,
+    "file": "music\\Schmetterling.ogg",
+    "tags": ["normal"]
+  }
+]
