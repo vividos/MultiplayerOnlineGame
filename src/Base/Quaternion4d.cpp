@@ -81,14 +81,14 @@ Quaternion4d Quaternion4d::Slerp(const Quaternion4d& p, const Quaternion4d& q_, 
    double cosom = p[0]*q[0] + p[1]*q[1] + p[2]*q[2] + p[3]*q[3];
 
    Quaternion4d qt;
-   double omega, sinom, sclp, sclq;
+   double sclp, sclq;
 
    if ((1.0 + cosom) > 0.00000001)
    {
       if ((1.0 - cosom) > 0.00000001)
       {
-         omega = acos( cosom );
-         sinom = sin( omega );
+         double omega = acos( cosom );
+         double sinom = sin( omega );
          sclp = sin( (1.0 - t)*omega) / sinom;
          sclq = sin( t*omega ) / sinom;
       }

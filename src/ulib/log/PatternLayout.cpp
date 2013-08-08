@@ -14,10 +14,10 @@ void Log::PatternLayout::Format(CString& cszOutput, const LoggingEventPtr spLogg
 
    cszOutput = m_cszPattern;
 
-   int iPos = 0, iCurrent = 0, iMax = cszOutput.GetLength();
+   int iCurrent = 0, iMax = cszOutput.GetLength();
    while (iCurrent < iMax)
    {
-      iCurrent = iPos = cszOutput.Find(_T('%'), iCurrent);
+      int iPos = iCurrent = cszOutput.Find(_T('%'), iCurrent);
       if (iPos == -1)
          break; // no more format specifiers
 

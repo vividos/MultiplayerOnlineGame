@@ -101,10 +101,9 @@ TCHAR TextStreamFilter::ReadChar()
          DWORD dwBits = bLeading;
 
          // read in remaining bytes, remove bits 6 and 7 and add it to the resulting byte
-         BYTE bNext;
          for(unsigned int ui=1; ui<uiCount; ui++)
          {
-            bNext = m_stream.ReadByte();
+            BYTE bNext = m_stream.ReadByte();
             if ((bNext & 0xc0) != 0x80)
                throw Exception(_T("illegal utf8 byte encountered"), __FILE__, __LINE__);
             dwBits <<= 6;
