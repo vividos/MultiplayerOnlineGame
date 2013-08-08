@@ -33,6 +33,7 @@ typedef void (WINAPI *PGNSI)(LPSYSTEM_INFO);
 /// function type for GetProductInfo()
 typedef BOOL (WINAPI *PGPI)(DWORD, DWORD, DWORD, DWORD, PDWORD);
 
+/// \details adapted from http://msdn.microsoft.com/en-us/library/windows/desktop/ms724429%28v=vs.85%29.aspx
 CString SystemInfo::GetOSDisplayString()
 {
    OSVERSIONINFOEX osvi;
@@ -75,12 +76,28 @@ CString SystemInfo::GetOSDisplayString()
             cszOS += TEXT("Windows Server 2008 ");
       }
 
-      if (osvi.dwMinorVersion == 1)
+      if (osvi.dwMinorVersion == 1 || osvi.dwMinorVersion == 2 )
       {
          if (osvi.wProductType == VER_NT_WORKSTATION)
-            cszOS += TEXT("Windows 7 ");
+         {
+            if (osvi.dwMinorVersion == 1)
+               cszOS += TEXT("Windows 7 ");
+            else if (osvi.dwMinorVersion == 2)
+               cszOS += TEXT("Windows 8 ");
+            else if (osvi.dwMinorVersion == 3)
+               cszOS += TEXT("Windows Server 8.1 ");
+            else
+               cszOS += TEXT("Windows ??? ");
+         }
          else
-            cszOS += TEXT("Windows Server 2008 R2 ");
+         {
+            if (osvi.dwMinorVersion == 1)
+               cszOS += TEXT("Windows Server 2008 R2 ");
+            else if (osvi.dwMinorVersion == 2)
+               cszOS += TEXT("Windows Server 2012 ");
+            else
+               cszOS += TEXT("Windows Server ??? ");
+         }
       }
 
       PGPI pGPI = (PGPI) GetProcAddress(
@@ -90,7 +107,7 @@ CString SystemInfo::GetOSDisplayString()
       DWORD dwType = PRODUCT_UNDEFINED;
       pGPI( osvi.dwMajorVersion, osvi.dwMinorVersion, osvi.wServicePackMajor, osvi.wServicePackMinor, &dwType);
 
-      switch( dwType)
+      switch (dwType)
       {
       case PRODUCT_ULTIMATE:
          cszOS += TEXT("Ultimate Edition");
@@ -252,18 +269,26 @@ CString SystemInfo::GetCompilerNameDisplayString()
 {
    CString cszVer;
 #if defined(_MSC_VER)
-   #if _MSC_VER < 1200
-      cszVer = _T("Microsoft Visual C++ 5.0 or lower");
-   #elif _MSC_VER < 1300
-      cszVer = _T("Microsoft Visual C++ 6.0");
-   #elif _MSC_VER < 1310
-      cszVer = _T("Microsoft Visual C++ .NET 2002");
-   #elif _MSC_VER < 1400
-      cszVer = _T("Microsoft Visual C++ .NET 2003");
-   #elif _MSC_VER < 1401
+   #if _MSC_VER > 1800
+      cszVer = _T("Microsoft Visual C++ > 2013");
+   #elif _MSC_VER == 1800
+      cszVer = _T("Microsoft Visual C++ 2013");
+   #elif _MSC_VER >= 1700
+      cszVer = _T("Microsoft Visual C++ 2012");
+   #elif _MSC_VER >= 1600
+      cszVer = _T("Microsoft Visual C++ 2010");
+   #elif _MSC_VER >= 1500
+      cszVer = _T("Microsoft Visual C++ 2008");
+   #elif _MSC_VER >= 1400
       cszVer = _T("Microsoft Visual C++ 2005");
+   #elif _MSC_VER >= 1310
+      cszVer = _T("Microsoft Visual C++ .NET 2003");
+   #elif _MSC_VER >= 1300
+      cszVer = _T("Microsoft Visual C++ .NET 2002");
+   #elif _MSC_VER >= 1200
+      cszVer = _T("Microsoft Visual C++ 6.0");
    #else
-      cszVer = _T("Microsoft Visual C++ > 2005");
+      cszVer = _T("Microsoft Visual C++ 5.0 or lower");
    #endif
 
    cszVer += _T(" (");
@@ -271,15 +296,15 @@ CString SystemInfo::GetCompilerNameDisplayString()
    cszVer += A2CT(BOOST_STRINGIZE(_MSC_VER));
    cszVer += _T(")");
 
-#else
-#error SystemInfo.cpp not ported to other compilers!
-/*
+#elif defined(__GNUC__)
    cszVer = CStringConversion::ConvertToTString(
       "gcc " BOOST_STRINGIZE(__GNUC__) "."
       BOOST_STRINGIZE(__GNUC_MINOR__) "."
       BOOST_STRINGIZE(__GNUC_PATCHLEVEL__));
-*/
+#else
+#error SystemInfo.cpp not ported to other compilers!
 #endif
+
    return cszVer;
 }
 
