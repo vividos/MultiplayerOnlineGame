@@ -10,6 +10,7 @@
 #include "VirtualFileSystem.hpp"
 #include <ulib/stream/FileStream.hpp>
 #include "ZipArchive.hpp"
+#include "Path.hpp"
 
 VirtualFileSystem::VirtualFileSystem() throw()
 {
@@ -51,7 +52,7 @@ boost::shared_ptr<Stream::IStream> VirtualFileSystem::OpenFile(const CString& cs
    if (m_mapFilenameToArchive.find(cszFilename) == m_mapFilenameToArchive.end())
    {
       // try opening real file
-      return BaseClass::OpenFile(cszFilename, bForReading);
+      return BaseClass::OpenFile(Path::Combine(BaseClass::AppDataFolder(), cszFilename), bForReading);
    }
 
    const ArchiveInfo& info = m_mapFilenameToArchive[cszFilename];
