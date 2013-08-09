@@ -71,8 +71,8 @@ public:
       return boost::shared_ptr<IPlaybackControl>();
    }
 
-   /// plays back music, with given id and filename
-   virtual void PlayMusic(LPCTSTR pszMusicId, LPCTSTR pszFilename) override;
+   /// plays back music, with given id and data stream
+   virtual void PlayMusic(LPCTSTR pszMusicId, boost::shared_ptr<Stream::IStream> spStream) override;
 
    // virtual methods from IVolumeControl
 
@@ -108,15 +108,16 @@ public:
 private:
    friend Source;
 
-   void AsyncPlayMusic(const CString& cszMusicId, const CString& cszFilename);
+   /// worker thread function; plays music
+   void AsyncPlayMusic(const CString& cszMusicId, boost::shared_ptr<Stream::IStream> spStream);
 
    /// starts sound playback asynchronously
    void AsyncPlay(boost::shared_ptr<Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn);
 
    void LoadAndPlay(boost::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn);
 
-   /// reads Ogg Vorbis audio file into buffer
-   OpenAL::BufferPtr ReadOggVorbisFile(const CString& cszFilename) const;
+   /// reads Ogg Vorbis audio file from stream into buffer
+   OpenAL::BufferPtr ReadOggVorbisFile(boost::shared_ptr<Stream::IStream> spStream) const;
 
 private:
    /// current audio device

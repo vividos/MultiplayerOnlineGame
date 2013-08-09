@@ -61,19 +61,19 @@ AudioManager::~AudioManager() throw()
    LOG_INFO(_T("stopped audio subsystem"), Log::Client::Audio);
 }
 
-void AudioManager::PlayMusic(LPCTSTR pszMusicId, LPCTSTR pszFilename)
+void AudioManager::PlayMusic(LPCTSTR pszMusicId, boost::shared_ptr<Stream::IStream> spStream)
 {
    m_ioServiceThread.Get().post(
-      boost::bind(&AudioManager::AsyncPlayMusic, this, CString(pszMusicId), CString(pszFilename)));
+      boost::bind(&AudioManager::AsyncPlayMusic, this, CString(pszMusicId), spStream));
 }
 
-void AudioManager::AsyncPlayMusic(const CString& cszMusicId, const CString& cszFilename)
+void AudioManager::AsyncPlayMusic(const CString& cszMusicId, boost::shared_ptr<Stream::IStream> spStream)
 {
    OpenAL::BufferPtr spBuffer = m_namedBufferMap.GetBuffer(cszMusicId);
    if (spBuffer == NULL)
    {
       // not loaded yet
-      spBuffer = ReadOggVorbisFile(cszFilename);
+      spBuffer = ReadOggVorbisFile(spStream);
    }
 
    m_namedBufferMap.Add(cszMusicId, spBuffer);
@@ -90,30 +90,29 @@ void AudioManager::AsyncPlay(boost::shared_ptr<Audio::Source> spSource, LPCTSTR 
 void AudioManager::LoadAndPlay(boost::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn)
 {
    // TODO resolve pszSoundId to file name
-   //CString cszFilename = Filesystem().BaseFolder() + _T("audio\\town-in-ruins-loop-mono.ogg");
-   CString cszFilename = Filesystem().BaseFolder() + _T("audio\\click2-cut.ogg");
+   CString cszFilename = _T("audio\\click2-cut.ogg");
 
-   OpenAL::BufferPtr spBuffer = ReadOggVorbisFile(cszFilename);
+   boost::shared_ptr<Stream::IStream> spStream(
+      new Stream::FileStream(cszFilename,
+      Stream::FileStream::modeOpen, Stream::FileStream::accessRead, Stream::FileStream::shareRead));
+
+   OpenAL::BufferPtr spBuffer = ReadOggVorbisFile(spStream);
 
    m_namedBufferMap.Add(pszSoundId, spBuffer);
 
    spSource->Play(spBuffer, bLoop, bFadeIn);
 }
 
-OpenAL::BufferPtr AudioManager::ReadOggVorbisFile(const CString& cszFilename) const
+OpenAL::BufferPtr AudioManager::ReadOggVorbisFile(boost::shared_ptr<Stream::IStream> spStream) const
 {
    using Stream::FileStream;
 
    Timer t;
    t.Start();
 
-   FileStream fs(cszFilename,
-      FileStream::modeOpen, FileStream::accessRead, FileStream::shareRead);
-
    OggVorbisFileReader reader;
-   reader.Read(fs);
+   reader.Read(*spStream);
 
-   // TODO replace throw with log?
    if (reader.Channels() != 1 && reader.Channels() != 2)
       throw Exception(_T("Ogg Vorbis: cannot read multichannel files"), __FILE__, __LINE__);
 
@@ -132,8 +131,7 @@ OpenAL::BufferPtr AudioManager::ReadOggVorbisFile(const CString& cszFilename) co
       ATLASSERT(false);
 
    CString cszText;
-   cszText.Format(_T("loaded ogg vorbis file in %u ms: [%s]"),
-      unsigned(t.Elapsed()*1000.0), cszFilename);
+   cszText.Format(_T("loaded ogg vorbis file in %u ms"), unsigned(t.Elapsed()*1000.0));
    LOG_INFO(cszText, Log::Client::Audio);
 
    return spBuffer;

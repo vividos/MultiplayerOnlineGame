@@ -11,6 +11,10 @@
 
 // forward references
 class Vector3d;
+namespace Stream
+{
+class IStream;
+}
 
 /// audio related classes
 namespace Audio
@@ -88,8 +92,8 @@ public:
    /// plays back sound, with given id; see AudioSoundType.hpp for ids
    virtual boost::shared_ptr<IPlaybackControl> PlaySound(bool bUserInterface, LPCTSTR pszSoundId) = 0;
 
-   /// plays back music, with given id and filename
-   virtual void PlayMusic(LPCTSTR pszMusicId, LPCTSTR pszFilename) = 0;
+   /// plays back music, with given id and data stream
+   virtual void PlayMusic(LPCTSTR pszMusicId, boost::shared_ptr<Stream::IStream> spStream) = 0;
 };
 
 } // namespace Audio
