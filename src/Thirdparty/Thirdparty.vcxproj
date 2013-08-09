@@ -42,7 +42,7 @@
     <IntDir>..\..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <NMakeBuildCommandLine>copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
 copy "$(ProjectDir)\SDL-1.2.14\lib\SDL.dll" "$(OutDir)"
-copy "$(ProjectDir)\zlib127\zlib1.dll" "$(OutDir)"
+copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
 copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
 del "$(OutDir)SDL.dll" &gt; nul
@@ -50,7 +50,7 @@ del "$(OutDir)zlib1.dll" &gt; nul
 del "$(OutDir)oalinst.exe" &gt; nul
 copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
 copy "$(ProjectDir)\SDL-1.2.14\lib\SDL.dll" "$(OutDir)"
-copy "$(ProjectDir)\zlib127\zlib1.dll" "$(OutDir)"
+copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
 copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
 del "$(OutDir)SDL.dll" &gt; nul
@@ -64,7 +64,7 @@ del "$(OutDir)oalinst.exe" &gt; nul</NMakeCleanCommandLine>
     <IntDir>..\..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <NMakeBuildCommandLine>copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
 copy "$(ProjectDir)\SDL-1.2.14\lib\SDL.dll" "$(OutDir)"
-copy "$(ProjectDir)\zlib127\zlib1.dll" "$(OutDir)"
+copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
 copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
 del "$(OutDir)SDL.dll" &gt; nul
@@ -72,7 +72,7 @@ del "$(OutDir)zlib1.dll" &gt; nul
 del "$(OutDir)oalinst.exe" &gt; nul
 copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
 copy "$(ProjectDir)\SDL-1.2.14\lib\SDL.dll" "$(OutDir)"
-copy "$(ProjectDir)\zlib127\zlib1.dll" "$(OutDir)"
+copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
 copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
 del "$(OutDir)SDL.dll" &gt; nul
