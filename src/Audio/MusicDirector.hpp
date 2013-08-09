@@ -14,10 +14,11 @@
 #include <map>
 #include <set>
 
+// forward references
+class IFileSystem;
+
 namespace Audio
 {
-
-// forward references
 class IAudioManager;
 
 /// configuration for the MusicDirector class
@@ -52,12 +53,18 @@ class AUDIO_DECLSPEC MusicDirector
 {
 public:
    /// ctor
-   MusicDirector(IAudioManager& audioManager) throw();
+   MusicDirector(IAudioManager& audioManager, IFileSystem& fileSystem) throw();
    /// dtor
    ~MusicDirector();
 
    /// returns configuration
    MusicDirectorConfig& Config() throw() { return m_config; }
+
+   /// reads music config file
+   void ReadMusicConfig();
+
+   /// starts music director
+   void Start();
 
    /// danger level
    enum T_enDangerLevel
@@ -84,9 +91,6 @@ public:
    void OnGameEvent(T_enGameEventType enGameEventType);
 
 private:
-   /// reads music config file
-   void ReadMusicConfig();
-
    /// start a new music piece
    void StartPlayback();
 
@@ -105,14 +109,14 @@ private:
    /// audio manager to use for playback
    IAudioManager& m_audioManager;
 
+   /// file system to use for loading music and playlist
+   IFileSystem& m_fileSystem;
+
    /// configuration
    MusicDirectorConfig m_config;
 
    /// RNG
    boost::mt19937 m_rng;
-
-   /// audio base path
-   CString m_cszBasePath;
 
    /// current danger level
    T_enDangerLevel m_enDangerLevel;

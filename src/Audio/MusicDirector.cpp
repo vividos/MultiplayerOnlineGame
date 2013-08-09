@@ -9,10 +9,10 @@
 #include "StdAfx.h"
 #include "MusicDirector.hpp"
 #include "IAudioManager.hpp"
-#include "Filesystem.hpp"
+#include "IFileSystem.hpp"
 #include "MusicConfigLoader.hpp"
 #include <boost/bind.hpp>
-#include <ulib/stream/TextFileStream.hpp>
+#include <ulib/stream/TextStreamFilter.hpp>
 #include "LogCategories.hpp"
 
 using namespace Audio;
@@ -20,18 +20,15 @@ using namespace Audio;
 /// minimum break length, in seconds
 const unsigned int c_iMinBreakLength = 0;
 
-MusicDirector::MusicDirector(IAudioManager& audioManager) throw()
+MusicDirector::MusicDirector(IAudioManager& audioManager, IFileSystem& fileSystem) throw()
 :m_audioManager(audioManager),
+ m_fileSystem(fileSystem),
  m_timer(audioManager.GetIoService()),
- m_enDangerLevel(dangerLevelNormal),
- m_cszBasePath(Filesystem().BaseFolder() + _T("audio\\"))
+ m_enDangerLevel(dangerLevelNormal)
 {
    m_rng.seed(
       static_cast<boost::uint32_t>(
          time(NULL) & std::numeric_limits<boost::uint32_t>::max()));
-
-   ReadMusicConfig();
-   StartPlayback();
 }
 
 MusicDirector::~MusicDirector() throw()
@@ -62,22 +59,22 @@ void MusicDirector::OnGameEvent(T_enGameEventType enGameEventType)
 
 void MusicDirector::ReadMusicConfig()
 {
-   CString cszFilename = m_cszBasePath + _T("music.json");
+   CString cszFilename = _T("audio\\music.json");
+
+   boost::shared_ptr<Stream::IStream> spStream =
+      m_fileSystem.OpenFile(cszFilename, true);
+
+   Stream::TextStreamFilter stream(*spStream,
+      Stream::ITextStream::textEncodingAnsi,
+      Stream::ITextStream::lineEndingCRLF);
 
    LOG_INFO(_T("reading MusicDirector config file: ") + cszFilename, Log::Client::AudioMusicDirector);
    CString cszJsonText;
    {
-      Stream::TextFileStream fs(cszFilename,
-         Stream::FileStream::modeOpen,
-         Stream::FileStream::accessRead,
-         Stream::FileStream::shareRead,
-         Stream::TextFileStream::textEncodingAnsi,
-         Stream::TextFileStream::lineEndingCRLF);
-
       CString cszLine;
-      while(!fs.AtEndOfStream())
+      while(!stream.AtEndOfStream())
       {
-         fs.ReadLine(cszLine);
+         stream.ReadLine(cszLine);
          cszJsonText += cszLine;
          cszJsonText += _T("\n");
       }
@@ -85,6 +82,11 @@ void MusicDirector::ReadMusicConfig()
 
    MusicConfigLoader loader(m_mapMusicIdToInfo, m_aDangerLevelMusicIds);
    loader.Load(cszJsonText);
+}
+
+void MusicDirector::Start()
+{
+   StartPlayback();
 }
 
 void MusicDirector::StartPlayback()
@@ -99,6 +101,7 @@ void MusicDirector::StartPlayback()
    bool bFound = false;
    unsigned int uiTries = 0, uiMaxTries = setIds.size() * 2;
 
+   ATLASSERT(setIds.empty() == false); // list must be filled
    boost::uniform_int<> dist(0, setIds.size()-1);
    boost::variate_generator<boost::mt19937&, boost::uniform_int<> > die(m_rng, dist);
 
@@ -141,7 +144,10 @@ void MusicDirector::StartPlayback()
 
    info.m_dtLastPlayed = DateTime::Now();
 
-   m_audioManager.PlayMusic(cszId, m_cszBasePath + info.m_cszFilename);
+   boost::shared_ptr<Stream::IStream> spStream =
+      m_fileSystem.OpenFile(_T("audio\\") + info.m_cszFilename, true);
+
+   m_audioManager.PlayMusic(cszId, spStream);
 
    // restart timer
    m_timer.expires_from_now(boost::posix_time::seconds(
