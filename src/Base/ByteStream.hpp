@@ -14,10 +14,6 @@
 #include <limits>
 #include <boost/array.hpp>
 
-// TODO remove
-#pragma warning(push)
-#pragma warning(disable: 4996) // 'std::copy': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
-
 /// \brief byte stream class
 /// used for serializing and deserializing objects
 class ByteStream
@@ -214,7 +210,7 @@ public:
       if (m_uiPos + uiSizeToRead > m_vecData.size())
          throw Exception(_T("ReadBlock: not enough data in stream"), __FILE__, __LINE__);
 
-      std::copy(m_vecData.begin() + m_uiPos, m_vecData.begin() + m_uiPos + uiSizeToRead, pData);
+      memcpy(pData, m_vecData.data() + m_uiPos, uiSizeToRead);
       m_uiPos += uiSizeToRead;
    }
 
@@ -275,7 +271,7 @@ public:
       if (m_uiPos + uiSizeToRead >= m_vecData.size())
          throw Exception(_T("ReadBlock: not enough data in stream"), __FILE__, __LINE__);
 
-      std::copy(m_vecData.begin() + m_uiPos, m_vecData.begin() + m_uiPos + uiSizeToRead, pData);
+      memcpy(pData, m_vecData.data() + m_uiPos, uiSizeToRead);
       m_uiPos += uiSizeToRead;
    }
 
@@ -313,5 +309,3 @@ private:
    /// current position for reading
    size_t m_uiPos;
 };
-
-#pragma warning(pop)
