@@ -59,17 +59,21 @@ public:
    /// ctor
    ZipArchiveFile(std::shared_ptr<Stream::IStream> spArchiveFile, ULONGLONG ullOffset,
       unsigned int uiCompressedSize, unsigned int uiUncompressedSize)
-       m_uiCompressedSize(uiCompressedSize),
       :m_spArchiveFile(spArchiveFile),
+       m_uiCompressedRemaining(uiCompressedSize),
        m_uiUncompressedSize(uiUncompressedSize),
        m_ullCurrentPos(0ULL),
-       m_bEndOfStream(false)
+       m_bEndOfInputStream(false),
+       m_bEndOfOutputStream(false)
    {
       spArchiveFile->Seek(static_cast<LONGLONG>(ullOffset), Stream::IStream::seekBegin);
    }
 
    /// dtor
    virtual ~ZipArchiveFile() throw() {}
+
+   /// returns if seek is possible; only forward seek supported
+   virtual bool CanSeek() const throw() override { return true; }
 
    // read support
 
@@ -82,7 +86,7 @@ public:
    /// indicates if at end of file in zip archive
    virtual bool AtEndOfStream() const throw() override
    {
-      return m_bEndOfStream && m_vecOutBuffer.empty();
+      return /*m_bEndOfInputStream &&*/ m_bEndOfOutputStream && m_vecOutBuffer.empty();
    }
 
    /// returns current position
@@ -100,8 +104,13 @@ public:
    /// closes file in zip archive
    virtual void Close() override
    {
-      m_bEndOfStream = true;
+      m_bEndOfInputStream = true;
+      m_bEndOfOutputStream = true;
+      m_vecOutBuffer.clear();
    }
+
+   /// seeks to given position, regarding given origin; only seek forward supported
+   virtual ULONGLONG Seek(LONGLONG llOffset, ESeekOrigin origin) override;
 
 private:
    /// fills out buffer by decoding more bytes
@@ -114,8 +123,8 @@ private:
    /// archive file stream
    std::shared_ptr<Stream::IStream> m_spArchiveFile;
 
-   /// compressed size
-   unsigned int m_uiCompressedSize;
+   /// remaining compressed bytes
+   unsigned int m_uiCompressedRemaining;
 
    /// uncompressed size
    unsigned int m_uiUncompressedSize;
@@ -132,6 +141,9 @@ private:
    /// current position in file in zip archive
    ULONGLONG m_ullCurrentPos;
 
-   /// at end of stream?
-   bool m_bEndOfStream;
+   /// at end of output stream?
+   bool m_bEndOfOutputStream;
+
+   /// at end of input stream?
+   bool m_bEndOfInputStream;
 };
