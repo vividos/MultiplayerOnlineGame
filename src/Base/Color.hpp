@@ -16,7 +16,7 @@ struct Color
    Color() throw() {}
 
    /// ctor that takes array of RGBA components
-   Color(unsigned char c[4]) throw() { memcpy(m_color, c, sizeof(m_color)); }
+   Color(const unsigned char c[4]) throw() { memcpy(m_color, c, sizeof(m_color)); }
 
    /// ctor that takes RGBA components as separate parameters
    Color(unsigned char cRed, unsigned char cGreen, unsigned char cBlue, unsigned char cAlpha = 255) throw()
