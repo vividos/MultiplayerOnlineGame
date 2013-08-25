@@ -30,7 +30,7 @@ void CommandTranslator::ReceiveCommand(Command& cmd)
 
    case cmdSelectObject:
       {
-         boost::shared_ptr<SelectMobileAction> spAction(
+         std::shared_ptr<SelectMobileAction> spAction(
             new SelectMobileAction(cmd.ActorId(), cmd.ArgumentId()));
 
          m_model.ReceiveAction(spAction);
@@ -40,7 +40,7 @@ void CommandTranslator::ReceiveCommand(Command& cmd)
    case cmdHitMobile:
       {
          // translate command to action
-         boost::shared_ptr<DecreaseHealthPointsAction> spDecAction(
+         std::shared_ptr<DecreaseHealthPointsAction> spDecAction(
             new DecreaseHealthPointsAction(cmd.ActorId(), cmd.ArgumentId(), 1));
 
          ActionPtr spAction(spDecAction);

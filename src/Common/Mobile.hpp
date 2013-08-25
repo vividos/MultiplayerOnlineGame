@@ -111,4 +111,4 @@ private:
 };
 
 /// Mobile smart pointer
-typedef boost::shared_ptr<Mobile> MobilePtr;
+typedef std::shared_ptr<Mobile> MobilePtr;

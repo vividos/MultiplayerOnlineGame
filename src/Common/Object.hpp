@@ -67,7 +67,7 @@ private:
 };
 
 /// object smart pointer
-typedef boost::shared_ptr<Object> ObjectPtr;
+typedef std::shared_ptr<Object> ObjectPtr;
 
 
 /// manages reference to an object by id, and may contain a shared ptr to the object itself

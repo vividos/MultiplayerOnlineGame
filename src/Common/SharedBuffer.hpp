@@ -36,7 +36,7 @@ public:
 
 private:
    /// shared data
-   boost::shared_ptr<std::vector<unsigned char> > m_spData;
+   std::shared_ptr<std::vector<unsigned char>> m_spData;
 
    /// const buffer definition
    boost::asio::const_buffer m_buffer;
@@ -64,7 +64,7 @@ public:
 
 private:
    /// shared data
-   boost::shared_ptr<std::vector<unsigned char> > m_spData;
+   std::shared_ptr<std::vector<unsigned char>> m_spData;
 
    /// mutable buffer definition
    boost::asio::mutable_buffer m_buffer;

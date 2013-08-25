@@ -16,12 +16,12 @@ public:
    // methods
 
    /// sets next controller to send commands to (or NULL)
-   void SetNextController(boost::shared_ptr<IController> spController)
+   void SetNextController(std::shared_ptr<IController> spController)
    {
       m_spNextController = spController;
    }
 
 protected:
    /// next controller
-   boost::shared_ptr<IController> m_spNextController;
+   std::shared_ptr<IController> m_spNextController;
 };

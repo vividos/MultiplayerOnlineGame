@@ -250,7 +250,7 @@ CString Session::GetSessionLogCategory(const CString& cszBaseLogCategory)
    return cszCategory;
 }
 
-void Session::SetEncryptModule(boost::shared_ptr<IEncryptModule> spEncryptModule)
+void Session::SetEncryptModule(std::shared_ptr<IEncryptModule> spEncryptModule)
 {
    ATLASSERT(spEncryptModule != NULL);
 

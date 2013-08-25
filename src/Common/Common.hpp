@@ -17,9 +17,9 @@ class Mobile;
 class Action;
 
 // typedefs
-typedef boost::shared_ptr<Object> ObjectPtr; ///< Object smart ptr
-typedef boost::shared_ptr<Mobile> MobilePtr; ///< Mobile smart ptr
-typedef boost::shared_ptr<Action> ActionPtr; ///< Action smart ptr
+typedef std::shared_ptr<Object> ObjectPtr; ///< Object smart ptr
+typedef std::shared_ptr<Mobile> MobilePtr; ///< Mobile smart ptr
+typedef std::shared_ptr<Action> ActionPtr; ///< Action smart ptr
 
 /// export macro
 #ifdef COMMON_EXPORTS

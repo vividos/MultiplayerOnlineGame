@@ -30,19 +30,19 @@ public:
    virtual bool OnReceiveMessage(RawMessage& msg) = 0;
 
    /// returns encrypt module (if any) when authenticated
-   virtual boost::shared_ptr<IEncryptModule> GetEncryptModule() { return boost::shared_ptr<IEncryptModule>(); }
+   virtual std::shared_ptr<IEncryptModule> GetEncryptModule() { return std::shared_ptr<IEncryptModule>(); }
 
 protected:
    friend class AuthClientSession;
    friend class TestClientSession;
 
    /// sets session to send out messages
-   void SetSession(boost::shared_ptr<ISession> spSession){ m_spSession = spSession; }
+   void SetSession(std::shared_ptr<ISession> spSession){ m_spSession = spSession; }
 
    /// sends out message
    void SendMessage(Message& msg){ m_spSession->SendMessage(msg); }
 
 private:
    /// session
-   boost::shared_ptr<ISession> m_spSession;
+   std::shared_ptr<ISession> m_spSession;
 };

@@ -88,4 +88,4 @@ protected:
 };
 
 /// action smart pointer
-typedef boost::shared_ptr<Action> ActionPtr;
+typedef std::shared_ptr<Action> ActionPtr;

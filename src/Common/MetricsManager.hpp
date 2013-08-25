@@ -121,7 +121,7 @@ private:
       MetricValue m_metricValue;
 
       /// timeline; used when type storeTypeTimeline
-      boost::shared_ptr<MetricTimeline> spTimeline;
+      std::shared_ptr<MetricTimeline> spTimeline;
    };
 
    /// stored metrics values

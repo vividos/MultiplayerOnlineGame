@@ -87,7 +87,7 @@ LONG WINAPI ExceptionFilterWriteMinidump(_EXCEPTION_POINTERS* pExceptionInfo)
    if (INVALID_HANDLE_VALUE == hFile)
       return EXCEPTION_CONTINUE_SEARCH;
 
-   boost::shared_ptr<void> spFile(hFile, &::CloseHandle);
+   std::shared_ptr<void> spFile(hFile, &::CloseHandle);
 
    OutputDebugString(_T("!!! Writing minidump to file: "));
    OutputDebugString(szMinidumpFilename);

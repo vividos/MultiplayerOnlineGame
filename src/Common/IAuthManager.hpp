@@ -28,5 +28,5 @@ public:
    virtual Account GetAccount(const CString& cszUsername) = 0;
 
    /// returns authentication module for authentication manager
-   virtual boost::shared_ptr<IServerAuthModule> GetAuthenticationModule() = 0;
+   virtual std::shared_ptr<IServerAuthModule> GetAuthenticationModule() = 0;
 };

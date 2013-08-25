@@ -66,7 +66,7 @@ protected:
    CString GetSessionLogCategory(const CString& cszBaseLogCategory);
 
    /// sets encryption module
-   void SetEncryptModule(boost::shared_ptr<IEncryptModule> spEncryptModule);
+   void SetEncryptModule(std::shared_ptr<IEncryptModule> spEncryptModule);
 
 private:
    /// called when a read command was completed
@@ -80,7 +80,7 @@ private:
    boost::asio::ip::tcp::socket m_socket;
 
    /// encryption module
-   boost::shared_ptr<IEncryptModule> m_spEncryptModule;
+   std::shared_ptr<IEncryptModule> m_spEncryptModule;
 
    /// mutex to protect m_deqWriteQueue access
    boost::recursive_mutex m_mtxWriteQueue;

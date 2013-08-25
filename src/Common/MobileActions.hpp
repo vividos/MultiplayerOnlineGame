@@ -32,7 +32,7 @@ public:
       ObjectPtr sp = ArgumentRef().m_sp;
 
       // must be a mobile
-      MobilePtr spMobile = boost::dynamic_pointer_cast<Mobile>(sp);
+      MobilePtr spMobile = std::dynamic_pointer_cast<Mobile>(sp);
 
       const ObjectId& actorId = ActorId();
       spMobile->Selection(actorId);
@@ -66,7 +66,7 @@ public:
       ObjectPtr sp = ArgumentRef().m_sp;
 
       // must be a mobile
-      MobilePtr spMobile = boost::dynamic_pointer_cast<Mobile>(sp);
+      MobilePtr spMobile = std::dynamic_pointer_cast<Mobile>(sp);
       unsigned int uiCurrentHealthPoints = spMobile->HealthPoints();
       if (m_uiHealthPoints < uiCurrentHealthPoints)
          uiCurrentHealthPoints -= m_uiHealthPoints;
