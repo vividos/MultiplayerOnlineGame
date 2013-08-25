@@ -130,8 +130,10 @@ private:
    /// timer
    boost::asio::deadline_timer m_timer;
 
+   /// type for music ids for every danger level
+   typedef std::array<std::set<CString>, dangerLevelMax> T_aDangerLevelMusicIds;
+
    /// music ids for every danger level
-   typedef boost::array<std::set<CString>, dangerLevelMax> T_aDangerLevelMusicIds;
    T_aDangerLevelMusicIds m_aDangerLevelMusicIds;
 
    /// music info

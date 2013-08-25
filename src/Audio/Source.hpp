@@ -9,14 +9,13 @@
 // includes
 #include "OpenAL.hpp"
 #include "IAudioManager.hpp"
-#include <boost/enable_shared_from_this.hpp>
 
 namespace Audio
 {
 class AudioManager;
 
 /// audio source implementation
-class Source: public ISource, public boost::enable_shared_from_this<Source>
+class Source: public ISource, public std::enable_shared_from_this<Source>
 {
 public:
    /// ctor

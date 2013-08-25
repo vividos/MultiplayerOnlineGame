@@ -38,7 +38,7 @@ public:
 };
 
 /// source shared pointer
-typedef boost::shared_ptr<ISource> ISourcePtr;
+typedef std::shared_ptr<ISource> ISourcePtr;
 
 /// interface for controlling audio playback
 class IPlaybackControl
@@ -87,13 +87,13 @@ public:
    virtual IVolumeControl& GetVolumeControl() = 0;
 
    /// creates a new positional audio source
-   virtual boost::shared_ptr<ISource> CreateSource() = 0;
+   virtual std::shared_ptr<ISource> CreateSource() = 0;
 
    /// plays back sound, with given id; see AudioSoundType.hpp for ids
-   virtual boost::shared_ptr<IPlaybackControl> PlaySound(bool bUserInterface, LPCTSTR pszSoundId) = 0;
+   virtual std::shared_ptr<IPlaybackControl> PlaySound(bool bUserInterface, LPCTSTR pszSoundId) = 0;
 
    /// plays back music, with given id and data stream
-   virtual void PlayMusic(LPCTSTR pszMusicId, boost::shared_ptr<Stream::IStream> spStream) = 0;
+   virtual void PlayMusic(LPCTSTR pszMusicId, std::shared_ptr<Stream::IStream> spStream) = 0;
 };
 
 } // namespace Audio

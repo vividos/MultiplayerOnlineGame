@@ -19,10 +19,10 @@
 namespace OpenAL
 {
 /// buffer smart pointer
-typedef boost::shared_ptr<class Buffer> BufferPtr;
+typedef std::shared_ptr<class Buffer> BufferPtr;
 
 /// source smart pointer
-typedef boost::shared_ptr<class Source> SourcePtr;
+typedef std::shared_ptr<class Source> SourcePtr;
 
 /// clears OpenAL errors
 #define AL_CLEAR_ERROR() \
@@ -520,8 +520,8 @@ public:
    }
 
 private:
-   boost::shared_ptr<ALCdevice> m_spDevice;     ///< device
-   boost::shared_ptr<ALCcontext> m_spContext;   ///< device context
+   std::shared_ptr<ALCdevice> m_spDevice;     ///< device
+   std::shared_ptr<ALCcontext> m_spContext;   ///< device context
 };
 
 } // namespace OpenAL

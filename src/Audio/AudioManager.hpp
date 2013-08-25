@@ -56,23 +56,23 @@ public:
    }
 
    /// creates a new positional audio source
-   virtual boost::shared_ptr<ISource> CreateSource() override
+   virtual std::shared_ptr<ISource> CreateSource() override
    {
-      return boost::shared_ptr<ISource>(
+      return std::shared_ptr<ISource>(
          new Source(*this,
             m_audioDevice.CreateSource())
          );
    }
 
    /// plays back sound, with given id; see AudioSoundType.hpp for ids
-   virtual boost::shared_ptr<IPlaybackControl> PlaySound(bool /*bUserInterface*/, LPCTSTR /*pszSoundId*/) override
+   virtual std::shared_ptr<IPlaybackControl> PlaySound(bool /*bUserInterface*/, LPCTSTR /*pszSoundId*/) override
    {
       // TODO impl
-      return boost::shared_ptr<IPlaybackControl>();
+      return std::shared_ptr<IPlaybackControl>();
    }
 
    /// plays back music, with given id and data stream
-   virtual void PlayMusic(LPCTSTR pszMusicId, boost::shared_ptr<Stream::IStream> spStream) override;
+   virtual void PlayMusic(LPCTSTR pszMusicId, std::shared_ptr<Stream::IStream> spStream) override;
 
    // virtual methods from IVolumeControl
 
@@ -112,22 +112,22 @@ private:
    friend Source;
 
    /// worker thread function; plays music
-   void AsyncPlayMusic(const CString& cszMusicId, boost::shared_ptr<Stream::IStream> spStream);
+   void AsyncPlayMusic(const CString& cszMusicId, std::shared_ptr<Stream::IStream> spStream);
 
    /// starts sound playback asynchronously
-   void AsyncPlay(boost::shared_ptr<Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn);
+   void AsyncPlay(std::shared_ptr<Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn);
 
-   void LoadAndPlay(boost::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn);
+   void LoadAndPlay(std::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn);
 
    /// reads Ogg Vorbis audio file from stream into buffer
-   OpenAL::BufferPtr ReadOggVorbisFile(boost::shared_ptr<Stream::IStream> spStream) const;
+   OpenAL::BufferPtr ReadOggVorbisFile(std::shared_ptr<Stream::IStream> spStream) const;
 
 private:
    /// current audio device
    OpenAL::Device m_audioDevice;
 
    /// source for background music playback
-   boost::shared_ptr<Source> m_spMusicSource;
+   std::shared_ptr<Source> m_spMusicSource;
 
    /// named buffer map
    NamedBufferMap m_namedBufferMap;

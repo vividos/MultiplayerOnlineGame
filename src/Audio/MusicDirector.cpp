@@ -61,7 +61,7 @@ void MusicDirector::ReadMusicConfig()
 {
    CString cszFilename = _T("audio\\music.json");
 
-   boost::shared_ptr<Stream::IStream> spStream =
+   std::shared_ptr<Stream::IStream> spStream =
       m_fileSystem.OpenFile(cszFilename, true);
 
    Stream::TextStreamFilter stream(*spStream,
@@ -144,7 +144,7 @@ void MusicDirector::StartPlayback()
 
    info.m_dtLastPlayed = DateTime::Now();
 
-   boost::shared_ptr<Stream::IStream> spStream =
+   std::shared_ptr<Stream::IStream> spStream =
       m_fileSystem.OpenFile(_T("audio\\") + info.m_cszFilename, true);
 
    m_audioManager.PlayMusic(cszId, spStream);

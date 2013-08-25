@@ -50,7 +50,7 @@ AudioManager::AudioManager()
 
    m_ioServiceThread.Run();
 
-   m_spMusicSource = boost::dynamic_pointer_cast<Source>(CreateSource());
+   m_spMusicSource = std::dynamic_pointer_cast<Source>(CreateSource());
 }
 
 AudioManager::~AudioManager() throw()
@@ -61,13 +61,13 @@ AudioManager::~AudioManager() throw()
    LOG_INFO(_T("stopped audio subsystem"), Log::Client::Audio);
 }
 
-void AudioManager::PlayMusic(LPCTSTR pszMusicId, boost::shared_ptr<Stream::IStream> spStream)
+void AudioManager::PlayMusic(LPCTSTR pszMusicId, std::shared_ptr<Stream::IStream> spStream)
 {
    m_ioServiceThread.Get().post(
       boost::bind(&AudioManager::AsyncPlayMusic, this, CString(pszMusicId), spStream));
 }
 
-void AudioManager::AsyncPlayMusic(const CString& cszMusicId, boost::shared_ptr<Stream::IStream> spStream)
+void AudioManager::AsyncPlayMusic(const CString& cszMusicId, std::shared_ptr<Stream::IStream> spStream)
 {
    OpenAL::BufferPtr spBuffer = m_namedBufferMap.GetBuffer(cszMusicId);
    if (spBuffer == NULL)
@@ -81,18 +81,18 @@ void AudioManager::AsyncPlayMusic(const CString& cszMusicId, boost::shared_ptr<S
    m_spMusicSource->Play(spBuffer, false, false);
 }
 
-void AudioManager::AsyncPlay(boost::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn)
+void AudioManager::AsyncPlay(std::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn)
 {
    m_ioServiceThread.Get().post(
       boost::bind(&AudioManager::LoadAndPlay, this, spSource, pszSoundId, bLoop, bFadeIn));
 }
 
-void AudioManager::LoadAndPlay(boost::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn)
+void AudioManager::LoadAndPlay(std::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn)
 {
    // TODO resolve pszSoundId to file name
    CString cszFilename = _T("audio\\click2-cut.ogg");
 
-   boost::shared_ptr<Stream::IStream> spStream(
+   std::shared_ptr<Stream::IStream> spStream(
       new Stream::FileStream(cszFilename,
       Stream::FileStream::modeOpen, Stream::FileStream::accessRead, Stream::FileStream::shareRead));
 
@@ -103,7 +103,7 @@ void AudioManager::LoadAndPlay(boost::shared_ptr<Audio::Source> spSource, LPCTST
    spSource->Play(spBuffer, bLoop, bFadeIn);
 }
 
-OpenAL::BufferPtr AudioManager::ReadOggVorbisFile(boost::shared_ptr<Stream::IStream> spStream) const
+OpenAL::BufferPtr AudioManager::ReadOggVorbisFile(std::shared_ptr<Stream::IStream> spStream) const
 {
    using Stream::FileStream;
 
