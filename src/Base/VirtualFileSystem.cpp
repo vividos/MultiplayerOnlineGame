@@ -18,12 +18,13 @@ VirtualFileSystem::VirtualFileSystem() throw()
 
 void VirtualFileSystem::AddArchive(const CString& cszFilename)
 {
-   Stream::FileStream fs(cszFilename,
-      Stream::FileStream::modeOpen,
-      Stream::FileStream::accessRead,
-      Stream::FileStream::shareRead);
+   std::shared_ptr<Stream::FileStream> spFile(
+      new Stream::FileStream(cszFilename,
+         Stream::FileStream::modeOpen,
+         Stream::FileStream::accessRead,
+         Stream::FileStream::shareRead));
 
-   ZipArchive archive(fs);
+   ZipArchive archive(spFile);
 
    size_t iArchiveIndex = m_vecArchives.size();
    m_vecArchives.push_back(cszFilename);
@@ -42,7 +43,7 @@ void VirtualFileSystem::AddArchive(const CString& cszFilename)
    }
 }
 
-boost::shared_ptr<Stream::IStream> VirtualFileSystem::OpenFile(const CString& cszFilename,
+std::shared_ptr<Stream::IStream> VirtualFileSystem::OpenFile(const CString& cszFilename,
    bool bForReading)
 {
    // writing? redirect to base
@@ -59,12 +60,13 @@ boost::shared_ptr<Stream::IStream> VirtualFileSystem::OpenFile(const CString& cs
 
    ATLASSERT(info.m_uiArchiveIndex < m_vecArchives.size());
 
-   Stream::FileStream fs(m_vecArchives[info.m_uiArchiveIndex],
-      Stream::FileStream::modeOpen,
-      Stream::FileStream::accessRead,
-      Stream::FileStream::shareRead);
+   std::shared_ptr<Stream::FileStream> spFile(
+      new Stream::FileStream(m_vecArchives[info.m_uiArchiveIndex],
+         Stream::FileStream::modeOpen,
+         Stream::FileStream::accessRead,
+         Stream::FileStream::shareRead));
 
-   ZipArchive archive(fs);
+   ZipArchive archive(spFile);
 
    /// returns a file in the archive as stream
    return archive.GetFile(info.m_uiInArchiveIndex);

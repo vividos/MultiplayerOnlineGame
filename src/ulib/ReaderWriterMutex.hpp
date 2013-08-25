@@ -26,7 +26,7 @@ private:
 
    class Impl;
    /// implementation pointer
-   boost::shared_ptr<Impl> m_spImpl;
+   std::shared_ptr<Impl> m_spImpl;
 };
 
 /// \brief reader lock

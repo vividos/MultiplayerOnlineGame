@@ -26,6 +26,6 @@ public:
    virtual CString AppDataFolder() const = 0;
 
    /// opens a file stream; filename may be relative or absolute
-   virtual boost::shared_ptr<Stream::IStream> OpenFile(const CString& cszFilename,
+   virtual std::shared_ptr<Stream::IStream> OpenFile(const CString& cszFilename,
       bool bForReading = true) = 0;
 };

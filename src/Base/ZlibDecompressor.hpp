@@ -43,5 +43,5 @@ public:
 
 private:
    /// zlib stream
-   boost::shared_ptr<z_stream_s> m_spStream;
+   std::shared_ptr<z_stream_s> m_spStream;
 };

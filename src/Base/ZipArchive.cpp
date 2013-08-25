@@ -11,11 +11,11 @@
 #include "ZipArchiveFile.hpp"
 #include <ulib/stream/IStream.hpp>
 
-ZipArchive::ZipArchive(Stream::IStream& stream)
-:m_ullGlobalOffset(stream.Position()),
- m_archiveStream(stream)
+ZipArchive::ZipArchive(std::shared_ptr<Stream::IStream> spStream)
+:m_ullGlobalOffset(spStream->Position()),
+ m_spArchiveStream(spStream)
 {
-   Parse(stream);
+   Parse(*spStream);
 }
 
 ZipArchive::~ZipArchive()
@@ -28,12 +28,12 @@ const CString& ZipArchive::Filename(unsigned int uiIndex, bool /*bFullPath*/)
    return m_vecInfos[uiIndex].cszFilename;
 }
 
-boost::shared_ptr<Stream::IStream> ZipArchive::GetFile(unsigned int uiIndex)
+std::shared_ptr<Stream::IStream> ZipArchive::GetFile(unsigned int uiIndex)
 {
    ATLASSERT(uiIndex < FileCount());
 
-   boost::shared_ptr<Stream::IStream> spFile(
-      new ZipArchiveFile(m_archiveStream,
+   std::shared_ptr<Stream::IStream> spFile(
+      new ZipArchiveFile(m_spArchiveStream,
          m_vecInfos[uiIndex].uiOffset + m_ullGlobalOffset,
          m_vecInfos[uiIndex].uiCompressedSize,
          m_vecInfos[uiIndex].uiUncompressedSize));

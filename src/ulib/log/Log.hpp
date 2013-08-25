@@ -25,15 +25,15 @@ enum Level
 };
 
 /// logger smart pointer
-typedef boost::shared_ptr<class Logger> LoggerPtr;
+typedef std::shared_ptr<class Logger> LoggerPtr;
 
 /// layout smart pointer
-typedef boost::shared_ptr<class Layout> LayoutPtr;
+typedef std::shared_ptr<class Layout> LayoutPtr;
 
 /// appender smart pointer
-typedef boost::shared_ptr<class Appender> AppenderPtr;
+typedef std::shared_ptr<class Appender> AppenderPtr;
 
 /// logging event smart pointer
-typedef boost::shared_ptr<class LoggingEvent> LoggingEventPtr;
+typedef std::shared_ptr<class LoggingEvent> LoggingEventPtr;
 
 } // namespace Log

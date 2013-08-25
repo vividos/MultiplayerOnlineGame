@@ -39,7 +39,7 @@ FileStream::FileStream(LPCTSTR pszFilename, EFileMode fileMode, EFileAccess file
    if (hFile == INVALID_HANDLE_VALUE)
       throw Stream::StreamException(Win32::ErrorMessage().Get() + pszFilename, __FILE__, __LINE__);
 
-   m_spHandle = boost::shared_ptr<void>(hFile, CloseHandle);
+   m_spHandle = std::shared_ptr<void>(hFile, CloseHandle);
 
    m_bEOF = false;
 

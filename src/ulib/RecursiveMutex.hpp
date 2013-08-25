@@ -78,5 +78,5 @@ private:
 
 private:
    /// mutex handle
-   boost::shared_ptr<void> m_spMutex;
+   std::shared_ptr<void> m_spMutex;
 };

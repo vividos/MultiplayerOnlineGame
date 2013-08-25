@@ -15,7 +15,7 @@
 namespace Log
 {
 /// logging event smart pointer
-typedef boost::shared_ptr<class LoggingEvent> LoggingEventPtr;
+typedef std::shared_ptr<class LoggingEvent> LoggingEventPtr;
 
 /// logger
 class ULIB_DECLSPEC Logger

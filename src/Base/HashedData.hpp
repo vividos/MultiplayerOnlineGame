@@ -25,5 +25,5 @@ public:
 
 private:
    /// private data; hash context
-   boost::shared_ptr<struct _SHA256_CTX> m_spData;
+   std::shared_ptr<struct _SHA256_CTX> m_spData;
 };

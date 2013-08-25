@@ -19,7 +19,7 @@ class TextStreamAppender: public Appender
 {
 public:
    /// ctor
-   TextStreamAppender(boost::shared_ptr<Stream::ITextStream> spTextStream) throw()
+   TextStreamAppender(std::shared_ptr<Stream::ITextStream> spTextStream) throw()
       :m_spTextStream(spTextStream)
    {
    }
@@ -42,7 +42,7 @@ public:
 
 private:
    /// text stream
-   boost::shared_ptr<Stream::ITextStream> m_spTextStream;
+   std::shared_ptr<Stream::ITextStream> m_spTextStream;
 };
 
 

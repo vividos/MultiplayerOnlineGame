@@ -27,13 +27,13 @@ CString BaseFileSystem::AppDataFolder() const
 #endif
 }
 
-boost::shared_ptr<Stream::IStream> BaseFileSystem::OpenFile(const CString& cszFilename, bool bForReading)
+std::shared_ptr<Stream::IStream> BaseFileSystem::OpenFile(const CString& cszFilename, bool bForReading)
 {
    // TODO check that the path is inside the app data folder
 
    using Stream::FileStream;
 
-   boost::shared_ptr<Stream::IStream> spStream(
+   std::shared_ptr<Stream::IStream> spStream(
       new Stream::FileStream(cszFilename,
          bForReading ? Stream::FileStream::modeOpen : Stream::FileStream::modeCreate,
          bForReading ? Stream::FileStream::accessRead : Stream::FileStream::accessWrite,

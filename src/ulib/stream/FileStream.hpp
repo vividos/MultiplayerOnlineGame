@@ -82,7 +82,7 @@ private:
    EFileAccess m_fileAccess;
 
    /// handle to file
-   boost::shared_ptr<void> m_spHandle;
+   std::shared_ptr<void> m_spHandle;
 
    /// indicates if end of file is reached
    bool m_bEOF;

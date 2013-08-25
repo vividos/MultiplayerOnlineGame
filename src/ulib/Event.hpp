@@ -57,5 +57,5 @@ public:
 
 private:
    /// event handle
-   boost::shared_ptr<void> m_spEvent;
+   std::shared_ptr<void> m_spEvent;
 };

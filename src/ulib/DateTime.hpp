@@ -141,7 +141,7 @@ private:
    friend class DateTime;
 
    /// implementation
-   boost::shared_ptr<class TimeSpanImpl> m_spImpl;
+   std::shared_ptr<class TimeSpanImpl> m_spImpl;
 };
 
 
@@ -256,5 +256,5 @@ private:
 
 private:
    /// implementation
-   boost::shared_ptr<class DateTimeImpl> m_spImpl;
+   std::shared_ptr<class DateTimeImpl> m_spImpl;
 };

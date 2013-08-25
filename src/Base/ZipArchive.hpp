@@ -34,7 +34,7 @@ class BASE_DECLSPEC ZipArchive
 {
 public:
    /// ctor
-   ZipArchive(Stream::IStream& stream);
+   ZipArchive(std::shared_ptr<Stream::IStream> spStream);
    /// dtor
    ~ZipArchive();
 
@@ -45,7 +45,7 @@ public:
    const CString& Filename(unsigned int uiIndex, bool bFullPath);
 
    /// returns a file in the archive as stream
-   boost::shared_ptr<Stream::IStream> GetFile(unsigned int uiIndex);
+   std::shared_ptr<Stream::IStream> GetFile(unsigned int uiIndex);
 
 private:
    /// parses global directory of zip archive
@@ -86,7 +86,7 @@ private:
    };
 
    /// zip archive stream
-   Stream::IStream& m_archiveStream;
+   std::shared_ptr<Stream::IStream> m_spArchiveStream;
 
    /// file infos
    std::vector<ZipFileInfo> m_vecInfos;

@@ -57,15 +57,15 @@ class ZipArchiveFile: public ReadOnlyNoWriteNoSeekStream
 {
 public:
    /// ctor
-   ZipArchiveFile(Stream::IStream& archiveFile, ULONGLONG ullOffset,
+   ZipArchiveFile(std::shared_ptr<Stream::IStream> spArchiveFile, ULONGLONG ullOffset,
       unsigned int uiCompressedSize, unsigned int uiUncompressedSize)
-      :m_archiveFile(archiveFile),
        m_uiCompressedSize(uiCompressedSize),
+      :m_spArchiveFile(spArchiveFile),
        m_uiUncompressedSize(uiUncompressedSize),
        m_ullCurrentPos(0ULL),
        m_bEndOfStream(false)
    {
-      archiveFile.Seek(static_cast<LONGLONG>(ullOffset), Stream::IStream::seekBegin);
+      spArchiveFile->Seek(static_cast<LONGLONG>(ullOffset), Stream::IStream::seekBegin);
    }
 
    /// dtor
@@ -112,7 +112,7 @@ private:
 
 private:
    /// archive file stream
-   Stream::IStream& m_archiveFile;
+   std::shared_ptr<Stream::IStream> m_spArchiveFile;
 
    /// compressed size
    unsigned int m_uiCompressedSize;
