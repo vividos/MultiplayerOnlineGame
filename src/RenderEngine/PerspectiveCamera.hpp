@@ -45,7 +45,7 @@ public:
    double GetAngleDirection() const throw() { return m_dAngleDirection; }
 
    /// returns up angle
-   double GetAngleUp() const throw() { return m_dAngleDirection; }
+   double GetAngleUp() const throw() { return m_dAngleUp; }
 
    /// returns view frustum
    ViewFrustum3d GetViewFrustum() const throw();
