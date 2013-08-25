@@ -32,6 +32,18 @@ public:
       m_spSource->Position(vPos);
    }
 
+   /// sets new gain value
+   void Gain(float fValue)
+   {
+      m_spSource->Gain(fValue);
+   }
+
+   /// returns source gain
+   float Gain() const
+   {
+      return m_spSource->Gain();
+   }
+
    /// starts playing sound
    virtual void Play(LPCTSTR pszSoundId, bool bLoop, bool bFadeIn) override;
 

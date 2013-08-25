@@ -82,7 +82,9 @@ public:
       switch (enVolumeType)
       {
       case enVolumeUserInterface:
+         return 1.0; // TODO impl.
       case enVolumeBackgroundMusic:
+         return m_spMusicSource->Gain();
       case enVolumePositional:
          return 1.0; // TODO impl
       }
@@ -90,13 +92,14 @@ public:
    }
 
    /// sets new volume
-   virtual void SetVolume(T_enVolumeType enVolumeType, float /*fValue*/)
+   virtual void SetVolume(T_enVolumeType enVolumeType, float fValue)
    {
       switch (enVolumeType)
       {
       case enVolumeUserInterface:
          break;
       case enVolumeBackgroundMusic:
+         m_spMusicSource->Gain(fValue);
          break;
       case enVolumePositional:
          break;

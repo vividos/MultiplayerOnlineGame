@@ -321,6 +321,19 @@ public:
       return iState == AL_PLAYING;
    }
 
+   /// returns source gain
+   float Gain() const
+   {
+      AL_CLEAR_ERROR();
+
+      float fValue = 1.0;
+
+      alGetSourcef(m_uiSource, AL_GAIN, &fValue);
+      AL_CHECK_ERROR(_T("alGetSource(AL_GAIN)"));
+
+      return fValue;
+   }
+
    // set methods
 
    /// sets source gain
