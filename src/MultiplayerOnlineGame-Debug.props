@@ -30,6 +30,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalOptions>/ignore:4254 /ignore:4078 %(AdditionalOptions)</AdditionalOptions>
       <ImportLibrary>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(ProjectName).lib</ImportLibrary>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <Lib>
       <OutputFile>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(ProjectName).lib</OutputFile>
