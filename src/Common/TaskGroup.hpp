@@ -10,9 +10,9 @@
 #include "Asio.hpp"
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
-#include <ulib/Event.hpp>
-#include <ulib/Mutex.hpp>
 #include "LightweightMutex.hpp"
+#include <ulib/Event.hpp>
+#include <atomic>
 #include <deque>
 
 /// \brief task group
@@ -38,6 +38,8 @@ public:
          if (m_deqTaskList.empty())
             return;
 
+         m_bIsCanceled = true;
+
          m_deqTaskList.clear();
       }
 
@@ -47,21 +49,16 @@ public:
       m_ioService.post(boost::bind(&Event::Set, &evtEmptyQueue));
 
       evtEmptyQueue.Wait();
-
-      // clear task list again; could have been added to while waiting
-      {
-         MutexLock<LightweightMutex> lock(m_mtxTaskList);
-         if (m_deqTaskList.empty())
-            return;
-
-         m_deqTaskList.clear();
-      }
    }
 
    /// adds task to run
    void Add(T_fnTask fnTask)
    {
+      if (m_bIsCanceled)
+         return;
+
       MutexLock<LightweightMutex> lock(m_mtxTaskList);
+
       m_deqTaskList.push_back(fnTask);
 
       m_ioService.post(boost::bind(&TaskGroup::RunOneTask, this));
@@ -95,6 +92,9 @@ private:
 
    /// mutex to protect task list
    LightweightMutex m_mtxTaskList;
+
+   /// indicates if task group is in a canceled state
+   std::atomic<bool> m_bIsCanceled;
 
    /// io service to run tasks on
    boost::asio::io_service& m_ioService;
