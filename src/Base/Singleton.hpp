@@ -7,6 +7,7 @@
 #pragma once
 
 // includes
+#include <atomic>
 #pragma warning(push)
 #pragma warning(disable: 4800) // 'T' : forcing value to bool 'true' or 'false' (performance warning)
 #pragma warning(disable: 4100) // 't' : unreferenced formal parameter
@@ -34,7 +35,7 @@ public:
       if (!tmp)
       {
          boost::mutex::scoped_lock l(m_instantiationMutex);
-         tmp = m_instance.load(boost::memory_order_consume);
+         tmp = m_instance.load(std::memory_order_consume);
          if (!tmp)
          {
             tmp = new T;
@@ -55,4 +56,4 @@ private:
 /// use this macro to implement a singleton instance in a .cpp file
 #define IMPLEMENT_SINGLETON(T) \
    std::atomic<T*> Singleton<T>::m_instance(0); \
-   std::mutex Singleton<T>::m_instantiationMutex;
+   boost::mutex Singleton<T>::m_instantiationMutex;
