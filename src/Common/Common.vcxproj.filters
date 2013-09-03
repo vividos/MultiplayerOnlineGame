@@ -60,9 +60,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TaskManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TimeBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -207,12 +204,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TaskGroup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TaskManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TextMessage.hpp">

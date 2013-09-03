@@ -85,7 +85,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TaskManager.cpp" />
     <ClCompile Include="TimeBase.cpp" />
     <ClCompile Include="UpdateObjectMovementMessage.cpp" />
   </ItemGroup>
@@ -136,8 +135,6 @@
     <ClInclude Include="SharedBuffer.hpp" />
     <ClInclude Include="SRPAuthMessages.hpp" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TaskGroup.hpp" />
-    <ClInclude Include="TaskManager.hpp" />
     <ClInclude Include="TextMessage.hpp" />
     <ClInclude Include="TimeBase.hpp" />
     <ClInclude Include="UpdateObjectMovementMessage.hpp" />
