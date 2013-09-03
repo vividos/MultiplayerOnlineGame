@@ -8,12 +8,11 @@
 
 // includes
 #include "Asio.hpp"
-#include <boost/function.hpp>
-#include <boost/bind.hpp>
 #include "LightweightMutex.hpp"
 #include <ulib/Event.hpp>
 #include <atomic>
 #include <deque>
+#include <functional>
 
 /// \brief task group
 /// \details groups together tasks to run
@@ -21,7 +20,7 @@ class TaskGroup
 {
 public:
    /// task type
-   typedef boost::function<void()> T_fnTask;
+   typedef std::function<void()> T_fnTask;
 
    /// ctor
    TaskGroup(boost::asio::io_service& ioService)
@@ -46,7 +45,7 @@ public:
       // wait for all tasks to be finished
       Event evtEmptyQueue(true, false); // manual-reset
 
-      m_ioService.post(boost::bind(&Event::Set, &evtEmptyQueue));
+      m_ioService.post(std::bind(&Event::Set, &evtEmptyQueue));
 
       evtEmptyQueue.Wait();
    }
@@ -61,7 +60,7 @@ public:
 
       m_deqTaskList.push_back(fnTask);
 
-      m_ioService.post(boost::bind(&TaskGroup::RunOneTask, this));
+      m_ioService.post(std::bind(&TaskGroup::RunOneTask, this));
    }
 
 private:

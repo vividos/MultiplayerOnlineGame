@@ -10,7 +10,7 @@
 #include "UserInterfaceCommon.hpp"
 #include <set>
 #include <map>
-#include <boost/function.hpp>
+#include <functional>
 
 /// starts new event map; parent classes event map is ignored
 #define BEGIN_EVENT_MAP() \
@@ -38,7 +38,7 @@ public:
    typedef unsigned int T_RegisteredEventId;
 
    /// event handler function
-   typedef boost::function<void()> T_fnEventHandler;
+   typedef std::function<void()> T_fnEventHandler;
 
    /// ctor
    Observable() throw()

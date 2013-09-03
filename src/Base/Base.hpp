@@ -13,6 +13,7 @@
 #include <ulib/Exception.hpp>
 #include <ulib/log/Logger.hpp>
 #include "Asio.hpp"
+#include <functional>
 
 /// export macro
 #ifdef BASE_EXPORTS

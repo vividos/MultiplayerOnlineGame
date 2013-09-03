@@ -12,7 +12,6 @@
 #include "Uuid.hpp"
 #include "Vector3d.hpp"
 #include <limits>
-#include <boost/array.hpp>
 
 /// \brief byte stream class
 /// used for serializing and deserializing objects
@@ -119,7 +118,7 @@ public:
    /// reads Uuid
    Uuid ReadUuid()
    {
-      boost::array<unsigned char, 16> aData;
+      std::array<unsigned char, 16> aData;
       ReadBlock(&aData[0], 16);
       return Uuid(&aData[0]);
    }

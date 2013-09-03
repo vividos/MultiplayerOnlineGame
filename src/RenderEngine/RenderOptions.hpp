@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include <boost/array.hpp>
+#include <array>
 
 /// collection of rendering options
 class RenderOptions

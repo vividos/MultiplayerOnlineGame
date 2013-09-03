@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include <boost/function.hpp>
+#include <functional>
 
 /// user interface audio events
 enum T_enUserInterfaceAudioEvents
@@ -25,4 +25,4 @@ enum T_enUserInterfaceAudioEvents
 };
 
 /// typedef of a function that signals audio events for UI
-typedef boost::function<void(T_enUserInterfaceAudioEvents enAudioEvent)> T_fnOnUserInterfaceAudioEvent;
+typedef std::function<void(T_enUserInterfaceAudioEvents enAudioEvent)> T_fnOnUserInterfaceAudioEvent;

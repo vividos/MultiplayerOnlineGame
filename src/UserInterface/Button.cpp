@@ -11,7 +11,7 @@
 #include "Button.hpp"
 #include "Font.hpp"
 #include <SDL.h>
-#include <boost/bind.hpp>
+#include <functional>
 
 void Button::Render(Rect& rectArea)
 {
@@ -118,7 +118,7 @@ bool Button::OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned int /*
       {
          // start tracking if mouse leaves our area
          GetWindowManager().TrackMouseLeave(GetRect(),
-            boost::bind(&Button::OnMouseLeft, this));
+            std::bind(&Button::OnMouseLeft, this));
 
          GetWindowManager().PlayAudioEvent(uiButtonPress);
       }

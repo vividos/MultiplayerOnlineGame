@@ -8,7 +8,7 @@
 
 // includes
 #include <ulib/config/AutoLink.hpp>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <vector>
 
 // forward references

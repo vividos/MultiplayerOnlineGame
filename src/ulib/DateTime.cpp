@@ -9,7 +9,6 @@
 #include "stdafx.h"
 #include <ulib/DateTime.hpp>
 #include <ulib/Exception.hpp>
-#include <boost/static_assert.hpp>
 #include "ISO8601Parser.hpp"
 
 // include Boost.DateTime

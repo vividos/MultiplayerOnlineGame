@@ -9,7 +9,7 @@
 // needed includes
 #include <ulib/config/AutoLink.hpp>
 #include <vector>
-#include <boost/function.hpp>
+#include <functional>
 
 // forward references
 class CommandLineParser;
@@ -20,16 +20,16 @@ class ULIB_DECLSPEC ProgramOptions
 {
 public:
    /// option handler function; called when option is parsed
-   typedef boost::function<bool (const std::vector<CString>&)> T_fnOptionHandler;
+   typedef std::function<bool (const std::vector<CString>&)> T_fnOptionHandler;
 
    /// option handler function for single argument
-   typedef boost::function<bool (const CString&)> T_fnOptionHandlerSingleArg;
+   typedef std::function<bool (const CString&)> T_fnOptionHandlerSingleArg;
 
    /// parameter handler
-   typedef boost::function<bool (const CString&)> T_fnParameterHandler;
+   typedef std::function<bool (const CString&)> T_fnParameterHandler;
 
    /// handler for text output
-   typedef boost::function<void (const CString&)> T_fnOptionOutputHandler;
+   typedef std::function<void (const CString&)> T_fnOptionOutputHandler;
 
    /// ctor
    ProgramOptions() throw()

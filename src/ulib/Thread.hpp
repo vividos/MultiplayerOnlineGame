@@ -8,7 +8,6 @@
 
 // includes
 #include <ulib/Event.hpp>
-#include <boost/function.hpp>
 
 #ifdef WIN32
 

@@ -9,7 +9,7 @@
 // needed includes
 #include <ulib/config/AutoLink.hpp>
 #include <ulib/stream/IStream.hpp>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace Stream
 {

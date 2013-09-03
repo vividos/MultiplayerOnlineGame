@@ -7,9 +7,9 @@
 #pragma once
 
 // includes
-#pragma warning(disable: 4913) // user defined binary operator ',' exists but no overload could convert all operands, default built-in binary operator ',' used
-#include <boost/thread.hpp>
-#pragma warning(default: 4913)
+#include <thread>
+#include <functional>
+#include "Asio.hpp"
 
 /// \brief Thread pool
 /// at the moment only one thread is used
@@ -17,23 +17,23 @@ class ThreadPool
 {
 public:
    /// work function
-   typedef boost::function<void()> T_fnWork;
+   typedef std::function<void()> T_fnWork;
 
    /// ctor
    ThreadPool()
-      :m_scpWork(new boost::asio::io_service::work(m_ioService))
+      :m_upWork(new boost::asio::io_service::work(m_ioService))
    {
-      m_scpQueueThread.reset(
-         new boost::thread(
-            boost::bind(&boost::asio::io_service::run, &m_ioService)));
+      m_upQueueThread.reset(
+         new std::thread(
+            std::bind(&boost::asio::io_service::run, &m_ioService)));
    }
 
    /// dtor; joins all worker threads
    ~ThreadPool()
    {
-      m_scpWork.reset();
-      if (m_scpQueueThread != NULL)
-         m_scpQueueThread->join();
+      m_upWork.reset();
+      if (m_upQueueThread != NULL)
+         m_upQueueThread->join();
    }
 
    /// queues worker function
@@ -50,8 +50,8 @@ private:
    boost::asio::io_service m_ioService;
 
    /// work item
-   boost::scoped_ptr<boost::asio::io_service::work> m_scpWork;
+   std::unique_ptr<boost::asio::io_service::work> m_upWork;
 
    /// worker thread
-   boost::scoped_ptr<boost::thread> m_scpQueueThread;
+   std::unique_ptr<std::thread> m_upQueueThread;
 };

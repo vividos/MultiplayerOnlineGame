@@ -8,7 +8,6 @@
 
 // includes
 #include <ulib/SystemException.hpp>
-#include <boost/shared_ptr.hpp>
 
 /// event class
 class Event

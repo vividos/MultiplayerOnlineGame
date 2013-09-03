@@ -11,7 +11,6 @@
 #pragma warning(disable: 4800) // 'T' : forcing value to bool 'true' or 'false' (performance warning)
 #pragma warning(disable: 4100) // 't' : unreferenced formal parameter
 #pragma warning(disable: 4244) // 'argument' : conversion from 'T1' to 'T2', possible loss of data
-#include <boost/atomic.hpp>
 #include <boost/thread/mutex.hpp>
 #pragma warning(pop)
 
@@ -31,7 +30,7 @@ public:
    /// ensures that singleton is only created once
    static T& Instance()
    {
-      T* tmp = m_instance.load(boost::memory_order_consume);
+      T* tmp = m_instance.load(std::memory_order_consume);
       if (!tmp)
       {
          boost::mutex::scoped_lock l(m_instantiationMutex);
@@ -39,7 +38,7 @@ public:
          if (!tmp)
          {
             tmp = new T;
-            m_instance.store(tmp, boost::memory_order_release);
+            m_instance.store(tmp, std::memory_order_release);
          }
       }
       return *tmp;
@@ -47,7 +46,7 @@ public:
 
 private:
    /// instance of object
-   static boost::atomic<T*> m_instance;
+   static std::atomic<T*> m_instance;
 
    /// mutex to protect singleton creation
    static boost::mutex m_instantiationMutex;
@@ -55,5 +54,5 @@ private:
 
 /// use this macro to implement a singleton instance in a .cpp file
 #define IMPLEMENT_SINGLETON(T) \
-   boost::atomic<T*> Singleton<T>::m_instance(0); \
-   boost::mutex Singleton<T>::m_instantiationMutex;
+   std::atomic<T*> Singleton<T>::m_instance(0); \
+   std::mutex Singleton<T>::m_instantiationMutex;

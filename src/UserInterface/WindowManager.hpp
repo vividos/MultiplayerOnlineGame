@@ -11,6 +11,7 @@
 #include "Window.hpp"
 #include "IWindowManager.hpp"
 #include "FontManager.hpp"
+#include <functional>
 
 // forward references
 class IFileSystem;
@@ -67,7 +68,7 @@ private:
    virtual void SetFocus(WindowPtr spFocusedWnd = WindowPtr()) throw() override;
 
    /// starts tracking mouse and calls function when leaving rect
-   virtual void TrackMouseLeave(const Rect& rect, boost::function<void()> fnCallback) throw() override;
+   virtual void TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) throw() override;
 
    /// plays back audio event
    virtual void PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) throw() override;
@@ -83,7 +84,7 @@ private:
    WindowPtr m_spFocusedWindow;
 
    /// entry from TrackMouseLeave() function
-   typedef std::pair<Rect, boost::function<void()> > T_TrackMouseLeaveEntry;
+   typedef std::pair<Rect, std::function<void()> > T_TrackMouseLeaveEntry;
 
    /// all entries for tracking mouse leave events
    std::list<T_TrackMouseLeaveEntry> m_listAllTrackMouseLeaveEntries;

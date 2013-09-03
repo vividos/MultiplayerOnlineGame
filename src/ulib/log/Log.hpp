@@ -1,13 +1,13 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2007,2008 Michael Fink
+// Copyright (C) 2007-2013 Michael Fink
 //
 /// \file Log.hpp logging
 //
 #pragma once
 
 // includes
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 /// \brief Logging facilities
 namespace Log

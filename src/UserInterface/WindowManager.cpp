@@ -244,7 +244,7 @@ void WindowManager::SetFocus(WindowPtr spFocusedWnd) throw()
       m_spFocusedWindow->OnFocusChanged(true);
 }
 
-void WindowManager::TrackMouseLeave(const Rect& rect, boost::function<void()> fnCallback) throw()
+void WindowManager::TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) throw()
 {
    m_listAllTrackMouseLeaveEntries.push_back(std::make_pair(rect, fnCallback));
 }

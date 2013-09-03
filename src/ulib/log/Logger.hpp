@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2007,2008,2009,2012 Michael Fink
+// Copyright (C) 2007-2013 Michael Fink
 //
 /// \file Logger.hpp logger class
 //
@@ -9,6 +9,7 @@
 // includes
 #include <ulib/config/AutoLink.hpp>
 #include <ulib/log/Log.hpp>
+#include <memory>
 #include <map>
 #include <set>
 

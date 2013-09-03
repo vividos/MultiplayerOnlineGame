@@ -9,7 +9,7 @@
 // includes
 #include <ulib/config/AutoLink.hpp>
 #include <boost/noncopyable.hpp>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 /// \brief reader-writer mutex
 class ULIB_DECLSPEC ReaderWriterMutex: public boost::noncopyable

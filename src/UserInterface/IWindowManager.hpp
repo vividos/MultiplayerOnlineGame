@@ -8,7 +8,7 @@
 
 // includes
 #include <boost/noncopyable.hpp>
-#include <boost/function.hpp>
+#include <functional>
 #include "UserInterfaceAudio.hpp"
 
 // forward references
@@ -62,7 +62,7 @@ public:
    virtual void SetFocus(WindowPtr spFocusedWnd = WindowPtr()) throw() = 0;
 
    /// starts tracking mouse and calls function when leaving rect
-   virtual void TrackMouseLeave(const Rect& rect, boost::function<void()> fnCallback) throw() = 0;
+   virtual void TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) throw() = 0;
 
    /// plays back audio event
    virtual void PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) throw() = 0;

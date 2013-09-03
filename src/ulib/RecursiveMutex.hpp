@@ -9,7 +9,6 @@
 // includes
 #include "MutexLock.hpp"
 #include <ulib/SystemException.hpp>
-#include <boost/shared_ptr.hpp>
 
 /// a recursive lockable synchronisation object
 class RecursiveMutex

@@ -14,7 +14,7 @@
 #pragma warning(disable: 4913) // user defined binary operator ',' exists but no overload could convert all operands, default built-in binary operator ',' used
 #include <boost/thread.hpp>
 #pragma warning(default: 4913)
-#include <boost/bind.hpp>
+#include <functional>
 
 /// service thread for boost::asio::io_service instance
 class IoServiceThread: public boost::noncopyable
@@ -44,7 +44,7 @@ public:
    /// runs background thread
    void Run()
    {
-      m_spThread.reset(new boost::thread(boost::bind(&IoServiceThread::ThreadRun, this)));
+      m_spThread.reset(new boost::thread(std::bind(&IoServiceThread::ThreadRun, this)));
    }
 
    /// waits for background thread
