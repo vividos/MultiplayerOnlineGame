@@ -9,6 +9,7 @@
 // includes
 #include "Base.hpp"
 #include <vector>
+#include <string>
 
 /// string tools
 namespace StringTools
@@ -20,5 +21,7 @@ void BASE_DECLSPEC StringToUTF8(const CString& cszText, std::vector<unsigned cha
 /// converts a string containing hex bytes to bytes
 void BASE_DECLSPEC HexStringToBytes(const CString& cszText, std::vector<unsigned char>& vecData);
 
+/// converts an std::string to lowercase
+void BASE_DECLSPEC ConvertToLowercase(std::string& str);
 
 } // namespace StringTools

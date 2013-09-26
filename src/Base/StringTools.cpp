@@ -47,3 +47,11 @@ void StringTools::HexStringToBytes(const CString& cszText, std::vector<unsigned 
    for (int i=0; i<iLen; i+=2)
       vecData.push_back(HexDigitsToByte(cszText.GetString()+i));
 }
+
+void StringTools::ConvertToLowercase(std::string& str)
+{
+   std::transform(str.begin(), str.end(), str.begin(), [](const std::string::value_type& ch)
+   {
+      return static_cast<char>(tolower(ch));
+   });
+}
