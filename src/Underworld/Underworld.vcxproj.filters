@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GameLogic Files">
+      <UniqueIdentifier>{95f8fb06-319b-4e29-939c-239e69325649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic Files\Header Files">
+      <UniqueIdentifier>{eafa0b1a-c826-43f3-a817-b410a7e6d6e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic Files\Source Files">
+      <UniqueIdentifier>{1a89688d-da72-41ef-a52d-b33b12ade638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main Files">
+      <UniqueIdentifier>{d3f42628-64ee-47e7-8b86-263e20c0d683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
+    </Filter>
+    <Filter Include="Main Files\Source Files">
+      <UniqueIdentifier>{eb6ad0ec-9983-477a-ba58-fa1583c6a8c7}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Main Files\Header Files">
+      <UniqueIdentifier>{2e3e058a-93e9-4a3e-869b-09589972fcdf}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Conv Files">
+      <UniqueIdentifier>{d3a4ecf3-e7f0-4c5f-b9fc-7c2c8ee1655a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UwBase Files">
+      <UniqueIdentifier>{a2388fb6-006b-4efc-8356-3f5d9da23797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Import">
+      <UniqueIdentifier>{99123416-01da-433b-bcda-e18f1d2c5ed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Import\Source Files">
+      <UniqueIdentifier>{a681afd1-2424-47c5-8023-512a13ac6cda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Import\Header Files">
+      <UniqueIdentifier>{542fc52f-c4e5-4776-9d21-16e272306aa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{60993427-0810-4fed-902b-cfc710ffdcd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Source Files">
+      <UniqueIdentifier>{6ae282f5-670c-4360-a883-9be720d025d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Header Files">
+      <UniqueIdentifier>{75e138f8-562c-488c-86b0-ea0b3b2f493a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\ConvGlobals.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Inventory.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\LevelList.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Object.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\ObjectList.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Player.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\QuestFlags.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Runes.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Tilemap.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\Underworld.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Conv\CodeVM.cpp">
+      <Filter>Conv Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\LevelImporter.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\ArchiveFile.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\ObjectListLoader.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\Uw2Decode.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\ConvLoader.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\StringsPakFile.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStrings.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\PropertiesLoader.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\TextureLoader.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Palette256.cpp">
+      <Filter>Renderer\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\IndexedImage.cpp">
+      <Filter>Renderer\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Import\ImageLoader.cpp">
+      <Filter>Import\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Renderer.cpp">
+      <Filter>Renderer\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvManager.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\TextureAtlas.cpp">
+      <Filter>Renderer\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelGeometry.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic\MapNotes.cpp">
+      <Filter>GameLogic Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\LevelRenderer.cpp">
+      <Filter>Renderer\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Conv\Conversation.cpp">
+      <Filter>Conv Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IngameScene.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UwBase.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\ConvGlobals.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Inventory.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Level.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\LevelList.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Object.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\ObjectList.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Player.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Properties.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\QuestFlags.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Runes.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Tilemap.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\Underworld.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Main Files\Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conv\CodeVM.hpp">
+      <Filter>Conv Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conv\Opcodes.hpp">
+      <Filter>Conv Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conv\ConvStack.hpp">
+      <Filter>Conv Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\LevelImporter.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\Bits.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\ArchiveFile.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\ObjectListLoader.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\Uw2Decode.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\ConvLoader.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStrings.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\PropertiesLoader.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\StringsPakFile.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\TextureLoader.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Palette256.hpp">
+      <Filter>Renderer\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\IndexedImage.hpp">
+      <Filter>Renderer\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\ImageLoader.hpp">
+      <Filter>Import\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Renderer.hpp">
+      <Filter>Renderer\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvManager.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\TextureAtlas.hpp">
+      <Filter>Renderer\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelGeometry.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogic\MapNotes.hpp">
+      <Filter>GameLogic Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UwBase\Savegame.hpp">
+      <Filter>UwBase Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\LevelRenderer.hpp">
+      <Filter>Renderer\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conv\Conversation.hpp">
+      <Filter>Conv Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IngameScene.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClient.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Underworld.rc">
+      <Filter>Main Files\Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="versioninfo.rc">
+      <Filter>Main Files\Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Uus.ico">
+      <Filter>Main Files\Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
