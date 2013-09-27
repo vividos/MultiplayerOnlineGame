@@ -367,8 +367,9 @@ bool Inventory::DropFloatingObject(Uint16 uiContainerPos, Uint16 uiObjectPos)
    return false;
 }
 
-bool Inventory::DropOnObject(Uint16 uiContainerPos, Uint16 uiPos)
+bool Inventory::DropOnObject(Uint16 /*uiContainerPos*/, Uint16 /*uiPos*/)
 {
+   // TODO implement
    UaAssert(false);
    return false;
 }

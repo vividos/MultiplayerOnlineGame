@@ -83,10 +83,13 @@ bool Import::ConvLoader::LoadConvCode(IFileSystem& fileSystem, Conv::CodeVM& vm,
    spFile->Seek(offset, Stream::IStream::seekBegin);
 
    Uint32 unk1 = filter.Read32LE(); // always 0x00000828
+   ATLVERIFY(unk1 == 0x00000828);
 
    Uint16 codesize = filter.Read16LE();
    Uint16 unk2 = filter.Read16LE(); // always 0x0000
    Uint16 unk3 = filter.Read16LE(); // always 0x0000
+   ATLVERIFY(unk2 == 0);
+   ATLVERIFY(unk3 == 0);
 
    Uint16 strblock = filter.Read16LE(); // string block to use
    vm.StringBlock(strblock);
@@ -159,6 +162,7 @@ void Import::ConvLoader::LoadImportedFuncs(Conv::CodeVM& vm, std::shared_ptr<Str
       Uint16 fn_unknown1 = filter.Read16LE(); // always seems to be 1
       Uint16 import_type = filter.Read16LE();
       Uint16 ret_type = filter.Read16LE();
+      ATLVERIFY(fn_unknown1 == 1);
 
       // fill imported item struct
       Conv::ImportedItem iitem;

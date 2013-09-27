@@ -47,8 +47,8 @@ void CodeVM::Init(CodeCallback* pCodeCallback, const Underworld::ConvGlobals& cg
    {
       const std::vector<Uint16>& glob = cg.GetVectorGlobals(m_uiConvSlot);
 
-      unsigned int max=glob.size();
-      for (unsigned int i=0; i<max; i++)
+      Uint16 max = static_cast<Uint16>(glob.size());
+      for (Uint16 i=0; i<max; i++)
          m_stack.Set(i, glob[i]);
    }
 
@@ -390,14 +390,14 @@ void CodeVM::ReplacePlaceholder(std::string& str)
       switch(source)
       {
       case 'G':
-         value = m_stack.At(static_cast<unsigned int>(param));
+         value = m_stack.At(static_cast<Uint16>(static_cast<unsigned int>(param)));
          break;
       case 'S':
-         value = m_stack.At(static_cast<unsigned int>(m_uiBasePtr + param));
+         value = m_stack.At(static_cast<Uint16>(static_cast<unsigned int>(m_uiBasePtr + param)));
          break;
       case 'P':
-         param = m_stack.At(static_cast<unsigned int>(m_uiBasePtr + param));
-         value = m_stack.At(static_cast<unsigned int>(param));
+         param = m_stack.At(static_cast<Uint16>(static_cast<unsigned int>(m_uiBasePtr + param)));
+         value = m_stack.At(static_cast<Uint16>(static_cast<unsigned int>(param)));
          break;
       }
 
@@ -406,7 +406,7 @@ void CodeVM::ReplacePlaceholder(std::string& str)
       switch(vartype)
       {
       case 'S':
-         varstr = GetLocalString(value);
+         varstr = GetLocalString(static_cast<Uint16>(value));
          break;
       case 'I':
          {
