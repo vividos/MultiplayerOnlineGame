@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="AndroidManifest.xml" />
+    <None Include="build.xml" />
+    <None Include="project.properties" />
+    <None Include="res\values\strings.xml">
+      <Filter>res\values</Filter>
+    </None>
+    <None Include="src\org\libsdl\app\SDLActivity.java">
+      <Filter>src</Filter>
+    </None>
+    <None Include="src\com\vividos\underworld\UnderworldActivity.java">
+      <Filter>src</Filter>
+    </None>
+    <None Include="local.properties" />
+    <None Include="assets\image.bmp">
+      <Filter>assets</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{bde0ffce-80ca-48c9-bcdf-ef399c7633c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\values">
+      <UniqueIdentifier>{45f6c8b2-7f8a-483f-8057-2515ec60598e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{1c74321a-d21e-4058-95d9-56b0191d93be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jni">
+      <UniqueIdentifier>{439b73f7-2886-4ed1-af10-b4b08dc00ffa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{537eb966-5abc-438b-bd7f-e7d4285d9b6d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="jni\src\SDL_android_main.c">
+      <Filter>jni</Filter>
+    </ClCompile>
+    <ClCompile Include="jni\src\Main.cpp">
+      <Filter>jni</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
