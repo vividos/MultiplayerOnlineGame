@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <RootNamespace>ulib</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{B04C58A9-E1C0-45EB-8608-F766E74EAA94}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <Import Project="..\boost.props" />
+    <Import Project="..\MultiplayerOnlineGame-Android.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <Import Project="..\boost.props" />
+    <Import Project="..\MultiplayerOnlineGame-Android.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <ClCompile>
+      <PreprocessorDefinitions>DISABLE_IMPORTGL</PreprocessorDefinitions>
+      <AdditionalOptions>-std=c++11 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <AntBuild />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <ClCompile>
+      <PreprocessorDefinitions>DISABLE_IMPORTGL</PreprocessorDefinitions>
+      <AdditionalOptions>-std=c++11 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <AntBuild />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ulib\CommandLineParser.hpp" />
+    <ClInclude Include="..\ulib\config\Atl.hpp" />
+    <ClInclude Include="..\ulib\config\AutoLink.hpp" />
+    <ClInclude Include="..\ulib\config\Common.hpp" />
+    <ClInclude Include="..\ulib\config\CompileTimeWarningError.hpp" />
+    <ClInclude Include="..\ulib\config\Wtl.hpp" />
+    <ClInclude Include="..\ulib\DateTime.hpp" />
+    <ClInclude Include="..\ulib\ErrorMessage.hpp" />
+    <ClInclude Include="..\ulib\Event.hpp" />
+    <ClInclude Include="..\ulib\Exception.hpp" />
+    <ClInclude Include="..\ulib\log\Appender.hpp" />
+    <ClInclude Include="..\ulib\log\Layout.hpp" />
+    <ClInclude Include="..\ulib\log\Log.hpp" />
+    <ClInclude Include="..\ulib\log\Logger.hpp" />
+    <ClInclude Include="..\ulib\log\LoggingEvent.hpp" />
+    <ClInclude Include="..\ulib\log\TextStreamAppender.hpp" />
+    <ClInclude Include="..\ulib\Mutex.hpp" />
+    <ClInclude Include="..\ulib\Observer.hpp" />
+    <ClInclude Include="..\ulib\ProgramOptions.hpp" />
+    <ClInclude Include="..\ulib\ReaderWriterMutex.hpp" />
+    <ClInclude Include="..\ulib\stream\EndianAwareFilter.hpp" />
+    <ClInclude Include="..\ulib\stream\FileStream.hpp" />
+    <ClInclude Include="..\ulib\stream\IStream.hpp" />
+    <ClInclude Include="..\ulib\stream\ITextStream.hpp" />
+    <ClInclude Include="..\ulib\stream\MemoryStream.hpp" />
+    <ClInclude Include="..\ulib\stream\StreamException.hpp" />
+    <ClInclude Include="..\ulib\stream\TextFileStream.hpp" />
+    <ClInclude Include="..\ulib\stream\TextStreamFilter.hpp" />
+    <ClInclude Include="..\ulib\win32\DocHostUI.hpp" />
+    <ClInclude Include="config\Android.hpp" />
+    <ClInclude Include="CriticalSection.hpp" />
+    <ClInclude Include="ISO8601Parser.hpp" />
+    <ClInclude Include="LightweightMutex.hpp" />
+    <ClInclude Include="MutexLock.hpp" />
+    <ClInclude Include="RecursiveMutex.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SystemException.hpp" />
+    <ClInclude Include="Thread.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stream\AndroidFileStream.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Android'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="stream\TextStreamFilter.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

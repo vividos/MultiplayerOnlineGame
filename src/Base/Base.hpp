@@ -9,10 +9,20 @@
 // includes
 #include "targetver.h"
 #include <boost/noncopyable.hpp>
+
+// Win32
+#ifdef _MSC_VER
 #include <ulib/config/Atl.hpp>
 #include <ulib/Exception.hpp>
 #include <ulib/log/Logger.hpp>
 #include "Asio.hpp"
+// Android
+#elif defined(__ANDROID__)
+#include <ulib/config/Android.hpp>
+#include <ulib/Exception.hpp>
+#endif
+
+#include <memory>
 #include <functional>
 
 /// export macro

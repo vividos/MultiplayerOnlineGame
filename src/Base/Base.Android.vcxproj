@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}</ProjectGuid>
+    <RootNamespace>Base</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <Import Project="..\boost.props" />
+    <Import Project="..\MultiplayerOnlineGame-Android.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <Import Project="..\boost.props" />
+    <Import Project="..\MultiplayerOnlineGame-Android.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <ClCompile>
+      <PreprocessorDefinitions>DISABLE_IMPORTGL</PreprocessorDefinitions>
+      <AdditionalOptions>-std=c++11 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <AntBuild />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <ClCompile>
+      <PreprocessorDefinitions>DISABLE_IMPORTGL</PreprocessorDefinitions>
+      <AdditionalOptions>-std=c++11 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <AntBuild />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AsioHelper.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="AstronomyMath.cpp" />
+    <ClCompile Include="BaseFileSystem.cpp" />
+    <ClCompile Include="Filesystem.cpp" />
+    <ClCompile Include="HashedData.cpp" />
+    <ClCompile Include="HighResolutionTimer.cpp" />
+    <ClCompile Include="Path.cpp" />
+    <ClCompile Include="Plane3d.cpp" />
+    <ClCompile Include="Quaternion4d.cpp" />
+    <ClCompile Include="sha2.c" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="StringTools.cpp" />
+    <ClCompile Include="SystemInfo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TaskManager.cpp" />
+    <ClCompile Include="Uuid.cpp" />
+    <ClCompile Include="VirtualFileSystem.cpp" />
+    <ClCompile Include="ZipArchive.cpp" />
+    <ClCompile Include="ZipArchiveFile.cpp" />
+    <ClCompile Include="ZlibDecompressor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AABox.hpp" />
+    <ClInclude Include="Android.hpp" />
+    <ClInclude Include="ArrayMapper2D.hpp" />
+    <ClInclude Include="Asio.hpp" />
+    <ClInclude Include="AsioHelper.hpp" />
+    <ClInclude Include="AstronomyMath.hpp" />
+    <ClInclude Include="Base.hpp" />
+    <ClInclude Include="BaseFileSystem.hpp" />
+    <ClInclude Include="ByteStream.hpp" />
+    <ClInclude Include="Color.hpp" />
+    <ClInclude Include="ColorGradient.hpp" />
+    <ClInclude Include="FileFinder.hpp" />
+    <ClInclude Include="Filesystem.hpp" />
+    <ClInclude Include="HashedData.hpp" />
+    <ClInclude Include="HighResolutionTimer.hpp" />
+    <ClInclude Include="IFileSystem.hpp" />
+    <ClInclude Include="InstanceManager.hpp" />
+    <ClInclude Include="IoServiceThread.hpp" />
+    <ClInclude Include="Lockable.hpp" />
+    <ClInclude Include="Math.hpp" />
+    <ClInclude Include="Matrix4d.hpp" />
+    <ClInclude Include="Path.hpp" />
+    <ClInclude Include="Plane3d.hpp" />
+    <ClInclude Include="Quaternion4d.hpp" />
+    <ClInclude Include="RC4Encoder.hpp" />
+    <ClInclude Include="SafeFlag.hpp" />
+    <ClInclude Include="sha2.h" />
+    <ClInclude Include="Singleton.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringTools.hpp" />
+    <ClInclude Include="SystemInfo.hpp" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TaskGroup.hpp" />
+    <ClInclude Include="TaskManager.hpp" />
+    <ClInclude Include="ThreadPool.hpp" />
+    <ClInclude Include="TimedEffect.hpp" />
+    <ClInclude Include="Timer.hpp" />
+    <ClInclude Include="TraceOutputStopwatch.hpp" />
+    <ClInclude Include="Uuid.hpp" />
+    <ClInclude Include="Vector2d.hpp" />
+    <ClInclude Include="Vector3d.hpp" />
+    <ClInclude Include="..\version.h" />
+    <ClInclude Include="VirtualFileSystem.hpp" />
+    <ClInclude Include="ZigzagSquareIterator.hpp" />
+    <ClInclude Include="ZipArchive.hpp" />
+    <ClInclude Include="ZipArchiveFile.hpp" />
+    <ClInclude Include="ZlibDecompressor.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

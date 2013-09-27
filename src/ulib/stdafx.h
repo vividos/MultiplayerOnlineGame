@@ -6,6 +6,8 @@
 //
 #pragma once
 
+// Win32
+#ifdef _MSC_VER
 // including this defines the highest available windows platform
 #if _MSC_VER <= 1500
 #include <SDKDDKVer.h>
@@ -15,5 +17,10 @@
 #define _WIN32_WINNT _WIN32_WINNT_WINXP
 #include <SDKDDKVer.h>
 #endif
-
 #include <ulib/config/Atl.hpp>
+#endif
+
+// Android
+#ifdef __ANDROID__
+#include <ulib/config/Android.hpp>
+#endif
