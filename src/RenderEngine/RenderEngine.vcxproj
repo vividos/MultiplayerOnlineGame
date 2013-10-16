@@ -52,6 +52,9 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;RENDERENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
+    <Link>
+      <AdditionalDependencies>jpeg-8d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -59,11 +62,19 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;RENDERENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
+    <Link>
+      <AdditionalDependencies>jpeg-8d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="BitmapImageWriter.cpp" />
     <ClCompile Include="Checkerboard.cpp" />
+    <ClCompile Include="ImageReader\JpegImageReader.cpp" />
+    <ClCompile Include="ImageReader\PcxImageReader.cpp" />
+    <ClCompile Include="ImageReader\PNG.cpp" />
+    <ClCompile Include="ImageReader\PngImageReader.cpp" />
+    <ClCompile Include="ImageReader\TgaImageReader.cpp" />
     <ClCompile Include="LogDiagnostics.cpp" />
     <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="OrthoCamera.cpp" />
@@ -84,6 +95,14 @@
     <ClInclude Include="BitmapImageWriter.hpp" />
     <ClInclude Include="Checkerboard.hpp" />
     <ClInclude Include="ICamera.hpp" />
+    <ClInclude Include="IImageReader.hpp" />
+    <ClInclude Include="ImageReader\JpegDecoder.hpp" />
+    <ClInclude Include="ImageReader\JpegImageReader.hpp" />
+    <ClInclude Include="ImageReader\JpegSourceManager.hpp" />
+    <ClInclude Include="ImageReader\PcxImageReader.hpp" />
+    <ClInclude Include="ImageReader\PNG.hpp" />
+    <ClInclude Include="ImageReader\PngImageReader.hpp" />
+    <ClInclude Include="ImageReader\TgaImageReader.hpp" />
     <ClInclude Include="IRenderable.hpp" />
     <ClInclude Include="IScenegraph.hpp" />
     <ClInclude Include="OpenGL.hpp" />

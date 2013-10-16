@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="ImageReader Files">
+      <UniqueIdentifier>{2e1acc78-a05b-4c2a-a7e2-5fc09326eff2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bitmap.cpp">
@@ -56,6 +59,21 @@
     </ClCompile>
     <ClCompile Include="Checkerboard.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageReader\JpegImageReader.cpp">
+      <Filter>ImageReader Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageReader\PcxImageReader.cpp">
+      <Filter>ImageReader Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageReader\PNG.cpp">
+      <Filter>ImageReader Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageReader\PngImageReader.cpp">
+      <Filter>ImageReader Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageReader\TgaImageReader.cpp">
+      <Filter>ImageReader Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +142,30 @@
     </ClInclude>
     <ClInclude Include="StaticIndexBuffer.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageReader\JpegDecoder.hpp">
+      <Filter>ImageReader Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageReader\JpegImageReader.hpp">
+      <Filter>ImageReader Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageReader\JpegSourceManager.hpp">
+      <Filter>ImageReader Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageReader\PcxImageReader.hpp">
+      <Filter>ImageReader Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageReader\PNG.hpp">
+      <Filter>ImageReader Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageReader\PngImageReader.hpp">
+      <Filter>ImageReader Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageReader\TgaImageReader.hpp">
+      <Filter>ImageReader Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IImageReader.hpp">
+      <Filter>ImageReader Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
