@@ -17,7 +17,9 @@ class MainGameLoop: public boost::noncopyable
 {
 public:
    /// ctor
-   MainGameLoop(bool bUpdateFrameCount = false, const CString& cszClientName = _T(""));
+   MainGameLoop(bool bUpdateFrameCount = false,
+      const CString& cszClientName = _T(""),
+      std::function<void(const CString&)> fnUpdateCaption = std::function<void(const CString&)>());
 
    /// runs main game loop
    void Run();
@@ -52,6 +54,9 @@ private:
 
    /// client name; used for window caption
    CString m_cszClientName;
+
+   /// function to update caption of window
+   std::function<void(const CString&)> m_fnUpdateCaption;
 
    /// indicates if application is active or hidden
    bool m_bAppActive;

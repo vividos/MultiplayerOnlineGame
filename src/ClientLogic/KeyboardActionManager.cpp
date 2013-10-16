@@ -8,7 +8,7 @@
 // includes
 #include "StdAfx.h"
 #include "KeyboardActionManager.hpp"
-#include <SDL_keysym.h>
+#include <SDL_keycode.h>
 
 //
 // KeyActionHandle
@@ -129,7 +129,7 @@ ModifierKeyNameMap g_aModifierKeys[] =
 struct KeyNameMap
 {
    LPCTSTR pszName;  ///< key name
-   SDLKey enKey;     ///< key value
+   SDL_Keycode enKey;     ///< key value
 };
 
 /// key name to key map
@@ -174,17 +174,17 @@ KeyNameMap g_aKeys[] =
    { _T("backquote"),  SDLK_BACKQUOTE },
    { _T("del"),  SDLK_DELETE },
 
-   { _T("numlock"), SDLK_NUMLOCK },
-   { _T("num0"),  SDLK_KP0 },
-   { _T("num1"),  SDLK_KP1 },
-   { _T("num2"),  SDLK_KP2 },
-   { _T("num3"),  SDLK_KP3 },
-   { _T("num4"),  SDLK_KP4 },
-   { _T("num5"),  SDLK_KP5 },
-   { _T("num6"),  SDLK_KP6 },
-   { _T("num7"),  SDLK_KP7 },
-   { _T("num8"),  SDLK_KP8 },
-   { _T("num9"),  SDLK_KP9 },
+   { _T("numlock"), SDLK_NUMLOCKCLEAR },
+   { _T("num0"),  SDLK_KP_0 },
+   { _T("num1"),  SDLK_KP_1 },
+   { _T("num2"),  SDLK_KP_2 },
+   { _T("num3"),  SDLK_KP_3 },
+   { _T("num4"),  SDLK_KP_4 },
+   { _T("num5"),  SDLK_KP_5 },
+   { _T("num6"),  SDLK_KP_6 },
+   { _T("num7"),  SDLK_KP_7 },
+   { _T("num8"),  SDLK_KP_8 },
+   { _T("num9"),  SDLK_KP_9 },
    { _T("numperiod"),  SDLK_KP_PERIOD },
    { _T("numdivide"),  SDLK_KP_DIVIDE },
    { _T("nummultiply"),  SDLK_KP_MULTIPLY },

@@ -11,13 +11,16 @@
 #include "GameClientBase.hpp"
 #include "Scene.hpp"
 #include "RenderEngine.hpp"
+#include "RenderWindow.hpp"
 #include "WindowManager.hpp"
 
 /// user code for event dispatch; see GameClientBase::DispatchInEventLoop()
 const int c_iUserEventDispatch = 0;
 
 GameClientBase::GameClientBase(const CString& cszClientName)
-:MainGameLoop(true, cszClientName),
+:MainGameLoop(true, cszClientName, std::bind(&GameClientBase::UpdateCaption, this, std::placeholders::_1)),
+ m_cszClientName(cszClientName),
+ m_bFullscreen(false),
  m_actionBindings(m_keyboardActionManager),
  m_bIgnoreNextMouseMotion(false),
  m_iMouseMotionPosToIgnoreX(0),
@@ -26,10 +29,8 @@ GameClientBase::GameClientBase(const CString& cszClientName)
    m_actionBindings.RegisterActionHandler(KeyboardActionManager::actionQuitApplication,
       true, std::bind(&MainGameLoop::QuitLoop, this));
 
-   //m_actionBindings.RegisterActionHandler(KeyboardActionManager::actionToggleFullscreen,
-   //   false, std::bind(&GameAppBase::ToggleFullscreen, this));
-
-
+   m_actionBindings.RegisterActionHandler(KeyboardActionManager::actionToggleFullscreen,
+      false, std::bind(&GameClientBase::ToggleFullscreen, this));
 }
 
 GameClientBase::~GameClientBase()
@@ -39,11 +40,13 @@ GameClientBase::~GameClientBase()
 
 void GameClientBase::Init(unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen)
 {
+   m_bFullscreen = bFullscreen;
+
    m_spWindowManager.reset();
 
-   m_spRenderEngine.reset(new RenderEngine(uiWidth, uiHeight, bFullscreen));
+   m_spRenderEngine.reset(new RenderEngine(m_cszClientName, uiWidth, uiHeight, bFullscreen));
 
-   m_spWindowManager.reset(new WindowManager);
+   m_spWindowManager.reset(new WindowManager(uiWidth, uiHeight));
 }
 
 void GameClientBase::Run()
@@ -88,11 +91,18 @@ void GameClientBase::OnEvent(SDL_Event& evt)
       static_assert(SDL_BUTTON_LEFT      == buttonLeft, "must correspond to SDL definition");
       static_assert(SDL_BUTTON_MIDDLE    == buttonMiddle, "must correspond to SDL definition");
       static_assert(SDL_BUTTON_RIGHT     == buttonRight, "must correspond to SDL definition");
-      static_assert(SDL_BUTTON_WHEELUP   == buttonWheelUp, "must correspond to SDL definition");
-      static_assert(SDL_BUTTON_WHEELDOWN == buttonWheelDown, "must correspond to SDL definition");
 
       m_spScene->OnMouseButtonEvent(evt.button.state == SDL_PRESSED,
          static_cast<T_enMouseButtonType>(evt.button.button), evt.button.x, evt.button.y);
+      break;
+
+   case SDL_MOUSEWHEEL:
+      // TODO introduce OnMouseWheelEvent
+      if (evt.wheel.y != 0)
+      {
+         m_spScene->OnMouseButtonEvent(true,
+            evt.wheel.y < 0 ? buttonWheelDown : buttonWheelUp, 0, 0);
+      }
       break;
 
    case SDL_MOUSEMOTION:
@@ -145,10 +155,29 @@ void GameClientBase::OnEvent(SDL_Event& evt)
       }
       break;
 
-   case SDL_VIDEORESIZE:
-      // TODO resize render window
-      break;
+   case SDL_WINDOWEVENT:
+      switch (evt.window.event)
+      {
+      //case SDL_WINDOWEVENT_SHOWN:
+      //case SDL_WINDOWEVENT_HIDDEN:
+      case SDL_WINDOWEVENT_RESIZED:
+         {
+            Size size = GetScreenSize();
 
+            if (m_spRenderEngine != nullptr)
+            {
+               m_spRenderEngine->GetRenderWindow().ResizeView(size.Width(), size.Height());
+            }
+
+            // set new size
+            if (m_spWindowManager != nullptr)
+            {
+               m_spWindowManager->OnResizeScreen(size);
+            }
+         }
+         break;
+      }
+      break;
 
    case SDL_USEREVENT:
       // handle user events
@@ -195,7 +224,7 @@ void GameClientBase::DispatchInEventLoop(std::function<void()> fn)
    userEvent.user.code = c_iUserEventDispatch;
    userEvent.user.data1 = new std::function<void()>(fn);
 
-   ATLVERIFY(0 == SDL_PushEvent(&userEvent));
+   ATLVERIFY(1 == SDL_PushEvent(&userEvent));
 }
 
 Point GameClientBase::GetMousePos() throw()
@@ -208,7 +237,8 @@ Point GameClientBase::GetMousePos() throw()
 void GameClientBase::SetMousePos(const Point& pt) throw()
 {
    // this call causes an event of type SDL_MOUSEMOTION ...
-   SDL_WarpMouse(static_cast<Uint16>(pt.X()), static_cast<Uint16>(pt.Y()));
+   if (m_spRenderEngine != nullptr)
+      m_spRenderEngine->GetRenderWindow().SetMousePos(pt.X(), pt.Y());
 
    // ... so ignore it
    m_bIgnoreNextMouseMotion = true;
@@ -226,6 +256,31 @@ void GameClientBase::ShowCursor(bool bShow) throw()
 
 Size GameClientBase::GetScreenSize() const throw()
 {
-   SDL_Surface* surf = SDL_GetVideoSurface();
-   return Size(surf->w, surf->h);
+   int iWidth = 0, iHeight = 0;
+
+   if (m_spRenderEngine != nullptr)
+      m_spRenderEngine->GetRenderWindow().GetWindowSize(iWidth, iHeight);
+
+   return Size(iWidth, iHeight);
+}
+
+void GameClientBase::UpdateCaption(const CString& cszCaption)
+{
+   if (m_spRenderEngine != nullptr)
+      m_spRenderEngine->GetRenderWindow().SetCaption(cszCaption);
+}
+
+void GameClientBase::ToggleFullscreen()
+{
+   m_bFullscreen = !m_bFullscreen;
+
+   if (m_spRenderEngine != nullptr)
+      m_spRenderEngine->GetRenderWindow().SetFullscreen(m_bFullscreen);
+
+   // set new size
+   if (m_spWindowManager != nullptr)
+   {
+      Size size = GetScreenSize();
+      m_spWindowManager->OnResizeScreen(size);
+   }
 }

@@ -56,6 +56,13 @@ private:
    virtual Size GetScreenSize() const throw() override;
 
 private:
+   /// updates caption of client
+   void UpdateCaption(const CString& cszCaption);
+
+   /// toggles fullscreen window
+   void ToggleFullscreen();
+
+private:
    /// render engine
    std::shared_ptr<RenderEngine> m_spRenderEngine;
 
@@ -74,10 +81,16 @@ private:
    /// previous scene; used to store scene ptr when changing scenes
    std::shared_ptr<Scene> m_spPreviousScene;
 
+   /// client name
+   CString m_cszClientName;
+
+   /// indicates if client is in fullscreen
+   bool m_bFullscreen;
+
    /// indicates that next mouse motion event should be ignored
    bool m_bIgnoreNextMouseMotion;
    /// mouse motion x pos to ignore
-   unsigned int m_iMouseMotionPosToIgnoreX;
+   Sint32 m_iMouseMotionPosToIgnoreX;
    /// mouse motion y pos to ignore
-   unsigned int m_iMouseMotionPosToIgnoreY;
+   Sint32 m_iMouseMotionPosToIgnoreY;
 };

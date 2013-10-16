@@ -37,12 +37,12 @@ public:
    std::shared_ptr<IScenegraph> m_spScenegraph;
 };
 
-RenderEngine::RenderEngine(unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen)
+RenderEngine::RenderEngine(const CString& cszWindowCaption, unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen)
 :m_spImpl(new Impl)
 {
-   m_spImpl->m_spWindow.reset(new RenderWindow(uiWidth, uiHeight, bFullscreen, m_spImpl->m_renderOptions));
+   m_spImpl->m_spWindow.reset(new RenderWindow(cszWindowCaption, uiWidth, uiHeight, bFullscreen));
 
-   m_spImpl->m_spWindow->SetupView(GetRenderOptions());
+   ApplyRenderOptions(GetRenderOptions());
 
    // call IsExtensionSupported here so that it gets initialized
    OpenGL::IsExtensionSupported(_T(""));
@@ -53,7 +53,7 @@ RenderEngine::RenderEngine(unsigned int uiWidth, unsigned int uiHeight, bool bFu
 
 RenderEngine::~RenderEngine()
 {
-   ATLASSERT(m_spImpl != NULL);
+   ATLASSERT(m_spImpl != nullptr);
 
    if (m_spImpl->m_spScenegraph != nullptr)
       m_spImpl->m_spScenegraph->Done();
@@ -64,14 +64,14 @@ RenderEngine::~RenderEngine()
 
 void RenderEngine::SetScenegraph(std::shared_ptr<IScenegraph> spScenegraph) throw()
 {
-   ATLASSERT(m_spImpl != NULL);
+   ATLASSERT(m_spImpl != nullptr);
 
    m_spImpl->m_spScenegraph = spScenegraph;
 }
 
 void RenderEngine::SetCamera(std::shared_ptr<ICamera> spCamera)
 {
-   ATLASSERT(m_spImpl != NULL);
+   ATLASSERT(m_spImpl != nullptr);
 
    m_spImpl->m_spCamera = spCamera;
 }
@@ -83,9 +83,17 @@ RenderOptions& RenderEngine::GetRenderOptions()
 
 std::shared_ptr<ICamera> RenderEngine::GetCamera()
 {
-   ATLASSERT(m_spImpl != NULL);
+   ATLASSERT(m_spImpl != nullptr);
 
    return m_spImpl->m_spCamera;
+}
+
+RenderWindow& RenderEngine::GetRenderWindow()
+{
+   ATLASSERT(m_spImpl != nullptr);
+   ATLASSERT(m_spImpl->m_spWindow != nullptr);
+
+   return *m_spImpl->m_spWindow;
 }
 
 void RenderEngine::Render()
@@ -109,8 +117,49 @@ void RenderEngine::Render()
 void RenderEngine::SwapBuffers()
 {
    ATLASSERT(OpenGL::IsRenderThread());
-   ATLASSERT(m_spImpl != NULL);
+   ATLASSERT(m_spImpl != nullptr);
 
    if (m_spImpl->m_spWindow != nullptr)
       m_spImpl->m_spWindow->SwapBuffers();
+}
+
+void RenderEngine::ApplyRenderOptions(RenderOptions& renderOptions)
+{
+   if (renderOptions.Get(RenderOptions::optionCullBackface))
+   {
+      // only render front face, counter clockwise
+      glEnable(GL_CULL_FACE);
+      glCullFace(GL_BACK);
+      glFrontFace(GL_CCW);
+      glPolygonMode(GL_FRONT, GL_FILL);
+   }
+   else
+   {
+      // render back faces, too
+      glDisable(GL_CULL_FACE);
+      glCullFace(GL_FRONT_AND_BACK);
+      glPolygonMode(GL_FRONT, GL_FILL);
+
+      if (renderOptions.Get(RenderOptions::optionBackfaceAsLines))
+         glPolygonMode(GL_BACK, GL_LINE);
+      else
+         glPolygonMode(GL_BACK, GL_FILL);
+   }
+
+   // enable z-buffer
+   glEnable(GL_DEPTH_TEST);
+
+   // enable texturing
+   glEnable(GL_TEXTURE_2D);
+
+   // smooth shading
+   glShadeModel(GL_SMOOTH);
+
+   // give some rendering hints
+   glHint(GL_FOG_HINT, GL_DONT_CARE);
+   glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+   glHint(GL_POLYGON_SMOOTH_HINT, GL_DONT_CARE);
+
+   // reset errors
+   glGetError();
 }

@@ -15,9 +15,11 @@
 /// user code for event dispatch; see MainGameLoop::DispatchInEventLoop()
 const int c_iUserEventDispatch = 0;
 
-MainGameLoop::MainGameLoop(bool bUpdateFrameCount, const CString& cszClientName)
+MainGameLoop::MainGameLoop(bool bUpdateFrameCount, const CString& cszClientName,
+   std::function<void(const CString&)> fnUpdateCaption)
 :m_bUpdateFrameCount(bUpdateFrameCount),
  m_cszClientName(cszClientName),
+ m_fnUpdateCaption(fnUpdateCaption),
  m_bExitLoop(false),
  m_bAppActive(true),
  m_bMouseFocus(true),
@@ -63,6 +65,9 @@ void MainGameLoop::Run()
 
 void MainGameLoop::UpdateCaption(double dFramesPerSecond)
 {
+   if (m_fnUpdateCaption == nullptr)
+      return;
+
    unsigned int uiPolycount = OpenGL::Polycount();
 
    // set new caption
@@ -73,7 +78,7 @@ void MainGameLoop::UpdateCaption(double dFramesPerSecond)
       unsigned((dFramesPerSecond-unsigned(dFramesPerSecond))*10.0),
       uiPolycount);
 
-   SDL_WM_SetCaption(CStringA(cszCaption), NULL);
+   m_fnUpdateCaption(cszCaption);
 }
 
 void MainGameLoop::ProcessEvents()
@@ -90,25 +95,16 @@ void MainGameLoop::ProcessEvents()
          m_bExitLoop = true;
          break;
 
-      case SDL_ACTIVEEVENT:
-         if (evt.active.state & SDL_APPACTIVE)
-            m_bAppActive = evt.active.gain != 0; // application active? e.g. running vs. iconified
-
-         if (evt.active.state & SDL_APPMOUSEFOCUS)
-            m_bMouseFocus = evt.active.gain != 0; // mouse has focus in window?
-
-         if (evt.active.state & SDL_APPMOUSEFOCUS)
-            m_bInputFocus = evt.active.gain != 0; // app has input focus
+      case SDL_APP_WILLENTERBACKGROUND:
+         m_bAppActive = false;
          break;
 
-      case SDL_VIDEOEXPOSE:
-         // Screen needs to be redrawn; since we do that anyway
-         // after processing all messages, just do nothing.
+      case SDL_APP_DIDENTERFOREGROUND:
+         m_bAppActive = true;
          break;
 
       default:
          OnEvent(evt);
-         //ATLTRACE(_T("unknown event: %u\n"), evt.type);
          break;
       }
    }

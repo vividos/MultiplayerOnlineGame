@@ -13,6 +13,7 @@
 class IScenegraph;
 class ICamera;
 class RenderOptions;
+class RenderWindow;
 
 /// \brief render engine
 class RENDERENGINE_DECLSPEC RenderEngine: public boost::noncopyable
@@ -21,7 +22,7 @@ public:
    DEFINE_INSTANCE(RenderEngine)
 
    /// ctor
-   RenderEngine(unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen);
+   RenderEngine(const CString& cszWindowCaption, unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen);
    /// dtor
    ~RenderEngine();
 
@@ -37,6 +38,9 @@ public:
    /// returns current camera
    std::shared_ptr<ICamera> GetCamera();
 
+   /// returns render window
+   RenderWindow& GetRenderWindow();
+
    /// renders scene
    void Render();
 
@@ -44,14 +48,8 @@ public:
    void SwapBuffers();
 
 private:
-   /// initializes video
-   void InitVideo(unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen);
-
-   /// sets up view
-   void SetupView();
-
-   /// resizes view
-   void ResizeView(unsigned int uiWidth, unsigned int uiHeight);
+   /// applies render options to OpenGL
+   void ApplyRenderOptions(RenderOptions& renderOptions);
 
 private:
    class Impl;

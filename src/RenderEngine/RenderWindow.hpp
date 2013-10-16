@@ -8,30 +8,45 @@
 
 // includes
 #include "RenderEngineCommon.hpp"
+#include "RenderEngineCommon.hpp"
 
 // forward references
 class RenderOptions;
+typedef struct SDL_Window SDL_Window;
 
 /// \brief render window
 class RENDERENGINE_DECLSPEC RenderWindow: public boost::noncopyable
 {
 public:
    /// ctor
-   RenderWindow(unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen, RenderOptions& renderOptions);
-
-   /// sets up view
-   void SetupView(RenderOptions& renderOptions);
+   RenderWindow(const CString& cszWindowCaption, unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen);
 
    /// swaps display buffers
    void SwapBuffers();
 
+   /// resizes view
+   void ResizeView(unsigned int uiWidth, unsigned int uiHeight);
+
    /// change fullscreen or window mode
    void SetFullscreen(bool bFullscreen);
 
+   /// sets new caption
+   void SetCaption(const CString& cszCaption);
+
+   /// sets new mouse pos; causes a SDL_MOUSEMOVE event
+   void SetMousePos(int xpos, int ypos);
+
+   /// returns window size
+   void GetWindowSize(int& iWidth, int& iHeight) const;
+
 private:
    /// initializes video
-   void InitVideo(unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen);
+   void InitVideo(const CString& cszWindowCaption, unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen);
 
-   /// resizes view
-   void ResizeView(unsigned int uiWidth, unsigned int uiHeight);
+private:
+   /// SDL window
+   std::shared_ptr<SDL_Window> m_spWindow;
+
+   /// GL context
+   std::shared_ptr<void> m_spGLCcontext;
 };

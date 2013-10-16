@@ -12,6 +12,7 @@
 #include "UserInterfaceAudio.hpp"
 
 // forward references
+class Size;
 class Window;
 class Rect;
 
@@ -43,6 +44,8 @@ public:
    virtual void OnMouseMotionEvent(unsigned int x, unsigned int y) = 0;
    /// called to handle keyboard events
    virtual bool OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int mod) = 0;
+   /// called when screen has been resized (e.g. toggling fullscreen)
+   virtual void OnResizeScreen(Size newSize) = 0;
 
    /// returns root window ptr
    virtual WindowPtr GetRootWindow() throw() = 0;

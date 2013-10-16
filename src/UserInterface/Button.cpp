@@ -136,7 +136,7 @@ bool Button::OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned int /*
 void Button::OnMouseMotionEvent(unsigned int /*x*/, unsigned int /*y*/)
 {
    int x, y;
-   Uint8 uiButtonState = ::SDL_GetMouseState(&x, &y);
+   Uint32 uiButtonState = ::SDL_GetMouseState(&x, &y);
    bool bLeftButtonDown = (uiButtonState & SDL_BUTTON_LMASK) != 0;
 
    // when mouse enters again...

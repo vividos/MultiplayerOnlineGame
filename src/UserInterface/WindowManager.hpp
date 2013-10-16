@@ -21,7 +21,7 @@ class USERINTERFACE_DECLSPEC WindowManager: public IWindowManager
 {
 public:
    /// ctor
-   WindowManager();
+   WindowManager(unsigned int uiWidth, unsigned int uiHeight);
 
    /// dtor
    virtual ~WindowManager() throw()
@@ -57,6 +57,8 @@ private:
    virtual void OnMouseMotionEvent(unsigned int x, unsigned int y) override;
    /// called to handle keyboard events
    virtual bool OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int mod) override;
+   /// called when screen has been resized (e.g. toggling fullscreen)
+   virtual void OnResizeScreen(Size newSize) override;
 
    /// returns root window
    virtual WindowPtr GetRootWindow() throw() override;
@@ -74,6 +76,9 @@ private:
    virtual void PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) throw() override;
 
 private:
+   /// current screen size
+   Size m_screenSize;
+
    /// root window for all child windows
    WindowPtr m_spRootWindow;
 

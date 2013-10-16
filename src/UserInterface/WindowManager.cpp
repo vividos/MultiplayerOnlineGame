@@ -63,19 +63,16 @@ private:
 // WindowManager
 //
 
-WindowManager::WindowManager()
+WindowManager::WindowManager(unsigned int uiWidth, unsigned int uiHeight)
+:m_screenSize(uiWidth, uiHeight)
 {
    m_spRootWindow.reset(new RootWindow(*this, m_fontManager));
-
-   // create root window from surface size
-   SDL_Surface* surf = SDL_GetVideoSurface();
-   ATLASSERT(surf != NULL); // window not opened?
 
    Window& w = *m_spRootWindow;
 
    // set attributes
    w[WindowAttr::Pos] = _T("0,0");
-   w.SetAttr(WindowAttr::Size, Size(surf->w, surf->h));
+   w.SetAttr(WindowAttr::Size, Size(uiWidth, uiHeight));
 }
 
 CString WindowManager::LoadJson(IFileSystem& fileSystem, const CString& cszRelativeFilename)
@@ -108,14 +105,11 @@ void WindowManager::CreateFromJson(WindowPtr spWindow, IFileSystem& fileSystem, 
 
 void WindowManager::MapCoords(unsigned int& x, unsigned int& y)
 {
-   // get surface rect
-   SDL_Surface* surf = SDL_GetVideoSurface();
-
-   Size s = m_spRootWindow->GetSize();
+   Size windowSize = m_spRootWindow->GetSize();
 
    // translate to window coords
-   x = static_cast<unsigned int>((static_cast<double>(s.Width())/surf->w) * x);
-   y = static_cast<unsigned int>((static_cast<double>(s.Height())/surf->h) * y);
+   x = static_cast<unsigned int>((double(windowSize.Width()) / m_screenSize.Width()) * x);
+   y = static_cast<unsigned int>((double(windowSize.Height()) / m_screenSize.Height()) * y);
 }
 
 void WindowManager::PreRender()
@@ -210,6 +204,11 @@ bool WindowManager::OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned in
       return m_spFocusedWindow->OnKeyboardEvent(bKeyDown, sym, mod);
 
    return false;
+}
+
+void WindowManager::OnResizeScreen(Size newSize)
+{
+   m_screenSize = newSize;
 }
 
 WindowPtr WindowManager::GetRootWindow() throw()

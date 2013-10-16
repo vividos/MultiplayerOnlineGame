@@ -19,6 +19,7 @@ class Vector3d;
 
 /// helper macro to output OpenGL errors when previous OpenGL call failed
 #ifdef _DEBUG
+#include <gl/glu.h>
    #define glTraceError(x) \
       { \
          GLenum err = ::glGetError(); \

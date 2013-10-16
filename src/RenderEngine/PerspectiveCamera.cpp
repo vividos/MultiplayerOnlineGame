@@ -44,11 +44,12 @@ void PerspectiveCamera::SetPosition(const Vector3d& vPos, double dAngleDirection
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
 
-   SDL_Surface* surf = SDL_GetVideoSurface();
-   ATLASSERT(surf != NULL); // camera must be set only after render window was created
+   GLint viewport[4];
+   glGetIntegerv(GL_VIEWPORT, viewport);
 
-   gluPerspective(g_dAngleFieldOfView, static_cast<GLdouble>(surf->w)/surf->h,
-      m_dNearPlaneDist, m_dFarPlaneDist);
+   double dRatio = GLdouble(viewport[2]) / viewport[3];
+
+   gluPerspective(g_dAngleFieldOfView, dRatio, m_dNearPlaneDist, m_dFarPlaneDist);
 
    glRotated(-dAngleUp, 1.0, 0.0, 0.0); // rotate around x axis
    glRotated(dAngleDirection, 0.0, 1.0, 0.0); // rotate around y axis
@@ -69,8 +70,10 @@ void PerspectiveCamera::SetNearFarPlaneDistance(double dNearPlaneDist, double dF
 
 ViewFrustum3d PerspectiveCamera::GetViewFrustum() const throw()
 {
-   SDL_Surface* surf = SDL_GetVideoSurface();
-   double dRatio = static_cast<GLdouble>(surf->w) / surf->h;
+   GLint viewport[4];
+   glGetIntegerv(GL_VIEWPORT, viewport);
+
+   double dRatio = GLdouble(viewport[2]) / viewport[3];
 
    return ViewFrustum3d(m_vPos,
       180.0-m_dAngleDirection,
