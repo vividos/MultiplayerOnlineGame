@@ -66,6 +66,8 @@ RenderEngine& GameClientBase::GetRenderEngine()
 
 void GameClientBase::OnRender()
 {
+   m_graphicsTaskManager.UploadOne();
+
    if (m_spScene != nullptr)
       m_spScene->PreRender();
 

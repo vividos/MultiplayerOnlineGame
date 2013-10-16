@@ -70,6 +70,7 @@
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="BitmapImageWriter.cpp" />
     <ClCompile Include="Checkerboard.cpp" />
+    <ClCompile Include="GraphicsTaskManager.cpp" />
     <ClCompile Include="ImageReader\JpegImageReader.cpp" />
     <ClCompile Include="ImageReader\PcxImageReader.cpp" />
     <ClCompile Include="ImageReader\PNG.cpp" />
@@ -94,6 +95,7 @@
     <ClInclude Include="Bitmap.hpp" />
     <ClInclude Include="BitmapImageWriter.hpp" />
     <ClInclude Include="Checkerboard.hpp" />
+    <ClInclude Include="GraphicsTaskManager.hpp" />
     <ClInclude Include="ICamera.hpp" />
     <ClInclude Include="IImageReader.hpp" />
     <ClInclude Include="ImageReader\JpegDecoder.hpp" />

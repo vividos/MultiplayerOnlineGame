@@ -11,6 +11,7 @@
 #include "MainGameLoop.hpp"
 #include "ISceneManager.hpp"
 #include "KeyboardActionBindings.hpp"
+#include "GraphicsTaskManager.hpp"
 #include <functional>
 
 // forward references
@@ -40,7 +41,10 @@ public:
    /// returns keyboard action manager
    KeyboardActionManager& GetKeyboardActionManager() throw() { return m_keyboardActionManager; }
 
-private:
+   /// returns graphics task manager
+   GraphicsTaskManager& GetGraphicsTaskManager() throw() { return m_graphicsTaskManager; }
+
+protected:
    // virtual methods from MainGameLoop
 
    virtual void OnRender() override;
@@ -75,6 +79,9 @@ private:
 
    /// keyboard action bindings
    KeyboardActionBindings m_actionBindings;
+
+   /// graphics task manager
+   GraphicsTaskManager m_graphicsTaskManager;
 
    /// scene
    std::shared_ptr<Scene> m_spScene;
