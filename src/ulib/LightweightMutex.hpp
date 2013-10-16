@@ -30,19 +30,19 @@ public:
    }
 
 private:
-   /// locks object
+   /// locks mutex
    void Lock() throw()
    {
       EnterCriticalSection(&m_cs);
    }
 
-   /// unlocks object
+   /// unlocks mutex
    void Unlock() throw()
    {
       LeaveCriticalSection(&m_cs);
    }
 
-   // so that MutexLock class can call Lock() and Unlock()
+   // friend so that MutexLock class can call Lock() and Unlock()
    friend MutexLock<LightweightMutex>;
    friend MutexUnLocker<LightweightMutex>;
 

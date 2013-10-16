@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2008,2009 Michael Fink
+// Copyright (C) 2008,2009,2013 Michael Fink
 //
 /// \file ProgramOptions.cpp program options implementation
 //

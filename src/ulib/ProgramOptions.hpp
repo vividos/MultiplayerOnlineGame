@@ -74,6 +74,9 @@ public:
    /// registers general help option /h, /?, --help
    void RegisterHelpOption();
 
+   /// output help (manually)
+   bool OutputHelp();
+
    /// helper function for outputting to console; can directly be used in call to RegisterOutputHandler()
    static void OutputConsole(const CString& cszText);
 
@@ -101,9 +104,6 @@ private:
       bStorage = true;
       return true;
    }
-
-   /// outputs help
-   bool OutputHelp();
 
 private:
    /// info about a single option
