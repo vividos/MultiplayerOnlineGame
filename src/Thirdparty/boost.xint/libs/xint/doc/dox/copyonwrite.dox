@@ -1,0 +1,23 @@
+/*! \page cow Copying and Argument-Passing
+
+You might notice that most of the library's functions pass integer objects by
+value, which strikes most developers as incredibly inefficient. I thought so
+too, until I read Dave Abrahams' excellent article,
+\e "Want Speed? Pass By Value.", which you can find at
+<http://cpp-next.com/archive/2009/08/want-speed-pass-by-value/>.
+
+To increase the speed of the library further, it uses a \ref
+r_cow "copy-on-write" system internally. That means that if the internal
+functions copy an integer object, the copy and the original share the same
+storage. They are only assigned separate storage when one of them is changed.
+This mechanism makes copying a number (explicitly, by returning it, or by using
+it as a non-reference parameter to a function) very fast, regardless of its
+size.
+
+Unfortunately, copy-on-write isn't compatible with thread-safe operation, so by
+default the library will ensure that all of its objects have unique storage
+before they are returned to your program. If you want maximum speed, and can
+ensure that %integer objects are only used in the threads they are created in,
+you can disable this by using the \c options::copy_on_write option on the \c
+integer_t class template.
+*/

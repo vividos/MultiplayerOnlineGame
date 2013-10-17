@@ -1,0 +1,5 @@
+wxMiniApp	/home/chad/projects/raccoon/main.cpp	/^class wxMiniApp : public wxApp {$/;"	class	line:5	inherits:wxApp
+OnInit	/home/chad/projects/raccoon/main.cpp	/^    virtual bool OnInit();$/;"	prototype	line:8	class:wxMiniApp	access:public	implementation:virtual	signature:()	returns:virtual bool
+OnClick	/home/chad/projects/raccoon/main.cpp	/^    void OnClick(wxCommandEvent& event) { GetTopWindow()->Close(); }$/;"	function	line:11	class:wxMiniApp	access:public	signature:(wxCommandEvent& event)	returns:void
+wxMiniApp	/home/chad/projects/raccoon/main.cpp	/^IMPLEMENT_APP(wxMiniApp);$/;"	variable	line:14
+OnInit	/home/chad/projects/raccoon/main.cpp	/^bool wxMiniApp::OnInit() {$/;"	function	line:16	class:wxMiniApp	signature:()	returns:bool wxMiniApp::

@@ -1,0 +1,10 @@
+/*! \page r_random Why did you implement your own random number generator? You should use Boost.Random instead.
+
+Boost.Random provides \c boost::random_device to tap into the operating system's
+strong random number generator. As of Boost 1.43, it now supports Windows as
+well. But, also as of Boost 1.43, it requires a compiled library, making it more
+difficult to use in examples. As such, I've left the \c
+xint::strong_random_generator class here as well. Anyone using the library is
+free to use \c boost::random_device (or any other Boost.Random device) if they
+wish.
+*/

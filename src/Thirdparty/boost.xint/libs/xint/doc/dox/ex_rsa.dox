@@ -1,0 +1,32 @@
+/*! \page ex_rsa RSA Encryption
+
+Here is an RSA encryption example, demonstrating one possible use for the XInt
+library. RSA is interesting here because, to get sufficient key strength to make
+any effective use of it, the computer must make some mathematical calculations
+involving numbers that are far larger than the built-in types can handle (32 or
+64 bits generally, and 128 bits at most, in today's systems). To accomplish
+this, the example uses \ref
+boost::xint::options::negative_modulus "unsigned", \ref
+boost::xint::options::fixedlength "fixed-length" integers with \ref
+boost::xint::options::secure "the secure option". If you're not familiar with
+the RSA encryption algorithm, you can find a full explanation <a
+href="https://secure.wikimedia.org/wikipedia/en/wiki/RSA">on Wikipedia</a>.
+
+One point of interest to the reader might be the use of a \c callback function
+to provide feedback to the user during the generation of the prime numbers. You
+might not notice it in action in this example, depending on the speed of your
+system, but raise the bits parameter to the \c Rsa class from 512 to 2048 and
+even the fastest systems at the time of this writing will take a little time to
+work.
+
+Please note that this example, while fairly complete, is minimal. It does not
+include signing or verification of signatures, does nothing to prevent a known
+attack method (the "low encryption exponent" attack), and does not use a custom
+allocator (a serious implementation that was concerned with security probably
+would, to prevent sensitive information from being written to the system's swap
+file).
+
+You can find this example as the file \c rsa.cpp in the \c example directory.
+
+\include rsa.cpp
+*/

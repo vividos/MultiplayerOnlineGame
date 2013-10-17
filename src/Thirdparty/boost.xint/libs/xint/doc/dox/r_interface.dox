@@ -1,0 +1,28 @@
+/*! \page r_interface Why did you do \e X in the interface?
+
+The interface is based on several papers by M.J. Kronenburg presented to the C++
+Standards Committee between 2004 and 2007, and a "standardese" document by
+Michiel Salters / Nederlands Normalisatie Instituut.
+
+\see n1692: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1692.pdf
+\see n2020: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2020.pdf
+\see n2143: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2143.pdf
+\see n1744: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1744.pdf
+
+The library does not follow them exactly because it was designed before I knew
+about them. I adapted it to them later.
+
+There are only a few notable places where XInt differs from them:
+
+- It does not provide separate mathematical primitive functions for <code>long
+long</code>, as suggested in n1744. This is partly because <code>long
+long</code> is not yet in the C++ standard, but mostly because I don't see a
+need for it. The conversion constructors are efficient enough for smaller values
+that there wouldn't be any noticeable benefit from it.
+- It does not, at present, implement a multiplication scheme with better
+performance than the "basecase" mentioned in section 3.4 of n1692, primarily
+because I haven't had the time to research all of them yet. I suspect that most
+people using the library will usually be using numbers below the threshold where
+the more exotic algorithms are faster, but I plan to add at least one of them in
+the future, maybe several.
+*/

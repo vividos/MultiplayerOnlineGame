@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="Docs" InternalType="">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0003All0000000000000001N0005Debug000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <Dependencies Name="Debug"/>
+  <VirtualDirectory Name="dox">
+    <File Name="../../../../libs/xint/doc/dox/acknowledgements.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/complexity.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/copyonwrite.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/dependencies.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/ex_fibonacci.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/exceptions.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/history.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/index.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/nan.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/primes.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_core.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_cow.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_exception_blocking.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_insecure_default.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_interface.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_interface_design_only.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_nan.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_negzero.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_nofloats.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_random.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_shared_ptr.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_toobig.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/random.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/rationale.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/testing.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/zero.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/threadsafe.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/fixedlength.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/r_whynotx.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/no_exceptions.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/ex_simplest.dox"/>
+    <File Name="../../../../libs/xint/doc/dox/footer.html"/>
+    <File Name="../../doc/dox/ex_rsa.dox"/>
+    <File Name="../../doc/dox/ex_primes.dox"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="Project">
+    <File Name="../libs/xint/doc/dox/Doxyfile"/>
+  </VirtualDirectory>
+  <Dependencies Name="All"/>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="All" CompilerType="cobra" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" C_Options="-g" Required="no" PreCompiledHeader="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O0" Required="no">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="Debug"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="" IntermediateDirectory="./Debug" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./Debug" PauseExecWhenProcTerminates="no"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="yes">
+        <Target Name="Show">firefox ../index.html</Target>
+        <RebuildCommand/>
+        <CleanCommand>rm ~/projects/xint/libs/xint/doc/*</CleanCommand>
+        <BuildCommand>doxygen</BuildCommand>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory>/home/chad/projects/xint/libs/xint/doc/dox</WorkingDirectory>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>

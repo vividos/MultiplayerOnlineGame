@@ -1,0 +1,13 @@
+/*! \page complexity A Note on Algorithmic Complexity
+
+This documentation includes a time-complexity estimate, in big-O notation, for
+each algorithm. The \c n in the complexity estimates is roughly the number of
+bits in the parameter(s). (More accurately, it's the number of \c digit_t values
+needed to hold those bits.) For those algorithms where the complexity
+calculation differs for different parameters, the parameter is noted as a
+subscript.
+
+The time complexity is well-known for some algorithms, but for others, I had to
+make an educated guess. If you discover an error in the listed complexity,
+please report it.
+*/

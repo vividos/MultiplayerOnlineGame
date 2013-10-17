@@ -1,0 +1,11 @@
+/*! \page testing The Library Validation Program
+
+The library includes a validation suite. It is primarily for use in Boost's own
+testing, but you can build and run it if desired to confirm that it the library
+is working properly. You can find the source code for it in the \c
+libs/xint/test directory. All of the major functions are thoroughly exercised,
+and many of the minor ones as well.
+
+The source code for the testing suite also demonstrates how to use many of the
+library's functions.
+*/

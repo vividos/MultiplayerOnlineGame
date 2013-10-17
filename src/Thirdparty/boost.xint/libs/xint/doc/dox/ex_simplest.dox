@@ -1,0 +1,9 @@
+/*! \page ex_simplest A Very Simple Example
+
+Here is a very simple example of how to use the library, which you can find as
+the file \c simplest.cpp in the \c example directory:
+
+\include simplest.cpp
+
+The numbers can get a \e lot larger than that too, without any problem.
+*/

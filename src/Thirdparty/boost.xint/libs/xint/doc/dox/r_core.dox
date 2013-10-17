@@ -1,0 +1,24 @@
+/*! \page r_core What's with the \c nothrow_integer type?
+
+Several people on the Boost developers' mailing list expressed reservations
+about the exception-blocking mechanism in the original implementation, and the
+Not-a-Number value that it required. After a spirited debate, two indisputable
+points emerged:
+
+- The existence of a Not-a-Number value forced every function to check its
+parameters for it.
+- The exception-blocking mechanism would cause problems with any library built
+on this one, such as the arbitrary-precision real type that I'm certain someone
+will build.
+
+To deal with this, I separated the \c xint::integer and \c xint::nothrow_integer
+types. \c xint::integer functions now always throw exceptions on errors, and
+always hold valid numbers; \c xint::nothrow_integer functions (as implied by the
+name) never throw exceptions, instead returning the Not-a-Number value (which
+only \c nothrow_integer can hold).
+
+This design ensures that the Not-a-Number value only needs to be checked for in
+the \c nothrow_integer code, and ensures that any speed penalty from it is only
+incurred by people who choose to use the \c nothrow_integer type. It also
+preserves the no-exceptions behavior, which is useful under some circumstances.
+*/

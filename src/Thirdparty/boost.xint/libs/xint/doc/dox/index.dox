@@ -1,0 +1,86 @@
+/*! \mainpage The Extended Integer (XInt) Library
+
+<center>A fast, portable C++ library for multi-precision integer math.</center>
+
+<center>Copyright 2010 by Chad Nelson</center>
+
+\section what What is it?
+
+It's a C++ library that lets your program handle much, \e much larger integer
+numbers than the built-in \c int, \c long, or even <code>long long</code> types,
+and handle them using the same syntax that C and C++ use for the built-in
+integer types.
+
+The maximum size of the integer is limited only by the memory available to store
+it. In practice that's millions of hexadecimal digits, so it's effectively
+infinite.
+
+\warning This is not (yet) an official Boost library.
+
+\section why Why would I use it?
+
+\li <b>Because it's completely portable.</b> It's written entirely in modern
+C++, with many different types of operating system, compiler, and hardware in
+mind. It will compile cleanly on many operating systems without any changes,
+automatically adapting to the most efficient native integer sizes available.
+\li <b>Because it's designed for speed too.</b> Portability is the primary
+design criteria, but speed is a close second.
+\li <b>Because it has the features you need.</b> Modular arithmetic. Fixed- or
+variable-length integer types. Cryptographically-secure prime number generation.
+Bit manipulation functions. Exception- or error-code-based operation. A friendly
+and intuitive interface. Thread-safe operation (which can be disabled for
+maximum speed). Complete and carefully maintained documentation. What more could
+you want?
+\li <b>Because it's open-source.</b> You can see exactly how it works. You can
+never be left high and dry because the company that made it goes out of
+business, or decides that it's not profitable to maintain it. If you find a bug
+that isn't fixed fast enough for you, you can fix it yourself, no waiting for
+someone else to get around to it.
+\li <b>Because it's closed-source-friendly and commercial-friendly.</b> It's
+licensed under the Boost Software License 1.0 (which you can find at
+http://www.boost.org/LICENSE_1_0.txt), an OSI-approved open-source license that
+permits you to use it for pretty much anything you want, and doesn't make any
+anti-commercial or anti-closed-source demands.
+
+\section how How do I use it?
+
+That's the best part. If you've installed the Boost library already, all you
+need to do is add <code>\#include \<boost/xint/xint.hpp\></code> at the top of
+your source code file and declare your variable as type \c boost::xint::integer.
+Then just use it \ref ex_simplest "the way you'd use any integer". If you need
+something more advanced, take a look in \ref boost::xint "the reference section"
+and you just might find it.
+
+More information on how to use it can be found on the pages listed below.
+
+Examples:
+- \subpage ex_simplest
+- \subpage ex_fibonacci
+- \subpage ex_primes
+- \subpage ex_rsa
+
+More Details on Specific Features:
+- \subpage fixedlength_type
+- \subpage zero
+- \subpage exceptions (with example code)
+- \subpage nan (for \c Nothrow variants only)
+- \subpage exception_handler
+- \subpage random
+- \subpage threadsafe
+- \subpage complexity
+
+Library Information:
+- \ref boost::xint "The boost::xint Namespace Reference" (look here for specific
+functions)
+- \ref boost::xint::integer_t "The integer_t Class Reference" (look here if you
+need a customized integer type)
+- \subpage cow
+- \subpage testing
+- \subpage dependencies
+- \subpage rationale
+- \subpage acknowledgements
+*/
+
+// TODO: Add if/when accepted
+//If you discover a bug in this library, please report it here:
+//http://www.boost.org/support/bugs.html

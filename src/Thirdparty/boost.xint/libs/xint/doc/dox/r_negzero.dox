@@ -1,0 +1,7 @@
+/*! \page r_negzero Since you've got Not-a-Number, what about negative zero, and positive and negative infinity, like IEEE floating-point numbers?
+
+The library does have limited support for a \ref zero "\"negative zero\"" value,
+to support an unlimited-precision floating point type that will be built on it
+later. But infinity is a concept, not a countable value, and as such it is not
+included in the library at present.
+*/

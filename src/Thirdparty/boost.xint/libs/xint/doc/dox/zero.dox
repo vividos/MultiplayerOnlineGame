@@ -1,0 +1,26 @@
+/*! \page zero Zero and "Negative Zero"
+
+The mathematical concept of zero has no sign. It's neither positive nor
+negative (or if you prefer, it's both). The concept of a signed zero is used in
+floating-point numbers to represent a value that's so small that it can't be
+distinguished from zero, but which may not be an actual zero. Such a non-zero
+number does have a sign, but mathematically, a negative zero is simply zero.
+
+However, the XInt library does have limited support for a "negative zero," for
+use in a planned future unlimited-precision floating point library built on it.
+To get a negative zero, negate a normal zero value with the unary minus, like
+so:
+
+\code
+integer z = ...
+integer nz = -z;
+\endcode
+
+A negative zero will act exactly like a "normal" zero in all respects. The only
+way to detect a sign on it is by calling the \ref boost::xint::integer::sign
+"sign" function with the \c signed_zero parameter set to \c true. With that
+parameter, it will return -1 on any negative number, including zero.
+
+Note that the unary minus operator is the only function that will ever return a
+negative zero.
+*/

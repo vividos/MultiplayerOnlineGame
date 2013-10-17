@@ -1,0 +1,23 @@
+/*! \page rationale Rationale
+
+\section sinterface Interface
+- \subpage r_interface
+
+\section scow Copy-on-Write
+- \subpage r_cow
+- \subpage r_shared_ptr
+
+\section snan Not-a-Number and The nothrow_integer Type
+- \subpage r_nan
+- \subpage r_core
+- \subpage r_exception_blocking
+- \subpage r_negzero
+
+\section srandom Random generator
+- \subpage r_random
+- \subpage r_insecure_default
+
+\section sother Miscellaneous
+- \subpage r_too_big
+- \subpage r_no_floats
+*/

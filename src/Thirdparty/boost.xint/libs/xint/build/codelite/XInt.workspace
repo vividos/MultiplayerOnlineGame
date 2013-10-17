@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="XInt" Database="./XInt.tags">
+  <Project Name="XInt" Path="XInt.project" Active="Yes"/>
+  <Project Name="Docs" Path="Docs.project" Active="No"/>
+  <Project Name="Example-Exceptions" Path="Example-Exceptions.project" Active="No"/>
+  <Project Name="Example-Fibonacci" Path="Example-Fibonacci.project" Active="No"/>
+  <Project Name="Example-GenPrime" Path="Example-GenPrime.project" Active="No"/>
+  <Project Name="Example-Simplest" Path="Example-Simplest.project"/>
+  <Project Name="Example-Rsa" Path="Example-Rsa.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="no">
+      <Project Name="XInt" ConfigName="Debug"/>
+      <Project Name="Docs" ConfigName="All"/>
+      <Project Name="XInt" ConfigName="Debug"/>
+      <Project Name="Docs" ConfigName="All"/>
+      <Project Name="XInt" ConfigName="Debug"/>
+      <Project Name="Docs" ConfigName="All"/>
+      <Project Name="XInt" ConfigName="Debug"/>
+      <Project Name="Docs" ConfigName="All"/>
+      <Project Name="Example-Exceptions" ConfigName="Debug"/>
+      <Project Name="Example-Fibonacci" ConfigName="Debug"/>
+      <Project Name="Example-GenPrime" ConfigName="Debug"/>
+      <Project Name="Example-Simplest" ConfigName="Debug"/>
+      <Project Name="Example-Rsa" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="no">
+      <Project Name="XInt" ConfigName="Release"/>
+      <Project Name="Docs" ConfigName="All"/>
+      <Project Name="XInt" ConfigName="Release"/>
+      <Project Name="Docs" ConfigName="All"/>
+      <Project Name="XInt" ConfigName="Release"/>
+      <Project Name="Docs" ConfigName="All"/>
+      <Project Name="XInt" ConfigName="Release"/>
+      <Project Name="Docs" ConfigName="All"/>
+      <Project Name="Example-Exceptions" ConfigName="Release"/>
+      <Project Name="Example-Fibonacci" ConfigName="Release"/>
+      <Project Name="Example-GenPrime" ConfigName="Release"/>
+      <Project Name="Example-Simplest" ConfigName="Release"/>
+      <Project Name="Example-Rsa" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Debug, Header Only" Selected="no">
+      <Project Name="XInt" ConfigName="Debug, Header Only"/>
+      <Project Name="Example-Simplest" ConfigName="Debug"/>
+      <Project Name="Example-Rsa" ConfigName="Debug"/>
+      <Project Name="Example-GenPrime" ConfigName="Debug"/>
+      <Project Name="Example-Fibonacci" ConfigName="Debug"/>
+      <Project Name="Example-Exceptions" ConfigName="Debug"/>
+      <Project Name="Docs" ConfigName="All"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release, Header Only" Selected="yes">
+      <Project Name="XInt" ConfigName="Release, Header Only"/>
+      <Project Name="Example-Simplest" ConfigName="Debug"/>
+      <Project Name="Example-Rsa" ConfigName="Debug"/>
+      <Project Name="Example-GenPrime" ConfigName="Debug"/>
+      <Project Name="Example-Fibonacci" ConfigName="Debug"/>
+      <Project Name="Example-Exceptions" ConfigName="Debug"/>
+      <Project Name="Docs" ConfigName="All"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

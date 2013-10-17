@@ -1,0 +1,24 @@
+/*! \page threadsafe \c threadsafe vs. \c copy_on_write
+
+The \c threadsafe and \c copy_on_write parameters on the integer_t template
+control the \ref cow "copy-on-write behavior" of the library. When using \c
+copy_on_write, identical %integer objects are allowed to share storage, which is
+more efficient for both CPU power and memory, but which is generally unsafe for
+multithreaded use.
+
+That's a simplification though. The only problem multithreaded programs have
+with copy-on-write is that one thread might change an object while another is
+reading from it. Since the copy-on-write behavior is entirely internal to the
+class, no other code can tell when it's safe to make changes to an object. This
+is only a problem when more than one thread can access a specific object. So
+long as an %integer object is only accessed from the thread that it's created
+in, there's no danger.
+
+If you want the speed of copy-on-write (which can be noticeable if you're
+dealing with very large numbers), but need to use %integer objects from multiple
+threads when one or more might alter them, you can use the \c
+force_thread_safety parameter on the object's copy constructor to make a
+duplicate of an object with its own unique storage, even if using the \c
+copy_on_write option. You'll only need to do that when the %integer object is
+crossing thread boundaries.
+*/

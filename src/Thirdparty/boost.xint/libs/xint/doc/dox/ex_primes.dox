@@ -1,0 +1,28 @@
+/*! \page ex_primes Generating Prime Numbers
+
+A common reason to use a large-integer library is to implement public-key
+encryption, and the algorithms for such encryption often require large prime
+numbers.
+
+With larger bit-sizes, the \c is_probably_prime and \c random_prime functions
+can take a very long time to run, so you can pass an optional callback function
+to them as well. The provided callback function (which takes no parameters and
+returns a <code>bool</code>) will be called regularly during this time, and if
+it returns \c false, the function will abort and return zero (for random_prime)
+or -1 (for is_probably_prime) instead of a value.
+
+Here is an example of how to use the library functions to create a prime number
+of a specific length, using the system's strong random number generator:
+
+\include genprime.cpp
+
+You can find it in the \c examples directory, by the name \c genprime.cpp.
+
+Here is a sample of the output. Note that every run will (if it's working
+correctly) result in different numbers, so your results will differ from these:
+
+\code
+Generating..........................
+A random 512-bit prime is: 12009737795869539986194022437866390481384920191947206988741511161113229440676535479320682587385512103022452949890563015235787760630766445629685552930589409
+\endcode
+*/

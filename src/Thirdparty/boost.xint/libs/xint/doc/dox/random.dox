@@ -1,0 +1,31 @@
+/*! \page random The XInt Random Number System
+
+The library includes two convenience classes, meant to be used with the \ref
+boost::xint::integer_t::random_prime "random_prime" and \ref
+boost::xint::integer_t::random_by_size "random_by_size" functions.
+
+\ref boost::xint::default_random_generator "default_random_generator" is a thin
+shell around one of the faster pseudo-random generators provided by
+Boost.Random. It does \e not produce secure random numbers, but is often all
+that is needed.
+
+\ref boost::xint::strong_random_generator "strong_random_generator" provides an
+interface to the operating system's secure random number generator, for both
+Windows and UNIX-derived systems. It will throw an exception of type \c
+no_strong_random if you try to instantiate it on a system that does not have an
+operating-system-supplied generator. Note that the cryptographic security
+depends on the security of the underlying operating-system-provided random
+number generator, which may be debatable. Also note that, as of Boost 1.43, the
+\c boost::random_device class is basically identical to \c
+xint::strong_random_generator, and probably better in some respects. \c
+xint::strong_random_generator is still provided because \c boost::random_device
+requires a compiled library, which would complicate the examples.
+
+If you have a different preferred generator, perhaps one that interfaces with
+dedicated hardware to produce randomness, you can plug that into the library's
+\c random_by_size and \c random_prime functions instead.
+
+See the code at the top of \ref ex_primes "the Generating Prime Numbers example"
+for a demonstration of how to use these generators to produce (relatively)
+secure prime numbers.
+*/

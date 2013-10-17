@@ -1,0 +1,15 @@
+/*! \page r_too_big \c exceptions::too_big sounds like \c std::range_error to me.
+
+With good reason -- it's essentially the same thing. But in Josuttis' "The C++
+Standard Library", the wording on \c std::range_error is that it's "used to
+report a range error in internal computations." That didn't quite sound like
+what I was trying to convey with that exception, which is that the \c integer_t
+that the user is trying to convert won't fit into the type that he's trying to
+convert it to. It does inherit from std::range_error though, so you can use
+either for most things, and get more specific if desired.
+
+In addition, it seemed discordant to me to have a library that \e almost always
+throws exceptions from a particular namespace. It was almost no additional work
+to make it \e always throw from a specific namespace, and it fit my sense of
+rightness.
+*/

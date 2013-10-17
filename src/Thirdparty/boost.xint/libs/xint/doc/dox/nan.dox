@@ -1,0 +1,31 @@
+/*! \page nan The Not-a-Number Value
+
+Sometimes it's useful for a variable to have a value that doesn't represent any
+proper value, to indicate that it hasn't been specified or that there was an
+error in a calculation. For that purpose, the \c Nothrow variants of the \c
+integer_t type provide a Not-a-Number value.
+
+(Note that this value can \e only be held by the \c Nothrow variants of \c
+integer_t. If you try to assign it to another variant, you'll get a \c
+not_a_number exception.)
+
+To create a Not-a-Number, use the \c integer_t::nan function. No other library
+function will return a Not-a-Number except under the following circumstances:
+
+- If a function that returns a \c Nothrow integer would otherwise throw an
+exception.
+- If the string-to-Nothrow-integer functions are asked to convert the string
+\c "#NaN#".
+
+The only things you can do with a Not-a-Number are:
+
+- Test for it, using the member function \c integer_t::is_nan.
+- Convert it to a string, or write it to a stream. The result will be the string
+\c "#NaN#".
+- Make a copy of it.
+
+If you attempt to do anything else with it, you will get a special value
+indicating failure. This will be another Not-a-Number if the function you're
+calling returns an <code>integer_t</code>, otherwise the return value in that
+case will be noted in the function's documentation.
+*/

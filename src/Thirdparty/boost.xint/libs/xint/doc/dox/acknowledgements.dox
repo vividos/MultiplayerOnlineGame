@@ -1,0 +1,63 @@
+/*! \page acknowledgements Acknowledgements
+
+Several people have helped me improve the XInt library. Particular thanks go to
+Paul Bristow, for...
+- Pointing out the need for a specialization of \c std::numeric_limits for the
+library-provided types;
+- Spending a great deal of time and effort to introduce me to the Boost.Test
+framework and Doxygen/QuickBook;
+- Providing test cases and documentation tweaks;
+- General advice and moral support.
+
+...and to Jeffrey Lee Hellrung, Jr., for...
+- advice on implementing move-aware objects;
+- an invigorating discussion on the differing needs of an integer library versus
+a floating-point one;
+- politely pointing out a logic bug that I was blind to;
+- and several other things that I'm sure I missed.
+
+The library wouldn't be nearly as good without their work.
+
+Other contributors from the Boost development list, roughly in the order that
+they contributed:
+
+- Steven Watanabe, for an improvement to the template constructor, and for
+comments on the random number code.
+- Scott McMurray, for comments on the random number code, the Not-a-Number
+value, and the blockable exceptions design, and for accidentally pointing out an
+error in the square-root function, among other things.
+- "Pavel" for suggesting adding the algorithmic complexity of each function to
+the documentation, and for more than once understanding what I was trying to
+explain when no one else seemed to.
+- Vincente Juan Botet Escribá, for doubting everything I wrote... irritating,
+but sometimes useful.
+- Peter Dimov, for suggesting a separate \c overflow_error exception class.
+- "Fred," a.k.a. "Gottlob Frege", for information on infinities.
+- Joachim Faulhaber, for a discussion of intervals and interval containers.
+- Domagoj Saric, for suggesting a design that would allow for both
+variable-length and fixed-length integers.
+- Juergen Hunold, for major improvements to the build system.
+- Robert Stewart, for a thorough review of the headers.
+- John Bytheway, for an idea for simplifying the template documentation greatly.
+- David Abrahams, for contributing a thought on how to use Boost.Parameter
+effectively with multiple \c bool parameters.
+- Christopher Jefferson, for sharing the best way to support \c
+BOOST_NO_EXCEPTIONS.
+- Adam Merz, for his advice on proper wstring/wchar_t support.
+
+And the other Boost development list members who joined the discussion:
+
+- Anders Dalvander
+- Arash Partow
+- Frank Mori Hess
+- Daniel (Herring?)
+- "OvermindDL1"
+- Marius Stoica
+- Kim Barrett
+- Mathias Gaunard
+- Giovanni Piero Deretta
+- Daniel F.
+- Lucanus J Simonson
+
+If I've forgotten anyone, please let me know and I'll correct the oversight.
+*/

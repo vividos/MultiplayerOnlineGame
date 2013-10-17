@@ -1,0 +1,30 @@
+project xint/test
+    : requirements
+        <library>/boost/test//boost_unit_test_framework
+
+        # Under Windows, the strong_random_generator requires including some
+        # Windows headers. Ensure language extensions aren't disabled, those
+        # headers require them.
+        -<toolset>msvc:<cxxflags>/Za
+    ;
+
+import testing ;
+
+
+run test_streams.cpp ;
+run test_add.cpp ;
+run test_bit_manipulations.cpp ;
+run test_convert.cpp ;
+run test_divide.cpp ;
+run test_multiply.cpp ;
+run test_monty.cpp ;
+run test_compare.cpp ;
+run test_fixed.cpp ;
+run test_nothrow.cpp ;
+run test_powers.cpp ;
+run test_modular.cpp ;
+run test_misc.cpp ;
+run test_invalid_overload.cpp ;
+run test_arithmetic_conversion.cpp ;
+
+compile-fail fail_negative_modulus.cpp ;

@@ -1,0 +1,18 @@
+/*! \page dependencies Dependencies
+
+Like any non-trivial program, this library uses several other pieces of code,
+though I've tried to minimize the dependencies. Here are the ones that are
+required:
+
+- Boost.Integer
+- Boost.Function
+- Boost.StaticAssert
+- Boost.Random
+- Boost.TypeTraits
+- Boost.SmartPtr
+- Boost.Parameter
+- Boost.Move
+
+All of these are header-only libraries, meaning that you don't need to worry
+about linking your program with them.
+*/

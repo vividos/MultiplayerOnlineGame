@@ -1,0 +1,29 @@
+/*! \page fixedlength_type Fixed-Length Integers
+
+Fixed-length integers (created by using the \ref
+boost::xint::options::fixedlength "fixedlength" parameter of the \c integer_t
+template with a non-zero value) always use the same amount of memory. They can
+be noticeably faster than unlimited-length integers, especially when combined
+with an allocator designed for their allocation pattern. However, they can be
+less memory-efficient for holding smaller values. They also <b>silently discard
+the upper bits on any value that is too big for them</b>, which can bite the
+unwary.
+
+\note The number of bits refers only to the unsigned magnitude of the number.
+The sign is stored separately. This means that, for example, an eight-bit
+\c integer_t has a range of -255 to +255, not -128 to +127 like an \c int8_t.
+
+\par
+Also note that when calculating with a signed fixed-length integer type, the
+number does not "wrap around" when it exceeds the type's size like the built-in
+signed %integer types do. It is truncated to the lower bits instead. For
+example, <code>integer_t<fixedlength<8> >(-255) - 1</code> and
+<code>integer_t<fixedlength<8> >(255) + 1</code> will both be zero. However, the
+sign (on non-zero answers) is preserved, so <code>integer_t<fixedlength<8>
+>(-255) - 2</code> will be -1.
+
+\par
+When used with the \ref
+boost::xint::options::negative_modulus "negative_modulus" option, the number
+will wrap around like the built-in unsigned types.
+*/

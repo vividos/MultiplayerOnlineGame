@@ -1,0 +1,9 @@
+/*! \page r_shared_ptr Why are you using a roll-your-own system instead of \c boost::shared_ptr for the copy-on-write stuff?
+
+Because it's a lot faster. I tried \c boost::shared_ptr, and under Linux with
+GCC 4.4.1 on the same computer, running my test suite went from 1.6 seconds to
+3.4 seconds. The home-grown shared pointer design may not be quite as easy to
+work with in an exception-safe manner, but that's completely internal to the
+\c integer classes, so only developers working \e on the library, rather than \e
+with it, have to deal with that. I'll accept that trade-off.
+*/

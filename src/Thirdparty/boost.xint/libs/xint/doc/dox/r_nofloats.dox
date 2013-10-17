@@ -1,0 +1,14 @@
+/*! \page r_no_floats Why didn't you provide conversions to and from float/double types?
+
+Although it might not be obvious, there is occasionally a need for such
+conversions. Unfortunately, unlike integers, there is no universal
+representation for floating-point values. Even IEEE 754, the most widely used
+floating-point specification, isn't completely nailed down -- it doesn't specify
+the endianness of the fields, making it difficult to provide code that would
+work on all systems. What's worse, the C/C++ \c float and \c double types don't
+have to be encoded in an IEEE 754 format at all.
+
+I'd like to provide such conversions, and I'll keep looking for ways to do so.
+It may turn out to be possible to do them through a string format, for instance.
+But for now, the library only provides conversions to and from integral values.
+*/

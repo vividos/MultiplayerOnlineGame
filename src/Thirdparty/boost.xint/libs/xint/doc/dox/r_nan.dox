@@ -1,0 +1,5 @@
+/*! \page r_nan Why have a Not-a-Number value?
+
+Because it's the cleanest way I could find to return answers that don't
+represent a valid number, which is necessary for the \c nothrow_integer type.
+*/

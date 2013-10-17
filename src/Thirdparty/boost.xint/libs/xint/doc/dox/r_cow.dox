@@ -1,0 +1,19 @@
+/*! \page r_cow Why use copy-on-write? I've heard that causes problems with multi-threaded code.
+
+Some of the numbers that the library deals with can get huge, making copying an
+expensive proposition. I've added move semantics using Boost.Move, but they're
+limited in what they can do; the emulated version, for C++03 compilers, can't be
+used with the standard containers, for example. Copy-on-write bypasses those
+limitations.
+
+It \e can cause problems when you try to use the library from multiple threads
+at the same time, which is why it's only used in the (single-threaded) internal
+functions. By default, when you get a number back from the library, it has its
+own unique storage, so it can be safely used across multiple threads; if you
+don't need to use %integer objects outside of the thread that they're created
+in, you can disable that by setting the \c Threadsafe template parameter to \c
+false.
+
+Note that even with the \c Threadsafe option set to \c true, you still have to
+ensure that only one thread accesses a particular \c integer at a time.
+*/
