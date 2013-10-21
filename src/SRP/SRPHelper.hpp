@@ -73,6 +73,9 @@ namespace Helper
          0 == memcmp(&data1[0], &data2[0], data1.size());
    }
 
+   /// generates random integer with given bit count
+   BigInteger GenerateRandomBits(unsigned int uiNumBits);
+
    /// generates password verifier value v
    BigInteger GeneratePassword(
       const std::string& strUsername,

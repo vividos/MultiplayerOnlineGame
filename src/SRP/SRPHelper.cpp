@@ -11,6 +11,16 @@
 
 using namespace SRP;
 
+BigInteger Helper::GenerateRandomBits(unsigned int uiNumBits)
+{
+   static boost::xint::strong_random_generator srg;
+   return boost::xint::integer::random_by_size(srg,
+      uiNumBits,
+      false, // high_bit_on
+      false, // low_bit_on
+      false);// can_be_negative
+}
+
 BigInteger Helper::GeneratePassword(
    const std::string& strUsername,
    const std::string& strPassword,
