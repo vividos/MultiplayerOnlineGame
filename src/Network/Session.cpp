@@ -12,11 +12,11 @@
 #include "RawMessage.hpp"
 #include "ByteStream.hpp"
 #include "IEncryptModule.hpp"
-#include <boost/bind.hpp>
 #include <limits>
 #include <cstdio>
 #include <tchar.h>
 #include <ulib/Exception.hpp>
+#include <boost/bind.hpp>
 
 Session::~Session()
 {
@@ -34,7 +34,7 @@ void Session::Start()
    {
       shared_from_this();
    }
-   catch(boost::bad_weak_ptr&)
+   catch(std::bad_weak_ptr&)
    {
       ATLASSERT(false);
    }

@@ -7,13 +7,13 @@
 #pragma once
 
 // includes
-#include "Common.hpp"
+#include "Network.hpp"
 #include "Object.hpp"
 #include "Message.hpp"
 #include <vector>
 
 /// message to tell client about added or removed objects
-class COMMON_DECLSPEC AddRemoveObjectMessage : public Message
+class NETWORK_DECLSPEC AddRemoveObjectMessage : public Message
 {
 public:
    /// ctor; use for receiving message

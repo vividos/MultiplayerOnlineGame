@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{54254FF9-AE31-4207-B98F-FB49BFE857A6}</ProjectGuid>
-    <RootNamespace>Common</RootNamespace>
+    <RootNamespace>Network</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{83311FA4-5BB5-422A-A5B3-4D6B82884E8F}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -48,61 +48,73 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;COMMON_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NETWORK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\SRP;..\thirdparty\boost.xint;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>Common.lib;SRP.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;COMMON_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NETWORK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\SRP;..\thirdparty\boost.xint;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>Common.lib;SRP.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ActionRegistry.cpp" />
-    <ClCompile Include="CommandTranslator.cpp" />
-    <ClCompile Include="Common.cpp" />
-    <ClCompile Include="MetricsManager.cpp" />
-    <ClCompile Include="Mobile.cpp" />
-    <ClCompile Include="MobileDisplayInfo.cpp" />
-    <ClCompile Include="MovementInfo.cpp" />
-    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ActionMessage.cpp" />
+    <ClCompile Include="AddRemoveObjectMessage.cpp" />
+    <ClCompile Include="AuthClientSession.cpp" />
+    <ClCompile Include="AuthServerSession.cpp" />
+    <ClCompile Include="ClientSession.cpp" />
+    <ClCompile Include="ServerSession.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionInitMessage.cpp" />
+    <ClCompile Include="SocketListener.cpp" />
+    <ClCompile Include="SRPClientAuthModule.cpp" />
+    <ClCompile Include="SRPServerAuthModule.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TimeBase.cpp" />
+    <ClCompile Include="UpdateObjectMovementMessage.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Account.hpp" />
-    <ClInclude Include="Action.hpp" />
-    <ClInclude Include="ActionRegistry.hpp" />
-    <ClInclude Include="AsyncActionQueue.hpp" />
-    <ClInclude Include="AuthInfo.hpp" />
-    <ClInclude Include="Command.hpp" />
-    <ClInclude Include="CommandTranslator.hpp" />
-    <ClInclude Include="Common.hpp" />
-    <ClInclude Include="CommonDefines.hpp" />
-    <ClInclude Include="IActionQueue.hpp" />
-    <ClInclude Include="IController.hpp" />
-    <ClInclude Include="IModel.hpp" />
-    <ClInclude Include="LogCategories.hpp" />
-    <ClInclude Include="MetricsManager.hpp" />
-    <ClInclude Include="Mobile.hpp" />
-    <ClInclude Include="MobileActions.hpp" />
-    <ClInclude Include="MobileDisplayInfo.hpp" />
-    <ClInclude Include="MovementInfo.hpp" />
-    <ClInclude Include="MultiplayerOnlineGame.hpp" />
-    <ClInclude Include="Object.hpp" />
-    <ClInclude Include="ObjectMap.hpp" />
-    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="ActionMessage.hpp" />
+    <ClInclude Include="AddRemoveObjectMessage.hpp" />
+    <ClInclude Include="AuthClientSession.hpp" />
+    <ClInclude Include="AuthException.hpp" />
+    <ClInclude Include="AuthServerSession.hpp" />
+    <ClInclude Include="ClientSession.hpp" />
+    <ClInclude Include="CommandMessage.hpp" />
+    <ClInclude Include="IAuthManager.hpp" />
+    <ClInclude Include="IClientAuthModule.hpp" />
+    <ClInclude Include="IEncryptModule.hpp" />
+    <ClInclude Include="IServerAuthModule.hpp" />
+    <ClInclude Include="ISession.hpp" />
+    <ClInclude Include="ISessionManager.hpp" />
+    <ClInclude Include="LogoutMessage.hpp" />
+    <ClInclude Include="Message.hpp" />
+    <ClInclude Include="MovePlayerMessage.hpp" />
+    <ClInclude Include="PingMessages.hpp" />
+    <ClInclude Include="RawMessage.hpp" />
+    <ClInclude Include="RC4EncryptModule.hpp" />
+    <ClInclude Include="ServerSession.hpp" />
+    <ClInclude Include="Session.hpp" />
+    <ClInclude Include="SessionInitMessage.hpp" />
+    <ClInclude Include="SharedBuffer.hpp" />
+    <ClInclude Include="SocketListener.hpp" />
+    <ClInclude Include="SRPAuthMessages.hpp" />
+    <ClInclude Include="SRPClientAuthModule.hpp" />
+    <ClInclude Include="SRPServerAuthModule.hpp" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TimeBase.hpp" />
-    <ClInclude Include="ZoneInfo.hpp" />
+    <ClInclude Include="TextMessage.hpp" />
+    <ClInclude Include="UpdateObjectMovementMessage.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="versioninfo.rc" />

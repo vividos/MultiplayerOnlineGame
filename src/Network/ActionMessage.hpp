@@ -7,14 +7,14 @@
 #pragma once
 
 // includes
-#include "Common.hpp"
+#include "Network.hpp"
 #include "Message.hpp"
 
 // forward references
 class ByteStream;
 
 /// message that wraps an action
-class COMMON_DECLSPEC ActionMessage: public Message
+class NETWORK_DECLSPEC ActionMessage: public Message
 {
 public:
    /// ctor; when sending action, pass action here

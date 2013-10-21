@@ -8,7 +8,6 @@
 
 // includes
 #include "Asio.hpp"
-#include <boost/shared_ptr.hpp>
 #include <vector>
 
 /// a reference-counted non-modifiable buffer class

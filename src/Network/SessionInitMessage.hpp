@@ -7,12 +7,12 @@
 #pragma once
 
 // includes
-#include "Common.hpp"
+#include "Network.hpp"
 #include "Message.hpp"
 #include "ZoneInfo.hpp"
 
 /// initial message that gets sent by server
-class COMMON_DECLSPEC SessionInitMessage : public Message
+class NETWORK_DECLSPEC SessionInitMessage : public Message
 {
 public:
    /// ctor

@@ -7,10 +7,8 @@
 #pragma once
 
 // includes
-#include "Common.hpp"
-#include <boost/enable_shared_from_this.hpp>
+#include "Network.hpp"
 #include <boost/thread/recursive_mutex.hpp>
-#include <boost/function.hpp>
 #include "SharedBuffer.hpp"
 #include "ISession.hpp"
 #include <deque>
@@ -21,9 +19,9 @@ class RawMessage;
 class IEncryptModule;
 
 /// connection session
-class COMMON_DECLSPEC Session:
+class NETWORK_DECLSPEC Session:
    public ISession,
-   public boost::enable_shared_from_this<Session>
+   public std::enable_shared_from_this<Session>
 {
 public:
    /// ctor

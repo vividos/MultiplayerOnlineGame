@@ -7,13 +7,13 @@
 #pragma once
 
 // includes
-#include "Common.hpp"
+#include "Network.hpp"
 #include "Message.hpp"
 #include "Object.hpp"
 #include "MovementInfo.hpp"
 
 /// message for updating object movement info; sent to the client
-class COMMON_DECLSPEC UpdateObjectMovementMessage : public Message
+class NETWORK_DECLSPEC UpdateObjectMovementMessage : public Message
 {
 public:
    /// ctor; use for sending
