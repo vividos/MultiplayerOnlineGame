@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\thirdparty\zlib128\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\thirdparty\zlib128\include;..\thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;BASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -57,7 +57,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\thirdparty\zlib128\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\thirdparty\zlib128\include;..\thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;BASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -68,12 +68,14 @@
     <ClCompile Include="AsioHelper.cpp" />
     <ClCompile Include="AstronomyMath.cpp" />
     <ClCompile Include="BaseFileSystem.cpp" />
+    <ClCompile Include="CrashReporter.cpp" />
     <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="HashedData.cpp" />
     <ClCompile Include="HighResolutionTimer.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Plane3d.cpp" />
     <ClCompile Include="Quaternion4d.cpp" />
+    <ClCompile Include="ScatteredPointInterpolator.cpp" />
     <ClCompile Include="sha2.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -104,6 +106,7 @@
     <ClInclude Include="ByteStream.hpp" />
     <ClInclude Include="Color.hpp" />
     <ClInclude Include="ColorGradient.hpp" />
+    <ClInclude Include="CrashReporter.hpp" />
     <ClInclude Include="FileFinder.hpp" />
     <ClInclude Include="Filesystem.hpp" />
     <ClInclude Include="HashedData.hpp" />
@@ -119,6 +122,7 @@
     <ClInclude Include="Quaternion4d.hpp" />
     <ClInclude Include="RC4Encoder.hpp" />
     <ClInclude Include="SafeFlag.hpp" />
+    <ClInclude Include="ScatteredPointInterpolator.hpp" />
     <ClInclude Include="sha2.h" />
     <ClInclude Include="Singleton.hpp" />
     <ClInclude Include="stdafx.h" />

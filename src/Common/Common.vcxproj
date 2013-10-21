@@ -48,22 +48,18 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;COMMON_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
-      <ImportLibrary>..\..\lib\$(Configuration)\$(ProjectName).lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;COMMON_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
-      <ImportLibrary>..\..\lib\$(Configuration)\$(ProjectName).lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -72,13 +68,11 @@
     <ClCompile Include="AddRemoveObjectMessage.cpp" />
     <ClCompile Include="CommandTranslator.cpp" />
     <ClCompile Include="Common.cpp" />
-    <ClCompile Include="CrashReporter.cpp" />
     <ClCompile Include="MetricsManager.cpp" />
     <ClCompile Include="Mobile.cpp" />
     <ClCompile Include="MobileDisplayInfo.cpp" />
     <ClCompile Include="MovementInfo.cpp" />
     <ClCompile Include="Object.cpp" />
-    <ClCompile Include="ScatteredPointInterpolator.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionInitMessage.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -104,7 +98,6 @@
     <ClInclude Include="CommonDefines.hpp" />
     <ClInclude Include="Controller.hpp" />
     <ClInclude Include="ControllerProxy.hpp" />
-    <ClInclude Include="CrashReporter.hpp" />
     <ClInclude Include="IActionQueue.hpp" />
     <ClInclude Include="IAuthManager.hpp" />
     <ClInclude Include="IClientAuthModule.hpp" />
@@ -129,7 +122,6 @@
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="RawMessage.hpp" />
     <ClInclude Include="RC4EncryptModule.hpp" />
-    <ClInclude Include="ScatteredPointInterpolator.hpp" />
     <ClInclude Include="Session.hpp" />
     <ClInclude Include="SessionInitMessage.hpp" />
     <ClInclude Include="SharedBuffer.hpp" />

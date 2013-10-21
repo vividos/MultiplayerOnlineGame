@@ -8,6 +8,7 @@
 // includes
 #include "StdAfx.h"
 #include "CrashReporter.hpp"
+#include "LogCategories.hpp"
 #include "Filesystem.hpp"
 #include "Path.hpp"
 #include <strsafe.h>

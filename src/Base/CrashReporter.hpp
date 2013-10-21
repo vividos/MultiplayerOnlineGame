@@ -7,10 +7,10 @@
 #pragma once
 
 // includes
-#include "Common.hpp"
+#include "Base.hpp"
 
 /// crash reporter helper class
-class COMMON_DECLSPEC CrashReporter
+class BASE_DECLSPEC CrashReporter
 {
 public:
    /// sets up crash reporting

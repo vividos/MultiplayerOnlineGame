@@ -7,14 +7,14 @@
 #pragma once
 
 // includes
-#include "Common.hpp"
+#include "Base.hpp"
 #include "Vector3d.hpp"
 #include "Vector2d.hpp"
 #include <vector>
 
 /// \brief scattered point interpolator
 /// \details uses Radial Basis Function to interpolate
-class COMMON_DECLSPEC ScatteredPointInterpolator
+class BASE_DECLSPEC ScatteredPointInterpolator
 {
 public:
    /// ctor
