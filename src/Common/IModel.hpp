@@ -37,9 +37,9 @@ class TimeIndex;
    \dot
    digraph localmodel {
       node [shape=box]
-      View [ label="ClientSideView" URL="\ref ClientSideView"];
-      Model [ label="ClientSideModel" URL="\ref ClientSideModel"];
-      Controller [ label="ClientController" URL="\ref ClientController"];
+      View [ label="LocalView" URL="\ref LocalView"];
+      Model [ label="LocalModel" URL="\ref LocalModel"];
+      Controller [ label="LocalController" URL="\ref LocalController"];
 
       View -> Model [label="shows"]
       Model -> View [label="notifies about updates"]
@@ -57,23 +57,23 @@ class TimeIndex;
          style=filled;
          color=lightgrey;
 
-         LocalView [ label="ClientSideView" URL="\ref Client ClientSideView" ];
-         LocalModel [ label="ClientSideModel" URL="\ref ClientSideModel" ];
-         LocalController [ label="ClientController" URL="\ref ClientController" ];
+         ClientView [ label="ClientView" URL="\ref ClientView" ];
+         ClientModel [ label="ClientModel" URL="\ref ClientModel" ];
+         ClientController [ label="ClientController" URL="\ref ClientController" ];
 
-         LocalView -> LocalModel [label="shows"]
-         LocalModel -> LocalView [label="notifies about updates"]
-         LocalController -> LocalModel [label="send hints"]
+         ClientView -> ClientModel [label="shows"]
+         ClientModel -> ClientView [label="notifies about updates"]
+         ClientController -> ClientModel [label="send hints"]
       }
       subgraph clusterRemote
       {
          style=filled;
          color=lightgrey;
 
-         RemoteModel [ label="ServerSideModel" URL="\ref ServerSideModel" ];
-         RemoteController [ label="ServerSideController" URL="\ref ServerSideController" ];
+         ServerModel [ label="ServerModel" URL="\ref ServerModel" ];
+         ServerController [ label="ServerController" URL="\ref ServerController" ];
 
-         RemoteController -> RemoteModel [label="check command"]
+         ServerController -> ServerModel [label="check command"]
       }
       subgraph clusterWorld
       {
@@ -83,12 +83,12 @@ class TimeIndex;
          WorldModel [ label="WorldModel" URL="\ref WorldModel" ];
       }
 
-      LocalController -> RemoteController [label="send command"]
+      ClientController -> ServerController [label="send command"]
 
-      RemoteModel -> LocalModel [label="updates, actions"]
+      ServerModel -> ClientModel [label="updates, actions"]
 
-      RemoteController -> WorldModel [label="send command"]
-      WorldModel -> RemoteModel [label="updates, actions"]
+      ServerController -> WorldModel [label="send command"]
+      WorldModel -> ServerModel [label="updates, actions"]
    }
    \enddot
 */
