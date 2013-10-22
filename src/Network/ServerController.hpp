@@ -22,7 +22,7 @@ class NETWORK_DECLSPEC ServerController:
 {
 public:
    /// ctor
-   ServerController(ServerModel& playerModel, IModel& worldModel) throw();
+   ServerController(ServerModel& serverModel, IModel& worldModel) throw();
    /// dtor
    virtual ~ServerController() throw() {}
 
@@ -41,6 +41,13 @@ public:
 
    /// called when new message has arrived; returns true when message has been handled
    virtual bool OnReceiveMessage(RawMessage& msg) override;
+
+private:
+   /// called for received CommandMessage
+   void OnMessageCommand(RawMessage& rawMsg);
+
+   /// called for received MovePlayerMessage
+   void OnMessageMovePlayer(RawMessage& rawMsg);
 
 private:
    /// player object id

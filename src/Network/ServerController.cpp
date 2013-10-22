@@ -9,6 +9,10 @@
 #include "StdAfx.h"
 #include "ServerController.hpp"
 #include "ServerModel.hpp"
+#include "RawMessage.hpp"
+#include "CommandMessage.hpp"
+#include "MovePlayerMessage.hpp"
+#include "Mobile.hpp"
 
 ServerController::ServerController(ServerModel& serverModel, IModel& worldModel) throw()
 :m_playerId(ObjectId::Null()),
@@ -43,6 +47,43 @@ void ServerController::MovePlayer(const MovementInfo& info)
 
 bool ServerController::OnReceiveMessage(RawMessage& msg)
 {
-   // TODO implement
-   return false;
+   switch (msg.MessageId())
+   {
+   case msgCommand:
+      OnMessageCommand(msg);
+      break;
+
+   case msgMovePlayer:
+      OnMessageMovePlayer(msg);
+      break;
+
+   default:
+      return false; // unknown message
+   }
+
+   return true;
+}
+
+void ServerController::OnMessageCommand(RawMessage& rawMsg)
+{
+   CommandMessage msg;
+   ConstVectorRefStream stream(rawMsg.Data());
+   msg.Deserialize(stream);
+
+   Command& cmd = msg.GetCommand();
+
+   // set actor id; isn't sent with message
+   cmd.ActorId(m_serverModel.Player()->Id());
+
+   // check command and execute it
+   this->SendCommand(cmd);
+}
+
+void ServerController::OnMessageMovePlayer(RawMessage& rawMsg)
+{
+   MovePlayerMessage msg;
+   ConstVectorRefStream stream(rawMsg.Data());
+   msg.Deserialize(stream);
+
+   this->MovePlayer(msg.Info());
 }

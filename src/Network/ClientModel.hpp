@@ -27,4 +27,17 @@ public:
    // virtual functions from IMessageSink
 
    virtual bool OnReceiveMessage(RawMessage& msg) override;
+
+private:
+   /// called when ActionMessage has been received
+   void OnMessageAction(RawMessage& rawMsg);
+
+   /// called when AddRemoveObjectMessage has been received
+   void OnMessageAddRemoveObject(RawMessage& rawMsg);
+
+   /// called when UpdateObjectMovementMessage has been received
+   void OnMessageUpdateObjectMovement(RawMessage& rawMsg);
+
+   /// called when SessionInitMessage has been received
+   void OnMessageSessionInit(RawMessage& rawMsg);
 };
