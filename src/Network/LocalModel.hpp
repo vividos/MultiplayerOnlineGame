@@ -48,7 +48,7 @@ public:
    /// returns object map; const version
    const ObjectMap& GetObjectMap() const throw() { return m_objectMap; }
 
-private:
+protected:
    // virtual functions
 
    virtual void InitialUpdate(MobilePtr spPlayer) override;
@@ -65,8 +65,6 @@ private:
    virtual void UpdateObjectMovement(const ObjectId& id, const MovementInfo& info) override;
 
 private:
-   //friend CommandTranslator;
-
    /// stops mobile movement
    void StopMobile(ObjectPtr spObject);
 

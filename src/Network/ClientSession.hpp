@@ -80,7 +80,7 @@ public:
    void Disconnect();
 
    /// returns current connect state
-   T_enConnectState ConnectState(){ return m_enConnectState; }
+   T_enConnectState ConnectState() const { return m_enConnectState; }
 
 protected:
    /// message handler
