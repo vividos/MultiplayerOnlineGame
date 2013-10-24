@@ -24,8 +24,9 @@ public:
       CString cszDescription;
       cszDescription.Format(_T("Port for game clients (default: %u)"), c_usDefaultServerPort);
 
-      RegisterOption(_T("p"), _T("port"), cszDescription,
-         std::bind(&ConsoleServerProgramOptions::ParsePort, this, std::placeholders::_1));
+      ProgramOptions::T_fnOptionHandlerSingleArg fn =
+         std::bind(&ConsoleServerProgramOptions::ParsePort, this, std::placeholders::_1);
+      RegisterOption(_T("p"), _T("port"), cszDescription, fn);
    }
 
    /// returns port
