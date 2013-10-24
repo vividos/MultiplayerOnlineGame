@@ -88,7 +88,6 @@
     </ClCompile>
     <ClCompile Include="StringTools.cpp" />
     <ClCompile Include="SystemInfo.cpp" />
-    <ClCompile Include="TaskManager.cpp" />
     <ClCompile Include="Uuid.cpp" />
     <ClCompile Include="VirtualFileSystem.cpp" />
     <ClCompile Include="ZipArchive.cpp" />
@@ -130,7 +129,6 @@
     <ClInclude Include="SystemInfo.hpp" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TaskGroup.hpp" />
-    <ClInclude Include="TaskManager.hpp" />
     <ClInclude Include="ThreadPool.hpp" />
     <ClInclude Include="TimedEffect.hpp" />
     <ClInclude Include="Timer.hpp" />

@@ -69,9 +69,6 @@
     <ClCompile Include="ZlibDecompressor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TaskManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ScatteredPointInterpolator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -210,9 +207,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ZlibDecompressor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TaskManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TaskGroup.hpp">
