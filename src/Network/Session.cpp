@@ -177,6 +177,14 @@ bool Session::ProcessMessageBuffer(const std::vector<unsigned char>& vecRecvBuff
 
       try
       {
+         if (rawMessage.MessageId() == msgLogoutRequest)
+         {
+            LOG_INFO(_T("Session logging out"), Log::Session);
+
+            OnConnectionClosing();
+            return false;
+         }
+
          bool bHandledMessage = OnReceiveMessage(rawMessage);
          if (!bHandledMessage)
          {
