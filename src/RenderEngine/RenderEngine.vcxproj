@@ -81,6 +81,7 @@
     <ClCompile Include="OrthoCamera.cpp" />
     <ClCompile Include="PerspectiveCamera.cpp" />
     <ClCompile Include="RangedAppendOnlyIndexBuffer.cpp" />
+    <ClCompile Include="RenderContainer.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
     <ClCompile Include="RenderWindow.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -111,6 +112,7 @@
     <ClInclude Include="OrthoCamera.hpp" />
     <ClInclude Include="PerspectiveCamera.hpp" />
     <ClInclude Include="RangedAppendOnlyIndexBuffer.hpp" />
+    <ClInclude Include="RenderContainer.hpp" />
     <ClInclude Include="RenderEngine.hpp" />
     <ClInclude Include="RenderEngineCommon.hpp" />
     <ClInclude Include="RenderOptions.hpp" />

@@ -78,6 +78,9 @@
     <ClCompile Include="ImageReader\TgaImageReader.cpp">
       <Filter>ImageReader Files</Filter>
     </ClCompile>
+    <ClCompile Include="RenderContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bitmap.hpp">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="IImageReader.hpp">
       <Filter>ImageReader Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderContainer.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
