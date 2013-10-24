@@ -22,6 +22,9 @@ public:
    /// option handler function; called when option is parsed
    typedef std::function<bool (const std::vector<CString>&)> T_fnOptionHandler;
 
+   /// option handler function for no argument
+   typedef std::function<bool ()> T_fnOptionHandlerNoArg;
+
    /// option handler function for single argument
    typedef std::function<bool (const CString&)> T_fnOptionHandlerSingleArg;
 
@@ -55,6 +58,9 @@ public:
    /// registers an option and sets option handler callback function
    void RegisterOption(const CString& cszShortOptionChars, const CString& cszLongOption, const CString& cszHelpText, unsigned int uiArgs,
       T_fnOptionHandler fnOptionHandler);
+
+   /// registers option with handler that takes no arguments
+   void RegisterOption(const CString& cszShortOptionChars, const CString& cszLongOption, const CString& cszHelpText, T_fnOptionHandlerNoArg fnOptionHandler);
 
    /// registers option with handler that takes single argument
    void RegisterOption(const CString& cszShortOptionChars, const CString& cszLongOption, const CString& cszHelpText, T_fnOptionHandlerSingleArg fnOptionHandler);
