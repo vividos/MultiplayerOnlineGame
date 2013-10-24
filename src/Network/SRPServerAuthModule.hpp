@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include "Base.hpp"
+#include "Network.hpp"
 #include "IServerAuthModule.hpp"
 #include <functional>
 
@@ -22,7 +22,7 @@ namespace SRP
 class Server;
 
 /// server authentication module for SRP auth
-class ServerAuthModule: public IServerAuthModule
+class NETWORK_DECLSPEC ServerAuthModule: public IServerAuthModule
 {
 public:
    /// callback function to get auth info from server
