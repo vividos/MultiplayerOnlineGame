@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2013 Michael Fink
 //
-//! \file MusicConfigLoader.hpp Music config file loader
+//! \file MusicConfigLoader.cpp Music config file loader
 //
 
 // includes

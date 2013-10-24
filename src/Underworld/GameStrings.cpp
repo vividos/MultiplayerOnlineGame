@@ -2,7 +2,7 @@
 // Underworld - an Ultima Underworld remake project
 // Copyright (C) 2002-2013 Michael Fink
 //
-/// \file Underworld/GameStrings.hpp Game strings
+/// \file Underworld/GameStrings.cpp Game strings
 //
 
 // includes

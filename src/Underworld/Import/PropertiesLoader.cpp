@@ -2,7 +2,7 @@
 // Underworld - an Ultima Underworld remake project
 // Copyright (C) 2002-2013 Michael Fink
 //
-/// \file Underworld/Import/PropertiesLoader.hpp Object propreties loader
+/// \file Underworld/Import/PropertiesLoader.cpp Object propreties loader
 //
 
 // includes

@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2013 Michael Fink
 //
-//! \file CrashReporter.hpp Application crash reporting
+//! \file CrashReporter.cpp Application crash reporting
 //
 
 // includes

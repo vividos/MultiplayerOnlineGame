@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2013 Michael Fink
 //
-//! \file Object.hpp Object class
+//! \file Common/Object.hpp Object class
 //
 #pragma once
 

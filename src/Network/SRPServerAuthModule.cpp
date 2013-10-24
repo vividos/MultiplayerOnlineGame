@@ -1,3 +1,11 @@
+//
+// MultiplayerOnlineGame - multiplayer game project
+// Copyright (C) 2008-2013 Michael Fink
+//
+//! \file SRPServerAuthModule.cpp SRP Server authentication module
+//
+
+// includes
 #include "StdAfx.h"
 #include "SRPServerAuthModule.hpp"
 #include "AuthException.hpp"

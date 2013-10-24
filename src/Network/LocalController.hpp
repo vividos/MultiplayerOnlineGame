@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2013 Michael Fink
 //
-//! \file ClientController.hpp Local game controller class
+//! \file LocalController.hpp Local game controller class
 //
 #pragma once
 

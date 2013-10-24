@@ -1,3 +1,9 @@
+//
+// MultiplayerOnlineGame - multiplayer game project
+// Copyright (C) 2008-2013 Michael Fink
+//
+//! \file SRPServerAuthModule.hpp SRP Server authentication module
+//
 #pragma once
 
 // includes

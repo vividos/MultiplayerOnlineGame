@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2013 Michael Fink
 //
-//! \file ActionMessage.hpp Action registry
+//! \file ActionRegistry.hpp Action registry
 //
 #pragma once
 
