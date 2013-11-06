@@ -72,18 +72,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\CommandLineParser.hpp" />
-    <ClInclude Include="..\DateTime.hpp" />
-    <ClInclude Include="..\Exception.hpp" />
-    <ClInclude Include="..\ISO8601Parser.hpp" />
-    <ClInclude Include="..\ReaderWriterMutex.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\CommandLineParser.cpp" />
-    <ClCompile Include="..\DateTime.cpp" />
-    <ClCompile Include="..\ISO8601Parser.cpp" />
-    <ClCompile Include="..\ReaderWriterMutex.cpp" />
     <ClCompile Include="TestCommandLineParser.cpp" />
     <ClCompile Include="TestDateTime.cpp" />
     <ClCompile Include="TestException.cpp" />
