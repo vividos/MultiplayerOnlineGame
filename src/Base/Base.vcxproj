@@ -146,6 +146,11 @@
   <ItemGroup>
     <ResourceCompile Include="versioninfo.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ulib\ulib.vcxproj">
+      <Project>{daa1e880-4690-46c1-a9cb-c5c962f8c74c}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -53,9 +53,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CLIENTLOGIC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
-    <Link>
-      <AdditionalDependencies>UserInterface.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Link />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -63,9 +61,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;CLIENTLOGIC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
-    <Link>
-      <AdditionalDependencies>UserInterface.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DefaultActionKeyDefs.cpp" />
@@ -102,9 +98,15 @@
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Common.vcxproj">
+      <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\RenderEngine\RenderEngine.vcxproj">
       <Project>{f5c4aed3-7358-4ef7-b835-de45155cf0a5}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\UserInterface\UserInterface.vcxproj">
+      <Project>{b6ea8bae-e9fe-4087-8c25-5d3c7a977c50}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

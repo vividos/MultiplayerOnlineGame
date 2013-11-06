@@ -114,10 +114,6 @@
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\Common\Common.vcxproj">
-      <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="..\RenderEngine\RenderEngine.vcxproj">
       <Project>{f5c4aed3-7358-4ef7-b835-de45155cf0a5}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

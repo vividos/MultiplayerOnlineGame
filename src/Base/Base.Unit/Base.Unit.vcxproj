@@ -123,9 +123,16 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ulib\ulib.vcxproj">
+      <Project>{daa1e880-4690-46c1-a9cb-c5c962f8c74c}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <Private>false</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

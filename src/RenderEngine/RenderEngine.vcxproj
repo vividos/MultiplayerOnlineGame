@@ -52,9 +52,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;RENDERENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
-    <Link>
-      <AdditionalDependencies>jpeg-8d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Link />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -62,9 +60,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;RENDERENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
-    <Link>
-      <AdditionalDependencies>jpeg-8d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bitmap.cpp" />
@@ -133,6 +129,9 @@
     <ProjectReference Include="..\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Thirdparty\jpeg-8d\jpeg-8d.vcxproj">
+      <Project>{5b37d937-d0f7-47be-97f7-def2dba4970a}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
