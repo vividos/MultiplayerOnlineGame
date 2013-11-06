@@ -74,12 +74,14 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ThirdPersonViewController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientLogic.hpp" />
     <ClInclude Include="DefaultActionKeyDefs.hpp" />
     <ClInclude Include="FrameCounter.hpp" />
     <ClInclude Include="GameClientBase.hpp" />
+    <ClInclude Include="IPlayerViewModel.hpp" />
     <ClInclude Include="ISceneManager.hpp" />
     <ClInclude Include="IView.hpp" />
     <ClInclude Include="IViewController.hpp" />
@@ -89,6 +91,7 @@
     <ClInclude Include="OverviewController.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="ThirdPersonViewController.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="versioninfo.rc" />
