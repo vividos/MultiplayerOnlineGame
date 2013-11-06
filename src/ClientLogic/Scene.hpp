@@ -36,6 +36,8 @@ public:
    virtual void OnMouseButtonEvent(bool bPressed, T_enMouseButtonType enButtonType, int x, int y) override;
    /// called to handle mouse motion event
    virtual void OnMouseMotionEvent(int x, int y, int xrel, int yrel) override;
+   /// called to handle mouse wheel event
+   virtual void OnMouseWheelEvent(int xrel, int yrel) override;
 
 protected:
    /// scene manager

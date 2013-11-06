@@ -39,3 +39,12 @@ void Scene::OnMouseMotionEvent(int x, int y, int xrel, int yrel)
    if (m_spController != nullptr)
       m_spController->OnMouseMotionEvent(x, y, xrel, yrel);
 }
+
+void Scene::OnMouseWheelEvent(int xrel, int yrel)
+{
+   if (m_spView != nullptr)
+      m_spView->OnMouseWheelEvent(xrel, yrel);
+
+   if (m_spController != nullptr)
+      m_spController->OnMouseWheelEvent(xrel, yrel);
+}

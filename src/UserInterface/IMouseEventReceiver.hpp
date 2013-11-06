@@ -13,9 +13,7 @@ enum T_enMouseButtonType
 {
    buttonLeft = 1,
    buttonMiddle = 2,
-   buttonRight = 3,
-   buttonWheelUp = 4,
-   buttonWheelDown = 5
+   buttonRight = 3
 };
 
 /// mouse event receiver interface
@@ -30,4 +28,7 @@ public:
 
    /// called on mouse motion event
    virtual void OnMouseMotionEvent(int x, int y, int xrel, int yrel) = 0;
+
+   /// called to handle mouse wheel event
+   virtual void OnMouseWheelEvent(int xrel, int yrel) { xrel; yrel; }
 };

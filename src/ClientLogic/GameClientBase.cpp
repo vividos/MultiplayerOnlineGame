@@ -99,12 +99,10 @@ void GameClientBase::OnEvent(SDL_Event& evt)
       break;
 
    case SDL_MOUSEWHEEL:
-      // TODO introduce OnMouseWheelEvent
-      if (evt.wheel.y != 0)
-      {
-         m_spScene->OnMouseButtonEvent(true,
-            evt.wheel.y < 0 ? buttonWheelDown : buttonWheelUp, 0, 0);
-      }
+      if (m_spWindowManager != nullptr)
+         m_spWindowManager->OnMouseMotionEvent(evt.wheel.x, evt.wheel.y);
+
+      m_spScene->OnMouseWheelEvent(evt.wheel.x, evt.wheel.y);
       break;
 
    case SDL_MOUSEMOTION:
