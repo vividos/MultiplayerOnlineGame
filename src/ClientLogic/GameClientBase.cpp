@@ -64,6 +64,12 @@ RenderEngine& GameClientBase::GetRenderEngine()
    return *m_spRenderEngine;
 }
 
+IWindowManager& GameClientBase::GetWindowManager()
+{
+   ATLASSERT(m_spWindowManager != nullptr);
+   return *m_spWindowManager;
+}
+
 void GameClientBase::OnRender()
 {
    m_graphicsTaskManager.UploadOne();

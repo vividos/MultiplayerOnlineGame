@@ -38,6 +38,9 @@ public:
    /// returns render engine
    RenderEngine& GetRenderEngine();
 
+   /// returns window manager
+   IWindowManager& GetWindowManager();
+
    /// returns keyboard action manager
    KeyboardActionManager& GetKeyboardActionManager() throw() { return m_keyboardActionManager; }
 
