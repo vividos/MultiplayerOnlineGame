@@ -7,6 +7,7 @@
 #pragma once
 
 // includes
+#undef HAVE_STDDEF_H // SDL2 defines this, and jpeglib.h wants to redefine it
 #include <jpeglib.h>
 #include "JpegSourceManager.hpp"
 
