@@ -31,12 +31,14 @@ TextStreamFilter::TextStreamFilter(Stream::IStream& stream,
 #if defined(_UNICODE) || defined(UNICODE)
       m_textEncoding = textEncodingUCS2;
 #else
-      m_textEncoding = textEncodingAscii;
+      m_textEncoding = textEncodingAnsi;
 #endif
 
    if (lineEndingMode == lineEndingNative)
 #ifdef WIN32
       m_lineEndingMode = lineEndingCRLF;
+#elif defined(__ANDROID__)
+      m_lineEndingMode = lineEndingLF;
 #else
 #  error define proper line ending mode for this platform!
 #endif
@@ -117,7 +119,7 @@ TCHAR TextStreamFilter::ReadChar()
          ch = static_cast<TCHAR>(dwBits & 0xffff);
 #else
          WCHAR acData[2];
-         acData[0] = static_cast<WCHAR>(dwBits & 0xffff);;
+         acData[0] = static_cast<WCHAR>(dwBits & 0xffff);
          acData[1] = 0;
          USES_CONVERSION;
          ch = W2CT(acData)[0];
