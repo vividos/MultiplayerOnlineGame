@@ -34,3 +34,5 @@ bin/
 *.sdf
 src/ipch/
 src/doxygen/doxygen-warnings.txt
+code-weg/
+Underworld/code-weg/
