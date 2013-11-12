@@ -73,6 +73,7 @@
     <ClCompile Include="ImageReader\PngImageReader.cpp" />
     <ClCompile Include="ImageReader\TgaImageReader.cpp" />
     <ClCompile Include="LogDiagnostics.cpp" />
+    <ClCompile Include="NamedTextureMap.cpp" />
     <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="OrthoCamera.cpp" />
     <ClCompile Include="PerspectiveCamera.cpp" />
@@ -85,6 +86,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="VertexBufferObject.cpp" />
     <ClCompile Include="ViewFrustum3d.cpp" />
   </ItemGroup>
@@ -104,6 +106,7 @@
     <ClInclude Include="ImageReader\TgaImageReader.hpp" />
     <ClInclude Include="IRenderable.hpp" />
     <ClInclude Include="IScenegraph.hpp" />
+    <ClInclude Include="NamedTextureMap.hpp" />
     <ClInclude Include="OpenGL.hpp" />
     <ClInclude Include="OrthoCamera.hpp" />
     <ClInclude Include="PerspectiveCamera.hpp" />
@@ -118,6 +121,7 @@
     <ClInclude Include="TexCoord2f.hpp" />
     <ClInclude Include="Texture.hpp" />
     <ClInclude Include="TexturedVertexBuffer.hpp" />
+    <ClInclude Include="TextureLoader.hpp" />
     <ClInclude Include="TextureParameter.hpp" />
     <ClInclude Include="VertexBufferObject.hpp" />
     <ClInclude Include="ViewFrustum3d.hpp" />

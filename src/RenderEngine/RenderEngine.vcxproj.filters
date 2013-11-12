@@ -81,6 +81,12 @@
     <ClCompile Include="RenderContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NamedTextureMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bitmap.hpp">
@@ -177,6 +183,12 @@
       <Filter>ImageReader Files</Filter>
     </ClInclude>
     <ClInclude Include="RenderContainer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NamedTextureMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
