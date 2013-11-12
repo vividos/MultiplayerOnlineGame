@@ -28,7 +28,7 @@ public:
    // set methods
 
    /// sets camera position by position and point to look at
-   void SetPosition(const Vector3d& vPos, const Vector3d& vLookAt);
+   void SetPositionLookAt(const Vector3d& vPos, const Vector3d& vLookAt);
 
    /// sets camera position by position and direction and up angles
    void SetPosition(const Vector3d& vPos, double dAngleDirection, double dAngleUp);

@@ -22,7 +22,7 @@ PerspectiveCamera::PerspectiveCamera()
 {
 }
 
-void PerspectiveCamera::SetPosition(const Vector3d& vPos, const Vector3d& vLookAt)
+void PerspectiveCamera::SetPositionLookAt(const Vector3d& vPos, const Vector3d& vLookAt)
 {
    Vector3d vDir = vLookAt - vPos;
    if (vDir.Length() < 1e-6)
