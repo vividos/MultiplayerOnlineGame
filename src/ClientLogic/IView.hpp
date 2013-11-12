@@ -19,6 +19,12 @@ public:
    /// dtor
    virtual ~IView() throw() {}
 
+   /// called on mouse button event
+   virtual void OnMouseButtonEvent(bool /*bPressed*/, T_enMouseButtonType /*enButtonType*/, int /*x*/, int /*y*/) override {}
+
+   /// called on mouse motion event
+   virtual void OnMouseMotionEvent(int /*x*/, int /*y*/, int /*xrel*/, int /*yrel*/) override {}
+
    /// called before rendering
    virtual void PreRender() = 0;
 };
