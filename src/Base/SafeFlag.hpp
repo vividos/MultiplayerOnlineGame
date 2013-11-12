@@ -6,6 +6,9 @@
 //
 #pragma once
 
+// includes
+#include <atomic>
+
 /// thread-safe set-only flag
 class SafeFlag
 {
