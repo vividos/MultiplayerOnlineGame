@@ -13,7 +13,7 @@
 #include <functional>
 
 /// movement speed, in units per second
-const double c_dDefaultMovementSpeed = 40.0;
+const double c_dDefaultMovementSpeed = 15.0;
 
 OverviewController::OverviewController(KeyboardActionManager& keyboardActionManager,
    std::shared_ptr<PerspectiveCamera> spCamera)
