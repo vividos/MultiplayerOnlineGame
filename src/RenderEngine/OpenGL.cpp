@@ -96,8 +96,13 @@ void OpenGL::ReplaceTextureMipmapLevel(unsigned int texid,
 
 void OpenGL::RenderBoundingBox(const Vector3d& vMin, const Vector3d& vMax)
 {
-   glPushAttrib(GL_TEXTURE_BIT);
+   glPushAttrib(GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
+
    glDisable(GL_TEXTURE_2D);
+   glDisable(GL_LIGHTING);
+
+   glLineWidth(1.0f);
+   glColor3ub(255, 255, 255); 
 
    // bottom
    glBegin(GL_LINE_LOOP);
@@ -135,7 +140,7 @@ void OpenGL::RenderBoundingBox(const Vector3d& vMin, const Vector3d& vMax)
 
 void OpenGL::RenderXyzAxes()
 {
-   glPushAttrib(GL_TEXTURE_BIT | GL_LIGHTING_BIT | GL_LINE_BIT);
+   glPushAttrib(GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 
    glDisable(GL_TEXTURE_2D);
    glDisable(GL_LIGHTING);
@@ -149,5 +154,4 @@ void OpenGL::RenderXyzAxes()
    glEnd();
 
    glPopAttrib();
-   glColor3ub(255, 255, 255); 
 }
