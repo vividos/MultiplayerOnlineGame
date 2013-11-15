@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2D4C9E7-DE29-433A-89A6-039AC538EE21}</ProjectGuid>
-    <RootNamespace>Server</RootNamespace>
+    <RootNamespace>GameServer</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -61,7 +61,7 @@
   <ItemGroup>
     <ClCompile Include="AttachedConsole.cpp" />
     <ClCompile Include="GameServerService.cpp" />
-    <ClCompile Include="Server.cpp" />
+    <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="ServiceControlManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2011-2013 Michael Fink
 //
-//! \file Server.cpp Server main function
+//! \file GameServer.cpp Game server main function
 //
 
 // includes
