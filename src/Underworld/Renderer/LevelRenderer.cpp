@@ -16,7 +16,7 @@
 
 using namespace Underworld;
 
-void LevelRenderer::Prepare(TextureAtlas& atlas, const Level& level)
+void LevelRenderer::Prepare(const TextureAtlas& atlas, const Level& level)
 {
    PrepareTilemap(atlas, level);
 }
@@ -42,7 +42,7 @@ void LevelRenderer::Render()
    m_vertexBuffer.Unbind();
 }
 
-void LevelRenderer::PrepareTilemap(TextureAtlas& atlas, const Level& level)
+void LevelRenderer::PrepareTilemap(const TextureAtlas& atlas, const Level& level)
 {
    const Underworld::Tilemap& tilemap = level.GetTilemap();
 
@@ -53,7 +53,7 @@ void LevelRenderer::PrepareTilemap(TextureAtlas& atlas, const Level& level)
    }
 }
 
-void LevelRenderer::PrepareTile(TextureAtlas& atlas, const Tilemap& tilemap, unsigned int xpos, unsigned int ypos)
+void LevelRenderer::PrepareTile(const TextureAtlas& atlas, const Tilemap& tilemap, unsigned int xpos, unsigned int ypos)
 {
    const TileInfo& tileInfo = tilemap.GetTileInfo(xpos, ypos);
    if (tileInfo.m_type == tileSolid)
@@ -73,7 +73,7 @@ void LevelRenderer::PrepareTile(TextureAtlas& atlas, const Tilemap& tilemap, uns
    AddLevelFloorCeiling(atlas, xpos, ypos, tileInfo);
 }
 
-void LevelRenderer::AddLevelFloorCeiling(TextureAtlas& atlas, unsigned int xpos, unsigned int ypos, const TileInfo& tileInfo)
+void LevelRenderer::AddLevelFloorCeiling(const TextureAtlas& atlas, unsigned int xpos, unsigned int ypos, const TileInfo& tileInfo)
 {
    // floor
    {
@@ -206,7 +206,7 @@ TexCoord2f Interpolate(TexCoord2f val1, TexCoord2f val2, double dDelta)
 /// - z coordinates not divisable by 8
 /// - slopes other than with value 8
 /// - downward slope on one tile, and upward slope on the other; would result in two half size triangles
-void LevelRenderer::AddLevelWall(TextureAtlas& atlas, unsigned int xpos, unsigned int ypos, const TileInfo& tileInfo, const LevelWall& wall)
+void LevelRenderer::AddLevelWall(const TextureAtlas& atlas, unsigned int xpos, unsigned int ypos, const TileInfo& tileInfo, const LevelWall& wall)
 {
    /// subdivide all vertical coords (x or y coords) by this factor
    const unsigned int c_uiSubdivideVert = 4;

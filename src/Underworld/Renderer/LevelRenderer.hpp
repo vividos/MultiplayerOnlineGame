@@ -33,7 +33,7 @@ public:
    }
 
    /// prepares renderer for given level (e.g. when changing levels)
-   void Prepare(TextureAtlas& atlas, const Underworld::Level& level);
+   void Prepare(const TextureAtlas& atlas, const Underworld::Level& level);
 
    /// uploads vertices and indices
    void Upload();
@@ -43,16 +43,16 @@ public:
 
 private:
    /// prepares tilemap
-   void PrepareTilemap(TextureAtlas& atlas, const Underworld::Level& level);
+   void PrepareTilemap(const TextureAtlas& atlas, const Underworld::Level& level);
 
    /// prepares single tile
-   void PrepareTile(TextureAtlas& atlas, const Underworld::Tilemap& tilemap, unsigned int xpos, unsigned int ypos);
+   void PrepareTile(const TextureAtlas& atlas, const Underworld::Tilemap& tilemap, unsigned int xpos, unsigned int ypos);
 
    /// adds level wall to vertex and index buffer
-   void AddLevelWall(TextureAtlas& atlas, unsigned int xpos, unsigned int ypos, const Underworld::TileInfo& tileInfo, const LevelWall& wall);
+   void AddLevelWall(const TextureAtlas& atlas, unsigned int xpos, unsigned int ypos, const Underworld::TileInfo& tileInfo, const LevelWall& wall);
 
    /// adds floor and ceiling for tile
-   void AddLevelFloorCeiling(TextureAtlas& atlas, unsigned int xpos, unsigned int ypos, const Underworld::TileInfo& tileInfo);
+   void AddLevelFloorCeiling(const TextureAtlas& atlas, unsigned int xpos, unsigned int ypos, const Underworld::TileInfo& tileInfo);
 
 private:
    /// vertex buffer

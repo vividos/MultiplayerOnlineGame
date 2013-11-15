@@ -154,7 +154,7 @@ void TextureAtlas::Generate()
    m_spBitmap.reset(); // reclaim memory
 }
 
-void TextureAtlas::GetUV(Uint16 uiPos, TexCoord2f& coordMin, TexCoord2f& coordMax)
+void TextureAtlas::GetUV(Uint16 uiPos, TexCoord2f& coordMin, TexCoord2f& coordMax) const
 {
    unsigned int xyres = 2;
    unsigned int xpos = 0;

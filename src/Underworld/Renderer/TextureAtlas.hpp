@@ -4,9 +4,9 @@
 //
 //! \file Underworld/Renderer/TextureAtlas.hpp Texture atlas
 //
+#pragma once
 
-// includes
-
+// forward references
 class IFileSystem;
 class IndexedImage;
 class TexCoord2f;
@@ -27,7 +27,7 @@ public:
    void Generate();
 
    /// gets min/max UV coordinates
-   void GetUV(Uint16 uiPos, TexCoord2f& coordMin, TexCoord2f& coordMax);
+   void GetUV(Uint16 uiPos, TexCoord2f& coordMin, TexCoord2f& coordMax) const;
 
    /// returns texture
    std::shared_ptr<Texture> GetTexture() { return m_spTexture; }
