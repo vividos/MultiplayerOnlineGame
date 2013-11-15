@@ -63,6 +63,7 @@
     <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BillboardMatrix.cpp" />
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="BitmapImageWriter.cpp" />
     <ClCompile Include="Checkerboard.cpp" />
@@ -73,6 +74,7 @@
     <ClCompile Include="ImageReader\PngImageReader.cpp" />
     <ClCompile Include="ImageReader\TgaImageReader.cpp" />
     <ClCompile Include="LogDiagnostics.cpp" />
+    <ClCompile Include="MilkyWaySkyboxRenderer.cpp" />
     <ClCompile Include="NamedTextureMap.cpp" />
     <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="OrthoCamera.cpp" />
@@ -81,6 +83,7 @@
     <ClCompile Include="RenderContainer.cpp" />
     <ClCompile Include="RenderEngine.cpp" />
     <ClCompile Include="RenderWindow.cpp" />
+    <ClCompile Include="SkyRenderManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -91,6 +94,7 @@
     <ClCompile Include="ViewFrustum3d.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BillboardMatrix.hpp" />
     <ClInclude Include="Bitmap.hpp" />
     <ClInclude Include="BitmapImageWriter.hpp" />
     <ClInclude Include="Checkerboard.hpp" />
@@ -106,6 +110,7 @@
     <ClInclude Include="ImageReader\TgaImageReader.hpp" />
     <ClInclude Include="IRenderable.hpp" />
     <ClInclude Include="IScenegraph.hpp" />
+    <ClInclude Include="MilkyWaySkyboxRenderer.hpp" />
     <ClInclude Include="NamedTextureMap.hpp" />
     <ClInclude Include="OpenGL.hpp" />
     <ClInclude Include="OrthoCamera.hpp" />
@@ -116,6 +121,7 @@
     <ClInclude Include="RenderEngineCommon.hpp" />
     <ClInclude Include="RenderOptions.hpp" />
     <ClInclude Include="RenderWindow.hpp" />
+    <ClInclude Include="SkyRenderManager.hpp" />
     <ClInclude Include="StaticIndexBuffer.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TexCoord2f.hpp" />
