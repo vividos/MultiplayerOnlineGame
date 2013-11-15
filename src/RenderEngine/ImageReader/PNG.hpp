@@ -108,6 +108,19 @@ private:
 /// PNG image info
 struct ImageInfo
 {
+   /// ctor
+   ImageInfo()
+       :m_uiWidth(0),
+        m_uiHeight(0),
+        m_bitDepth(0),
+        m_enColorType(colorTypeGrayscale),
+        m_enCompressionMethod(compressionDeflate),
+        m_enFilterMethod(filterAdaptive),
+        m_enInterlaceMethod(interlaceNone),
+        m_uiBytesPerColor(0)
+   {
+   }
+
    /// parses IHDR chunk
    void ParseHeader(const Chunk& ihdr);
 
@@ -175,6 +188,7 @@ public:
    /// ctor
    Scanline()
       :m_uiScanlineFill(0),
+       m_enFilterType(filterNone),
        m_uiColorSamples(0),
        m_uiInterlacePass(0),
        m_decompressor(true) // true: read zlib window size from stream

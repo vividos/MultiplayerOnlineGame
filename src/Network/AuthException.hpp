@@ -25,7 +25,8 @@ public:
    /// ctor
    AuthException(T_enAuthError enAuthError, const CString& cszMessage, LPCSTR pszSourceFile, UINT uiSourceLine) throw()
       :Exception(CString(_T("Authentication error: ")) + AuthErrorText(enAuthError) + _T(": ") + cszMessage,
-         pszSourceFile, uiSourceLine)
+         pszSourceFile, uiSourceLine),
+       m_enAuthError(authInternalError)
    {
    }
 

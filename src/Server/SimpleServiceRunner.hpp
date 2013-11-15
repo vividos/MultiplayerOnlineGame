@@ -64,7 +64,7 @@ public:
          else
             OutputMessageBox(_T("Exception: ") + ex.Message() + _T("\n\n"));
 
-         throw ex;
+         throw;
       }
    }
 
@@ -100,7 +100,7 @@ private:
                   return;
                }
 
-               throw ex;
+               throw;
             }
          }
          break;

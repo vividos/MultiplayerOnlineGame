@@ -24,7 +24,7 @@ bool ConsoleClientSession::OnReceiveMessage(RawMessage& msg)
 
    if (msgSessionInit == msg.MessageId())
    {
-      _tprintf(_T("Session init message\n"), msg.MessageId());
+      _tprintf(_T("Session init message\n"));
       return true;
    }
    else
