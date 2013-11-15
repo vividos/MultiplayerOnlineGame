@@ -9,6 +9,7 @@
 // includes
 #include "StdAfx.h"
 #include "TextureLoader.hpp"
+#include "GraphicsTaskManager.hpp"
 #include "Texture.hpp"
 #include "Bitmap.hpp"
 #include "IFileSystem.hpp"
@@ -16,44 +17,51 @@
 #include "ImageReader\TgaImageReader.hpp"
 #include "ImageReader\PngImageReader.hpp"
 #include "ImageReader\JpegImageReader.hpp"
-#include <ulib/stream/FileStream.hpp>
 
-TextureLoader::TextureLoader(IFileSystem& fileSystem)
-:m_fileSystem(fileSystem)
+TextureLoader::TextureLoader(GraphicsTaskManager& taskManager, IFileSystem& fileSystem)
+:m_taskManager(taskManager),
+ m_fileSystem(fileSystem)
 {
 }
 
-void TextureLoader::Load(const CString& cszFilename)
+void TextureLoader::Load(const CString& cszFilename, std::shared_ptr<Texture> spTexture, bool bGenerateMipmap)
 {
+   ATLASSERT(spTexture != nullptr);
+
    CString cszFilenameLower(cszFilename);
    cszFilenameLower.MakeLower();
 
+   std::shared_ptr<IImageReader> spImageReader;
+
    if (cszFilenameLower.Right(4) == _T(".pcx"))
-      m_spImageReader.reset(new PcxImageReader);
+      spImageReader.reset(new PcxImageReader);
 
    if (cszFilenameLower.Right(4) == _T(".tga"))
-      m_spImageReader.reset(new TgaImageReader);
+      spImageReader.reset(new TgaImageReader);
 
    if (cszFilenameLower.Right(4) == _T(".png"))
-      m_spImageReader.reset(new PngImageReader);
+      spImageReader.reset(new PngImageReader);
 
    if (cszFilenameLower.Right(4) == _T(".jpg"))
-      m_spImageReader.reset(new JpegImageReader);
+      spImageReader.reset(new JpegImageReader);
 
-   if (m_spImageReader == NULL)
+   if (spImageReader == NULL)
       throw Exception(_T("image file type not supported; filename: ") + cszFilename, __FILE__, __LINE__);
 
-   m_spImageReader->Load(*m_fileSystem.OpenFile(cszFilename, true));
+   spImageReader->Load(*m_fileSystem.OpenFile(cszFilename, true));
+
+   m_taskManager.UploadTaskGroup().Add(
+      std::bind(&TextureLoader::Upload, this, spImageReader, spTexture, bGenerateMipmap));
 }
 
-void TextureLoader::Upload(Texture& tex, bool bGenerateMipmap)
+void TextureLoader::Upload(std::shared_ptr<IImageReader> spImageReader, std::shared_ptr<Texture> spTexture, bool bGenerateMipmap)
 {
-   if (m_spImageReader == NULL)
-      throw Exception(_T("no image previously loaded"), __FILE__, __LINE__);
+   ATLASSERT(spTexture != nullptr);
 
-   Bitmap bmp(m_spImageReader->Width(), m_spImageReader->Height(), &m_spImageReader->Pixels()[0]);
+   Bitmap bmp(spImageReader->Width(), spImageReader->Height(), &spImageReader->Pixels()[0]);
 
-   tex.Upload(bmp, bGenerateMipmap);
+   if (!spTexture->IsValid())
+      spTexture->Generate();
 
-   m_spImageReader.reset();
+   spTexture->Upload(bmp, bGenerateMipmap);
 }

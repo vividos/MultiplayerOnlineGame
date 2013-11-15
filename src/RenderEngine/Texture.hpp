@@ -38,6 +38,9 @@ public:
 
    // get functions
 
+   /// returns if texture object is valid
+   bool IsValid() const throw() { return m_texId != 0; }
+
    /// returns texture id
    unsigned int Id() const throw() { return m_texId; }
 

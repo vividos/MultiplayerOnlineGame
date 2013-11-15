@@ -105,15 +105,15 @@ private:
    /// loads texture by name
    TexturePtr LoadTexture(const CString& cszTexture);
 
-   /// uploads texture in background thread
-   void AsyncUploadTexture(std::shared_ptr<TextureLoader> spLoader, TexturePtr spTexture);
-
 private:
    /// file system
    IFileSystem& m_fileSystem;
 
    /// task manager
    GraphicsTaskManager& m_taskManager;
+
+   /// texture loader
+   std::shared_ptr<TextureLoader> m_spTextureLoader;
 
    /// texture map for all model textures
    NamedTextureMap m_textureMap;

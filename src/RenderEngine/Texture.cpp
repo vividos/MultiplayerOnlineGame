@@ -51,10 +51,7 @@ void Texture::Upload(const Bitmap& bmp, bool bGenerateMipmap)
       throw Exception(_T("Non-power-of-two texture size not supported by graphics card"), __FILE__, __LINE__);
    }
 
-   glEnable(GL_TEXTURE_2D);
-
-   glBindTexture(GL_TEXTURE_2D, m_texId);
-   glTraceError("glBindTexture");
+   Bind();
 
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);

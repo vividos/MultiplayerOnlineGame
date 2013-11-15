@@ -29,7 +29,8 @@ using namespace MilkShape3D;
 
 ModelManager::ModelManager(IFileSystem& fileSystem, GraphicsTaskManager& taskManager)
 :m_fileSystem(fileSystem),
- m_taskManager(taskManager)
+ m_taskManager(taskManager),
+ m_spTextureLoader(new TextureLoader(taskManager, fileSystem))
 {
 }
 
@@ -45,8 +46,7 @@ std::shared_ptr<IModelDisplayState> ModelManager::Create(const Mobile& mobile)
 
    // load in background
    m_taskManager.BackgroundTaskGroup().Add(
-      std::bind(&ModelManager::AsyncLoadModel, this,
-         blueprint, spModel, spDisplayState));
+      std::bind(&ModelManager::AsyncLoadModel, this, blueprint, spModel, spDisplayState));
 
    return spDisplayState;
 }
@@ -160,19 +160,7 @@ TexturePtr ModelManager::LoadTexture(const CString& cszTexture)
    m_textureMap.Register(cszTexture, spTexture);
 
    // load texture
-   std::shared_ptr<TextureLoader> spLoader(new TextureLoader(m_fileSystem));
-
-   spLoader->Load(_T("models\\textures\\") + cszTexture);
-
-   // upload in render thread
-   m_taskManager.UploadTaskGroup().Add(
-      std::bind(&ModelManager::AsyncUploadTexture, this, spLoader, spTexture));
+   m_spTextureLoader->Load(_T("models\\textures\\") + cszTexture, spTexture, false);
 
    return spTexture;
-}
-
-void ModelManager::AsyncUploadTexture(std::shared_ptr<TextureLoader> spLoader, TexturePtr spTexture)
-{
-   spTexture->Generate();
-   spLoader->Upload(*spTexture, false);
 }
