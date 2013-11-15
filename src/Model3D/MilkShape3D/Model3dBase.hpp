@@ -1,0 +1,43 @@
+//
+// MultiplayerOnlineGame - multiplayer game project
+// Copyright (C) 2008-2013 Michael Fink
+//
+//! \file MilkShape3D\Model3dBase.hpp MilkShape3D model base class
+//
+#pragma once
+
+// includes
+#include "IModel3d.hpp"
+#include "MilkShape3D/Data.hpp"
+
+namespace MilkShape3D
+{
+
+/// MilkShape3D model base class
+class Model3dBase: public IModel3d
+{
+public:
+   /// ctor
+   Model3dBase() throw() {}
+   /// dtor
+   virtual ~Model3dBase() throw() {}
+
+protected:
+   friend class ModelManager;
+   friend class ModelDisplayState;
+
+   const Data& GetData() const throw() { return m_data; } ///< returns model data; const version
+         Data& GetData()       throw() { return m_data; } ///< returns model data
+
+   /// finds joint index by joint name, or returns -1
+   int FindJointByName(const CString& cszJointName) const throw();
+
+   /// sets up joints
+   void SetupJoints();
+
+protected:
+   /// model data
+   Data m_data;
+};
+
+} // namespace MilkShape3D
