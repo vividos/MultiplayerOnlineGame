@@ -75,6 +75,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ThirdPersonViewController.cpp" />
+    <ClCompile Include="UserInterfaceAudioManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientLogic.hpp" />
@@ -92,11 +93,15 @@
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="ThirdPersonViewController.hpp" />
+    <ClInclude Include="UserInterfaceAudioManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="versioninfo.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Audio\Audio.vcxproj">
+      <Project>{7cbd4454-1736-4c34-8813-f64c38f7c9a6}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
