@@ -20,7 +20,7 @@ class COMMON_DECLSPEC Mobile : public Object
 {
 public:
    /// ctor
-   Mobile(const Uuid& id)
+   Mobile(const ObjectId& id)
       :Object(id),
        m_displayInfo(0),
        m_uiMovementAngle(0),
