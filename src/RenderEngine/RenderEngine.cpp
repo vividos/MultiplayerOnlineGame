@@ -103,6 +103,8 @@ void RenderEngine::Render()
    glClearColor(0,0,0,0);
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+   ApplyRenderOptions(GetRenderOptions());
+
    glLoadIdentity();
 
    // position camera
@@ -137,7 +139,8 @@ void RenderEngine::ApplyRenderOptions(RenderOptions& renderOptions)
    {
       // render back faces, too
       glDisable(GL_CULL_FACE);
-      glCullFace(GL_FRONT_AND_BACK);
+      glCullFace(GL_BACK);
+      glFrontFace(GL_CCW);
       glPolygonMode(GL_FRONT, GL_FILL);
 
       if (renderOptions.Get(RenderOptions::optionBackfaceAsLines))
