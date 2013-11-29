@@ -12,9 +12,11 @@
 #include "GraphicsTaskManager.hpp"
 #include "IFileSystem.hpp"
 #include "OpenGL.hpp"
+#include "RenderOptions.hpp"
+#include <ulib/DateTime.hpp>
 
 /// distance for skybox
-const double c_dSkyboxDistance = 5000.0;
+const double c_dSkyboxDistance = 100.0;
 
 static unsigned int g_auiCoordIndices[6][4] =
 {
@@ -55,47 +57,48 @@ static GLdouble g_adTexCoords[6][4][2] =
 
    // +X
    {
-      { g_u1, g_vOffset*5.0 + g_v1 },
-      { g_u0, g_vOffset*5.0 + g_v1 },
-      { g_u0, g_vOffset*5.0 + g_v0 },
-      { g_u1, g_vOffset*5.0 + g_v0 },
+      { g_u1, g_vOffset*0.0 + g_v0 },
+      { g_u0, g_vOffset*0.0 + g_v0 },
+      { g_u0, g_vOffset*0.0 + g_v1 },
+      { g_u1, g_vOffset*0.0 + g_v1 },
    },
    { // +Y
-      { g_u1, g_vOffset*4.0 + g_v1 },
-      { g_u0, g_vOffset*4.0 + g_v1 },
-      { g_u0, g_vOffset*4.0 + g_v0 },
-      { g_u1, g_vOffset*4.0 + g_v0 },
-   },
-   { // +Z
-      { g_u0, g_vOffset*3.0 + g_v0 },
-      { g_u1, g_vOffset*3.0 + g_v0 },
-      { g_u1, g_vOffset*3.0 + g_v1 },
-      { g_u0, g_vOffset*3.0 + g_v1 },
-   },
-   { // -X
-      { g_u1, g_vOffset*2.0 + g_v1 },
-      { g_u0, g_vOffset*2.0 + g_v1 },
-      { g_u0, g_vOffset*2.0 + g_v0 },
-      { g_u1, g_vOffset*2.0 + g_v0 },
-   },
-   {
-      { g_u0, g_vOffset*1.0 + g_v1 },
-      { g_u1, g_vOffset*1.0 + g_v1 },
       { g_u1, g_vOffset*1.0 + g_v0 },
       { g_u0, g_vOffset*1.0 + g_v0 },
+      { g_u0, g_vOffset*1.0 + g_v1 },
+      { g_u1, g_vOffset*1.0 + g_v1 },
+   },
+   { // +Z
+      { g_u0, g_vOffset*2.0 + g_v1 },
+      { g_u1, g_vOffset*2.0 + g_v1 },
+      { g_u1, g_vOffset*2.0 + g_v0 },
+      { g_u0, g_vOffset*2.0 + g_v0 },
+   },
+   { // -X
+      { g_u1, g_vOffset*3.0 + g_v0 },
+      { g_u0, g_vOffset*3.0 + g_v0 },
+      { g_u0, g_vOffset*3.0 + g_v1 },
+      { g_u1, g_vOffset*3.0 + g_v1 },
    },
    {
-      { g_u1, g_vOffset*0.0 + g_v1 },
-      { g_u0, g_vOffset*0.0 + g_v1 },
-      { g_u0, g_vOffset*0.0 + g_v0 },
-      { g_u1, g_vOffset*0.0 + g_v0 },
+      { g_u0, g_vOffset*4.0 + g_v0 },
+      { g_u1, g_vOffset*4.0 + g_v0 },
+      { g_u1, g_vOffset*4.0 + g_v1 },
+      { g_u0, g_vOffset*4.0 + g_v1 },
+   },
+   {
+      { g_u1, g_vOffset*5.0 + g_v0 },
+      { g_u0, g_vOffset*5.0 + g_v0 },
+      { g_u0, g_vOffset*5.0 + g_v1 },
+      { g_u1, g_vOffset*5.0 + g_v1 },
    },
 };
 
 
 MilkyWaySkyboxRenderer::MilkyWaySkyboxRenderer(GraphicsTaskManager& taskManager, IFileSystem& fileSystem) throw()
 :m_taskManager(taskManager),
- m_fileSystem(fileSystem)
+ m_fileSystem(fileSystem),
+ m_dRotateAngle(0.0)
 {
    // top vertices
    for (unsigned int i=0; i<6*4; i++)
@@ -106,6 +109,13 @@ MilkyWaySkyboxRenderer::MilkyWaySkyboxRenderer(GraphicsTaskManager& taskManager,
          g_adVertexCoords[uiIndex][1],
          g_adVertexCoords[uiIndex][2]);
    }
+}
+
+void MilkyWaySkyboxRenderer::SetCurrentDateTime(const DateTime& dtNow)
+{
+   // calculate current angle
+   unsigned int uiDaytimeSeconds = (dtNow.Hour() * 60 + dtNow.Minute()) * 60 + dtNow.Second();
+   m_dRotateAngle = AngleInRange(uiDaytimeSeconds / 24.0 / 60.0 / 60.0 * 360.0);
 }
 
 void MilkyWaySkyboxRenderer::Prepare()
@@ -119,23 +129,26 @@ void MilkyWaySkyboxRenderer::Prepare()
 
 void MilkyWaySkyboxRenderer::Render(RenderOptions& /*options*/)
 {
-   OpenGL::PushedAttributes attrib(GL_ENABLE_BIT | GL_CURRENT_BIT | GL_POLYGON_BIT);
-
-   // enable needed states
-   glDisable(GL_DEPTH_TEST);
+   // note: we assume here that our caller already changed necessary OpenGL states; saves
+   // some state changes here
 
    glPushMatrix();
-   glLoadIdentity();
 
-   glColor3f(1.0f, 1.0f, 1.0f);
-   glPolygonMode(GL_FRONT, GL_FILL);
+   // rotate sky around polaris
+   // lucky for us, the star lies where x axis meets our box
+   Vector3d vPolaris(1, 0, 0);
+
+   glRotated(m_dRotateAngle, vPolaris.X(), vPolaris.Y(), vPolaris.Z());
+
+   const double c_dEclipticGalacticDiff = 40.0;
+   glRotated(c_dEclipticGalacticDiff, 0, 0, 1.0);
+
+   glColor4ub(255, 255, 255, 255);
 
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
    m_spTexture->Bind();
-
-   glColor3ub(255, 255, 255);
 
    glEnableClientState(GL_VERTEX_ARRAY);
    glVertexPointer(3, GL_DOUBLE, 0, m_avSkyboxCoords[0].Data());
@@ -153,9 +166,9 @@ void MilkyWaySkyboxRenderer::Render(RenderOptions& /*options*/)
    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
    glDisableClientState(GL_INDEX_ARRAY);
 
-   glPopMatrix();
-
    OpenGL::CountPolygons(6*4*2);
+
+   glPopMatrix();
 }
 
 void MilkyWaySkyboxRenderer::Done()

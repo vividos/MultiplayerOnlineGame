@@ -86,6 +86,12 @@ private:
    /// renders triangle lines
    void RenderLines();
 
+   // render sun position
+   void RenderLinesSun();
+
+   // render moon position
+   void RenderLinesMoon();
+
 private:
    /// current date/time
    DateTime m_dtNow;

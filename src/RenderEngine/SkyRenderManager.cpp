@@ -18,7 +18,7 @@
 #include "RenderOptions.hpp"
 
 /// skydome radius
-const double c_dSkydomeRadius = 1000.0;
+const double c_dSkydomeRadius = 100.0;
 
 /// sun diameter/distance: 0.00936 = 0.53623 degrees as seen from earth
 /// \see http://vterrain.org/Atmosphere/
@@ -54,11 +54,8 @@ void SkyRenderManager::Prepare()
    m_spTexMoon.reset(new Texture);
    m_spTexSkyTonesMap.reset(new Texture);
 
-   //m_spTextureLoader->Load(_T("sky\\sun.png"), m_spTexSun, false);
-   //m_spTextureLoader->Load(_T("sky\\fm1222_gendler_big_alpha.png"), m_spTexMoon, false);
-   //m_spTextureLoader->Load(_T("sky\\clearSky2_norle.png"), m_spTexSkyTonesMap, false);
-   m_spTextureLoader->Load(_T("sky\\sun.tga"), m_spTexSun, false);
-   m_spTextureLoader->Load(_T("sky\\fm1222_gendler_big_alpha.tga"), m_spTexMoon, false);
+   m_spTextureLoader->Load(_T("sky\\sun.png"), m_spTexSun, false);
+   m_spTextureLoader->Load(_T("sky\\fm1222_gendler_big_alpha_256.png"), m_spTexMoon, false);
    m_spTextureLoader->Load(_T("sky\\clearSky2_norle.tga"), m_spTexSkyTonesMap, false);
 }
 
@@ -82,7 +79,7 @@ void SkyRenderManager::Render(RenderOptions& options)
    // render night sky dome
    RenderNightSky(options);
 
-   // render day skydome (with clouds)
+   // render day skydome
    RenderDaySky();
 
    // draw sun, moon
@@ -134,7 +131,7 @@ void SkyRenderManager::RenderLines()
    glBegin(GL_LINES);
 
    Vector3d vDir;
-   for (unsigned int uAzimuth = 0; uAzimuth <= 360; uAzimuth += 10)
+   for (unsigned int uAzimuth = 0; uAzimuth < 360; uAzimuth += 10)
    for (unsigned int uElevation = 0; uElevation < 90; uElevation += 10)
    {
       for (unsigned int i=0; i<4; i++)
@@ -147,7 +144,7 @@ void SkyRenderManager::RenderLines()
       }
    }
 
-   for (unsigned int uAzimuth = 0; uAzimuth <= 360; uAzimuth += 10)
+   for (unsigned int uAzimuth = 0; uAzimuth < 360; uAzimuth += 10)
    {
       // p1
       vDir = PosFromAngles(c_dSkydomeRadius, 0.0, uAzimuth);
@@ -167,53 +164,93 @@ void SkyRenderManager::RenderLines()
    }
    glEnd();
 
-   // render sun position
+   RenderLinesSun();
+   RenderLinesMoon();
+}
+
+void SkyRenderManager::RenderLinesSun()
+{
+   double dElevation, dAzimuth;
+   SunDirection(dElevation, dAzimuth);
+
+   // calculate chord of sun
+   double dRad = 2.0 * c_dSkydomeRadius * sin(0.5 * Deg2Rad(c_dSunDiameterAngle));
+   dRad *= 20.0; // too small
+
+   // render placeholder
+   glBegin(GL_LINE_LOOP);
    {
-      double dElevation, dAzimuth;
-      SunDirection(dElevation, dAzimuth);
+      Vector3d vPos = PosFromAngles(c_dSkydomeRadius, dElevation-dRad, dAzimuth-dRad);
+      glVertex3dv(vPos.Data());
 
-      double dRad = 10.0 * c_dSunDiameterAngle / 2.0;
+      vPos = PosFromAngles(c_dSkydomeRadius, dElevation-dRad, dAzimuth+dRad);
+      glVertex3dv(vPos.Data());
 
-      glBegin(GL_LINE_LOOP);
-      {
-         vDir = PosFromAngles(c_dSkydomeRadius, dElevation-dRad, dAzimuth-dRad);
-         glVertex3dv(vDir.Data());
+      vPos = PosFromAngles(c_dSkydomeRadius, dElevation+dRad, dAzimuth+dRad);
+      glVertex3dv(vPos.Data());
 
-         vDir = PosFromAngles(c_dSkydomeRadius, dElevation-dRad, dAzimuth+dRad);
-         glVertex3dv(vDir.Data());
-
-         vDir = PosFromAngles(c_dSkydomeRadius, dElevation+dRad, dAzimuth+dRad);
-         glVertex3dv(vDir.Data());
-
-         vDir = PosFromAngles(c_dSkydomeRadius, dElevation+dRad, dAzimuth-dRad);
-         glVertex3dv(vDir.Data());
-      }
-      glEnd();
+      vPos = PosFromAngles(c_dSkydomeRadius, dElevation+dRad, dAzimuth-dRad);
+      glVertex3dv(vPos.Data());
    }
+   glEnd();
 
-   // render moon position
+   // render position for whole day
+   glColor3ub(255, 255, 0);
+   glBegin(GL_LINE_STRIP);
    {
-      double dElevation, dAzimuth;
-      MoonDirection(dElevation, dAzimuth);
-
-      double dRad = 10.0 * c_dMoonDiameterAngle / 2.0;
-
-      glBegin(GL_LINE_LOOP);
+      for (int i=0; i<24; i++)
       {
-         vDir = PosFromAngles(c_dSkydomeRadius, dElevation+dRad, dAzimuth);
-         glVertex3dv(vDir.Data());
+         AstronomyMath::SunPosition(m_dtNow + TimeSpan(i, 0, 0),
+            c_dLocalLatitude, c_dLocalLongitude,
+            dAzimuth, dElevation);
 
-         vDir = PosFromAngles(c_dSkydomeRadius, dElevation,      dAzimuth+dRad);
-         glVertex3dv(vDir.Data());
-
-         vDir = PosFromAngles(c_dSkydomeRadius, dElevation-dRad, dAzimuth);
-         glVertex3dv(vDir.Data());
-
-         vDir = PosFromAngles(c_dSkydomeRadius, dElevation,      dAzimuth-dRad);
-         glVertex3dv(vDir.Data());
+         Vector3d vPos = PosFromAngles(c_dSkydomeRadius, dElevation, dAzimuth);
+         glVertex3dv(vPos.Data());
       }
-      glEnd();
    }
+   glEnd();
+}
+
+void SkyRenderManager::RenderLinesMoon()
+{
+   double dElevation, dAzimuth;
+   MoonDirection(dElevation, dAzimuth);
+
+   // calculate chord of moon
+   double dRad = 2.0 * c_dSkydomeRadius * sin(0.5 * Deg2Rad(c_dMoonDiameterAngle));
+   dRad *= 20.0; // too small
+
+   glBegin(GL_LINE_LOOP);
+   {
+      Vector3d vPos = PosFromAngles(c_dSkydomeRadius, dElevation+dRad, dAzimuth);
+      glVertex3dv(vPos.Data());
+
+      vPos = PosFromAngles(c_dSkydomeRadius, dElevation,      dAzimuth+dRad);
+      glVertex3dv(vPos.Data());
+
+      vPos = PosFromAngles(c_dSkydomeRadius, dElevation-dRad, dAzimuth);
+      glVertex3dv(vPos.Data());
+
+      vPos = PosFromAngles(c_dSkydomeRadius, dElevation,      dAzimuth-dRad);
+      glVertex3dv(vPos.Data());
+   }
+   glEnd();
+
+   // render position for whole day
+   glColor3ub(0, 255, 255);
+   glBegin(GL_LINE_STRIP);
+   {
+      for (int i=0; i<24; i++)
+      {
+         AstronomyMath::MoonPosition(m_dtNow + TimeSpan(i, 0, 0),
+            c_dLocalLatitude, c_dLocalLongitude,
+            dAzimuth, dElevation);
+
+         Vector3d vPos = PosFromAngles(c_dSkydomeRadius, dElevation, dAzimuth);
+         glVertex3dv(vPos.Data());
+      }
+   }
+   glEnd();
 }
 
 void SkyRenderManager::RenderNightSky(RenderOptions& options)
@@ -221,18 +258,35 @@ void SkyRenderManager::RenderNightSky(RenderOptions& options)
    if (m_dtNow.Hour() > 5 && m_dtNow.Hour() < 19)
       return; // don't render sky at daytime
 
+   m_milkyWaySkyboxRenderer.SetCurrentDateTime(m_dtNow);
+
+   glPushMatrix();
+
+   // north of the night sky lies at (1/0/0). Rotate it to the position of polaris.
+   double dElevation = c_dLocalLatitude; // elevation is about the same as local latitude
+   double dAzimuth = 0.0; // north is at 0.0 degrees
+
+   glRotated(dElevation, 0.0, 0.0, 1.0);
+   glRotated(dAzimuth, 0.0, 1.0, 0.0);
+
    m_milkyWaySkyboxRenderer.Render(options);
+
+   glPopMatrix();
 }
 
 typedef TextureParameter<GL_REPEAT, GL_CLAMP_TO_EDGE, GL_LINEAR, GL_LINEAR, GL_MODULATE> SkyTexParameter;
 
 void SkyRenderManager::RenderDaySky()
 {
-   glColor4ub(255, 255, 255, 255);
+   if (!m_spTexSkyTonesMap->IsValid())
+      return;
+
    m_spTexSkyTonesMap->Bind();
 
    glEnable(GL_BLEND);
    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+   glColor4ub(255, 255, 255, 255);
 
    SkyTexParameter::Use();
 
@@ -245,7 +299,7 @@ void SkyRenderManager::RenderDaySky()
    // render sky dome
    Vector3d vDir;
    glBegin(GL_QUADS);
-   for (unsigned int uAzimuth = 0; uAzimuth <= 360; uAzimuth += 5)
+   for (unsigned int uAzimuth = 0; uAzimuth < 360; uAzimuth += 5)
    for (unsigned int uElevation = 0; uElevation < 90; uElevation += 5)
    {
       // the y tex coords
@@ -272,7 +326,7 @@ void SkyRenderManager::RenderDaySky()
    }
 
    // render bottom cylinder
-   for (unsigned int uAzimuth = 0; uAzimuth <= 360; uAzimuth += 5)
+   for (unsigned int uAzimuth = 0; uAzimuth < 360; uAzimuth += 5)
    {
       float t = 0.0;
       glTexCoord2f(s, t);
@@ -307,12 +361,17 @@ void SkyRenderManager::RenderDaySky()
 
 void SkyRenderManager::RenderSun()
 {
+   if (!m_spTexSun->IsValid())
+      return;
+
    m_spTexSun->Bind();
 
    double dElevation, dAzimuth;
    SunDirection(dElevation, dAzimuth);
 
-   double dRad = 400.0 * c_dSunDiameterAngle;
+   // calculate chord of sun
+   double dRad = 2.0 * c_dSkydomeRadius * sin(0.5 * Deg2Rad(c_dSunDiameterAngle));
+   dRad *= 20.0; // too small
 
    PointBillboardMatrix billboard(PosFromAngles(c_dSkydomeRadius, dElevation, dAzimuth));
 
@@ -345,12 +404,17 @@ void SkyRenderManager::RenderSun()
 
 void SkyRenderManager::RenderMoon()
 {
+   if (!m_spTexMoon->IsValid())
+      return;
+
    m_spTexMoon->Bind();
 
    double dElevation, dAzimuth;
    MoonDirection(dElevation, dAzimuth);
 
-   double dRad = 150.0 * c_dMoonDiameterAngle;
+   // calculate chord of moon
+   double dRad = 2.0 * c_dSkydomeRadius * sin(0.5 * Deg2Rad(c_dMoonDiameterAngle));
+   dRad *= 20.0; // too small
 
    PointBillboardMatrix billboard(PosFromAngles(c_dSkydomeRadius, dElevation, dAzimuth));
 

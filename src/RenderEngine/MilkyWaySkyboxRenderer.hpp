@@ -17,6 +17,7 @@ class GraphicsTaskManager;
 class IFileSystem;
 class TextureLoader;
 class RenderOptions;
+class DateTime;
 
 /// renderer for skybox
 class RENDERENGINE_DECLSPEC MilkyWaySkyboxRenderer: public IRenderable
@@ -26,6 +27,9 @@ public:
    MilkyWaySkyboxRenderer(GraphicsTaskManager& taskManager, IFileSystem& fileSystem) throw();
    /// dtor
    virtual ~MilkyWaySkyboxRenderer() throw() {}
+
+   /// sets current date/time
+   void SetCurrentDateTime(const DateTime& dtNow);
 
    // virtual methods from IRenderable
 
@@ -62,4 +66,7 @@ private:
 
    /// coordinate array for skybox
    Vector3d m_avSkyboxCoords[24];
+
+   /// current rotate angle
+   double m_dRotateAngle;
 };
