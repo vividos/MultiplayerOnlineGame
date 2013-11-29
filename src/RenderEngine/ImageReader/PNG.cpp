@@ -335,18 +335,19 @@ bool Scanline::Decode(const BYTE* pbData, size_t uiLen,
    // step 1: read more bytes by uncompressing data
    uiBytesUsed = 0;
 
+   bool bReadFilterByte = m_uiScanlineFill == 0;
+
    size_t uiUnusedInBytes = 0;
-   size_t uiMaxUncompress = m_vecScanline.size() - m_uiScanlineFill + 1;
+   size_t uiMaxUncompress = m_vecScanline.size() - m_uiScanlineFill;
+   if (bReadFilterByte)
+      uiMaxUncompress++; // add for filter byte when empty scanline
 
    std::vector<BYTE> vecUncompressedData;
-   /*bool bRet = */m_decompressor.Uncompress(pbData,
+   m_decompressor.Uncompress(pbData,
       uiLen,
       uiUnusedInBytes,
       vecUncompressedData,
       uiMaxUncompress);
-   // TODO bRet
-   /// \retval true end of stream; last bytes were decoded
-   /// \retval false more bytes available to uncompress
 
    // update in ptr
    uiBytesUsed += uiLen - uiUnusedInBytes;
@@ -364,12 +365,14 @@ bool Scanline::Decode(const BYTE* pbData, size_t uiLen,
       }
 
       // copy remaining bytes to scanline
-      ATLASSERT(vecUncompressedData.size() - 1 <= m_vecScanline.size() - m_uiScanlineFill);
+      size_t uiFilterByte = bReadFilterByte ? 1 : 0;
 
-      std::copy(vecUncompressedData.begin() + 1, vecUncompressedData.end(),
+      ATLASSERT(vecUncompressedData.size() - uiFilterByte <= m_vecScanline.size() - m_uiScanlineFill);
+
+      std::copy(vecUncompressedData.begin() + uiFilterByte, vecUncompressedData.end(),
          m_vecScanline.begin() + m_uiScanlineFill);
 
-      m_uiScanlineFill += vecUncompressedData.size() - 1;
+      m_uiScanlineFill += vecUncompressedData.size() - uiFilterByte;
    }
 
    if (m_uiScanlineFill < imageInfo.m_uiWidth * imageInfo.m_uiBytesPerColor)
@@ -391,19 +394,15 @@ bool Scanline::Decode(const BYTE* pbData, size_t uiLen,
 /// helper function for paeth predictor filter
 int PaethPredictor(int a, int b, int c)
 {
-   /* a = left, b = above, c = upper left */
+   // a = left, b = above, c = upper left
    int p, pa, pb, pc;
 
-   p = a + b - c;    /* initial estimate */
-   pa = abs(p - a);  /* distances to a, b, c */
-   pb = abs(p - b);
-   pc = abs(p - c);
-
+   p = a + b - c;
    pa = abs(b-c);
    pb = abs(a-c);
    pc = abs(a+b-c-c);
 
-   /* return nearest of a,b,c, breaking ties in order a,b,c. */
+   // return nearest of a,b,c, breaking ties in order a,b,c.
    return pa<=pb && pa<=pc ? a : ( pb<=pc ? b : c);
 }
 
