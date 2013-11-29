@@ -53,6 +53,8 @@ public:
       Set(optionModelJoints, false);
       Set(optionModelNormals, false);
 
+      Set(optionSkyMeshLines, false);
+
       Set(optionTerrainZoneBoundingBox, false);
       Set(optionTerrainModelNormals, false);
    }
