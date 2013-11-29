@@ -49,6 +49,7 @@ void JpegImageReader::Load(Stream::IStream& stream)
          pDest[i].m_color[0] = pSrc[0];
          pDest[i].m_color[1] = pSrc[1];
          pDest[i].m_color[2] = pSrc[2];
+         pDest[i].m_color[3] = 255; // jpegs have no transparency
       }
 
       uiScanline++;
