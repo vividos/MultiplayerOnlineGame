@@ -167,7 +167,7 @@ void ModelRenderInstance::Render(RenderOptions& renderOptions)
    m_spDisplayState->Tick(m_timerDisplayState.Elapsed());
    m_timerDisplayState.Restart();
 
-   glPushAttrib(GL_POLYGON_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
+   OpenGL::PushedAttributes attrib(GL_POLYGON_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 
    if (renderOptions.Get(RenderOptions::optionModelFilled))
       glPolygonMode(GL_FRONT, GL_FILL);
@@ -197,6 +197,4 @@ void ModelRenderInstance::Render(RenderOptions& renderOptions)
    m_spDisplayState->Render(renderOptions);
 
    glPopMatrix();
-
-   glPopAttrib();
 }

@@ -475,7 +475,7 @@ void ModelDisplayState::RenderModelNormals(const Group& group) const throw()
    AnimatedModel3d& model = *m_spModel->GetAnimated();
    const Data& data = model.GetData();
 
-   glPushAttrib(GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
+   OpenGL::PushedAttributes attrib(GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 
    glDisable(GL_LIGHTING);
    glDisable(GL_DEPTH_TEST);
@@ -511,12 +511,11 @@ void ModelDisplayState::RenderModelNormals(const Group& group) const throw()
    }
 
    glEnd();
-   glPopAttrib();
 }
 
 void ModelDisplayState::RenderJoints() const throw()
 {
-   glPushAttrib(GL_POINT_BIT | GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
+   OpenGL::PushedAttributes attrib(GL_POINT_BIT | GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 
    glDisable(GL_LIGHTING);
    glDisable(GL_DEPTH_TEST);
@@ -529,8 +528,6 @@ void ModelDisplayState::RenderJoints() const throw()
    glColor3f(1.0f, 1.0f, 0.0f);
    glPointSize(3.0f);
    RenderJointPoints();
-
-   glPopAttrib();
 }
 
 void ModelDisplayState::RenderJointLines() const throw()
@@ -583,7 +580,7 @@ void ModelDisplayState::RenderJointPoints() const throw()
 
 void ModelDisplayState::RenderMountPoint() const throw()
 {
-   glPushAttrib(GL_POINT_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
+   OpenGL::PushedAttributes attrib(GL_POINT_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 
    glDisable(GL_LIGHTING);
    glDisable(GL_DEPTH_TEST);
@@ -595,8 +592,6 @@ void ModelDisplayState::RenderMountPoint() const throw()
    glBegin(GL_POINTS);
    glVertex3d(0.0, 0.0, 0.0);
    glEnd();
-
-   glPopAttrib();
 
    OpenGL::RenderXyzAxes();
 }

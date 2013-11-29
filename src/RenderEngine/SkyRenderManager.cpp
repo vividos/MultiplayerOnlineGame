@@ -70,7 +70,7 @@ void SkyRenderManager::Upload()
 
 void SkyRenderManager::Render(RenderOptions& options)
 {
-   glPushAttrib(GL_ENABLE_BIT | GL_CURRENT_BIT);
+   OpenGL::PushedAttributes attrib(GL_ENABLE_BIT | GL_CURRENT_BIT);
 
    glDisable(GL_FOG);
    glDisable(GL_LIGHTING);
@@ -94,8 +94,6 @@ void SkyRenderManager::Render(RenderOptions& options)
       RenderLines();
 
    glPopMatrix();
-
-   glPopAttrib();
 }
 
 void SkyRenderManager::Done()

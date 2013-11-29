@@ -156,7 +156,8 @@ void ViewFrustum3d::RenderLines(const Vector3d& vPos, double dAngleDir, double d
 {
    FrustumCoordinates fc(vPos, dAngleDir, dAngleUp, fov, ratio, nearDist, farDist);
 
-   glPushAttrib(GL_TEXTURE_BIT);
+   OpenGL::PushedAttributes attrib(GL_ENABLE_BIT | GL_CURRENT_BIT | GL_TEXTURE_BIT);
+
    glDisable(GL_TEXTURE_2D);
 
    glColor3ub(255, 255, 255);
@@ -188,6 +189,4 @@ void ViewFrustum3d::RenderLines(const Vector3d& vPos, double dAngleDir, double d
    glVertex3dv(fc.nbr.Data());
    glVertex3dv(fc.fbr.Data());
    glEnd();
-
-   glPopAttrib();
 }

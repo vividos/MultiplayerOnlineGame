@@ -119,7 +119,7 @@ void MilkyWaySkyboxRenderer::Prepare()
 
 void MilkyWaySkyboxRenderer::Render(RenderOptions& /*options*/)
 {
-   glPushAttrib(GL_ENABLE_BIT | GL_CURRENT_BIT);
+   OpenGL::PushedAttributes attrib(GL_ENABLE_BIT | GL_CURRENT_BIT | GL_POLYGON_BIT);
 
    // enable needed states
    glDisable(GL_DEPTH_TEST);
@@ -154,8 +154,6 @@ void MilkyWaySkyboxRenderer::Render(RenderOptions& /*options*/)
    glDisableClientState(GL_INDEX_ARRAY);
 
    glPopMatrix();
-
-   glPopAttrib();
 
    OpenGL::CountPolygons(6*4*2);
 }

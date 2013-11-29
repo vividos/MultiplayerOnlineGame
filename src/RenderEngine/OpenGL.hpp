@@ -86,4 +86,32 @@ namespace OpenGL
    /// renders 3 colored axes, each one unit long; x axis: red, y axis: green, z axis: blue
    void RENDERENGINE_DECLSPEC RenderXyzAxes();
 
+   /// class to push attributes on attribute stack
+   class PushedAttributes
+   {
+   public:
+      /// ctor
+      /// \param mask bits of attributes to push to attribute stack
+      /// Here's an incomplete list of bits and what attributes they push:
+      /// GL_CURRENT_BIT: current RGBA color, normal vector, tex coords, ...
+      /// GL_COLOR_BUFFER_BIT: GL_ALPHA_TEST enable bit, GL_BLEND enable bit, ...
+      /// GL_DEPTH_BUFFER_BIT: GL_DEPTH_TEST enable bit, ...
+      /// GL_ENABLE_BIT: all flags
+      /// GL_LINE_BIT: Line width, GL_LINE_STIPPLE enable bit, ...
+      /// GL_POLYGON_BIT: GL_CULL_FACE enable bit, GL_CULL_FACE_MODE value, ...
+      PushedAttributes(GLbitfield mask)
+      {
+         glPushAttrib(mask);
+#ifdef _DEBUG
+         GLenum err = glGetError();
+         ATLASSERT(GL_STACK_OVERFLOW != err); // attribute stack nested too deep!
+#endif
+      }
+      /// dtor
+      ~PushedAttributes()
+      {
+         glPopAttrib();
+      }
+   };
+
 } // namespace OpenGL
