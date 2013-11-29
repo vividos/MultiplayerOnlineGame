@@ -41,6 +41,9 @@ public:
    /// cancels all outstanding operations
    void Cancel();
 
+   /// join all worker threads
+   void Join();
+
 private:
    /// thread for background graphics tasks
    IoServiceThread m_ioServiceBackgroundThread;

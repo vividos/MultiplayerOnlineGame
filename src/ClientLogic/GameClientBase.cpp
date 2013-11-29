@@ -53,6 +53,9 @@ void GameClientBase::Run()
 {
    MainGameLoop::Run();
 
+   m_graphicsTaskManager.Cancel();
+   m_graphicsTaskManager.Join();
+
    m_spScene.reset();
 
    m_spRenderEngine.reset();

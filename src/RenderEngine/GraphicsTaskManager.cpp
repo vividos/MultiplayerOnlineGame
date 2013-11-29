@@ -37,5 +37,12 @@ void GraphicsTaskManager::Cancel()
    ATLTRACE(_T("GraphicsTaskManager::Cancel()\n"));
 
    BackgroundTaskGroup().Cancel();
-   UploadTaskGroup().Cancel();
+   UploadTaskGroup().Clear();
+}
+
+void GraphicsTaskManager::Join()
+{
+   ATLTRACE(_T("GraphicsTaskManager::Join()\n"));
+
+   m_ioServiceBackgroundThread.Join();
 }

@@ -50,6 +50,16 @@ public:
       evtEmptyQueue.Wait();
    }
 
+   /// clears all tasks not yet running
+   void Clear()
+   {
+      MutexLock<LightweightMutex> lock(m_mtxTaskList);
+      if (m_deqTaskList.empty())
+         return;
+
+      m_deqTaskList.clear();
+   }
+
    /// adds task to run
    void Add(T_fnTask fnTask)
    {
