@@ -7,12 +7,24 @@
     <Filter Include="audio\music">
       <UniqueIdentifier>{0565bf86-8e87-4e12-b7ad-9ff5e109d10d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sky">
+      <UniqueIdentifier>{a444133a-79c3-44d5-998b-d2b6e3ba2a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{7e3a148d-d4a0-4dbf-ab77-d868272a2416}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="audio\music.json">
       <Filter>audio</Filter>
     </None>
     <None Include="data.cfg" />
+    <None Include="sky\clearSky2_norle.tga">
+      <Filter>sky</Filter>
+    </None>
+    <None Include="ui\LoadingScreen.json">
+      <Filter>ui</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Media Include="audio\music\A Mission.mp3">
@@ -84,5 +96,16 @@
     <Media Include="audio\music\Zombie Hoodoo.mp3">
       <Filter>audio\music</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="sky\eso0932a-texcubes.jpg">
+      <Filter>sky</Filter>
+    </Image>
+    <Image Include="sky\fm1222_gendler_big_alpha_256.png">
+      <Filter>sky</Filter>
+    </Image>
+    <Image Include="sky\sun.png">
+      <Filter>sky</Filter>
+    </Image>
   </ItemGroup>
 </Project>

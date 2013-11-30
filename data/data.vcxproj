@@ -62,6 +62,8 @@ BuildData.exe data.cfg ..\data  $(OutDir)</NMakeReBuildCommandLine>
   <ItemGroup>
     <None Include="audio\music.json" />
     <None Include="data.cfg" />
+    <None Include="sky\clearSky2_norle.tga" />
+    <None Include="ui\LoadingScreen.json" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="audio\music\A Mission.mp3" />
@@ -87,6 +89,11 @@ BuildData.exe data.cfg ..\data  $(OutDir)</NMakeReBuildCommandLine>
     <Media Include="audio\music\Time Passes.mp3" />
     <Media Include="audio\music\Water Prelude.mp3" />
     <Media Include="audio\music\Zombie Hoodoo.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="sky\eso0932a-texcubes.jpg" />
+    <Image Include="sky\fm1222_gendler_big_alpha_256.png" />
+    <Image Include="sky\sun.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
