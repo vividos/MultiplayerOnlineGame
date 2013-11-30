@@ -48,6 +48,9 @@ public:
    /// sets new current pos
    void Current(unsigned int uiPos) throw() { m_uiPos = uiPos; }
 
+   /// sets new max pos
+   void Max(unsigned int uiMax) throw() { m_uiMax = uiMax; }
+
    BEGIN_EVENT_MAP()
    END_EVENT_MAP()
 
