@@ -67,8 +67,10 @@
     <ClCompile Include="DefaultActionKeyDefs.cpp" />
     <ClCompile Include="GameClientBase.cpp" />
     <ClCompile Include="KeyboardActionManager.cpp" />
+    <ClCompile Include="LoadingScene.cpp" />
     <ClCompile Include="MainGameLoop.cpp" />
     <ClCompile Include="OverviewController.cpp" />
+    <ClCompile Include="PreloadManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -88,8 +90,10 @@
     <ClInclude Include="IViewController.hpp" />
     <ClInclude Include="KeyboardActionBindings.hpp" />
     <ClInclude Include="KeyboardActionManager.hpp" />
+    <ClInclude Include="LoadingScene.hpp" />
     <ClInclude Include="MainGameLoop.hpp" />
     <ClInclude Include="OverviewController.hpp" />
+    <ClInclude Include="PreloadManager.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="ThirdPersonViewController.hpp" />

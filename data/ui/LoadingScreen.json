@@ -1,0 +1,16 @@
+//
+// MultiplayerOnlineGame - multiplayer game project
+// Copyright (C) 2008-2013 Michael Fink
+//
+// LoadingScreen.json - UI for Loading screen
+//
+{
+   "progress": {
+      "Type": "ProgressBar",
+      "Pos": "10,100",
+      "Size": "580,40",
+      "Current": "0",
+      "Max": "100",
+      "Color": "#ffffff"
+   }
+}
