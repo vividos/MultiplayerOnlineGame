@@ -36,6 +36,9 @@ public:
    /// returns total elapsed time in seconds
    double TotalElapsed() const throw();
 
+   /// returns if timer is running
+   bool IsStarted() const throw() { return m_bStarted; }
+
 private:
    /// indicates if timer is started
    bool m_bStarted;

@@ -72,6 +72,9 @@ public:
       return 0.001 * (m_dwTotalElapsed + (m_bStarted ? (dwTickNow-m_dwTickStart) : 0));
    }
 
+   /// returns if timer is running
+   bool IsStarted() const throw() { return m_bStarted; }
+
 private:
    /// indicates if timer is started
    bool m_bStarted;
