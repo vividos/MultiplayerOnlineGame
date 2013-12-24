@@ -70,7 +70,7 @@ public:
    virtual ~IModelDisplayState() throw() {}
 
    /// tick calculation
-   virtual void Tick(double dElapsed) = 0;
+   virtual void Tick() = 0;
 
    /// sets new animation
    virtual void SetAnimation(T_enModelAnimation enAnimation, T_enModelAnimationWeaponType enAnimWeaponType,

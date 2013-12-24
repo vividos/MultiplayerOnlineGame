@@ -75,9 +75,6 @@ private:
    /// model instance
    std::shared_ptr<IModelDisplayState> m_spDisplayState;
 
-   /// timer for display state
-   Timer m_timerDisplayState;
-
    /// indicates if model is selected
    bool m_bSelected;
 

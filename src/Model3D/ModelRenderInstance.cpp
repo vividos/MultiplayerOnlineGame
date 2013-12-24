@@ -29,7 +29,6 @@ ModelRenderInstance::ModelRenderInstance(std::shared_ptr<IModelDisplayState> spD
  m_bFirstPosInit(true),
  m_bCorrectPos(false)
 {
-   m_timerDisplayState.Start();
 }
 
 void ModelRenderInstance::SetPosition(const Vector3d& vPos, double dViewAngle)
@@ -164,8 +163,7 @@ double ModelRenderInstance::CalcPlayerTransparency() throw()
 
 void ModelRenderInstance::Render(RenderOptions& renderOptions)
 {
-   m_spDisplayState->Tick(m_timerDisplayState.Elapsed());
-   m_timerDisplayState.Restart();
+   m_spDisplayState->Tick();
 
    OpenGL::PushedAttributes attrib(GL_POLYGON_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 

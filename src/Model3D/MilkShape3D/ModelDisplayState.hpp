@@ -12,6 +12,7 @@
 #include "Texture.hpp"
 #include "TexturedVertexBuffer.hpp"
 #include "SafeFlag.hpp"
+#include "Timer.hpp"
 #include <vector>
 
 // forward references
@@ -97,7 +98,7 @@ public:
    void Upload();
 
    /// tick calculation
-   virtual void Tick(double dElapsed) override;
+   virtual void Tick() override;
 
    /// sets new animation
    virtual void SetAnimation(T_enModelAnimation enAnimation, T_enModelAnimationWeaponType enAnimWeaponType,
@@ -136,7 +137,7 @@ private:
    void UploadStaticModels();
 
    /// updates animation info
-   void UpdateAnimationInfo(double dElapsed, float fAnimationFPS);
+   void UpdateAnimationInfo(float fAnimationFPS);
 
    /// evaluates a joint for rendering
    void EvaluateJoint(Joint& joint, JointRenderData& renderData, double dFrame);
@@ -169,6 +170,9 @@ private:
    void RenderMountPoint() const throw();
 
 private:
+   /// timer for display state
+   Timer m_timerDisplayState;
+
    /// model data
    std::shared_ptr<CompositeModel3d> m_spModel;
 

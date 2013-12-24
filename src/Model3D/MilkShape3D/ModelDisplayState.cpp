@@ -150,6 +150,7 @@ void ModelDisplayState::Upload()
    UploadStaticModels();
 
    m_flagUploaded.Set();
+   SetAnimation(animIdle1, animWeaponHand, true, true);
 }
 
 #define USE_INPLACE_UPDATE
@@ -202,15 +203,18 @@ void ModelDisplayState::UploadStaticModels()
       data.m_spStatic->Upload();
 }
 
-void ModelDisplayState::Tick(double dElapsed)
+void ModelDisplayState::Tick()
 {
+   if (!m_timerDisplayState.IsStarted())
+      return; // no need to update
+
    if (!m_flagUploaded.IsSet())
       return;
 
    AnimatedModel3d& model = *m_spModel->GetAnimated();
    const Data& data = model.GetData();
 
-   UpdateAnimationInfo(dElapsed, data.m_animationData.fAnimationFPS);
+   UpdateAnimationInfo(data.m_animationData.fAnimationFPS);
 
    // prepare joint matrices
    double dTime = m_animationInfo.m_dStartTime + m_animationInfo.m_dCurrent;
@@ -227,9 +231,9 @@ void ModelDisplayState::Tick(double dElapsed)
    UpdateVertices();
 }
 
-void ModelDisplayState::UpdateAnimationInfo(double dElapsed, float fAnimationFPS)
+void ModelDisplayState::UpdateAnimationInfo(float fAnimationFPS)
 {
-   m_animationInfo.m_dCurrent += dElapsed * fAnimationFPS;
+   m_animationInfo.m_dCurrent = m_timerDisplayState.Elapsed() * fAnimationFPS;
 
    // next available and this one is interruptable?
    if (m_bNextAnimationAvail && m_animationInfo.m_bInterruptable)
@@ -239,7 +243,7 @@ void ModelDisplayState::UpdateAnimationInfo(double dElapsed, float fAnimationFPS
       m_animationInfo = m_nextAnimationInfo;
    }
 
-   double dDuration = m_animationInfo.m_dEndTime - m_animationInfo.m_dStartTime;
+   double dDuration = m_animationInfo.m_dEndTime - m_animationInfo.m_dStartTime - 1.0;
 
    if (m_animationInfo.m_dCurrent > dDuration)
    {
@@ -256,6 +260,7 @@ void ModelDisplayState::UpdateAnimationInfo(double dElapsed, float fAnimationFPS
       else
       {
          // just loop this one
+         m_timerDisplayState.Restart();
          m_animationInfo.m_dCurrent = fmod(m_animationInfo.m_dCurrent, dDuration);
       }
    }
@@ -286,6 +291,8 @@ void ModelDisplayState::SetAnimationFrames(unsigned int uiStartFrame, unsigned i
       m_animationInfo = animationInfo;
    else
       m_nextAnimationInfo = animationInfo;
+
+   m_timerDisplayState.Restart();
 }
 
 void ModelDisplayState::UpdateMovement(const MovementInfo& info)
