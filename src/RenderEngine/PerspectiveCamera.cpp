@@ -8,7 +8,7 @@
 // includes
 #include "StdAfx.h"
 #include "PerspectiveCamera.hpp"
-#include <SDL.h>
+#include "OpenGL.hpp"
 #include <cmath>
 
 /// default Field Of View angle
