@@ -15,38 +15,49 @@
 #include "TextureParameter.hpp"
 #include "OpenGL.hpp"
 #include "LevelRenderer.hpp"
+#include "GraphicsTaskManager.hpp"
 
 using namespace Underworld;
 
-void Renderer::Load(IFileSystem& fileSystem)
+void Renderer::AsyncLoadNewLevel(GraphicsTaskManager& graphicsTaskManager, const Level& level)
 {
-   m_atlas.Load(fileSystem);
+   graphicsTaskManager.BackgroundTaskGroup().Add(
+      std::bind(&Renderer::PrepareLevel, this, std::ref(graphicsTaskManager), std::cref(level)));
 }
 
-void Renderer::LoadNewLevel(const Underworld::Level& level)
+void Renderer::PrepareLevel(GraphicsTaskManager& graphicsTaskManager, const Underworld::Level& level)
 {
    std::shared_ptr<LevelRenderer> spLevelRenderer(new LevelRenderer);
    spLevelRenderer->Prepare(m_atlas, level);
 
+   graphicsTaskManager.UploadTaskGroup().Add(
+      std::bind(&Renderer::UploadLevel, this, spLevelRenderer));
+}
+
+void Renderer::UploadLevel(std::shared_ptr<LevelRenderer> spLevelRenderer)
+{
    spLevelRenderer->Upload();
 
+   // swap renderer (an atomic operation)
    m_spLevelRenderer = spLevelRenderer;
+}
+
+void Renderer::Prepare()
+{
+   m_atlas.Load(m_fileSystem);
 }
 
 void Renderer::Upload()
 {
-   RenderOptions renderOptions;
-   renderOptions.Set(RenderOptions::optionCullBackface, false);
-   renderOptions.Set(RenderOptions::optionBackfaceAsLines, true);
-
    m_atlas.Generate();
 }
 
 void Renderer::Render(RenderOptions& /*options*/)
 {
-   glDisable(GL_TEXTURE_2D);
-
    OpenGL::RenderXyzAxes();
+
+   if (m_spLevelRenderer == nullptr)
+      return;
 
    glColor4ub(255, 255, 255, 255);
    glEnable(GL_TEXTURE_2D);

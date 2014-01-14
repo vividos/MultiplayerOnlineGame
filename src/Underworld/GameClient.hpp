@@ -9,7 +9,7 @@
 // includes
 #include "stdafx.h"
 #include "GameClientBase.hpp"
-#include "IngameScene.hpp"
+#include "LoadingScene.hpp"
 #include "Game.hpp"
 
 /// game client
@@ -18,7 +18,8 @@ class GameClient : public GameClientBase
 public:
    /// ctor
    GameClient()
-      :GameClientBase(_T("Underworld"))
+      :GameClientBase(_T("Underworld")),
+       m_game(GetGraphicsTaskManager())
    {
    }
    /// dtor
@@ -31,12 +32,10 @@ public:
    {
       GameClientBase::Init(800, 600, false);
 
-      m_game.Init();
-
       ISceneManager& sceneManager = *this;
 
       std::shared_ptr<Scene> spScene =
-         std::make_shared<IngameScene>(sceneManager, GetRenderEngine(), GetKeyboardActionManager(), m_game);
+         std::shared_ptr<LoadingScene>(new LoadingScene(sceneManager, *this, m_game));
       sceneManager.ChangeScene(spScene);
 
       GameClientBase::Run();

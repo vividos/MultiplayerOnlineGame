@@ -116,6 +116,7 @@
     <ClCompile Include="Import\Uw2Decode.cpp" />
     <ClCompile Include="IngameScene.cpp" />
     <ClCompile Include="LevelGeometry.cpp" />
+    <ClCompile Include="LoadingScene.cpp" />
     <ClCompile Include="Renderer\IndexedImage.cpp" />
     <ClCompile Include="Renderer\LevelRenderer.cpp" />
     <ClCompile Include="Renderer\Palette256.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Import\Uw2Decode.hpp" />
     <ClInclude Include="IngameScene.hpp" />
     <ClInclude Include="LevelGeometry.hpp" />
+    <ClInclude Include="LoadingScene.hpp" />
     <ClInclude Include="Renderer\IndexedImage.hpp" />
     <ClInclude Include="Renderer\LevelRenderer.hpp" />
     <ClInclude Include="Renderer\Palette256.hpp" />

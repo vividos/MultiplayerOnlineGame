@@ -13,9 +13,22 @@
 #include "GameStrings.hpp"
 #include "ConvManager.hpp"
 
+#include "RenderContainer.hpp"
+#include "Renderer.hpp"
+
+// forward references
+class GraphicsTaskManager;
+
 /// all game objects
 struct Game
 {
+   Game(GraphicsTaskManager& graphicsTaskManager)
+      :m_renderContainer(graphicsTaskManager)
+   {
+   }
+
+   // model
+
    /// underworld
    Underworld::World m_world;
 
@@ -27,6 +40,14 @@ struct Game
 
    /// conversation manager
    std::unique_ptr<ConvManager> m_upConvManager;
+
+   // view
+
+   /// render container
+   RenderContainer m_renderContainer;
+
+   /// renderer
+   std::shared_ptr<Renderer> m_spRenderer;
 
    /// inits game objects
    void Init();

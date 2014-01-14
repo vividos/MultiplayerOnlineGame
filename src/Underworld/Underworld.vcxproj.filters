@@ -153,6 +153,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Main Files\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LoadingScene.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -282,6 +285,9 @@
       <Filter>Main Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameClient.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingScene.hpp">
       <Filter>Main Files\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

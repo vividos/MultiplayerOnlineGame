@@ -29,15 +29,7 @@ IngameScene::IngameScene(ISceneManager& sceneManager, RenderEngine& renderEngine
 
 void IngameScene::InitRenderer()
 {
-   m_spRenderer.reset(new Renderer);
-
-   m_renderEngine.SetScenegraph(m_spRenderer);
-
-   m_spRenderer->Load(m_game.m_fileSystem);
-
-   m_spRenderer->LoadNewLevel(m_game.m_world.GetLevelList().GetLevel(0));
-
-   m_spRenderer->Upload();
+   m_renderEngine.SetScenegraph(m_game.m_spRenderer);
 
    m_spCamera.reset(new PerspectiveCamera);
 
@@ -45,4 +37,8 @@ void IngameScene::InitRenderer()
    m_spCamera->SetNearFarPlaneDistance(0.1, 100.0); // max distance would be about 90.0, so we should be safe here
 
    m_renderEngine.SetCamera(m_spCamera);
+
+   //RenderOptions& renderOptions = m_renderEngine.GetRenderOptions();
+   //renderOptions.Set(RenderOptions::optionCullBackface, false);
+   //renderOptions.Set(RenderOptions::optionBackfaceAsLines, true);
 }
