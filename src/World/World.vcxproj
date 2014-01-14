@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{77EA7307-3F93-4B26-90FC-C5528EC21CD4}</ProjectGuid>
+    <RootNamespace>World</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\boost.props" />
+    <Import Project="..\atl71-x86.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\boost.props" />
+    <Import Project="..\atl71-x86.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WORLD_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;WORLD_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="DamageType.cpp" />
+    <ClCompile Include="EquipItemMap.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemTemplate.cpp" />
+    <ClCompile Include="ItemTemplateParser.cpp" />
+    <ClCompile Include="MobileActor.cpp" />
+    <ClCompile Include="Spell.cpp" />
+    <ClCompile Include="SpellEffect.cpp" />
+    <ClCompile Include="SpellParser.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StringTokenizer.cpp" />
+    <ClCompile Include="ThreatList.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DamageType.hpp" />
+    <ClInclude Include="EquipItemMap.hpp" />
+    <ClInclude Include="Flags8.hpp" />
+    <ClInclude Include="Item.hpp" />
+    <ClInclude Include="ItemTemplate.hpp" />
+    <ClInclude Include="ItemTemplateParser.hpp" />
+    <ClInclude Include="MobileActor.hpp" />
+    <ClInclude Include="Spell.hpp" />
+    <ClInclude Include="SpellEffect.hpp" />
+    <ClInclude Include="SpellParser.hpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringTokenizer.hpp" />
+    <ClInclude Include="ThreatList.hpp" />
+    <ClInclude Include="World.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="versioninfo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.vcxproj">
+      <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.vcxproj">
+      <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ulib\ulib.vcxproj">
+      <Project>{daa1e880-4690-46c1-a9cb-c5c962f8c74c}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
