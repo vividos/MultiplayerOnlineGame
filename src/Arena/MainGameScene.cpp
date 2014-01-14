@@ -52,9 +52,8 @@ MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient
    DefaultActionKeyDefs::Register(
       gameClient.GetKeyboardActionManager());
 
-   RenderOptions& options = gameClient.GetRenderEngine().GetRenderOptions();
-   //options.Set(RenderOptions::optionModelFilled, true);
-   options.Set(RenderOptions::optionSkyMeshLines, true);
+   //RenderOptions& options = gameClient.GetRenderEngine().GetRenderOptions();
+   //options.Set(RenderOptions::optionSkyMeshLines, true);
 }
 
 void MainGameScene::Prepare(PreloadManager& preloadManager)
