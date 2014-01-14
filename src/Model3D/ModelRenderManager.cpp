@@ -36,6 +36,9 @@ void ModelRenderManager::UpdatePlayer(const Player& player)
 {
    ATLASSERT(m_spPlayerModelRenderInstance != NULL);
 
+   if (m_spPlayerModelRenderInstance == nullptr)
+      return;
+
    m_modelManager.Update(player,
       m_spPlayerModelRenderInstance->DisplayState());
 
@@ -87,8 +90,6 @@ void ModelRenderManager::UpdateMobile(const ObjectId& id, const MovementInfo& in
 {
    TMapMobileObjectRenderInstances::iterator iter =
       m_mapMobileObjectRenderInstances.find(id);
-
-   ATLASSERT(iter != m_mapMobileObjectRenderInstances.end());
 
    if (iter == m_mapMobileObjectRenderInstances.end())
       return;
