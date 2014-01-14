@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2013 Michael Fink
 //
-//! \file ArenaMainGameScene.hpp Arena main game scene
+//! \file MainGameScene.hpp Arena main game scene
 //
 #pragma once
 
@@ -11,9 +11,11 @@
 #include "ViewModel.hpp"
 #include "MusicDirector.hpp"
 
+// forward references
+class PreloadManager;
+
 namespace Arena
 {
-// forward references
 class GameClient;
 class Game;
 
@@ -27,6 +29,9 @@ public:
    MainGameScene(ISceneManager& sceneManager, GameClient& gameClient, Game& game) throw();
    /// dtor
    virtual ~MainGameScene() throw() {}
+
+   /// prepares some assets
+   void Prepare(PreloadManager& preloadManager);
 
 private:
    /// view model

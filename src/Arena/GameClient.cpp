@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 #include "GameClient.hpp"
 #include "MainGameScene.hpp"
-#include "IWindowManager.hpp"
+#include "LoadingScene.hpp"
 #include "IAudioManager.hpp"
 #include <ulib/log/Appender.hpp>
 #include <ulib/log/Layout.hpp>
@@ -39,7 +39,6 @@ void GameClient::SetupLogging()
    Log::Logger::GetRootLogger()->AddAppender(spTraceAppender);
 }
 
-
 void GameClient::Start()
 {
    Init(800, 600, false);
@@ -47,8 +46,22 @@ void GameClient::Start()
    // enable audio events
    m_uiAudioManager.Connect(GetWindowManager());
 
-   // start with main game scene
-   ChangeScene(std::shared_ptr<Scene>(new MainGameScene(*this, *this, m_game)));
+#if 1
+   std::shared_ptr<MainGameScene> spMainGameScene(new MainGameScene(*this, *this, m_game));
+   ChangeScene(spMainGameScene);
+#else
+   // prepare loading screen
+   std::shared_ptr<LoadingScene> spLoadingScene(new LoadingScene(*this, *this, m_game.GetFileSystem()));
+
+   spMainGameScene->Prepare(spLoadingScene->GetPreloadManager());
+
+   spLoadingScene->FinishQueue([&](){
+      // start main game scene
+      ChangeScene(spMainGameScene);
+   });
+
+   ChangeScene(spLoadingScene);
+#endif
 
    Run();
 }

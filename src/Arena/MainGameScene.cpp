@@ -21,6 +21,7 @@
 #include "PerspectiveCamera.hpp"
 #include "View.hpp"
 #include "RenderOptions.hpp"
+#include "PreloadManager.hpp"
 
 using namespace Arena;
 
@@ -54,4 +55,8 @@ MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient
    RenderOptions& options = gameClient.GetRenderEngine().GetRenderOptions();
    //options.Set(RenderOptions::optionModelFilled, true);
    options.Set(RenderOptions::optionSkyMeshLines, true);
+}
+
+void MainGameScene::Prepare(PreloadManager& preloadManager)
+{
 }
