@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file TestRC4Encoder.cpp Unit tests for class RC4::Encoder
+/// \file TestRC4Encoder.cpp Unit tests for class RC4::Encoder
 //
 
 // includes

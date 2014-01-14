@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file TestPlane3d.cpp Unit tests for class Plane3d
+/// \file TestPlane3d.cpp Unit tests for class Plane3d
 //
 
 // includes
