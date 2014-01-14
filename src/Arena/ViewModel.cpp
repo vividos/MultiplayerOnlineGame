@@ -21,17 +21,29 @@ ViewModel::ViewModel(IModel& model)
 {
 }
 
+LocalModel& ViewModel::GetLocalModel() throw()
+{
+   return dynamic_cast<LocalModel&>(m_model);
+}
+
+const LocalModel& ViewModel::GetLocalModel() const throw()
+{
+   return dynamic_cast<const LocalModel&>(m_model);
+}
+
 std::shared_ptr<Player> ViewModel::GetPlayer()
 {
-   LocalModel& model = dynamic_cast<LocalModel&>(m_model);
+   return std::dynamic_pointer_cast<Player>(GetLocalModel().Player());
+}
 
-   return std::dynamic_pointer_cast<Player>(model.Player());
+std::shared_ptr<const Player> ViewModel::GetPlayer() const
+{
+   return std::dynamic_pointer_cast<const Player>(GetLocalModel().Player());
 }
 
 const ObjectMap& ViewModel::GetObjectMap() const
 {
-   const LocalModel& model = dynamic_cast<const LocalModel&>(m_model);
-   return model.GetObjectMap();
+   return GetLocalModel().GetObjectMap();
 }
 
 void ViewModel::SelectNextMobile(bool bDirectionNext)
@@ -61,12 +73,12 @@ void ViewModel::DoAction(unsigned int /*uiActionNr*/)
 
 const Vector3d& ViewModel::GetPlayerPosition() const
 {
-   return const_cast<ViewModel&>(*this).GetPlayer()->Pos();
+   return GetPlayer()->Pos();
 }
 
 double ViewModel::GetPlayerMovementAngle() const
 {
-   return const_cast<ViewModel&>(*this).GetPlayer()->ViewAngle();
+   return GetPlayer()->ViewAngle();
 }
 
 bool ViewModel::IsPlayerViewAngleInControl() const
@@ -82,21 +94,25 @@ void ViewModel::SetPlayerTransparency(double dTransparency)
 
 void ViewModel::UpdatePlayerMovement(const MovementInfo& movementInfo)
 {
-   // TODO
    GetPlayer()->UpdateMovementInfo(movementInfo);
-   // send to model
-   //m_controller.MovePlayer(movementInfo);
+
+   // update view
+   UpdatePlayerEvent().Call(*GetPlayer().get());
 }
 
 void ViewModel::UpdatePlayerPos()
 {
    GetPlayer()->Move();
+
+   // update view
+   UpdatePlayerEvent().Call(*GetPlayer().get());
 }
 
 void ViewModel::UpdatePlayerViewAngle(double dViewAngle)
 {
-   // TODO send to controller, when at least 1s has elapsed yet
-
    // apply to player
    GetPlayer()->ViewAngle(static_cast<unsigned int>(dViewAngle));
+
+   // update view
+   UpdatePlayerEvent().Call(*GetPlayer().get());
 }

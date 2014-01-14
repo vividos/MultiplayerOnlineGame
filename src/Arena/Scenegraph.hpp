@@ -18,6 +18,7 @@ class RenderEngine;
 class IFileSystem;
 class GraphicsTaskManager;
 class ModelRenderManager;
+class Player;
 
 namespace Arena
 {
@@ -47,6 +48,9 @@ private:
 
    /// movement info of mobile has been updated
    void UpdateMobile(const ObjectId& id, const MovementInfo& info);
+
+   /// player info has been updated
+   void UpdatePlayer(const Player& player);
 
 private:
    /// inits mobiles to render

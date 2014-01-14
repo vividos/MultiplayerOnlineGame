@@ -14,6 +14,7 @@
 
 // forward references
 class IModel;
+class LocalModel;
 class Player;
 class ObjectMap;
 class MovementInfo;
@@ -32,8 +33,16 @@ public:
 
    // get methods
 
+   /// returns local model
+         LocalModel& GetLocalModel()       throw();
+   /// returns local model
+   const LocalModel& GetLocalModel() const throw();
+
    /// returns player object
    std::shared_ptr<Player> GetPlayer();
+
+   /// returns player object
+   std::shared_ptr<const Player> GetPlayer() const;
 
    /// returns object map
    const ObjectMap& GetObjectMap() const;
@@ -56,6 +65,9 @@ public:
    /// subject type for update object event
    typedef Subject<void(const ObjectId&, const MovementInfo&)> T_UpdateObjectEvent;
 
+   /// subject type for update player event
+   typedef Subject<void(const Player&)> T_UpdatePlayerEvent;
+
    /// returns add object event
    T_AddObjectEvent& AddObjectEvent() throw() { return m_addObjectEvent; }
 
@@ -64,6 +76,9 @@ public:
 
    /// returns update object event
    T_UpdateObjectEvent& UpdateObjectEvent() throw() { return m_updateObjectEvent; }
+
+   /// returns update object event
+   T_UpdatePlayerEvent& UpdatePlayerEvent() throw() { return m_updatePlayerEvent; }
 
    // actions
 
@@ -124,6 +139,9 @@ private:
 
    /// event for updating object
    T_UpdateObjectEvent m_updateObjectEvent;
+
+   /// event for updating player
+   T_UpdatePlayerEvent m_updatePlayerEvent;
 };
 
 } // namespace Arena

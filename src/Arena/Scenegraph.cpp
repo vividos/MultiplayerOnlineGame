@@ -36,17 +36,14 @@ Scenegraph::Scenegraph(Arena::ViewModel& viewModel,
 
    m_renderContainer.Add(m_spModelRenderManager);
 
-   // init player
-   taskManager.BackgroundTaskGroup().Add(
-      std::bind(&Scenegraph::InitPlayer, this));
-
-   taskManager.BackgroundTaskGroup().Add(
-      std::bind(&Scenegraph::InitMobiles, this));
+   InitPlayer();
+   InitMobiles();
 
    // register events
    m_viewModel.AddObjectEvent().Add(std::bind(&Scenegraph::AddMobile, this, std::placeholders::_1));
    m_viewModel.RemoveObjectEvent().Add(std::bind(&Scenegraph::RemoveMobile, this, std::placeholders::_1));
    m_viewModel.UpdateObjectEvent().Add(std::bind(&Scenegraph::UpdateMobile, this, std::placeholders::_1, std::placeholders::_2));
+   m_viewModel.UpdatePlayerEvent().Add(std::bind(&Scenegraph::UpdatePlayer, this, std::placeholders::_1));
 }
 
 void Scenegraph::AddMobile(MobilePtr spMobile)
@@ -71,6 +68,11 @@ void Scenegraph::UpdateMobile(const ObjectId& id, const MovementInfo& info)
    m_spModelRenderManager->UpdateMobile(id, info);
 }
 
+void Scenegraph::UpdatePlayer(const Player& player)
+{
+   m_spModelRenderManager->UpdatePlayer(player);
+}
+
 void Scenegraph::InitMobiles()
 {
    const ObjectMap& objMap = m_viewModel.GetObjectMap();
@@ -90,6 +92,7 @@ void Scenegraph::InitPlayer()
 
 void Scenegraph::SetPosition(const Vector3d& /*vPosition*/, double /*dAngleDir*/)
 {
+   // TODO terrain position for LOD
 }
 
 void Scenegraph::UpdateSkyRenderManager()
@@ -109,6 +112,9 @@ void Scenegraph::Render(RenderOptions& options)
 {
    // update player transparency before rendering
    //m_spModelRenderManager->GetPlayerRenderInstance().SetTransparency(m_viewModel.GetPlayerTransparency());
+
+   const Vector3d& vPos = m_viewModel.GetPlayer()->Pos();
+   glTranslated(-vPos.X(), -vPos.Y(), -vPos.Z());
 
    UpdateSkyRenderManager();
 
