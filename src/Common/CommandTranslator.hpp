@@ -25,6 +25,9 @@ public:
    /// translate command and forward to model
    void ReceiveCommand(Command& cmd);
 
+   /// checks command for plausibility using the model
+   bool CheckCommand(const Command& cmd);
+
 private:
    /// model
    IModel& m_model;

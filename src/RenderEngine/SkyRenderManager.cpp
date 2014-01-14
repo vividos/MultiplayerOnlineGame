@@ -91,6 +91,8 @@ void SkyRenderManager::Render(RenderOptions& options)
       RenderLines();
 
    glPopMatrix();
+
+   glEnable(GL_DEPTH_TEST);
 }
 
 void SkyRenderManager::Done()

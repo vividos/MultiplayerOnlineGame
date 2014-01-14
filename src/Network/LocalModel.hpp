@@ -48,8 +48,7 @@ public:
    /// returns object map; const version
    const ObjectMap& GetObjectMap() const throw() { return m_objectMap; }
 
-protected:
-   // virtual functions
+   // virtual functions from IModel
 
    virtual void InitialUpdate(MobilePtr spPlayer) override;
 

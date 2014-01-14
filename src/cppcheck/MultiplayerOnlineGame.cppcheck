@@ -6,8 +6,12 @@
         <define name="_WINDOWS"/>
         <define name="STRICT"/>
         <define name="NDEBUG"/>
+        <define name="_MSC_VER=1600"/>
     </defines>
     <paths>
         <dir name="../"/>
     </paths>
+    <exclude>
+        <path name="../Thirdparty/"/>
+    </exclude>
 </project>

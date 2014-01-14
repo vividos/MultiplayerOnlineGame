@@ -9,6 +9,7 @@
 #include "StdAfx.h"
 #include "LocalModel.hpp"
 #include "Mobile.hpp"
+//#include "MobileActor.hpp"
 #include "Action.hpp"
 
 LocalModel::LocalModel()
@@ -69,6 +70,11 @@ void ProcessMobile(std::pair<const ObjectId, ObjectPtr>& obj)
    ATLASSERT(spMobile != NULL);
 
    spMobile->Move();
+
+   // also an actor? then let it think
+   //MobileActorPtr spMobileActor = std::dynamic_pointer_cast<MobileActor>(obj.second);
+   //if (spMobileActor != NULL)
+   //   spMobileActor->Think(*this, m_actionQueue);
 }
 
 void LocalModel::ProcessMobiles()
@@ -123,7 +129,12 @@ void LocalModel::DoAction(ActionPtr spAction)
    // resolve argument
    ObjectRef& ref = spAction->ArgumentRef();
    if (ref.m_sp == NULL)
-      ref.m_sp = GetObjectMap().FindObject(ref.m_id).m_sp;
+   {
+      if (ref.m_id == m_spPlayer->Id())
+         ref.m_sp = m_spPlayer;
+      else
+         ref.m_sp = GetObjectMap().FindObject(ref.m_id).m_sp;
+   }
 
    // carry out action immediately, without locking
    spAction->Do(*this);

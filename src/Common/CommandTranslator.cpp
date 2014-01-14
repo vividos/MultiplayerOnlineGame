@@ -57,3 +57,9 @@ void CommandTranslator::ReceiveCommand(Command& cmd)
       }
    }
 }
+
+bool CommandTranslator::CheckCommand(const Command& /*cmd*/)
+{
+   // TODO implement
+   return true;
+}
