@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file Flags8.hpp Flags value with 8 bit
+/// \file Flags8.hpp Flags value with 8 bit
 //
 #pragma once
 

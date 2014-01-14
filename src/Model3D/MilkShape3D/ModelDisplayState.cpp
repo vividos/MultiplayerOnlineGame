@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file MilkShape3D\ModelDisplayState.cpp MilkShape3D model display state
+/// \file MilkShape3D\ModelDisplayState.cpp MilkShape3D model display state
 //
 
 // includes

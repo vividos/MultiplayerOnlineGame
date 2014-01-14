@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file MilkShape3D\StaticModel3d.cpp MilkShape3D static model
+/// \file MilkShape3D\StaticModel3d.cpp MilkShape3D static model
 //
 
 // includes

@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file StaticAccountAuthManager.hpp Authentication manager with static accounts (for testing)
+/// \file StaticAccountAuthManager.hpp Authentication manager with static accounts (for testing)
 //
 #pragma once
 

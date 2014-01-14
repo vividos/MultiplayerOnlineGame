@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file Session.hpp Session base class
+/// \file Session.hpp Session base class
 //
 #pragma once
 

@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file OggVorbisStreamCallbacks.hpp Ogg Vorbis IStream callbacks
+/// \file OggVorbisStreamCallbacks.hpp Ogg Vorbis IStream callbacks
 //
 #pragma once
 

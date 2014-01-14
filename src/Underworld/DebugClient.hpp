@@ -2,7 +2,7 @@
 // Underworld - an Ultima Underworld remake project
 // Copyright (C) 2002-2014 Michael Fink
 //
-//! \file Underworld/DebugClient.hpp Debug client
+/// \file Underworld/DebugClient.hpp Debug client
 //
 
 // includes

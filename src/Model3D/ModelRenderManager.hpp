@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file ModelRenderManager.hpp Model render manager
+/// \file ModelRenderManager.hpp Model render manager
 //
 #pragma once
 

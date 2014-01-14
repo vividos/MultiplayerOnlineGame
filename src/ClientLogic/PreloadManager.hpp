@@ -1,8 +1,8 @@
 //
-// Underworld - an Ultima Underworld remake project
-// Copyright (C) 2002-2013 Michael Fink
+// MultiplayerOnlineGame - multiplayer game project
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file PreloadManager.hpp Pre-load manager
+/// \file PreloadManager.hpp Pre-load manager
 //
 #pragma once
 

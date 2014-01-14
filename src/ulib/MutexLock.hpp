@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2013 Michael Fink
+// Copyright (C) 2006-2014 Michael Fink
 //
 /// \file MutexLock.hpp generic mutex lock class
 //

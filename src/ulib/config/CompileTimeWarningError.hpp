@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2011,2012 Michael Fink
+// Copyright (C) 2006-2014 Michael Fink
 //
 /// \file CompileTimeWarningError.hpp Compile time warning and error macros
 //

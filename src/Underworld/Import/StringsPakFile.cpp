@@ -1,6 +1,6 @@
 //
 // Underworld - an Ultima Underworld remake project
-// Copyright (C) 2002-2013 Michael Fink
+// Copyright (C) 2002-2014 Michael Fink
 //
 /// \file Underworld/Import/StringsPakFile.cpp Strings.pak file loader
 //

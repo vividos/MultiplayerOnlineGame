@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2012 Michael Fink
+// Copyright (C) 2006-2014 Michael Fink
 //
 /// \file ISO8601Parser.cpp ISO 8601 date parser
 //

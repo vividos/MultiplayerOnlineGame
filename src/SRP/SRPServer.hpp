@@ -1,8 +1,8 @@
 //
 // SRP xint - SRP implementation using boost::xint
-// Copyright (C) 2011-2013 Michael Fink
+// Copyright (C) 2011-2014 Michael Fink
 //
-//! \file SRPServer.hpp Server class for SRP authentication
+/// \file SRPServer.hpp Server class for SRP authentication
 //
 #pragma once
 

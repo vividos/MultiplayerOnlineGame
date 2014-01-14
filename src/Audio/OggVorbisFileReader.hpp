@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file OggVorbisFileReader.hpp Ogg Vorbis audio file reader
+/// \file OggVorbisFileReader.hpp Ogg Vorbis audio file reader
 //
 #pragma once
 

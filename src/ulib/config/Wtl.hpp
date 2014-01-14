@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2009,2012,2013 Michael Fink
+// Copyright (C) 2006-2014 Michael Fink
 //
 /// \file Wtl.hpp configuration for WTL 8 or higher
 //

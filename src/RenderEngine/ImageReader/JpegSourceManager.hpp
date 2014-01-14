@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file JpegSourceManager.hpp Source manager for reading in JPEG files
+/// \file JpegSourceManager.hpp Source manager for reading in JPEG files
 //
 #pragma once
 

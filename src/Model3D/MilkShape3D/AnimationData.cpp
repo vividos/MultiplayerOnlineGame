@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file AnimationData.cpp Animation data for Warriors & Commoners model pack
+/// \file AnimationData.cpp Animation data for Warriors & Commoners model pack
 //
 
 // includes

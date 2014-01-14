@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2008,2009 Michael Fink
+// Copyright (C) 2006-2014 Michael Fink
 //
 /// \file CommandLineParser.cpp command line parser
 //

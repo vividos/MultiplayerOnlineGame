@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file ItemTemplateParser.hpp Item template parser
+/// \file ItemTemplateParser.hpp Item template parser
 //
 #pragma once
 

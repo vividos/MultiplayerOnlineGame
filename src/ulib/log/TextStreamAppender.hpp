@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2007,2008,2009,2012,2013 Michael Fink
+// Copyright (C) 2006-2014 Michael Fink
 //
 /// \file TextStreamAppender.hpp text stream appender class
 //

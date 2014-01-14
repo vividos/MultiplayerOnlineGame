@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2011-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file ServiceInfo.hpp Service infos
+/// \file ServiceInfo.hpp Service infos
 //
 #pragma once
 

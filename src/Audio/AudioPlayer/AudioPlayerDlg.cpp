@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file AudioPlayerDlg.cpp Audio player dialog
+/// \file AudioPlayerDlg.cpp Audio player dialog
 //
 
 // includes

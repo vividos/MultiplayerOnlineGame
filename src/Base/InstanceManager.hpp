@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file InstanceManager.hpp Instance manager for access to instances by interface type
+/// \file InstanceManager.hpp Instance manager for access to instances by interface type
 //
 #pragma once
 

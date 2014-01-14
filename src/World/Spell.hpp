@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file Spell.hpp Spell class
+/// \file Spell.hpp Spell class
 //
 #pragma once
 

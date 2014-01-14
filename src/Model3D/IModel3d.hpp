@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file IModel3d.hpp Interface for 3d model
+/// \file IModel3d.hpp Interface for 3d model
 //
 #pragma once
 

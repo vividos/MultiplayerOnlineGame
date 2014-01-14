@@ -1,8 +1,8 @@
 //
 // Underworld - an Ultima Underworld remake project
-// Copyright (C) 2002-2013 Michael Fink
+// Copyright (C) 2002-2014 Michael Fink
 //
-//! \file Underworld/Renderer/Renderer.cpp Underworld renderer
+/// \file Underworld/Renderer/Renderer.cpp Underworld renderer
 //
 
 // includes

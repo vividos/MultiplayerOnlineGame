@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file SpellEffect.hpp Spell effect
+/// \file SpellEffect.hpp Spell effect
 //
 #pragma once
 

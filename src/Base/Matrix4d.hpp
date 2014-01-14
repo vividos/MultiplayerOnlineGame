@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file Matrix4d.hpp Matrix class (4x4)
+/// \file Matrix4d.hpp Matrix class (4x4)
 //
 #pragma once
 

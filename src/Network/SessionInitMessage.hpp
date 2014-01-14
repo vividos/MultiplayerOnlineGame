@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file SessionInitMessage.hpp Message to initialize game session
+/// \file SessionInitMessage.hpp Message to initialize game session
 //
 #pragma once
 

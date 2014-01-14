@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file AuthException.hpp Authentication error exception
+/// \file AuthException.hpp Authentication error exception
 //
 #pragma once
 

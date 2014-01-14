@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file ThreadPool.hpp Thread pool class
+/// \file ThreadPool.hpp Thread pool class
 //
 #pragma once
 

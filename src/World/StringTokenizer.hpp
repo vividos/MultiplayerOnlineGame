@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file StringTokenizer.hpp String tokenizer
+/// \file StringTokenizer.hpp String tokenizer
 //
 #pragma once
 

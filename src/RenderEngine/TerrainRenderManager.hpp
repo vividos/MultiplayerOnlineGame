@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file TerrainRenderManager.hpp Terrain render manager
+/// \file TerrainRenderManager.hpp Terrain render manager
 //
 #pragma once
 

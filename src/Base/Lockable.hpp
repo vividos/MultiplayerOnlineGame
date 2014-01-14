@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file Lockable.hpp Base class for all objects that may be locked
+/// \file Lockable.hpp Base class for all objects that may be locked
 //
 #pragma once
 

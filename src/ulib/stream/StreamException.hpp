@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2006,2007,2008 Michael Fink
+// Copyright (C) 2006-2014 Michael Fink
 //
 /// \file StreamException.hpp exception used by stream classes
 //

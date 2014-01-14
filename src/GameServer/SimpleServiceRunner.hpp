@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2011-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file SimpleServiceRunner.hpp Simple Win32 Service runner
+/// \file SimpleServiceRunner.hpp Simple Win32 Service runner
 //
 #pragma once
 

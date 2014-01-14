@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file TextMessage.hpp Message for sending/receiving text
+/// \file TextMessage.hpp Message for sending/receiving text
 //
 #pragma once
 

@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file VirtualFileSystem.hpp Virtual file system
+/// \file VirtualFileSystem.hpp Virtual file system
 //
 #pragma once
 

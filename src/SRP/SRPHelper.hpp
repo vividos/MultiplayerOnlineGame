@@ -1,8 +1,8 @@
 //
 // SRP xint - SRP implementation using boost::xint
-// Copyright (C) 2011-2013 Michael Fink
+// Copyright (C) 2011-2014 Michael Fink
 //
-//! \file SRPHelper.hpp Helper classes and functions for SRP
+/// \file SRPHelper.hpp Helper classes and functions for SRP
 //
 #pragma once
 

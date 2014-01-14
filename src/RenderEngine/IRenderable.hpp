@@ -1,8 +1,8 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
-//! \file IRenderable.hpp Interface for renderable objects
+/// \file IRenderable.hpp Interface for renderable objects
 //
 #pragma once
 

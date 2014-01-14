@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file ThreatList.cpp Threat list
+/// \file ThreatList.cpp Threat list
 //
 
 // includes
