@@ -7,6 +7,7 @@
 
 // includes
 #include "StdAfx.h"
+#pragma optimize("gs", on)
 #include "AnimatedModel3d.hpp"
 #include "RenderOptions.hpp"
 #include "Quaternion4d.hpp"
@@ -59,9 +60,11 @@ void VectorRotate(const Vector3d& in1, const Matrix4d& in2, Vector3d& out)
 /// rotates vector by the inverse of rotation matrix
 void VectorIRotate(const Vector3d& in1, const Matrix4d& in2, Vector3d& out)
 {
-   out.X(in1.X()*in2.Column(0).X() + in1.Y()*in2.Column(1).X() + in1.Z()*in2.Column(2).X());
-   out.Y(in1.X()*in2.Column(0).Y() + in1.Y()*in2.Column(1).Y() + in1.Z()*in2.Column(2).Y());
-   out.Z(in1.X()*in2.Column(0).Z() + in1.Y()*in2.Column(1).Z() + in1.Z()*in2.Column(2).Z());
+   //out.X(in1.X()*in2.Column(0).X() + in1.Y()*in2.Column(1).X() + in1.Z()*in2.Column(2).X());
+   //out.Y(in1.X()*in2.Column(0).Y() + in1.Y()*in2.Column(1).Y() + in1.Z()*in2.Column(2).Y());
+   //out.Z(in1.X()*in2.Column(0).Z() + in1.Y()*in2.Column(1).Z() + in1.Z()*in2.Column(2).Z());
+
+   out = in2 * in1;
 
 	//out[0] = in1[0]*in2[0][0] + in1[1]*in2[1][0] + in1[2]*in2[2][0];
 	//out[1] = in1[0]*in2[0][1] + in1[1]*in2[1][1] + in1[2]*in2[2][1];
