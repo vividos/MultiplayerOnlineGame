@@ -156,6 +156,9 @@
     <ClCompile Include="LoadingScene.cpp">
       <Filter>Main Files\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DebugClient.cpp">
+      <Filter>Main Files\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -288,6 +291,9 @@
       <Filter>Main Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoadingScene.hpp">
+      <Filter>Main Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugClient.hpp">
       <Filter>Main Files\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
