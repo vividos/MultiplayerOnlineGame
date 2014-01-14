@@ -1,0 +1,79 @@
+<Application xmlns="http://schemas.microsoft.com/windows/2009/Ribbon">
+
+  <Application.Commands>
+    <!-- RemotePhotoTool.rc Menu Commands-->
+    <Command Name="builder_WORLD_CREATE" Symbol="ID_WORLD_CREATE" Id="32768"/>
+    <Command Name="builder_TOOLS_PATH_BUILDER" Symbol="ID_TOOLS_PATH_BUILDER" Id="32769"/>
+    <Command Name="builder_TOOLS_TREE_GEN" Symbol="ID_TOOLS_TREE_GEN" Id="32770"/>
+    <Command Name="builder_VIEWS_WORLD_3D" Symbol="ID_VIEWS_WORLD_3D" Id="32771"/>
+    <Command Name="builder_VIEWS_BIOMES" Symbol="ID_VIEWS_BIOMES" Id="32772"/>
+    <Command Name="builder_VIEWS_TEXTURES" Symbol="ID_VIEWS_TEXTURES" Id="32773"/>
+
+    <Command Name="wtl_APP_EXIT" Symbol="ID_APP_EXIT" Id="0xE141"/>
+
+    <!-- Tabs -->
+    <Command Name="TabHome" Symbol="ID_TAB_HOME" LabelTitle="Home" />
+
+    <!-- Groups -->
+    <Command Name="GroupWorld" Symbol="ID_GROUP_WORLD" LabelTitle="World" />
+    <Command Name="GroupTools" Symbol="ID_GROUP_TOOLS" LabelTitle="Tools" />
+    <Command Name="GroupViews" Symbol="ID_GROUP_VIEWS" LabelTitle="Views" />
+
+    <!-- App Menu, MRU list, Help button and Quick Access Toolbar -->
+    <Command Name="AppMenu" Symbol="ID_RIBBON_APP_MENU"/>
+    <Command Name="QAT" Symbol="ID_RIBBON_QAT"/>
+  </Application.Commands>
+
+  <Application.Views>
+    <Ribbon>
+      <!-- Application Menu -->
+      <Ribbon.ApplicationMenu >
+        <ApplicationMenu CommandName="AppMenu" >
+          <MenuGroup Class="StandardItems" >
+            <Button CommandName="builder_WORLD_CREATE"/>
+          </MenuGroup>
+          <MenuGroup >
+            <Button CommandName="wtl_APP_EXIT"/>
+          </MenuGroup>
+        </ApplicationMenu>
+      </Ribbon.ApplicationMenu >
+
+      <!-- QAT (Quick Access Toolbar) -->
+      <Ribbon.QuickAccessToolbar>
+        <QuickAccessToolbar CommandName="QAT">
+          <QuickAccessToolbar.ApplicationDefaults>
+            <Button CommandName="builder_WORLD_CREATE"/>
+          </QuickAccessToolbar.ApplicationDefaults>
+        </QuickAccessToolbar>
+      </Ribbon.QuickAccessToolbar>
+
+      <Ribbon.Tabs>
+        <Tab CommandName="TabHome">
+          <Tab.ScalingPolicy>
+            <ScalingPolicy>
+              <ScalingPolicy.IdealSizes>
+                <Scale Group="GroupWorld" Size="Large"/>
+              </ScalingPolicy.IdealSizes>
+            </ScalingPolicy>
+          </Tab.ScalingPolicy>
+
+          <Group CommandName="GroupWorld" SizeDefinition="OneButton">
+            <Button CommandName="builder_WORLD_CREATE"/>
+          </Group>
+
+          <Group CommandName="GroupTools" SizeDefinition="TwoButtons">
+            <Button CommandName="builder_TOOLS_PATH_BUILDER"/>
+            <Button CommandName="builder_TOOLS_TREE_GEN"/>
+          </Group>
+
+          <Group CommandName="GroupViews" SizeDefinition="ThreeButtons">
+            <Button CommandName="builder_VIEWS_WORLD_3D"/>
+            <Button CommandName="builder_VIEWS_BIOMES"/>
+            <Button CommandName="builder_VIEWS_TEXTURES"/>
+          </Group>
+        </Tab>
+        
+      </Ribbon.Tabs>
+    </Ribbon>
+  </Application.Views>
+</Application>
