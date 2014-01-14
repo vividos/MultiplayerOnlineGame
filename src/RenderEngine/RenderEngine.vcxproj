@@ -75,6 +75,7 @@
     <ClCompile Include="ImageReader\TgaImageReader.cpp" />
     <ClCompile Include="LogDiagnostics.cpp" />
     <ClCompile Include="MilkyWaySkyboxRenderer.cpp" />
+    <ClCompile Include="TerrainRenderManager.cpp" />
     <ClCompile Include="NamedTextureMap.cpp" />
     <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="OrthoCamera.cpp" />
@@ -111,6 +112,7 @@
     <ClInclude Include="IRenderable.hpp" />
     <ClInclude Include="IScenegraph.hpp" />
     <ClInclude Include="MilkyWaySkyboxRenderer.hpp" />
+    <ClInclude Include="TerrainRenderManager.hpp" />
     <ClInclude Include="NamedTextureMap.hpp" />
     <ClInclude Include="OpenGL.hpp" />
     <ClInclude Include="OrthoCamera.hpp" />
