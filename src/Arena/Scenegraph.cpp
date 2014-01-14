@@ -32,7 +32,7 @@ Scenegraph::Scenegraph(Arena::ViewModel& viewModel,
 {
    m_renderContainer.Add(m_spSkyRenderManager);
 
-   m_renderContainer.Add(std::shared_ptr<IRenderable>(new Checkerboard(0, 256, 0, 256, -1.0)));
+   m_renderContainer.Add(std::shared_ptr<IRenderable>(new Checkerboard(0, 32, 0, 32, -1.0)));
 
    m_renderContainer.Add(m_spModelRenderManager);
 

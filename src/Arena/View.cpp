@@ -44,7 +44,8 @@ View::View(KeyboardActionManager& keyboardActionManager,
    m_spCamera->SetNearFarPlaneDistance(0.1, 512.0);
    engine.SetCamera(m_spCamera);
 
-   m_spCamera->SetPosition(Vector3d(-0.766, 3.066, -4.491), 145.1, -19.1);
+   m_spCamera->SetPosition(Vector3d(6.95, 1.86, 6.27), 134.6, -14.5);
+   //m_spCamera->SetPosition(Vector3d(-0.766, 3.066, -4.491), 145.1, -19.1);
 }
 
 void View::PreRender()
