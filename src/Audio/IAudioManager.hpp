@@ -21,11 +21,11 @@ namespace Audio
 {
 
 /// represents a positional audio source
-class ISource
+class IPositionalSource
 {
 public:
    /// dtor
-   virtual ~ISource() throw() {}
+   virtual ~IPositionalSource() throw() {}
 
    /// sets new position
    virtual void SetPosition(const Vector3d& vPos) = 0;
@@ -37,8 +37,8 @@ public:
    virtual void Fadeout(double dFadeoutTime = 0.0) = 0;
 };
 
-/// source shared pointer
-typedef std::shared_ptr<ISource> ISourcePtr;
+/// positional source shared pointer
+typedef std::shared_ptr<IPositionalSource> IPositionalSourcePtr;
 
 /// interface for controlling audio playback
 class IPlaybackControl
@@ -87,7 +87,7 @@ public:
    virtual IVolumeControl& GetVolumeControl() = 0;
 
    /// creates a new positional audio source
-   virtual std::shared_ptr<ISource> CreateSource() = 0;
+   virtual std::shared_ptr<IPositionalSource> CreateSource() = 0;
 
    /// plays back sound, with given id; see AudioSoundType.hpp for ids
    virtual std::shared_ptr<IPlaybackControl> PlaySound(bool bUserInterface, LPCTSTR pszSoundId) = 0;

@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file Source.hpp Audio source implementation
+/// \file PositionalSource.hpp Positional audio source implementation
 //
 #pragma once
 
@@ -15,11 +15,11 @@ namespace Audio
 class AudioManager;
 
 /// audio source implementation
-class Source: public ISource, public std::enable_shared_from_this<Source>
+class PositionalSource: public IPositionalSource, public std::enable_shared_from_this<PositionalSource>
 {
 public:
    /// ctor
-   Source(AudioManager& audioManager, OpenAL::SourcePtr spSource)
+   PositionalSource(AudioManager& audioManager, OpenAL::SourcePtr spSource)
       :m_spSource(spSource),
        m_audioManager(audioManager)
    {

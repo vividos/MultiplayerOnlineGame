@@ -33,10 +33,10 @@
     <ClCompile Include="OpenAL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="PositionalSource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,10 +71,10 @@
     <ClInclude Include="OpenAL.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source.hpp">
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="PositionalSource.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

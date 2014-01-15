@@ -11,7 +11,7 @@
 #include "Singleton.hpp"
 #include "OpenAL.hpp"
 #include "NamedBufferMap.hpp"
-#include "Source.hpp"
+#include "PositionalSource.hpp"
 #include "IoServiceThread.hpp"
 
 namespace Audio
@@ -56,10 +56,10 @@ public:
    }
 
    /// creates a new positional audio source
-   virtual std::shared_ptr<ISource> CreateSource() override
+   virtual std::shared_ptr<IPositionalSource> CreateSource() override
    {
-      return std::shared_ptr<ISource>(
-         new Source(*this,
+      return std::shared_ptr<IPositionalSource>(
+         new PositionalSource(*this,
             m_audioDevice.CreateSource())
          );
    }

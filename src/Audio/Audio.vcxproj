@@ -73,7 +73,7 @@
     <ClCompile Include="NamedBufferMap.cpp" />
     <ClCompile Include="OggVorbisFileReader.cpp" />
     <ClCompile Include="OpenAL.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="PositionalSource.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -90,7 +90,7 @@
     <ClInclude Include="OggVorbisFileReader.hpp" />
     <ClInclude Include="OggVorbisStreamCallbacks.hpp" />
     <ClInclude Include="OpenAL.hpp" />
-    <ClInclude Include="Source.hpp" />
+    <ClInclude Include="PositionalSource.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
