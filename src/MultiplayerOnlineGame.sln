@@ -85,6 +85,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameServer", "GameServer\Ga
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Model3D", "Model3D\Model3D.vcxproj", "{35419D0D-BAE7-4AFD-A6A5-EA597E0A0DCD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WorldBuilder", "WorldBuilder\WorldBuilder.vcxproj", "{CF648FA4-C407-4171-B35E-6F6A72730E0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -187,6 +189,10 @@ Global
 		{35419D0D-BAE7-4AFD-A6A5-EA597E0A0DCD}.Debug|Win32.Build.0 = Debug|Win32
 		{35419D0D-BAE7-4AFD-A6A5-EA597E0A0DCD}.Release|Win32.ActiveCfg = Release|Win32
 		{35419D0D-BAE7-4AFD-A6A5-EA597E0A0DCD}.Release|Win32.Build.0 = Release|Win32
+		{CF648FA4-C407-4171-B35E-6F6A72730E0C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF648FA4-C407-4171-B35E-6F6A72730E0C}.Debug|Win32.Build.0 = Debug|Win32
+		{CF648FA4-C407-4171-B35E-6F6A72730E0C}.Release|Win32.ActiveCfg = Release|Win32
+		{CF648FA4-C407-4171-B35E-6F6A72730E0C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
