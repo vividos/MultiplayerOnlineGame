@@ -13,6 +13,12 @@
     <Filter Include="ui">
       <UniqueIdentifier>{7e3a148d-d4a0-4dbf-ab77-d868272a2416}</UniqueIdentifier>
     </Filter>
+    <Filter Include="audio\sound">
+      <UniqueIdentifier>{e3c90248-adec-4f41-86ed-bb07ddcd3171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="audio\ui">
+      <UniqueIdentifier>{94baec7c-31a6-41e9-9cbf-349c830cb5a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="audio\music.json">
