@@ -56,6 +56,6 @@ MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient
    //options.Set(RenderOptions::optionSkyMeshLines, true);
 }
 
-void MainGameScene::Prepare(PreloadManager& preloadManager)
+void MainGameScene::Prepare(PreloadManager& /*preloadManager*/)
 {
 }
