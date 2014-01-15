@@ -243,7 +243,17 @@ namespace BuildData
          p.Start();
          p.WaitForExit();
          if (p.ExitCode != 0)
-            throw new Exception("oggenc2 returned error");
+         {
+             if (downmix && p.ExitCode == 1)
+             {
+                 Console.WriteLine("Wave file {0} is already mono, not downmixing...", sourceFilename);
+
+                 // is already mono; don't downmix
+                 WaveToOggVorbis(sourceFilename, targetFilename, false);
+             }
+             else
+                 throw new Exception("oggenc2 returned error");
+         }
       }
 
       private void ConvertMp3ToOggVorbis(string[] parameter)
