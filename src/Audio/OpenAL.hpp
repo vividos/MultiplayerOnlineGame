@@ -33,7 +33,10 @@ typedef std::shared_ptr<class Source> SourcePtr;
 { \
    ALenum enError = alGetError(); \
    if (enError != AL_NO_ERROR) \
+   { \
+      ATLTRACE(_T("%hs(%u): %s in %s"), __FILE__, __LINE__, Exception::ErrorText(enError), FuncName); \
       throw Exception(FuncName, enError, __FILE__, __LINE__); \
+   } \
 }
 
 /// checks OpenAL error value and outputs a debug message on error
@@ -77,7 +80,7 @@ public:
       case AL_INVALID_OPERATION: return _T("OpenAL: invalid operation");//  the requested operation is not valid 
       case AL_OUT_OF_MEMORY: return _T("OpenAL: out of memory");//  the requested operation resulted in OpenAL running out of memory
       default:
-         return _T("unknown");
+         return _T("OpenAL: unknown");
       }
    }
 
@@ -178,17 +181,7 @@ public:
    }
 
    // set methods
-/*
-   /// sets number of channels
-   void Channels(unsigned int uiValue)
-   {
-      AL_CLEAR_ERROR();
 
-      ALint iValue = static_cast<ALint>(uiValue);
-      alBufferi(m_uiBuffer, AL_CHANNELS, iValue);
-      AL_CHECK_ERROR(_T("alBuffer(AL_CHANNELS)"));
-   }
-*/
    /// \brief sets stereo sample data
    /// \details some notes:
    /// * sets 16-bit signed samples
@@ -273,7 +266,6 @@ public:
 
       // free stuff
       AL_CLEAR_ERROR();
-
       alDeleteSources(1, &m_uiSource);
       AL_TRACE_ERROR(_T("alDeleteSources")); // can't throw in dtor
    }
@@ -400,6 +392,15 @@ private:
 class Device
 {
 public:
+   /// distance type for distance model
+   enum T_enDistanceType
+   {
+      distanceNone = AL_NONE,                   ///< no distance type
+      distanceInverse = AL_INVERSE_DISTANCE,    ///< inverse distance
+      distanceLinear = AL_LINEAR_DISTANCE,      ///< linear distance
+      distanceExponent = AL_EXPONENT_DISTANCE,  ///< exponential distance
+   };
+
    /// opens device; when the device name is empty, opens the default device
    Device(const CString& cszDeviceName = _T(""))
    {
@@ -468,20 +469,16 @@ public:
    // set methods
 
    /// sets distance model
-   // TODO
-   void DistanceModel()
+   void DistanceModel(T_enDistanceType enDistanceType, bool bClamped)
    {
-      AL_CLEAR_ERROR();
-//      ALenum enDistanceModel;
-      /*
-      AL_INVERSE_DISTANCE, AL_INVERSE_DISTANCE_CLAMPED,
-      AL_LINEAR_DISTANCE,  AL_LINEAR_DISTANCE_CLAMPED,
-      AL_EXPONENT_DISTANCE, AL_EXPONENT_DISTANCE_CLAMPED,
-      AL_NONE
-      */
-   // TODO AL_DISTANCE_MODEL
+      ALenum distanceModel = static_cast<ALenum>(enDistanceType);
 
-//      alDistanceModel();
+      if (bClamped && distanceModel != AL_NONE)
+         distanceModel++;
+
+      AL_CLEAR_ERROR();
+      alDistanceModel(distanceModel);
+      AL_CHECK_ERROR(_T("alDistanceModel"));
    }
 
    // get methods
