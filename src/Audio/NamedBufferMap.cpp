@@ -11,12 +11,26 @@
 
 using Audio::NamedBufferMap;
 
-OpenAL::BufferPtr NamedBufferMap::GetBuffer(LPCTSTR /*pszSoundId*/)
+bool NamedBufferMap::IsAvailable(LPCTSTR pszSoundId) const
 {
-   // TODO implement
-   return OpenAL::BufferPtr();
+   return m_mapNamedBuffer.find(pszSoundId) != m_mapNamedBuffer.end();
 }
 
-void NamedBufferMap::Add(LPCTSTR /*pszSoundId*/, OpenAL::BufferPtr /*spBuffer*/)
+OpenAL::BufferPtr NamedBufferMap::GetBuffer(LPCTSTR pszSoundId) const
 {
+   if (!IsAvailable(pszSoundId))
+      return OpenAL::BufferPtr();
+
+   T_mapNamedBuffer::const_iterator iter = m_mapNamedBuffer.find(pszSoundId);
+   ATLASSERT(iter != m_mapNamedBuffer.end());
+
+   return iter->second.m_spBuffer;
+}
+
+void NamedBufferMap::Add(LPCTSTR pszSoundId, OpenAL::BufferPtr spBuffer, bool bPermanent)
+{
+   if (!IsAvailable(pszSoundId))
+      m_mapNamedBuffer[pszSoundId] = BufferEntry(spBuffer, bPermanent);
+   else
+      m_mapNamedBuffer[pszSoundId].UpdateAccessDate();
 }
