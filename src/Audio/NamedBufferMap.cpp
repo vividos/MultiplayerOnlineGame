@@ -8,6 +8,7 @@
 // includes
 #include "StdAfx.h"
 #include "NamedBufferMap.hpp"
+#include "LogCategories.hpp"
 
 using Audio::NamedBufferMap;
 
@@ -30,7 +31,40 @@ OpenAL::BufferPtr NamedBufferMap::GetBuffer(LPCTSTR pszSoundId) const
 void NamedBufferMap::Add(LPCTSTR pszSoundId, OpenAL::BufferPtr spBuffer, bool bPermanent)
 {
    if (!IsAvailable(pszSoundId))
+   {
+      LOG_INFO(_T("NamedBufferMap: adding buffer for sound id: ") + CString(pszSoundId), Log::Client::Audio);
       m_mapNamedBuffer[pszSoundId] = BufferEntry(spBuffer, bPermanent);
+   }
    else
       m_mapNamedBuffer[pszSoundId].UpdateAccessDate();
+}
+
+void NamedBufferMap::Clean(TimeSpan tsOlderThan)
+{
+   if (m_mapNamedBuffer.empty())
+      return;
+
+   DateTime dtNewestDate = DateTime::Now() - tsOlderThan;
+
+	for (auto iter = m_mapNamedBuffer.begin(), stop = m_mapNamedBuffer.end(); iter != stop;)
+   {
+      const BufferEntry& entry = iter->second;
+         
+      if (entry.m_bPermanent)
+      {
+            ++iter;
+            continue;
+      }
+
+      if (entry.m_dtLastAccess < dtNewestDate)
+      {
+         CString cszSoundId = iter->first;
+         LOG_INFO(_T("NamedBufferMap: removing buffer for sound id: ") + cszSoundId, Log::Client::Audio);
+
+         ++iter;
+         m_mapNamedBuffer.erase(cszSoundId);
+      }
+      else
+         ++iter;
+   }
 }

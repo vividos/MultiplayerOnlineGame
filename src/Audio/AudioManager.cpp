@@ -16,6 +16,9 @@
 
 using namespace Audio;
 
+/// elapsed time after which buffer map cleanup is done
+const int c_iBufferMapCleanupElapsedTimeInSeconds = 5 * 60;
+
 IMPLEMENT_SINGLETON(AudioManager)
 
 //
@@ -60,7 +63,8 @@ private:
 
 AudioManager::AudioManager()
 :m_ioServiceThread(true, _T("Audio Subsystem Thread")), // has default work
- m_fVolumePositional(1.0f)
+ m_fVolumePositional(1.0f),
+ m_timerCleanupBufferMap(m_ioServiceThread.Get())
 {
    LOG_INFO(_T("starting audio subsystem"), Log::Client::Audio);
 
@@ -77,10 +81,14 @@ AudioManager::AudioManager()
 
    m_spSoundSource = m_audioDevice.CreateSource();
    m_spMusicSource = m_audioDevice.CreateSource();
+
+   RestartCleanupTimer();
 }
 
 AudioManager::~AudioManager() throw()
 {
+   m_timerCleanupBufferMap.cancel();
+
    m_ioServiceThread.Get().stop();
    m_ioServiceThread.Join();
 
@@ -150,6 +158,24 @@ void AudioManager::SetVolume(T_enVolumeType enVolumeType, float fValue)
          });
       break;
    }
+}
+
+void AudioManager::RestartCleanupTimer()
+{
+   m_timerCleanupBufferMap.expires_from_now(boost::posix_time::seconds(
+      c_iBufferMapCleanupElapsedTimeInSeconds));
+
+   m_timerCleanupBufferMap.async_wait(std::bind(&AudioManager::CleanupBufferMap, this, std::placeholders::_1));
+}
+
+void AudioManager::CleanupBufferMap(const boost::system::error_code& ec)
+{
+   if (ec)
+      return; // timer was canceled
+
+   m_namedBufferMap.Clean(TimeSpan(0,0,c_iBufferMapCleanupElapsedTimeInSeconds));
+
+   RestartCleanupTimer();
 }
 
 std::shared_ptr<IPlaybackControl> AudioManager::StartPlay(OpenAL::SourcePtr spSource, const CString& cszSoundId,

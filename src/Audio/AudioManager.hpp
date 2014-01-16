@@ -96,6 +96,12 @@ public:
 private:
    friend PositionalSource;
 
+   // (re-)starts buffer map cleanup timer
+   void RestartCleanupTimer();
+
+   /// cleans buffer map
+   void CleanupBufferMap(const boost::system::error_code& ec);
+
    /// plays sound
    std::shared_ptr<IPlaybackControl> StartPlay(OpenAL::SourcePtr spSource, const CString& cszSoundId,
       bool bLooping, bool bFadein);
@@ -111,6 +117,9 @@ private:
    OpenAL::BufferPtr ReadOggVorbisFile(std::shared_ptr<Stream::IStream> spStream) const;
 
 private:
+   /// audio background thread
+   IoServiceThread m_ioServiceThread;
+
    /// current audio device
    OpenAL::Device m_audioDevice;
 
@@ -135,8 +144,8 @@ private:
    /// named buffer map
    NamedBufferMap m_namedBufferMap;
 
-   /// audio background thread
-   IoServiceThread m_ioServiceThread;
+   /// timer for cleaning up named buffer map
+   boost::asio::deadline_timer m_timerCleanupBufferMap;
 };
 
 } // namespace Audio

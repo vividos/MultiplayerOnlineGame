@@ -28,6 +28,9 @@ public:
    /// adds new named buffer
    void Add(LPCTSTR pszSoundId, OpenAL::BufferPtr spBuffer, bool bPermanent = false);
 
+   /// cleans up buffer that were last accessed before given time span
+   void Clean(TimeSpan tsOlderThan);
+
 private:
    /// buffer entry
    struct BufferEntry
