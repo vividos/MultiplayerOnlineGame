@@ -15,14 +15,14 @@
 
 using Audio::MusicConfigLoader;
 
-LPCSTR c_pszaId = "id";
-LPCSTR c_pszaLen = "len";
-LPCSTR c_pszaFile = "file";
-LPCSTR c_pszaTags = "tags";
+LPCSTR c_pszaId = "id";       ///< music id
+LPCSTR c_pszaLen = "len";     ///< track length
+LPCSTR c_pszaFile = "file";   ///< filename
+LPCSTR c_pszaTags = "tags";   ///< tags
 
-LPCTSTR c_pszDangerLevelSafe = _T("safe");
-LPCTSTR c_pszDangerLevelNormal = _T("normal");
-LPCTSTR c_pszDangerLevelDungeon = _T("dungeon");
+LPCTSTR c_pszDangerLevelSafe = _T("safe");      ///< danger level "safe place"
+LPCTSTR c_pszDangerLevelNormal = _T("normal");  ///< danger level "normal"
+LPCTSTR c_pszDangerLevelDungeon = _T("dungeon");///< danger level "dungeon"
 
 void MusicConfigLoader::Load(const CString& cszJsonText)
 {

@@ -2,11 +2,11 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file App.hpp Application
+/// \file Audio/AudioPlayer/App.hpp Audio player application
 //
 #pragma once
 
-/// application
+/// Audio player application
 class App
 {
 public:

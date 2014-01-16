@@ -37,15 +37,24 @@ public:
    void Load(const CString& cszJsonText);
 
 private:
+   /// processes track array
    void WalkTrackArray(Json::Value& node);
+
+   /// reads single track object
    void ReadTrackObject(Json::Value& node);
+
+   /// reads all tags
    void ReadTags(Json::Value& node, std::set<CString>& setTags);
 
+   /// adds music track
    void AddMusicTrack(const CString& cszId, unsigned int uiLen, const CString& cszFilename,
       std::set<CString>& setTags);
 
 private:
+   /// map type for music ids to music info
    std::map<CString, MusicDirector::MusicInfo>& m_mapMusicIdToInfo;
+
+   /// music ids for all danger levels
    MusicDirector::T_aDangerLevelMusicIds& m_aDangerLevelMusicIds;
 };
 
