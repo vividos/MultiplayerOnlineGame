@@ -45,18 +45,21 @@ LRESULT AudioPlayerDlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*
 
 LRESULT AudioPlayerDlg::OnHScroll(UINT /*uMsg*/, WPARAM wParam, LPARAM lParam, BOOL& /*bHandled*/)
 {
-   WORD wType = LOWORD(wParam);
-   if (wType != SB_THUMBPOSITION && wType != SB_THUMBTRACK)
-      return 0;
-
    if (lParam == NULL)
       return 0;
 
    float fVolume = HIWORD(wParam) / 100.f;
 
-   Audio::IVolumeControl& volumeControl = m_audioManager.GetVolumeControl();
-
    HWND hWnd = reinterpret_cast<HWND>(lParam);
+
+   WORD wType = LOWORD(wParam);
+   if (wType != SB_THUMBPOSITION && wType != SB_THUMBTRACK)
+   {
+      CTrackBarCtrl trackBar(hWnd);
+      fVolume = trackBar.GetPos() / 100.f;
+   }
+
+   Audio::IVolumeControl& volumeControl = m_audioManager.GetVolumeControl();
 
    if (hWnd == m_tcMusicVolume.m_hWnd)
       volumeControl.SetVolume(Audio::IVolumeControl::enVolumeBackgroundMusic, fVolume);
