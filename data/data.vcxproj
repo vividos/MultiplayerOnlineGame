@@ -39,7 +39,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\data\</OutDir>
-    <IntDir>$(SolutionDir)..\intermediate\(Platform)\$(Configuration)\data\</IntDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\data\</IntDir>
     <NMakeBuildCommandLine>BuildData.exe data.cfg ..\data $(OutDir)</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>del /S /Q  $(OutDir)\*.*
 BuildData.exe data.cfg ..\data  $(OutDir)</NMakeReBuildCommandLine>
@@ -49,7 +49,7 @@ BuildData.exe data.cfg ..\data  $(OutDir)</NMakeReBuildCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\data\</OutDir>
-    <IntDir>$(SolutionDir)..\intermediate\(Platform)\$(Configuration)\data\</IntDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\data\</IntDir>
     <NMakeBuildCommandLine>BuildData.exe data.cfg ..\data  $(OutDir)</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>del /S /Q  $(OutDir)\*.*
 BuildData.exe data.cfg ..\data  $(OutDir)</NMakeReBuildCommandLine>
