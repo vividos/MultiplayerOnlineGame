@@ -13,9 +13,12 @@
 #include "NamedBufferMap.hpp"
 #include "PositionalSource.hpp"
 #include "IoServiceThread.hpp"
+#include <set>
 
 namespace Audio
 {
+// forward references
+class PlaybackControl;
 
 /// \brief Audio manager implementation
 /// \details implements audio playback using OpenAL. The audio manager has
@@ -41,12 +44,30 @@ public:
    /// dtor
    virtual ~AudioManager() throw();
 
+   /// registers a positional source
+   void RegisterPositionalSource(OpenAL::SourcePtr spSource);
+
+   /// unregisters a positional source
+   void UnregisterPositionalSource(OpenAL::SourcePtr spSource);
+
    // virtual methods from IAudioManager
 
    /// returns audio io service
    virtual boost::asio::io_service& GetIoService() override
    {
       return m_ioServiceThread.Get();
+   }
+
+   /// adds sound id mapping
+   virtual void AddSoundIdMapping(LPCTSTR pszSoundId, LPCTSTR pszRelativeFilename) override
+   {
+      m_mapSoundIds[pszSoundId] = pszRelativeFilename;
+   }
+
+   /// sets function to resolve file streams from ids
+   virtual void SetFileStreamResolver(T_fnResolveFileStream fnResolveFileStream) override
+   {
+      m_fnResolveFileStream = fnResolveFileStream;
    }
 
    /// returns volume control
@@ -56,68 +77,35 @@ public:
    }
 
    /// creates a new positional audio source
-   virtual std::shared_ptr<IPositionalSource> CreateSource() override
-   {
-      return std::shared_ptr<IPositionalSource>(
-         new PositionalSource(*this,
-            m_audioDevice.CreateSource())
-         );
-   }
+   virtual std::shared_ptr<IPositionalSource> CreateSource() override;
 
    /// plays back sound, with given id; see AudioSoundType.hpp for ids
-   virtual std::shared_ptr<IPlaybackControl> PlaySound(bool /*bUserInterface*/, LPCTSTR /*pszSoundId*/) override
-   {
-      // TODO impl
-      return std::shared_ptr<IPlaybackControl>();
-   }
+   virtual std::shared_ptr<IPlaybackControl> PlaySound(LPCTSTR pszSoundId) override;
 
    /// plays back music, with given id and data stream
-   virtual void PlayMusic(LPCTSTR pszMusicId, std::shared_ptr<Stream::IStream> spStream) override;
+   virtual void PlayMusic(LPCTSTR pszMusicId) override;
 
    // virtual methods from IVolumeControl
 
    /// returns volume
-   virtual float GetVolume(T_enVolumeType enVolumeType)
-   {
-      switch (enVolumeType)
-      {
-      case enVolumeUserInterface:
-         return 1.0; // TODO impl.
-      case enVolumeBackgroundMusic:
-         return m_spMusicSource->Gain();
-      case enVolumePositional:
-         return 1.0; // TODO impl
-      }
-      return 1.0; // TODO impl
-   }
+   virtual float GetVolume(T_enVolumeType enVolumeType) const override;
 
    /// sets new volume
-   virtual void SetVolume(T_enVolumeType enVolumeType, float fValue)
-   {
-      switch (enVolumeType)
-      {
-      case enVolumeUserInterface:
-         break;
-      case enVolumeBackgroundMusic:
-         m_spMusicSource->Gain(fValue);
-         break;
-      case enVolumePositional:
-         break;
-      }
-   }
-
-   // methods
+   virtual void SetVolume(T_enVolumeType enVolumeType, float fValue) override;
 
 private:
-   friend Source;
+   friend PositionalSource;
 
-   /// worker thread function; plays music
-   void AsyncPlayMusic(const CString& cszMusicId, std::shared_ptr<Stream::IStream> spStream);
+   /// plays sound
+   std::shared_ptr<IPlaybackControl> StartPlay(OpenAL::SourcePtr spSource, const CString& cszSoundId,
+      bool bLooping, bool bFadein);
 
-   /// starts sound playback asynchronously
-   void AsyncPlay(std::shared_ptr<Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn);
+   /// worker thread function; plays sound
+   void AsyncPlay(OpenAL::SourcePtr spSource, const CString& cszSoundId,
+      std::shared_ptr<PlaybackControl> spPlaybackControl, bool bLooping, bool bFadein);
 
-   void LoadAndPlay(std::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn);
+   /// resolves stream from sound id
+   OpenAL::BufferPtr ResolveBuffer(LPCTSTR pszSoundId);
 
    /// reads Ogg Vorbis audio file from stream into buffer
    OpenAL::BufferPtr ReadOggVorbisFile(std::shared_ptr<Stream::IStream> spStream) const;
@@ -127,7 +115,22 @@ private:
    OpenAL::Device m_audioDevice;
 
    /// source for background music playback
-   std::shared_ptr<Source> m_spMusicSource;
+   OpenAL::SourcePtr m_spMusicSource;
+
+   /// source for sound playback
+   OpenAL::SourcePtr m_spSoundSource;
+
+   /// all registered positional sources
+   std::set<OpenAL::SourcePtr> m_setPositonalSources;
+
+   /// positional volume value
+   float m_fVolumePositional;
+
+   /// mapping from sound ids to relative filenames
+   std::map<CString, CString> m_mapSoundIds;
+
+   /// function to resolve file streams from ids
+   T_fnResolveFileStream m_fnResolveFileStream;
 
    /// named buffer map
    NamedBufferMap m_namedBufferMap;

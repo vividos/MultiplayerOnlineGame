@@ -11,9 +11,21 @@
 #include "AudioManager.hpp"
 
 using Audio::PositionalSource;
+using Audio::AudioManager;
+
+PositionalSource::PositionalSource(AudioManager& audioManager, OpenAL::SourcePtr spSource)
+:m_spSource(spSource),
+ m_audioManager(audioManager)
+{
+   m_audioManager.RegisterPositionalSource(spSource);
+}
+
+PositionalSource::~PositionalSource()
+{
+   m_audioManager.UnregisterPositionalSource(m_spSource);
+}
 
 void PositionalSource::Play(LPCTSTR pszSoundId, bool bLoop, bool bFadeIn)
 {
-   // TODO start in worker thread
-   m_audioManager.AsyncPlay(m_spSource, pszSoundId, bLoop, bFadeIn);
+   m_audioManager.StartPlay(m_spSource, pszSoundId, bLoop, bFadeIn);
 }

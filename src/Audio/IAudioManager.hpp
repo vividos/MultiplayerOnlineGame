@@ -64,7 +64,7 @@ public:
    };
 
    /// returns volume
-   virtual float GetVolume(T_enVolumeType enVolumeType) = 0;
+   virtual float GetVolume(T_enVolumeType enVolumeType) const = 0;
 
    /// sets new volume
    virtual void SetVolume(T_enVolumeType enVolumeType, float fValue) = 0;
@@ -83,6 +83,15 @@ public:
    /// returns audio io service
    virtual boost::asio::io_service& GetIoService() = 0;
 
+   /// adds sound id mapping
+   virtual void AddSoundIdMapping(LPCTSTR pszSoundId, LPCTSTR pszRelativeFilename) = 0;
+
+   /// type of file stream resolver function
+   typedef std::function<std::shared_ptr<Stream::IStream>(LPCTSTR)> T_fnResolveFileStream;
+
+   /// sets function to resolve file streams from ids
+   virtual void SetFileStreamResolver(T_fnResolveFileStream fnResolveFileStream) = 0;
+
    /// returns volume control
    virtual IVolumeControl& GetVolumeControl() = 0;
 
@@ -90,10 +99,10 @@ public:
    virtual std::shared_ptr<IPositionalSource> CreateSource() = 0;
 
    /// plays back sound, with given id; see AudioSoundType.hpp for ids
-   virtual std::shared_ptr<IPlaybackControl> PlaySound(bool bUserInterface, LPCTSTR pszSoundId) = 0;
+   virtual std::shared_ptr<IPlaybackControl> PlaySound(LPCTSTR pszSoundId) = 0;
 
-   /// plays back music, with given id and data stream
-   virtual void PlayMusic(LPCTSTR pszMusicId, std::shared_ptr<Stream::IStream> spStream) = 0;
+   /// plays back music, with given id
+   virtual void PlayMusic(LPCTSTR pszSoundId) = 0;
 };
 
 } // namespace Audio

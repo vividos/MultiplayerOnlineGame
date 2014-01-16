@@ -19,13 +19,11 @@ class PositionalSource: public IPositionalSource, public std::enable_shared_from
 {
 public:
    /// ctor
-   PositionalSource(AudioManager& audioManager, OpenAL::SourcePtr spSource)
-      :m_spSource(spSource),
-       m_audioManager(audioManager)
-   {
-   }
+   PositionalSource(AudioManager& audioManager, OpenAL::SourcePtr spSource);
+   /// dtpr
+   virtual ~PositionalSource() throw();
 
-   /// sets new position
+   /// sets new position; note that +X is right, +Y is up and +Z is towards the origin
    virtual void SetPosition(const Vector3d& vPos)
    {
       m_spSource->Position(vPos);

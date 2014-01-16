@@ -46,7 +46,7 @@ void MusicDirector::DangerLevel(T_enDangerLevel enDangerLevel)
    m_enDangerLevel = enDangerLevel;
 }
 
-/// \note not implemented yet
+/// \todo not implemented yet
 void MusicDirector::OnGameEvent(T_enGameEventType enGameEventType)
 {
    CString cszText;
@@ -144,10 +144,10 @@ void MusicDirector::StartPlayback()
 
    info.m_dtLastPlayed = DateTime::Now();
 
-   std::shared_ptr<Stream::IStream> spStream =
-      m_fileSystem.OpenFile(_T("audio\\") + info.m_cszFilename, true);
+   //std::shared_ptr<Stream::IStream> spStream =
+   //   m_fileSystem.OpenFile(_T("audio\\") + info.m_cszFilename, true);
 
-   m_audioManager.PlayMusic(cszId, spStream);
+   m_audioManager.PlayMusic(cszId);
 
    // restart timer
    m_timer.expires_from_now(boost::posix_time::seconds(

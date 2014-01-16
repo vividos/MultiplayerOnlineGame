@@ -8,15 +8,13 @@
 // includes
 #include "StdAfx.h"
 #include "AudioManager.hpp"
-#include "Source.hpp"
 #include "LogCategories.hpp"
 #include "Timer.hpp"
 #include "OggVorbisFileReader.hpp"
 #include <ulib/stream/FileStream.hpp>
 #include "Filesystem.hpp"
 
-using Audio::IAudioManager;
-using Audio::AudioManager;
+using namespace Audio;
 
 IMPLEMENT_SINGLETON(AudioManager)
 
@@ -31,11 +29,38 @@ IAudioManager& IAudioManager::Get()
 
 
 //
+// PlaybackControl
+//
+
+/// playback control implementation
+class Audio::PlaybackControl : public IPlaybackControl
+{
+public:
+   /// ctor
+   PlaybackControl(OpenAL::SourcePtr spSource)
+      :m_spSource(spSource)
+   {
+   }
+
+   /// fades out current playback
+   virtual void Fadeout(double /*dFadeoutTime*/ = 0.0) override
+   {
+       // TODO
+   }
+
+private:
+   /// source
+   OpenAL::SourcePtr m_spSource;
+};
+
+
+//
 // AudioManager
 //
 
 AudioManager::AudioManager()
-:m_ioServiceThread(true, _T("Audio Subsystem Thread")) // has default work
+:m_ioServiceThread(true, _T("Audio Subsystem Thread")), // has default work
+ m_fVolumePositional(1.0f)
 {
    LOG_INFO(_T("starting audio subsystem"), Log::Client::Audio);
 
@@ -50,7 +75,8 @@ AudioManager::AudioManager()
 
    m_ioServiceThread.Run();
 
-   m_spMusicSource = std::dynamic_pointer_cast<Source>(CreateSource());
+   m_spSoundSource = m_audioDevice.CreateSource();
+   m_spMusicSource = m_audioDevice.CreateSource();
 }
 
 AudioManager::~AudioManager() throw()
@@ -61,46 +87,119 @@ AudioManager::~AudioManager() throw()
    LOG_INFO(_T("stopped audio subsystem"), Log::Client::Audio);
 }
 
-void AudioManager::PlayMusic(LPCTSTR pszMusicId, std::shared_ptr<Stream::IStream> spStream)
+void AudioManager::RegisterPositionalSource(OpenAL::SourcePtr spSource)
 {
-   m_ioServiceThread.Get().post(
-      boost::bind(&AudioManager::AsyncPlayMusic, this, CString(pszMusicId), spStream));
+   m_setPositonalSources.insert(spSource);
 }
 
-void AudioManager::AsyncPlayMusic(const CString& cszMusicId, std::shared_ptr<Stream::IStream> spStream)
+void AudioManager::UnregisterPositionalSource(OpenAL::SourcePtr spSource)
 {
-   OpenAL::BufferPtr spBuffer = m_namedBufferMap.GetBuffer(cszMusicId);
-   if (spBuffer == NULL)
+   m_setPositonalSources.erase(spSource);
+}
+
+std::shared_ptr<IPositionalSource> AudioManager::CreateSource()
+{
+   return std::shared_ptr<IPositionalSource>(
+      new PositionalSource(*this,
+         m_audioDevice.CreateSource())
+      );
+}
+
+std::shared_ptr<IPlaybackControl> AudioManager::PlaySound(LPCTSTR pszSoundId)
+{
+   return StartPlay(m_spSoundSource, pszSoundId, false, false);
+}
+
+void AudioManager::PlayMusic(LPCTSTR pszMusicId)
+{
+   StartPlay(m_spMusicSource, pszMusicId, false, false);
+}
+
+float AudioManager::GetVolume(T_enVolumeType enVolumeType) const
+{
+   switch (enVolumeType)
    {
-      // not loaded yet
-      spBuffer = ReadOggVorbisFile(spStream);
+   case enVolumeUserInterface:
+      return m_spSoundSource->Gain();
+   case enVolumeBackgroundMusic:
+      return m_spMusicSource->Gain();
+   case enVolumePositional:
+      return m_fVolumePositional;
+   default:
+      ATLASSERT(false);
    }
-
-   m_namedBufferMap.Add(cszMusicId, spBuffer);
-
-   m_spMusicSource->Play(spBuffer, false, false);
+   return 1.0;
 }
 
-void AudioManager::AsyncPlay(std::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn)
+void AudioManager::SetVolume(T_enVolumeType enVolumeType, float fValue)
 {
+   switch (enVolumeType)
+   {
+   case enVolumeUserInterface:
+      m_spSoundSource->Gain(fValue);
+      break;
+   case enVolumeBackgroundMusic:
+      m_spMusicSource->Gain(fValue);
+      break;
+   case enVolumePositional:
+      m_fVolumePositional = fValue;
+
+      std::for_each(m_setPositonalSources.begin(), m_setPositonalSources.end(),
+         [&](OpenAL::SourcePtr spSource){
+            spSource->Gain(fValue);
+         });
+      break;
+   }
+}
+
+std::shared_ptr<IPlaybackControl> AudioManager::StartPlay(OpenAL::SourcePtr spSource, const CString& cszSoundId,
+   bool bLooping, bool bFadein)
+{
+   std::shared_ptr<PlaybackControl> spPlaybackControl(new PlaybackControl(spSource));
+
    m_ioServiceThread.Get().post(
-      boost::bind(&AudioManager::LoadAndPlay, this, spSource, pszSoundId, bLoop, bFadeIn));
+      boost::bind(&AudioManager::AsyncPlay, this, spSource, cszSoundId, spPlaybackControl, bLooping, bFadein));
+
+   return spPlaybackControl;
 }
 
-void AudioManager::LoadAndPlay(std::shared_ptr<Audio::Source> spSource, LPCTSTR pszSoundId, bool bLoop, bool bFadeIn)
+void AudioManager::AsyncPlay(OpenAL::SourcePtr spSource, const CString& cszSoundId,
+                             std::shared_ptr<PlaybackControl> spPlaybackControl,
+                             bool bLooping, bool /*bFadein*/)
 {
-   // TODO resolve pszSoundId to file name
-   CString cszFilename = _T("audio\\click2-cut.ogg");
+   OpenAL::BufferPtr spBuffer = AudioManager::ResolveBuffer(cszSoundId);
 
-   std::shared_ptr<Stream::IStream> spStream(
-      new Stream::FileStream(cszFilename,
-      Stream::FileStream::modeOpen, Stream::FileStream::accessRead, Stream::FileStream::shareRead));
+   if (spSource->IsPlaying())
+      spSource->Stop();
 
-   OpenAL::BufferPtr spBuffer = ReadOggVorbisFile(spStream);
+   spSource->Attach(spBuffer);
+   spSource->Looping(bLooping);
+   spSource->Play();
+}
 
-   m_namedBufferMap.Add(pszSoundId, spBuffer);
+OpenAL::BufferPtr AudioManager::ResolveBuffer(LPCTSTR pszSoundId)
+{
+   ATLASSERT(pszSoundId != nullptr);
 
-   spSource->Play(spBuffer, bLoop, bFadeIn);
+   OpenAL::BufferPtr spBuffer = m_namedBufferMap.GetBuffer(pszSoundId);
+   if (spBuffer != nullptr)
+      return spBuffer;
+
+   if (m_fnResolveFileStream == nullptr)
+      throw Exception(_T("no stream resolver set"), __FILE__, __LINE__);
+
+   if (m_mapSoundIds.find(pszSoundId) == m_mapSoundIds.end())
+      throw Exception(_T("sound id could not be mapped to relative filename"), __FILE__, __LINE__);
+
+   CString cszFilename = m_mapSoundIds[pszSoundId];
+
+   std::shared_ptr<Stream::IStream> spStream = m_fnResolveFileStream(cszFilename);
+
+   spBuffer = ReadOggVorbisFile(spStream);
+
+   m_namedBufferMap.Add(pszSoundId, spBuffer, false);
+
+   return spBuffer;
 }
 
 OpenAL::BufferPtr AudioManager::ReadOggVorbisFile(std::shared_ptr<Stream::IStream> spStream) const
