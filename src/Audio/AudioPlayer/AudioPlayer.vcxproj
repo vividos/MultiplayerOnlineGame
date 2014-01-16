@@ -114,6 +114,7 @@
   <ItemGroup>
     <ClInclude Include="App.hpp" />
     <ClInclude Include="AudioPlayerDlg.hpp" />
+    <ClInclude Include="PositionalPosCtrl.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
