@@ -103,7 +103,7 @@ void MusicDirector::StartPlayback()
 
    ATLASSERT(setIds.empty() == false); // list must be filled
    boost::uniform_int<> dist(0, setIds.size()-1);
-   boost::variate_generator<boost::mt19937&, boost::uniform_int<> > die(m_rng, dist);
+   boost::variate_generator<boost::mt19937&, boost::uniform_int<>> die(m_rng, dist);
 
    while (!bFound && uiTries < uiMaxTries)
    {
@@ -133,7 +133,6 @@ void MusicDirector::StartPlayback()
       return;
    }
 
-   // TODO
    ATLASSERT(m_mapMusicIdToInfo.find(cszId) != m_mapMusicIdToInfo.end());
    MusicInfo& info = m_mapMusicIdToInfo[cszId];
 
@@ -144,8 +143,7 @@ void MusicDirector::StartPlayback()
 
    info.m_dtLastPlayed = DateTime::Now();
 
-   //std::shared_ptr<Stream::IStream> spStream =
-   //   m_fileSystem.OpenFile(_T("audio\\") + info.m_cszFilename, true);
+   m_audioManager.AddSoundIdMapping(cszId, _T("audio\\") + info.m_cszFilename);
 
    m_audioManager.PlayMusic(cszId);
 
@@ -162,7 +160,7 @@ void MusicDirector::StartBreak()
       m_config.m_uiAverageBreakDuration,  // mean value
       m_config.m_uiStandardDeviationDuration); // sigma value
 
-   boost::variate_generator<boost::mt19937&, boost::normal_distribution<> > die(m_rng, dist);
+   boost::variate_generator<boost::mt19937&, boost::normal_distribution<>> die(m_rng, dist);
    
    int iBreakLength = static_cast<int>(die());
 
