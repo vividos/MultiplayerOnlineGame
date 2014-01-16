@@ -27,8 +27,8 @@
     <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Default|Win32'">
-    <OutDir>$(SolutionDir)..\bin\doxygen</OutDir>
-    <IntDir>$(SolutionDir)..\intermediate</IntDir>
+    <OutDir>$(SolutionDir)..\bin\doxygen\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\doxygen\</IntDir>
     <ExtensionsToDeleteOnClean>*.html;*.map;*.md5;*.png;*.css;*.dot;*.hhc;*.hhk;*.hhp;*.gif</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <ItemDefinitionGroup>
