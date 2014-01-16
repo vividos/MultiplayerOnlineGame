@@ -17,4 +17,7 @@ public:
 
    /// runs application
    int Run(LPCTSTR lpstrCmdLine = NULL, int nCmdShow = SW_SHOWDEFAULT);
+
+   /// sets up logging
+   static void SetupLogging();
 };

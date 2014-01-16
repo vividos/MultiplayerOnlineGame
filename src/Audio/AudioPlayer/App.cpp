@@ -11,6 +11,8 @@
 #include "resource.h"
 #include "AudioPlayerDlg.hpp"
 #include <crtdbg.h>
+#include <ulib/log/Appender.hpp>
+#include <ulib/log/Layout.hpp>
 
  /// WTL app model
 CAppModule _Module;
@@ -48,9 +50,21 @@ int App::Run(LPCTSTR /*lpstrCmdLine*/, int /*nCmdShow*/)
    return dlg.DoModal();
 }
 
+void App::SetupLogging()
+{
+   Log::AppenderPtr spTraceAppender(new Log::OutputDebugStringAppender);
+
+   Log::LayoutPtr spTraceLayout(new Log::PatternLayout(_T("%F(%L): log [%p] %m")));
+   spTraceAppender->Layout(spTraceLayout);
+
+   Log::Logger::GetRootLogger()->AddAppender(spTraceAppender);
+}
+
 /// main function
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lpstrCmdLine, int nCmdShow)
 {
+   App::SetupLogging();
+
    App app(hInstance);
    return app.Run(lpstrCmdLine, nCmdShow);
 }
