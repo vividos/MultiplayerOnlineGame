@@ -184,7 +184,7 @@ std::shared_ptr<IPlaybackControl> AudioManager::StartPlay(OpenAL::SourcePtr spSo
    std::shared_ptr<PlaybackControl> spPlaybackControl(new PlaybackControl(spSource));
 
    m_ioServiceThread.Get().post(
-      boost::bind(&AudioManager::AsyncPlay, this, spSource, cszSoundId, spPlaybackControl, bLooping, bFadein));
+      std::bind(&AudioManager::AsyncPlay, this, spSource, cszSoundId, spPlaybackControl, bLooping, bFadein));
 
    return spPlaybackControl;
 }

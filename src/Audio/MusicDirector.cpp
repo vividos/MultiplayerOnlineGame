@@ -11,7 +11,7 @@
 #include "IAudioManager.hpp"
 #include "IFileSystem.hpp"
 #include "MusicConfigLoader.hpp"
-#include <boost/bind.hpp>
+#include <functional>
 #include <ulib/stream/TextStreamFilter.hpp>
 #include "LogCategories.hpp"
 
@@ -150,7 +150,7 @@ void MusicDirector::StartPlayback()
    // restart timer
    m_timer.expires_from_now(boost::posix_time::seconds(
       static_cast<long>(info.m_tsDuration.TotalSeconds())));
-   m_timer.async_wait(boost::bind(&MusicDirector::OnMusicPlaybackFinished, this, _1));
+   m_timer.async_wait(std::bind(&MusicDirector::OnMusicPlaybackFinished, this, std::placeholders::_1));
 }
 
 void MusicDirector::StartBreak()
@@ -175,7 +175,7 @@ void MusicDirector::StartBreak()
 
    // restart timer
    m_timer.expires_from_now(boost::posix_time::seconds(uiBreakLength));
-   m_timer.async_wait(boost::bind(&MusicDirector::OnMusicBreakFinished, this, _1));
+   m_timer.async_wait(std::bind(&MusicDirector::OnMusicBreakFinished, this, std::placeholders::_1));
 }
 
 void MusicDirector::OnMusicPlaybackFinished(const boost::system::error_code& ec)

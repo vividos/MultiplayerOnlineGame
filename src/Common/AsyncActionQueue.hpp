@@ -7,8 +7,7 @@
 #pragma once
 
 // includes
-#include <boost/function.hpp>
-#include <boost/bind.hpp>
+#include <functional>
 #include "IActionQueue.hpp"
 #include "Action.hpp"
 
@@ -31,7 +30,7 @@ public:
    /// posts action to be carried out immediately
    void Post(ActionPtr spAction)
    {
-      m_ioService.dispatch(boost::bind(&AsyncActionQueue::Execute, this, spAction));
+      m_ioService.dispatch(std::bind(&AsyncActionQueue::Execute, this, spAction));
    }
 
 private:
