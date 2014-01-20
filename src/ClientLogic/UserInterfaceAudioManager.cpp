@@ -29,41 +29,41 @@ void UserInterfaceAudioManager::OnUserInterfaceAudioEvent(T_enUserInterfaceAudio
    switch (enAudioEvent)
    {
    case uiButtonPress:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::ButtonPress);
+      m_audioManager.PlaySound(Audio::Sound::UI::ButtonPress);
       break;
    case uiButtonLeave:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::ButtonPress);
+      m_audioManager.PlaySound(Audio::Sound::UI::ButtonPress);
       break;
    case uiItemSelect:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::ItemSelected);
+      m_audioManager.PlaySound(Audio::Sound::UI::ItemSelected);
       break;
 
    case uiDialogOpenModal:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::Open);
+      m_audioManager.PlaySound(Audio::Sound::UI::Open);
       break;
 
    case uiDialogOpenNonmodal:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::Open);
+      m_audioManager.PlaySound(Audio::Sound::UI::Open);
       break;
 
    case uiDialogCloseModal:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::Close);
+      m_audioManager.PlaySound(Audio::Sound::UI::Close);
       break;
 
    case uiDialogCloseNonmodal:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::Close);
+      m_audioManager.PlaySound(Audio::Sound::UI::Close);
       break;
 
    case uiTooltipOpened:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::Open);
+      m_audioManager.PlaySound(Audio::Sound::UI::Open);
       break;
 
    case uiScrollOpen:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::Open);
+      m_audioManager.PlaySound(Audio::Sound::UI::Open);
       break;
 
    case uiScrollClosed:
-      m_audioManager.PlaySound(true, Audio::Sound::UI::Close);
+      m_audioManager.PlaySound(Audio::Sound::UI::Close);
       break;
    }
 }
