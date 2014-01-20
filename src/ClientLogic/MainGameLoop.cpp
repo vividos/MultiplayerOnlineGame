@@ -103,6 +103,22 @@ void MainGameLoop::ProcessEvents()
          m_bAppActive = true;
          break;
 
+      case SDL_WINDOWEVENT:
+         switch (evt.window.event)
+         {
+         case SDL_WINDOWEVENT_ENTER:
+            m_bAppActive = true;
+            break;
+
+         case SDL_WINDOWEVENT_LEAVE:
+            m_bAppActive = false;
+            break;
+
+         default:
+            break;
+         }
+         break;
+
       default:
          OnEvent(evt);
          break;

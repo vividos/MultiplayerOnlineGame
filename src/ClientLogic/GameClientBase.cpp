@@ -167,8 +167,6 @@ void GameClientBase::OnEvent(SDL_Event& evt)
    case SDL_WINDOWEVENT:
       switch (evt.window.event)
       {
-      //case SDL_WINDOWEVENT_SHOWN:
-      //case SDL_WINDOWEVENT_HIDDEN:
       case SDL_WINDOWEVENT_RESIZED:
          {
             Size size = GetScreenSize();
