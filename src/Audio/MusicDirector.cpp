@@ -169,7 +169,7 @@ void MusicDirector::StartBreak()
       uiBreakLength = static_cast<unsigned int>(iBreakLength);
 
    CString cszText;
-   cszText.Format(_T("starting break, len=%u"),
+   cszText.Format(_T("starting break, len=%i"),
       iBreakLength);
    LOG_INFO(cszText, Log::Client::AudioMusicDirector);
 

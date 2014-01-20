@@ -144,7 +144,6 @@ ULONGLONG FileStream::Length()
 #ifdef _WIN32_WCE
    // CE has no GetFileSizeEx, so we have to use GetFileSize
    LARGE_INTEGER lpFileSize; lpFileSize.QuadPart = 0;
-   BOOL bRet = TRUE;
    DWORD dwRet = ::GetFileSize(m_spHandle.get(), reinterpret_cast<ULONG*>(&lpFileSize.HighPart));
    if (dwRet == 0xffffffff)
    {
