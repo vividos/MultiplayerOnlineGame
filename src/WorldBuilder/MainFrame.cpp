@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file MainFrame.cpp Main application frame
+/// \file WorldBuilder/MainFrame.cpp Main application frame
 //
 
 // includes

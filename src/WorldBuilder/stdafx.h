@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file RenderEngine/stdafx.h Precompiled header support
+/// \file WorldBuilder/stdafx.h Precompiled header support
 //
 #pragma once
 

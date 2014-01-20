@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-//! \file App.cpp Application
+/// \file WorldBuilder/App.cpp Application
 //
 
 // includes
