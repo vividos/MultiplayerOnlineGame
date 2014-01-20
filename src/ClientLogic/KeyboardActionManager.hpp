@@ -105,8 +105,8 @@ private:
    void UnregisterActionHandler(T_enAction enAction, unsigned int uiHandlerId);
 
 private:
-   /// mapping of key scancodes to key actions
-   typedef std::map<unsigned int, T_enAction> T_mapAllKeyActions;
+   /// mapping of key codes and modifiers to key actions
+   typedef std::map<uint64_t, T_enAction> T_mapAllKeyActions;
 
    /// action handler entry
    struct ActionHandlerEntry

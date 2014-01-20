@@ -87,7 +87,7 @@ void KeyboardActionManager::OnKeyboardEvent(bool bKeyDown, unsigned int sym, uns
    if ((mod & KMOD_CTRL) != 0)
       mod |= KMOD_CTRL;
 
-   unsigned int uiKeySymValue = (static_cast<unsigned int>(mod) << 16) | static_cast<unsigned int>(sym);
+   uint64_t uiKeySymValue = (static_cast<uint64_t>(mod) << 32) | static_cast<uint64_t>(sym);
 
    // find action
    T_mapAllKeyActions::const_iterator iter = m_mapAllKeyActions.find(uiKeySymValue);
@@ -137,7 +137,7 @@ KeyNameMap g_aKeys[] =
 {
    { _T("backspace"),  SDLK_BACKSPACE },
    { _T("tab"),  SDLK_TAB },
-//   { _T("clear"),  SDLK_CLEAR },
+   { _T("clear"),  SDLK_CLEAR },
    { _T("enter"),  SDLK_RETURN },
    { _T("return"),  SDLK_RETURN },
    { _T("pause"),  SDLK_PAUSE },
