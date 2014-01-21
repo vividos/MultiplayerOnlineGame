@@ -7,7 +7,7 @@
 #pragma once
 
 // include
-#include <boost/polygon/voronoi_diagram.hpp>
+#include <boost.voronoi/boost/polygon/voronoi_diagram.hpp>
 #include "Vector2d.hpp"
 
 /// \brief classes for generating Voronoi diagram

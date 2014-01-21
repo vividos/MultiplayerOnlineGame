@@ -8,9 +8,9 @@
 // include
 #include "StdAfx.h"
 #include "Voronoi2.hpp"
-#include <boost/polygon/voronoi_diagram.hpp>
-#include <boost/polygon/voronoi_builder.hpp>
-#include <boost/polygon/voronoi_utils.hpp>
+#include <boost.voronoi/boost/polygon/voronoi_diagram.hpp>
+#include <boost.voronoi/boost/polygon/voronoi_builder.hpp>
+#include <boost.voronoi/boost/polygon/voronoi_utils.hpp>
 #include "SVGOutput.hpp"
 
 using namespace Voronoi2;
