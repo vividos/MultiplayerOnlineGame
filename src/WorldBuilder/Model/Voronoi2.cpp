@@ -13,6 +13,15 @@
 #include <boost.voronoi/boost/polygon/voronoi_utils.hpp>
 #include "SVGOutput.hpp"
 
+// moved here, from voronoi_ctypes.hpp, since it contains a constant that must be defined only once per project
+namespace boost {
+namespace polygon {
+namespace detail {
+const int extened_exponent_fpt_traits<fpt64>::kMaxSignificantExpDif = 54;
+}
+}
+}
+
 using namespace Voronoi2;
 
 Diagram::Diagram(const std::vector<Vector2d>& vecPoints, const Vector2d& vBounds)

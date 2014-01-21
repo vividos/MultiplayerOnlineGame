@@ -75,7 +75,7 @@ public:
   static const int kMaxSignificantExpDif;
 };
 
-const int extened_exponent_fpt_traits<fpt64>::kMaxSignificantExpDif = 54;
+//const int extened_exponent_fpt_traits<fpt64>::kMaxSignificantExpDif = 54;
 
 // Floating point type wrapper. Allows to extend exponent boundaries to the
 // integer type range. This class does not handle division by zero, subnormal
