@@ -9,7 +9,7 @@
 // includes
 #include "resource.h"
 #include "res/MainFrameRibbon.h"
-#include "RenderWindow.hpp"
+#include "RenderView.hpp"
 
 // forward references
 class WorldGenerator;
@@ -78,8 +78,8 @@ private:
 private:
    // UI
 
-   /// render window
-   std::unique_ptr<RenderWindow> m_upRenderWindow;
+   /// render view
+   std::unique_ptr<RenderView> m_upRenderView;
 
    /// status bar
    //CMultiPaneStatusBarCtrl m_statusBar;

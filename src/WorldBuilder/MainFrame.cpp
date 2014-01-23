@@ -24,8 +24,8 @@ MainFrame::~MainFrame() throw()
 
 BOOL MainFrame::PreTranslateMessage(MSG* pMsg)
 {
-   //if (m_upView->PreTranslateMessage(pMsg))
-   //   return TRUE;
+   if (m_upRenderView->PreTranslateMessage(pMsg))
+      return TRUE;
 
    return BaseClass::PreTranslateMessage(pMsg);
 }
@@ -33,6 +33,7 @@ BOOL MainFrame::PreTranslateMessage(MSG* pMsg)
 BOOL MainFrame::OnIdle()
 {
    UIUpdateToolBar();
+   m_upRenderView->RedrawWindow();
    return FALSE;
 }
 
@@ -53,6 +54,8 @@ LRESULT MainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/,
 
    // create view
    {
+      m_upRenderView.reset(new RenderView);
+      m_hWndClient = m_upRenderView->Create(m_hWnd, rcDefault);
    }
 
    // register object for message filtering and idle updates
@@ -84,6 +87,9 @@ LRESULT MainFrame::OnClose(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, 
 
 LRESULT MainFrame::OnDestroy(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& bHandled)
 {
+   m_upRenderView->DestroyWindow();
+   m_upRenderView.reset();
+
    // unregister message filtering and idle updates
    CMessageLoop* pLoop = _Module.GetMessageLoop();
    ATLASSERT(pLoop != nullptr);

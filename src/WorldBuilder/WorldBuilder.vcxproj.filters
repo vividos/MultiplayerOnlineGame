@@ -33,7 +33,7 @@
     <ClInclude Include="res\MainFrameRibbon.h">
       <Filter>Resource Files\Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="RenderWindow.hpp">
+    <ClInclude Include="RenderView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
