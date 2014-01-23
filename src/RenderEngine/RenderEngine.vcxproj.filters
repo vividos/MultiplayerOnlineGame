@@ -215,6 +215,9 @@
     <ClInclude Include="TerrainRenderManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DisplayList.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="versioninfo.rc">
