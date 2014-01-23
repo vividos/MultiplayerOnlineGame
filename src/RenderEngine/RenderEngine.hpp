@@ -14,6 +14,7 @@ class IScenegraph;
 class ICamera;
 class RenderOptions;
 class RenderWindow;
+typedef struct SDL_Window SDL_Window;
 
 /// \brief render engine
 class RENDERENGINE_DECLSPEC RenderEngine: public boost::noncopyable
@@ -21,8 +22,10 @@ class RENDERENGINE_DECLSPEC RenderEngine: public boost::noncopyable
 public:
    DEFINE_INSTANCE(RenderEngine)
 
-   /// ctor
+   /// ctor, creating a new window
    RenderEngine(const CString& cszWindowCaption, unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen);
+   /// ctor, accepting an already created SDL window
+   RenderEngine(std::shared_ptr<SDL_Window> spWindow);
    /// dtor
    ~RenderEngine();
 

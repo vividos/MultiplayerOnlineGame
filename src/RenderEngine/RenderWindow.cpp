@@ -14,12 +14,18 @@
 RenderWindow::RenderWindow(const CString& cszWindowCaption, unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen)
 {
    InitVideo(cszWindowCaption, uiWidth, uiHeight, bFullscreen);
+}
 
-   // call IsExtensionSupported here so that it gets initialized
-   OpenGL::IsExtensionSupported(_T(""));
+RenderWindow::RenderWindow(std::shared_ptr<SDL_Window> spWindow)
+:m_spWindow(spWindow)
+{
+   // output some OpenGL diagnostics
+   OpenGL::LogDiagnostics();
 
-   // set our thread as render thread
-   OpenGL::SetRenderThreadId();
+   int iWidth = 0, iHeight = 0;
+   SDL_GetWindowSize(spWindow.get(), &iWidth, &iHeight);
+
+   ResizeView(unsigned(iWidth), unsigned(iHeight));
 }
 
 void RenderWindow::SwapBuffers()

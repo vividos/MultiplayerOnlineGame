@@ -18,8 +18,10 @@ typedef struct SDL_Window SDL_Window;
 class RENDERENGINE_DECLSPEC RenderWindow: public boost::noncopyable
 {
 public:
-   /// ctor
+   /// ctor; creates a new window
    RenderWindow(const CString& cszWindowCaption, unsigned int uiWidth, unsigned int uiHeight, bool bFullscreen);
+   /// ctor; accepts an existing SDL window
+   RenderWindow(std::shared_ptr<SDL_Window> spWindow);
 
    /// swaps display buffers
    void SwapBuffers();

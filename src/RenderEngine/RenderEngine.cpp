@@ -51,6 +51,20 @@ RenderEngine::RenderEngine(const CString& cszWindowCaption, unsigned int uiWidth
    OpenGL::SetRenderThreadId();
 }
 
+RenderEngine::RenderEngine(std::shared_ptr<SDL_Window> spWindow)
+:m_spImpl(new Impl)
+{
+   m_spImpl->m_spWindow.reset(new RenderWindow(spWindow));
+
+   ApplyRenderOptions(GetRenderOptions());
+
+   // call IsExtensionSupported here so that it gets initialized
+   OpenGL::IsExtensionSupported(_T(""));
+
+   // set our thread as render thread
+   OpenGL::SetRenderThreadId();
+}
+
 RenderEngine::~RenderEngine()
 {
    ATLASSERT(m_spImpl != nullptr);
