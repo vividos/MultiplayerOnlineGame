@@ -33,6 +33,8 @@ public:
 
    DECLARE_FRAME_WND_CLASS(NULL, IDR_MAINFRAME)
 
+   void SetStatusText(const CString& cszText);
+
 private:
    friend CDynamicUpdateUI;
    friend CRibbonFrameWindowImplBase;
@@ -75,6 +77,9 @@ private:
    /// sets up status bar
    void SetupStatusBar();
 
+   /// sets status bar pane widths
+   void SetPaneWidths(int* arrWidths, int nPanes);
+
 private:
    // UI
 
@@ -82,10 +87,10 @@ private:
    std::unique_ptr<RenderView> m_upRenderView;
 
    /// status bar
-   //CMultiPaneStatusBarCtrl m_statusBar;
+   CMultiPaneStatusBarCtrl m_statusBar;
 
    /// progress bar
-   //CProgressBarCtrl m_downloadProgressBar;
+   CProgressBarCtrl m_progressBar;
 
    // model
 

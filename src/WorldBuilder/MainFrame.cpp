@@ -104,13 +104,13 @@ LRESULT MainFrame::OnSize(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, B
 {
    bHandled = false;
 
-   //if (m_downloadProgressBar.IsWindow())
-   //{
-   //   CRect rcPane;
-   //   m_statusBar.GetPaneRect(IDR_PANE_PROGRESS, &rcPane);
+   if (m_progressBar.IsWindow())
+   {
+      CRect rcPane;
+      m_statusBar.GetPaneRect(IDR_PANE_PROGRESS, &rcPane);
 
-   //   m_downloadProgressBar.MoveWindow(&rcPane, true);
-   //}
+      m_progressBar.MoveWindow(&rcPane, true);
+   }
 
    return 0;
 }
@@ -119,13 +119,13 @@ LRESULT MainFrame::OnMove(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, B
 {
    bHandled = false;
 
-   //if (m_downloadProgressBar.IsWindow())
-   //{
-   //   CRect rcPane;
-   //   m_statusBar.GetPaneRect(IDR_PANE_PROGRESS, &rcPane);
+   if (m_progressBar.IsWindow())
+   {
+      CRect rcPane;
+      m_statusBar.GetPaneRect(IDR_PANE_PROGRESS, &rcPane);
 
-   //   m_downloadProgressBar.MoveWindow(&rcPane, true);
-   //}
+      m_progressBar.MoveWindow(&rcPane, true);
+   }
 
    return 0;
 }
@@ -143,7 +143,6 @@ void MainFrame::SetupStatusBar()
    CreateSimpleStatusBar(
       ATL_IDS_IDLEMESSAGE, WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | SBARS_SIZEGRIP | WS_CLIPCHILDREN);
 
-#if 0
    m_statusBar.SubclassWindow(m_hWndStatusBar);
 
    // set status bar panes. ID_DEFAULT_PANE is defined by WTL
@@ -154,16 +153,13 @@ void MainFrame::SetupStatusBar()
    // set status bar pane widths using local workaround
    int arrWidths[] = { 0, 150 };
    SetPaneWidths(arrWidths, sizeof(arrWidths) / sizeof(int));
-#endif
 }
 
-//void MainFrame::SetStatusText(const CString& cszText)
-//{
-//   ::SetWindowText(m_hWndStatusBar, cszText);
-//}
+void MainFrame::SetStatusText(const CString& cszText)
+{
+   ::SetWindowText(m_hWndStatusBar, cszText);
+}
 
-
-#if 0
 void MainFrame::SetPaneWidths(int* arrWidths, int nPanes)
 { 
    // find the size of the borders
@@ -182,4 +178,3 @@ void MainFrame::SetPaneWidths(int* arrWidths, int nPanes)
    // set the pane widths
    m_statusBar.SetParts(m_statusBar.m_nPanes, arrWidths); 
 }
-#endif
