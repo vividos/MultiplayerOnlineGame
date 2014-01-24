@@ -10,12 +10,16 @@
 #include "WorldRenderManager.hpp"
 #include "WorldGenerator.hpp"
 #include "PolygonGraphRenderer.hpp"
+#include "RenderEngine.hpp"
+#include "PerspectiveCamera.hpp"
 
 WorldRenderManager::WorldRenderManager(RenderEngine& renderEngine, WorldGenerator& worldGenerator)
 :m_renderEngine(renderEngine),
+ m_spCamera(new PerspectiveCamera),
  m_worldGenerator(worldGenerator),
  m_enWorldViewMode(worldViewNone)
 {
+   m_renderEngine.SetCamera(m_spCamera);
 }
 
 WorldRenderManager::~WorldRenderManager() throw()
@@ -45,6 +49,8 @@ void WorldRenderManager::SetWorldViewMode(T_enWorldViewMode enWorldViewMode)
       ATLASSERT(false);
       break;
    }
+
+   m_enWorldViewMode = enWorldViewMode;
 }
 
 void WorldRenderManager::Render(RenderOptions& options)
@@ -54,7 +60,7 @@ void WorldRenderManager::Render(RenderOptions& options)
    switch (m_enWorldViewMode)
    {
    case worldViewNone:
-      //m_worldGenerator;
+      RenderOutline();
       break;
 
    case worldViewPolygonGraph:
@@ -66,4 +72,21 @@ void WorldRenderManager::Render(RenderOptions& options)
       ATLASSERT(false);
       break;
    }
+}
+
+void WorldRenderManager::RenderOutline()
+{
+   OpenGL::PushedAttributes attrib(GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
+
+   glDisable(GL_TEXTURE_2D);
+   glDisable(GL_LIGHTING);
+
+   glLineWidth(3.0f);
+
+   glColor3ub(255, 255, 255);
+   glBegin(GL_LINE_LOOP);
+   glVertex3d(0.0, 0.0, 0.0);
+   glVertex3d(1.0, 0.0, 0.0);
+   glVertex3d(0.0, 1.0, 0.0);
+   glEnd();
 }

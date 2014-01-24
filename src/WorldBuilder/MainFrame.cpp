@@ -10,6 +10,7 @@
 #include "MainFrame.hpp"
 #include "WorldGenerator.hpp"
 #include "WorldRenderManager.hpp"
+#include "PerspectiveCamera.hpp"
 
 /// settings registry key (subkey "Ribbon" is used for menu band)
 LPCTSTR c_pszSettingsRegkey = _T("Software\\MultiplayerOnlineGame\\WorldBuilder");
@@ -70,6 +71,8 @@ LRESULT MainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/,
       m_spWorldRenderManager.reset(new WorldRenderManager(*spRenderEngine, *m_upWorldGenerator.get()));
 
       spRenderEngine->SetScenegraph(m_spWorldRenderManager);
+
+      m_spWorldRenderManager->GetCamera()->SetPosition(Vector3d(117.0, 819.0, 576.0), -248.0, -57.0);
    }
 
    // register object for message filtering and idle updates

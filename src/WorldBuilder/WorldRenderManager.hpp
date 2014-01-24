@@ -12,6 +12,7 @@
 
 // forward references
 class RenderEngine;
+class PerspectiveCamera;
 class WorldGenerator;
 class PolygonGraphRenderer;
 
@@ -23,6 +24,9 @@ public:
    WorldRenderManager(RenderEngine& renderEngine, WorldGenerator& worldGenerator);
    /// dtor
    ~WorldRenderManager() throw();
+
+   /// returns camera
+   std::shared_ptr<PerspectiveCamera> GetCamera() { return m_spCamera; }
 
    /// world view modes
    typedef enum T_enWorldViewMode
@@ -38,9 +42,14 @@ private:
    /// renders world
    virtual void Render(RenderOptions& options) override;
 
+   void RenderOutline();
+
 private:
    /// render engine
    RenderEngine& m_renderEngine;
+
+   /// camera
+   std::shared_ptr<PerspectiveCamera> m_spCamera;
 
    /// world generator
    WorldGenerator& m_worldGenerator;
