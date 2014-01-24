@@ -16,8 +16,14 @@ LPCTSTR c_pszSettingsRegkey = _T("Software\\MultiplayerOnlineGame\\WorldBuilder"
 
 /// ctor
 MainFrame::MainFrame() throw()
-:m_upWorldGenerator(new WorldGenerator(1024))
+:m_upWorldGenerator(new WorldGenerator(1024)),
+ m_ioServiceGenerator(true, _T("WorldBuilder worker")) // thread with default work
 {
+   m_upWorldGenerator->SetUpdateCallback(
+      std::bind(&MainFrame::OnUpdateWorldGenerator, this, std::placeholders::_1, std::placeholders::_2));
+
+   // start worker thread
+   m_ioServiceGenerator.Run();
 }
 
 MainFrame::~MainFrame() throw()
@@ -144,6 +150,14 @@ LRESULT MainFrame::OnFileExit(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl
    return 0;
 }
 
+LRESULT MainFrame::OnWorldCreate(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
+{
+   m_ioServiceGenerator.Get().post(
+      std::bind(&MainFrame::GenerateWorld, this));
+
+   return 0;
+}
+
 /// \see http://www.codeproject.com/Articles/2948/How-to-use-the-WTL-multipane-status-bar-control
 void MainFrame::SetupStatusBar()
 {
@@ -185,4 +199,20 @@ void MainFrame::SetPaneWidths(int* arrWidths, int nPanes)
 
    // set the pane widths
    m_statusBar.SetParts(m_statusBar.m_nPanes, arrWidths); 
+}
+
+void MainFrame::GenerateWorld()
+{
+   m_upWorldGenerator->Generate(WorldGenerator::T_enIslandShape::islandPerlinNoise, 42);
+}
+
+void MainFrame::OnUpdateWorldGenerator(const CString& cszStatus, bool bUpdatedGraph)
+{
+   // TODO send message back to window
+   if (bUpdatedGraph)
+   {
+      m_spWorldRenderManager->SetWorldViewMode(WorldRenderManager::worldViewPolygonGraph);
+   }
+
+   SetStatusText(cszStatus);
 }

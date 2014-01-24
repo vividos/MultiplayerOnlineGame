@@ -10,6 +10,7 @@
 #include "resource.h"
 #include "res/MainFrameRibbon.h"
 #include "RenderView.hpp"
+#include "IoServiceThread.hpp"
 
 // forward references
 class WorldGenerator;
@@ -34,6 +35,7 @@ public:
 
    DECLARE_FRAME_WND_CLASS(NULL, IDR_MAINFRAME)
 
+   /// sets status bar text
    void SetStatusText(const CString& cszText);
 
 private:
@@ -56,6 +58,7 @@ private:
       MESSAGE_HANDLER(WM_SIZE, OnSize)
       MESSAGE_HANDLER(WM_MOVE, OnMove)
       COMMAND_ID_HANDLER(ID_APP_EXIT, OnFileExit)
+      COMMAND_ID_HANDLER(ID_WORLD_CREATE, OnWorldCreate)
       CHAIN_MSG_MAP(BaseClass)
    END_MSG_MAP()
 
@@ -70,6 +73,7 @@ private:
    LRESULT OnSize(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
    LRESULT OnMove(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
    LRESULT OnFileExit(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
+   LRESULT OnWorldCreate(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 
 private:
    /// sets up toolbar
@@ -80,6 +84,12 @@ private:
 
    /// sets status bar pane widths
    void SetPaneWidths(int* arrWidths, int nPanes);
+
+   /// generates world; called in worker thread
+   void GenerateWorld();
+
+   /// called when world generator has an updated status and/or graph
+   void OnUpdateWorldGenerator(const CString& cszStatus, bool bUpdatedGraph);
 
 private:
    // UI
@@ -100,4 +110,7 @@ private:
 
    /// world generator
    std::unique_ptr<WorldGenerator> m_upWorldGenerator;
+
+   /// io service thread for world generator
+   IoServiceThread m_ioServiceGenerator;
 };
