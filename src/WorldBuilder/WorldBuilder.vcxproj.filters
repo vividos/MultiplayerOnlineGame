@@ -16,6 +16,9 @@
     <Filter Include="Resource Files\Generated Files">
       <UniqueIdentifier>{76c5f8de-2a58-4162-a4de-d6b629106b96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Model Source Files">
+      <UniqueIdentifier>{1702bf74-ddc7-4091-a89d-794d4fbcacec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -36,6 +39,30 @@
     <ClInclude Include="RenderView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\IslandShape.hpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\PerlinNoise.hpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\PolygonGraph.hpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\SimplexNoise.hpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\SVGOutput.hpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Voronoi.hpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Voronoi2.hpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\WorldGenerator.hpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClInclude>
     <ClInclude Include="PolygonGraphRenderer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -55,6 +82,24 @@
     </ClCompile>
     <ClCompile Include="MainFrame.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\PerlinNoise.cpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\PolygonGraph.cpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\SimplexNoise.cpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Voronoi.cpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Voronoi2.cpp">
+      <Filter>Source Files\Model Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\WorldGenerator.cpp">
+      <Filter>Source Files\Model Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PolygonGraphRenderer.cpp">
       <Filter>Source Files</Filter>

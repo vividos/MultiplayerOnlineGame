@@ -16,6 +16,7 @@ LPCTSTR c_pszSettingsRegkey = _T("Software\\MultiplayerOnlineGame\\WorldBuilder"
 
 /// ctor
 MainFrame::MainFrame() throw()
+:m_upWorldGenerator(new WorldGenerator(1024))
 {
 }
 

@@ -66,6 +66,14 @@
   <ItemGroup>
     <ClInclude Include="App.hpp" />
     <ClInclude Include="MainFrame.hpp" />
+    <ClInclude Include="Model\IslandShape.hpp" />
+    <ClInclude Include="Model\PerlinNoise.hpp" />
+    <ClInclude Include="Model\PolygonGraph.hpp" />
+    <ClInclude Include="Model\SimplexNoise.hpp" />
+    <ClInclude Include="Model\SVGOutput.hpp" />
+    <ClInclude Include="Model\Voronoi.hpp" />
+    <ClInclude Include="Model\Voronoi2.hpp" />
+    <ClInclude Include="Model\WorldGenerator.hpp" />
     <ClInclude Include="PolygonGraphRenderer.hpp" />
     <ClInclude Include="RenderView.hpp" />
     <ClInclude Include="resource.h" />
@@ -76,6 +84,12 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="Model\PerlinNoise.cpp" />
+    <ClCompile Include="Model\PolygonGraph.cpp" />
+    <ClCompile Include="Model\SimplexNoise.cpp" />
+    <ClCompile Include="Model\Voronoi.cpp" />
+    <ClCompile Include="Model\Voronoi2.cpp" />
+    <ClCompile Include="Model\WorldGenerator.cpp" />
     <ClCompile Include="PolygonGraphRenderer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
