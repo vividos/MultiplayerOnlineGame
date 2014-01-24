@@ -17,14 +17,19 @@
 const double c_dElevationScaleFactor = 256.0;
 
 PolygonGraphRenderer::PolygonGraphRenderer(const PolygonGraph::Graph& graph) throw()
-:m_graph(graph)
+:m_graph(graph),
+ m_bUploadDone(false)
 {
 }
 
 void PolygonGraphRenderer::Upload()
 {
+   m_bUploadDone = false;
+
    PrepareEdges();
    PreparePolygons();
+
+   m_bUploadDone = true;
 }
 
 void PolygonGraphRenderer::PrepareEdges()
@@ -109,6 +114,9 @@ void PolygonGraphRenderer::PreparePolygons()
 
 void PolygonGraphRenderer::Render(RenderOptions& /*options*/)
 {
+   if (!m_bUploadDone)
+      return;
+
    m_displayListEdges.Call();
    m_displayListPolygons.Call();
 }

@@ -35,8 +35,10 @@ void WorldRenderManager::SetWorldViewMode(T_enWorldViewMode enWorldViewMode)
    case worldViewPolygonGraph:
       if (m_upPolygonGraphRenderer == nullptr)
          m_upPolygonGraphRenderer.reset(new PolygonGraphRenderer(m_worldGenerator.GetGraph()));
-      m_upPolygonGraphRenderer->Prepare();
-      m_upPolygonGraphRenderer->Upload();
+
+      // upload render data
+      m_taskManager.UploadTaskGroup().Add(
+         std::bind(&PolygonGraphRenderer::Upload, m_upPolygonGraphRenderer.get()));
       break;
 
    default:

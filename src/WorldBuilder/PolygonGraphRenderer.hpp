@@ -9,6 +9,7 @@
 // includes
 #include "IRenderable.hpp"
 #include "DisplayList.hpp"
+#include <atomic>
 
 namespace PolygonGraph
 {
@@ -44,6 +45,9 @@ private:
 private:
    /// polygon graph
    const PolygonGraph::Graph& m_graph;
+
+   /// indicates if uploading data is done
+   std::atomic<bool> m_bUploadDone;
 
    /// display list for edges
    OpenGL::DisplayList m_displayListEdges;
