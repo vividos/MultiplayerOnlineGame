@@ -66,19 +66,23 @@
   <ItemGroup>
     <ClInclude Include="App.hpp" />
     <ClInclude Include="MainFrame.hpp" />
+    <ClInclude Include="PolygonGraphRenderer.hpp" />
     <ClInclude Include="RenderView.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="res\MainFrameRibbon.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="WorldRenderManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="PolygonGraphRenderer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="WorldBuilder.cpp" />
+    <ClCompile Include="WorldRenderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WorldBuilder.rc" />

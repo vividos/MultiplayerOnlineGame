@@ -9,6 +9,7 @@
 #include "stdafx.h"
 #include "MainFrame.hpp"
 #include "WorldGenerator.hpp"
+#include "WorldRenderManager.hpp"
 
 /// settings registry key (subkey "Ribbon" is used for menu band)
 LPCTSTR c_pszSettingsRegkey = _T("Software\\MultiplayerOnlineGame\\WorldBuilder");
@@ -56,6 +57,12 @@ LRESULT MainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/,
    {
       m_upRenderView.reset(new RenderView);
       m_hWndClient = m_upRenderView->Create(m_hWnd, rcDefault);
+
+      std::shared_ptr<RenderEngine> spRenderEngine = m_upRenderView->GetRenderEngine();
+
+      m_spWorldRenderManager.reset(new WorldRenderManager(*spRenderEngine, *m_upWorldGenerator.get()));
+
+      spRenderEngine->SetScenegraph(m_spWorldRenderManager);
    }
 
    // register object for message filtering and idle updates

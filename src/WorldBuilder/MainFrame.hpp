@@ -13,6 +13,7 @@
 
 // forward references
 class WorldGenerator;
+class WorldRenderManager;
 
 /// \brief application main frame
 /// \details uses ribbon for commands
@@ -91,6 +92,9 @@ private:
 
    /// progress bar
    CProgressBarCtrl m_progressBar;
+
+   /// world render manager
+   std::shared_ptr<WorldRenderManager> m_spWorldRenderManager;
 
    // model
 
