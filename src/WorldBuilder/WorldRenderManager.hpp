@@ -13,6 +13,7 @@
 // forward references
 class RenderEngine;
 class WorldGenerator;
+class PolygonGraphRenderer;
 
 /// world render manager
 class WorldRenderManager: public IScenegraph
@@ -46,6 +47,9 @@ private:
 
    /// task manager
    GraphicsTaskManager m_taskManager;
+
+   /// current world view mode
+   T_enWorldViewMode m_enWorldViewMode;
 
    /// renderer for polygon graph
    std::unique_ptr<PolygonGraphRenderer> m_upPolygonGraphRenderer;
