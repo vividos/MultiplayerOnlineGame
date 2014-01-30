@@ -15,6 +15,7 @@
 // forward references
 class WorldGenerator;
 class WorldRenderManager;
+class WorldBuilderController;
 
 /// \brief application main frame
 /// \details uses ribbon for commands
@@ -105,6 +106,9 @@ private:
 
    /// world render manager
    std::shared_ptr<WorldRenderManager> m_spWorldRenderManager;
+
+   /// controller
+   std::unique_ptr<WorldBuilderController> m_upController;
 
    // model
 

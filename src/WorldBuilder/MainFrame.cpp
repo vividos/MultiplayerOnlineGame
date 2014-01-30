@@ -10,6 +10,7 @@
 #include "MainFrame.hpp"
 #include "WorldGenerator.hpp"
 #include "WorldRenderManager.hpp"
+#include "WorldBuilderController.hpp"
 #include "PerspectiveCamera.hpp"
 
 /// settings registry key (subkey "Ribbon" is used for menu band)
@@ -33,7 +34,10 @@ MainFrame::~MainFrame() throw()
 
 BOOL MainFrame::PreTranslateMessage(MSG* pMsg)
 {
-   if (m_upRenderView->PreTranslateMessage(pMsg))
+   if (m_upController != nullptr && m_upController->PreTranslateMessage(pMsg))
+      return TRUE;
+
+   if (m_upRenderView != nullptr && m_upRenderView->PreTranslateMessage(pMsg))
       return TRUE;
 
    return BaseClass::PreTranslateMessage(pMsg);
@@ -42,7 +46,13 @@ BOOL MainFrame::PreTranslateMessage(MSG* pMsg)
 BOOL MainFrame::OnIdle()
 {
    UIUpdateToolBar();
-   m_upRenderView->RedrawWindow();
+
+   if (m_upController != nullptr)
+      m_upController->OnIdle();
+
+   if (m_upRenderView != nullptr)
+      m_upRenderView->RedrawWindow();
+
    return FALSE;
 }
 
