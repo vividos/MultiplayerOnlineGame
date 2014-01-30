@@ -70,7 +70,7 @@ KeyActionHandlePtr KeyboardActionManager::RegisterActionHandler(T_enAction enAct
       std::bind(&KeyboardActionManager::WrapOnlyKeyEvent, std::placeholders::_1, bOnPressed, fnOnKeyboardActionKeyEvent));
 }
 
-void KeyboardActionManager::OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int mod)
+bool KeyboardActionManager::OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int mod)
 {
    // remove num, caps and mode
    mod &= ~(KMOD_NUM | KMOD_CAPS | KMOD_MODE);
@@ -92,7 +92,7 @@ void KeyboardActionManager::OnKeyboardEvent(bool bKeyDown, unsigned int sym, uns
    // find action
    T_mapAllKeyActions::const_iterator iter = m_mapAllKeyActions.find(uiKeySymValue);
    if (iter == m_mapAllKeyActions.end())
-      return; // no action defined
+      return false; // no action defined
 
    T_enAction enAction = iter->second;
 
@@ -107,6 +107,8 @@ void KeyboardActionManager::OnKeyboardEvent(bool bKeyDown, unsigned int sym, uns
       iterHandler->m_fnOnKeyboardAction(bKeyDown);
       ++iterHandler;
    }
+
+   return true;
 }
 
 /// known modifier keys

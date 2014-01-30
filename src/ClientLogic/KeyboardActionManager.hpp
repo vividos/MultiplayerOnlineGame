@@ -79,7 +79,7 @@ public:
    KeyActionHandlePtr RegisterActionHandler(T_enAction enAction, bool bOnPressed, T_fnOnKeyboardActionKeyEvent fnOnKeyboardActionKeyEvent);
 
    /// called to process a keyboard event
-   void OnKeyboardEvent(bool bKeyDown, unsigned int uiSym, unsigned int uiMod);
+   bool OnKeyboardEvent(bool bKeyDown, unsigned int uiSym, unsigned int uiMod);
 
    /// function usable in std::bind to convert to key-down-only action function type
    static void WrapOnlyKeyPressed(bool bPressed, T_fnOnKeyboardActionKeyEvent fn)
