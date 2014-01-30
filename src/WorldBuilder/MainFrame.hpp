@@ -77,6 +77,9 @@ private:
    LRESULT OnWorldCreate(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 
 private:
+   /// creates render view
+   void CreateView();
+
    /// sets up toolbar
    void SetupToolbar(HWND hWndCmdBar);
 

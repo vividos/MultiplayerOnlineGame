@@ -71,19 +71,7 @@ LRESULT MainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/,
 
    SetupStatusBar();
 
-   // create view
-   {
-      m_upRenderView.reset(new RenderView);
-      m_hWndClient = m_upRenderView->Create(m_hWnd, rcDefault);
-
-      std::shared_ptr<RenderEngine> spRenderEngine = m_upRenderView->GetRenderEngine();
-
-      m_spWorldRenderManager.reset(new WorldRenderManager(*spRenderEngine, *m_upWorldGenerator.get()));
-
-      spRenderEngine->SetScenegraph(m_spWorldRenderManager);
-
-      m_spWorldRenderManager->GetCamera()->SetPosition(Vector3d(117.0, 819.0, 576.0), -248.0, -57.0);
-   }
+   CreateView();
 
    // register object for message filtering and idle updates
    CMessageLoop* pLoop = _Module.GetMessageLoop();
@@ -169,6 +157,22 @@ LRESULT MainFrame::OnWorldCreate(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWnd
       std::bind(&MainFrame::GenerateWorld, this));
 
    return 0;
+}
+
+void MainFrame::CreateView()
+{
+   m_upRenderView.reset(new RenderView);
+   m_hWndClient = m_upRenderView->Create(m_hWnd, rcDefault);
+
+   std::shared_ptr<RenderEngine> spRenderEngine = m_upRenderView->GetRenderEngine();
+
+   m_spWorldRenderManager.reset(new WorldRenderManager(*spRenderEngine, *m_upWorldGenerator.get()));
+
+   m_spWorldRenderManager->GetCamera()->SetPosition(Vector3d(117.0, 819.0, 576.0), -248.0, -57.0);
+
+   m_upController.reset(new WorldBuilderController(m_spWorldRenderManager->GetCamera()));
+
+   spRenderEngine->SetScenegraph(m_spWorldRenderManager);
 }
 
 /// \see http://www.codeproject.com/Articles/2948/How-to-use-the-WTL-multipane-status-bar-control
