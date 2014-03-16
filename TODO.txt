@@ -1,0 +1,106 @@
+SDL2 migration
+--------------
+use SDL_GetRelativeMouseState func instead of SDL_WarpMouseInWindow
+
+ClientLogic
+-----------
+Third person view controller fix
+impl smooth scrolling of 3rd person view
+
+Model3D
+-------
+Caching loaded Milkshape3D::data
+using Matrix3f and Vector3f to optimize calculations
+Rendering many models
+fadein/fadeout
+
+Game
+----
+impl admin console
+output logout failure
+impl screen "character creation"
+impl checking falling
+create ingame action bar
+impl inventory
+impl settings dialog
+impl paperdoll
+impl mobile selection
+impl jumping
+test Theron lib for game logic
+
+Graphics
+--------
+fix RenderContainer with priority queue
+fix errors terrain rendering
+use frogames models
+impl RenderableObject list or tree
+impl screenshot manager
+finish sky sphere rendering
+impl sky moon and sun rendering
+impl terrain light calculation
+impl terrain normal calculation
+impl terrain texture calculation
+finish terrain renderer
+use texture config file
+
+Misc
+----
+read article "How to write secure code"
+impl credits screen
+design game screens
+impl game updater
+impl launcher download
+impl MetricsManager
+check all with AppVerifier
+remove paths from unit tests
+check project Abysmal
+impl RandomNumberSource
+use uint8_t everywhere
+impl version check XP client
+
+Network
+-------
+impl ConnectionFilter
+impl ConnInitMessage
+impl login queue
+use Simplified SDL for game security
+
+UI
+--
+design audio settings UI
+impl checkbox control
+impl image control
+impl ingame UI
+impl loading tips
+impl login UI
+document Mvvm pattern usage in screens
+impl scrollbar control
+impl slider control
+impl tabbing for panels
+impl tutorial window
+design video settings UI
+complete WindowManager
+
+World
+-----
+impl AI simulation
+impl Actions
+impl Items, Attributes
+impl MobileAttributes, race, animal type, job
+impl combat, parry, dodge, hit, crit, points, type, enter/leave
+impl MobileUpdateManager
+impl game logic
+impl text chat system
+impl terrain generation in WorldGenerator
+
+Audio
+-----
+impl world sound manager
+find Sfx for models
+find Sfx for user interface
+impl or remove fadein/fadeout
+
+Android port
+------------
+CString class
+file stream impl.
