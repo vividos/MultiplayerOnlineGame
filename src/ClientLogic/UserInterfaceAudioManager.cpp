@@ -68,7 +68,11 @@ void UserInterfaceAudioManager::OnUserInterfaceAudioEvent(T_enUserInterfaceAudio
    }
 }
 
+/// \note we only load static sounds here; provide a config loaded when needed
 void UserInterfaceAudioManager::LoadUserInterfaceSounds()
 {
-   // TODO implement
+   m_audioManager.AddSoundIdMapping(Audio::Sound::UI::ButtonPress, _T("audio/ui/button-press.ogg"));
+   m_audioManager.AddSoundIdMapping(Audio::Sound::UI::ItemSelected, _T("audio/ui/item-selected.ogg"));
+   m_audioManager.AddSoundIdMapping(Audio::Sound::UI::Open, _T("audio/ui/open.ogg"));
+   m_audioManager.AddSoundIdMapping(Audio::Sound::UI::Close, _T("audio/ui/close.ogg"));
 }
