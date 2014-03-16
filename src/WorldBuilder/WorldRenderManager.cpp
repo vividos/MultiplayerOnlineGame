@@ -76,6 +76,8 @@ void WorldRenderManager::Render(RenderOptions& options)
 
 void WorldRenderManager::RenderOutline()
 {
+   OpenGL::RenderXyzAxes();
+
    OpenGL::PushedAttributes attrib(GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 
    glDisable(GL_TEXTURE_2D);
@@ -86,7 +88,8 @@ void WorldRenderManager::RenderOutline()
    glColor3ub(255, 255, 255);
    glBegin(GL_LINE_LOOP);
    glVertex3d(0.0, 0.0, 0.0);
-   glVertex3d(1.0, 0.0, 0.0);
-   glVertex3d(0.0, 1.0, 0.0);
+   glVertex3d(1024.0, 0.0, 0.0);
+   glVertex3d(1024.0, 1024.0, 0.0);
+   glVertex3d(0.0, 1024.0, 0.0);
    glEnd();
 }
