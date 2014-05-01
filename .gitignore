@@ -1,6 +1,3 @@
-
-#ignore thumbnails created by windows
-Thumbs.db
 #Ignore files build by Visual Studio
 *.obj
 *.exe
@@ -19,20 +16,25 @@ Thumbs.db
 *.cache
 *.ilk
 *.log
-[Bb]in
-[Dd]ebug*/
 *.lib
 *.sbr
-obj/
-[Rr]elease*/
+*.sdf
+*.opensdf
 _ReSharper*/
 [Tt]est[Rr]esult*
+
+#Ignore project folders
+bin/
 intermediate/
 lib/
-bin/
-*.opensdf
-*.sdf
+stuff/
 src/ipch/
+obj/
 src/doxygen/doxygen-warnings.txt
 code-weg/
 Underworld/code-weg/
+
+#Ignore generated ribbon files
+src/WorldBuilder/res/MainFrameRibbon.bml
+src/WorldBuilder/res/MainFrameRibbon.h
+src/WorldBuilder/res/MainFrameRibbon.rc
