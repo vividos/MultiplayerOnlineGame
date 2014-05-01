@@ -45,8 +45,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jpeg-8d", "Thirdparty\jpeg-
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcxproj", "{54254FF9-AE31-4207-B98F-FB49BFE857A6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Debugger", "Underworld\Debugger\Debugger.vcxproj", "{341B0B68-E7F2-4E20-B24E-85F8679A5618}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -89,10 +87,6 @@ Global
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Debug|Win32.Build.0 = Debug|Win32
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Release|Win32.ActiveCfg = Release|Win32
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Release|Win32.Build.0 = Release|Win32
-		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Debug|Win32.ActiveCfg = Debug|Win32
-		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Debug|Win32.Build.0 = Debug|Win32
-		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Release|Win32.ActiveCfg = Release|Win32
-		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
