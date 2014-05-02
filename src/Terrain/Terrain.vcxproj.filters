@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common Files">
+      <UniqueIdentifier>{b4099c22-0819-4b73-9800-246e5a3cddba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View Files">
+      <UniqueIdentifier>{0084dd23-b88d-4b4f-bd42-dce2cc6d1ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View Files\Header Files">
+      <UniqueIdentifier>{e51e8b9f-1f93-4744-9933-6d596b926862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View Files\Source Files">
+      <UniqueIdentifier>{f0f261ae-e0d2-4ffb-a03f-491dbb81fc1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Model Files">
+      <UniqueIdentifier>{cfad1230-4bdb-4735-9cac-cc1cbc0ae313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model Files\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Model Files\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="DataSource Files">
+      <UniqueIdentifier>{9f6a43c3-3f5a-477a-a624-267a249c1751}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataSource Files\Header Files">
+      <UniqueIdentifier>{da80bb8d-4613-40a0-b052-b89c3e774db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataSource Files\Source Files">
+      <UniqueIdentifier>{524fc4b1-6a3e-475b-b891-f8e904ec8631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reduce Files">
+      <UniqueIdentifier>{dcfcb706-5589-4016-8311-9e70d8ef9e54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reduce Files\Header Files">
+      <UniqueIdentifier>{90a42ef9-acf3-4e16-bc59-30924a8175b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reduce Files\Source Files">
+      <UniqueIdentifier>{435d081d-3301-4ca1-8826-f0aa639975d3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Common Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\BlockRenderDataMap.cpp">
+      <Filter>View Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\BlockRenderDataTexturedVertexBuffer.cpp">
+      <Filter>View Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\BlockRenderDataVertexBuffer.cpp">
+      <Filter>View Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\ReducedTriangleBlockRenderData.cpp">
+      <Filter>View Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\DataBlock.cpp">
+      <Filter>Model Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\DataBlockManager.cpp">
+      <Filter>Model Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\DataBlockMap.cpp">
+      <Filter>Model Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\ElevationData.cpp">
+      <Filter>Model Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSource\FileBlockManager.cpp">
+      <Filter>DataSource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSource\FileDataBlock.cpp">
+      <Filter>DataSource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSource\FileDataSource.cpp">
+      <Filter>DataSource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSource\ImageFileTerrainDataSource.cpp">
+      <Filter>DataSource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSource\MandelbrotTerrainDataSource.cpp">
+      <Filter>DataSource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSource\RampTerrainDataSource.cpp">
+      <Filter>DataSource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSource\ScatteredPointDataSource.cpp">
+      <Filter>DataSource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSource\SineCosineTerrainDataSource.cpp">
+      <Filter>DataSource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reduce\IActiveVertexMap.cpp">
+      <Filter>Reduce Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reduce\ReduceAlgorithm.cpp">
+      <Filter>Reduce Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reduce\TrianglesCompiler.cpp">
+      <Filter>Reduce Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reduce\TrianglesCompilerIndex.cpp">
+      <Filter>Reduce Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reduce\TrianglesCompilerVertices.cpp">
+      <Filter>Reduce Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reduce\ZoneDataSource.cpp">
+      <Filter>Reduce Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Reduce\ZoneManager.cpp">
+      <Filter>Reduce Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="View\TerrainRenderManager.cpp">
+      <Filter>View Files\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainCommon.hpp">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View\BlockRenderDataMap.hpp">
+      <Filter>View Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View\BlockRenderDataTexturedVertexBuffer.hpp">
+      <Filter>View Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View\BlockRenderDataVertexBuffer.hpp">
+      <Filter>View Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View\IBlockRenderData.hpp">
+      <Filter>View Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View\ReducedTriangleBlockRenderData.hpp">
+      <Filter>View Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\DataBlock.hpp">
+      <Filter>Model Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\DataBlockManager.hpp">
+      <Filter>Model Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\DataBlockMap.hpp">
+      <Filter>Model Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\ElevationData.hpp">
+      <Filter>Model Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\FileBlockManager.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\FileDataBlock.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\FileDataSource.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\IDataSource.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\ImageFileTerrainDataSource.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\MandelbrotTerrainDataSource.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\RampTerrainDataSource.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\ScatteredPointDataSource.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSource\SineCosineTerrainDataSource.hpp">
+      <Filter>DataSource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\ActiveVertexBlockMap.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\ActiveVertexMap.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\IActiveVertexMap.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\ReduceAlgorithm.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\TrianglesCompiler.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\TrianglesCompilerIndex.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\TrianglesCompilerVertices.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\ZoneDataSource.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reduce\ZoneManager.hpp">
+      <Filter>Reduce Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View\TerrainRenderManager.hpp">
+      <Filter>View Files\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="versioninfo.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

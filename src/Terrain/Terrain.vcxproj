@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DBC08D35-5928-49F1-B212-8C1F2688CBA3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\boost.props" />
+    <Import Project="..\atl71-x86.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\boost.props" />
+    <Import Project="..\atl71-x86.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\RenderEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;TERRAIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\RenderEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;TERRAIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="View\BlockRenderDataMap.cpp" />
+    <ClCompile Include="View\BlockRenderDataTexturedVertexBuffer.cpp" />
+    <ClCompile Include="View\BlockRenderDataVertexBuffer.cpp" />
+    <ClCompile Include="View\ReducedTriangleBlockRenderData.cpp" />
+    <ClCompile Include="View\TerrainRenderManager.cpp" />
+    <ClCompile Include="Model\DataBlock.cpp" />
+    <ClCompile Include="Model\DataBlockManager.cpp" />
+    <ClCompile Include="Model\DataBlockMap.cpp" />
+    <ClCompile Include="Model\ElevationData.cpp" />
+    <ClCompile Include="DataSource\FileBlockManager.cpp" />
+    <ClCompile Include="DataSource\FileDataBlock.cpp" />
+    <ClCompile Include="DataSource\FileDataSource.cpp" />
+    <ClCompile Include="DataSource\ImageFileTerrainDataSource.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="DataSource\MandelbrotTerrainDataSource.cpp" />
+    <ClCompile Include="DataSource\RampTerrainDataSource.cpp" />
+    <ClCompile Include="DataSource\ScatteredPointDataSource.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="DataSource\SineCosineTerrainDataSource.cpp" />
+    <ClCompile Include="Reduce\IActiveVertexMap.cpp" />
+    <ClCompile Include="Reduce\ReduceAlgorithm.cpp" />
+    <ClCompile Include="Reduce\TrianglesCompiler.cpp" />
+    <ClCompile Include="Reduce\TrianglesCompilerIndex.cpp" />
+    <ClCompile Include="Reduce\TrianglesCompilerVertices.cpp" />
+    <ClCompile Include="Reduce\ZoneDataSource.cpp" />
+    <ClCompile Include="Reduce\ZoneManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TerrainCommon.hpp" />
+    <ClInclude Include="View\BlockRenderDataMap.hpp" />
+    <ClInclude Include="View\BlockRenderDataTexturedVertexBuffer.hpp" />
+    <ClInclude Include="View\BlockRenderDataVertexBuffer.hpp" />
+    <ClInclude Include="View\IBlockRenderData.hpp" />
+    <ClInclude Include="View\ReducedTriangleBlockRenderData.hpp" />
+    <ClInclude Include="View\TerrainRenderManager.hpp" />
+    <ClInclude Include="Model\DataBlock.hpp" />
+    <ClInclude Include="Model\DataBlockManager.hpp" />
+    <ClInclude Include="Model\DataBlockMap.hpp" />
+    <ClInclude Include="Model\ElevationData.hpp" />
+    <ClInclude Include="DataSource\FileBlockManager.hpp" />
+    <ClInclude Include="DataSource\FileDataBlock.hpp" />
+    <ClInclude Include="DataSource\FileDataSource.hpp" />
+    <ClInclude Include="DataSource\IDataSource.hpp" />
+    <ClInclude Include="DataSource\ImageFileTerrainDataSource.hpp" />
+    <ClInclude Include="DataSource\MandelbrotTerrainDataSource.hpp" />
+    <ClInclude Include="DataSource\RampTerrainDataSource.hpp" />
+    <ClInclude Include="DataSource\ScatteredPointDataSource.hpp" />
+    <ClInclude Include="DataSource\SineCosineTerrainDataSource.hpp" />
+    <ClInclude Include="Reduce\ActiveVertexBlockMap.hpp" />
+    <ClInclude Include="Reduce\ActiveVertexMap.hpp" />
+    <ClInclude Include="Reduce\IActiveVertexMap.hpp" />
+    <ClInclude Include="Reduce\ReduceAlgorithm.hpp" />
+    <ClInclude Include="Reduce\TrianglesCompiler.hpp" />
+    <ClInclude Include="Reduce\TrianglesCompilerIndex.hpp" />
+    <ClInclude Include="Reduce\TrianglesCompilerVertices.hpp" />
+    <ClInclude Include="Reduce\ZoneDataSource.hpp" />
+    <ClInclude Include="Reduce\ZoneManager.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="versioninfo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.vcxproj">
+      <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.vcxproj">
+      <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\RenderEngine\RenderEngine.vcxproj">
+      <Project>{f5c4aed3-7358-4ef7-b835-de45155cf0a5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

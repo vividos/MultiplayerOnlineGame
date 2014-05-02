@@ -91,6 +91,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WorldBuilder", "WorldBuilde
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Setup", "Setup\Setup.vcxproj", "{CCAD1626-3930-45C2-8C58-F8D1D84244FC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain", "Terrain\Terrain.vcxproj", "{DBC08D35-5928-49F1-B212-8C1F2688CBA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -201,6 +203,10 @@ Global
 		{CCAD1626-3930-45C2-8C58-F8D1D84244FC}.Debug|Win32.Build.0 = Debug|Win32
 		{CCAD1626-3930-45C2-8C58-F8D1D84244FC}.Release|Win32.ActiveCfg = Release|Win32
 		{CCAD1626-3930-45C2-8C58-F8D1D84244FC}.Release|Win32.Build.0 = Release|Win32
+		{DBC08D35-5928-49F1-B212-8C1F2688CBA3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DBC08D35-5928-49F1-B212-8C1F2688CBA3}.Debug|Win32.Build.0 = Debug|Win32
+		{DBC08D35-5928-49F1-B212-8C1F2688CBA3}.Release|Win32.ActiveCfg = Release|Win32
+		{DBC08D35-5928-49F1-B212-8C1F2688CBA3}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
