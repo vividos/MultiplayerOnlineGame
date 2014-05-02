@@ -151,3 +151,74 @@ void OpenGL::RenderXyzAxes()
    glColor3ub(0, 0, 255); glVertex3d(0.0, 0.0, 0.0); glVertex3d(0.0, 0.0, 1.0);
    glEnd();
 }
+
+void OpenGL::RenderSphere(const Vector3d& vPos, double dRadius)
+{
+   double dDeltaLat = 30.0;
+   double dDeltaLong = 30.0;
+
+   unsigned int uiPolycount = 0;
+
+   glPushMatrix();
+
+   glTranslated(vPos.X(), vPos.Y(), vPos.Z());
+
+   glBegin(GL_TRIANGLES);
+   for (double dLat = -90.0; dLat < 90.0; dLat += dDeltaLat)
+   {
+      for (double dLong = 0.0; dLong < 360.0; dLong += dDeltaLong)
+      {
+         Vector3d pt1(dRadius, 0.0, 0.0), pt2(pt1), pt3(pt1), pt4(pt1);
+         pt1.RotateZ(dLat);
+         pt1.RotateY(dLong);
+
+         pt2.RotateZ(dLat);
+         pt2.RotateY(dLong + dDeltaLong);
+
+         pt3.RotateZ(dLat + dDeltaLat);
+         pt3.RotateY(dLong + dDeltaLong);
+
+         pt4.RotateZ(dLat + dDeltaLat);
+         pt4.RotateY(dLong);
+
+         Vector3d npt1(pt1), npt2(pt2), npt3(pt3), npt4(pt4);
+         npt1.Normalize();
+         npt2.Normalize();
+         npt3.Normalize();
+         npt4.Normalize();
+
+         glColor3dv(pt1.Data());
+         glVertex3dv(pt1.Data());
+         glNormal3dv(pt1.Data());
+
+         glColor3dv(pt2.Data());
+         glVertex3dv(pt2.Data());
+         glNormal3dv(pt2.Data());
+
+         glColor3dv(pt3.Data());
+         glVertex3dv(pt3.Data());
+         glNormal3dv(pt3.Data());
+
+         uiPolycount++;
+
+         glColor3dv(pt1.Data());
+         glVertex3dv(pt1.Data());
+         glNormal3dv(pt1.Data());
+
+         glColor3dv(pt3.Data());
+         glVertex3dv(pt3.Data());
+         glNormal3dv(pt3.Data());
+
+         glColor3dv(pt4.Data());
+         glVertex3dv(pt4.Data());
+         glNormal3dv(pt4.Data());
+
+         uiPolycount++;
+      }
+   }
+   glEnd();
+
+   glPopMatrix();
+
+   OpenGL::CountPolygons(uiPolycount);
+}

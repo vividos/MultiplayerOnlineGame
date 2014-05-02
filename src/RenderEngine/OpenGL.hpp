@@ -86,6 +86,9 @@ namespace OpenGL
    /// renders 3 colored axes, each one unit long; x axis: red, y axis: green, z axis: blue
    void RENDERENGINE_DECLSPEC RenderXyzAxes();
 
+   /// renders a sphoere at given position
+   void RenderSphere(const Vector3d& vPos, double dRadius);
+
    /// class to push attributes on attribute stack
    class PushedAttributes
    {
