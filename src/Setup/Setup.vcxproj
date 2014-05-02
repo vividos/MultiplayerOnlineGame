@@ -113,16 +113,6 @@ D:\devel\tools\wix-v3\bin\light -nologo -sice:ICE03 -sice:ICE82 -ext WixUIExtens
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename).wixobj;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Audio\Audio.vcxproj">
-      <Project>{7cbd4454-1736-4c34-8813-f64c38f7c9a6}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\Base\Base.vcxproj">
-      <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
