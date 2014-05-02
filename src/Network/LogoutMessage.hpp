@@ -17,11 +17,13 @@ public:
    /// logout reason
    enum T_enLogoutReason
    {
-      logoutUserPassUnknown = 0, ///< unknown user or wrong password 
+      logoutUserPassUnknown = 0, ///< unknown user or wrong password
       logoutServerShutdown = 1,  ///< server is being shutdown
       logoutBlocked = 2,         ///< logged out due to blocked account
       logoutConnectionDropped = 3,  ///< logout due to connection being dropped
-      logoutOther = 4,           ///< other reason
+      logoutServerFull = 4,      ///< full server
+      logoutMaintenance = 5,     ///< maintenance cycle on server
+      logoutOther = 6,           ///< other reason
    };
 
    /// ctor
