@@ -386,10 +386,10 @@ void AnimatedModel3d::TransformNormal(const Vertex& vertex,
    unsigned int uiJointIndex = static_cast<size_t>(vertex.m_iJointIndex);
 
    ATLASSERT(uiJointIndex < GetData().m_vecJoints.size());
-   const Joint& joint = GetData().m_vecJoints[vertex.m_iJointIndex];
+   const Joint& joint = GetData().m_vecJoints[uiJointIndex];
 
    ATLASSERT(uiJointIndex < vecRenderData.size());
-   const JointRenderData& jointRenderData = vecRenderData[vertex.m_iJointIndex];
+   const JointRenderData& jointRenderData = vecRenderData[uiJointIndex];
 
    Vector3d vTemp;
    VectorIRotate(vNormal, joint.GlobalSkeletonMatrix(), vTemp);
