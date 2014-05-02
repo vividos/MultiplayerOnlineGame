@@ -67,6 +67,12 @@
     <ClCompile Include="TestByteStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestScatteredPointInterpolator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ScatteredPointInterpolator.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Tested Files">
@@ -127,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="..\..\ulib\ISO8601Parser.hpp">
       <Filter>Tested Files\ulib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ScatteredPointInterpolator.hpp">
+      <Filter>Tested Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

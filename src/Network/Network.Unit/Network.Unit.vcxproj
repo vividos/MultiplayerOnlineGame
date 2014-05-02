@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F8F39DF5-7644-4A20-A826-399ED1E043DB}</ProjectGuid>
-    <RootNamespace>UT_Base</RootNamespace>
+    <RootNamespace>Network</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{A3801DBD-60EE-4CCE-814C-144886825F67}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -50,80 +50,39 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..;..\..\thirdparty\zlib128\include;..\..\thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>..\..\thirdparty\zlib128\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..;..\..\thirdparty\zlib128\include;..\..\thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>..\..\thirdparty\zlib128\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ulib\DateTime.cpp" />
-    <ClCompile Include="..\..\ulib\ISO8601Parser.cpp" />
-    <ClCompile Include="..\AstronomyMath.cpp" />
-    <ClCompile Include="..\HashedData.cpp" />
-    <ClCompile Include="..\Path.cpp" />
-    <ClCompile Include="..\Plane3d.cpp" />
-    <ClCompile Include="..\ScatteredPointInterpolator.cpp" />
-    <ClCompile Include="..\sha2.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\Uuid.cpp" />
-    <ClCompile Include="..\ZipArchive.cpp" />
-    <ClCompile Include="..\ZipArchiveFile.cpp" />
-    <ClCompile Include="..\ZlibDecompressor.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TestAstronomyMath.cpp" />
-    <ClCompile Include="TestHashedData.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="TestPath.cpp" />
-    <ClCompile Include="TestPlane3d.cpp" />
-    <ClCompile Include="TestRC4Encoder.cpp" />
-    <ClCompile Include="TestByteStream.cpp" />
-    <ClCompile Include="TestScatteredPointInterpolator.cpp" />
-    <ClCompile Include="TestUuid.cpp" />
-    <ClCompile Include="TestVector3d.cpp" />
-    <ClCompile Include="TestZigzagSquareIterator.cpp" />
-    <ClCompile Include="TestZipArchive.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="TestMessages.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ulib\DateTime.hpp" />
-    <ClInclude Include="..\..\ulib\ISO8601Parser.hpp" />
-    <ClInclude Include="..\AstronomyMath.hpp" />
-    <ClInclude Include="..\ByteStream.hpp" />
-    <ClInclude Include="..\HashedData.hpp" />
-    <ClInclude Include="..\Path.hpp" />
-    <ClInclude Include="..\Plane3d.hpp" />
-    <ClInclude Include="..\RC4Encoder.hpp" />
-    <ClInclude Include="..\ScatteredPointInterpolator.hpp" />
-    <ClInclude Include="..\sha2.h" />
-    <ClInclude Include="..\Uuid.hpp" />
-    <ClInclude Include="..\Vector3d.hpp" />
-    <ClInclude Include="..\ZigzagSquareIterator.hpp" />
-    <ClInclude Include="..\ZipArchive.hpp" />
-    <ClInclude Include="..\ZipArchiveFile.hpp" />
-    <ClInclude Include="..\ZlibDecompressor.hpp" />
     <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Base\Base.vcxproj">
+      <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ulib\ulib.vcxproj">
+      <Project>{daa1e880-4690-46c1-a9cb-c5c962f8c74c}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
