@@ -31,8 +31,11 @@ class IActiveVertexMap;
 namespace View
 {
 
-/// block render data using the "reduced triangle" algorithm
-class TERRAIN_DECLSPEC ReducedTriangleBlockRenderData: public IBlockRenderData
+/// \brief block render data using the "reduced triangle" algorithm
+/// \details using reduced triangles algorithm from:
+/// http://people.llnl.gov/lindstrom2
+/// http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.4771&rep=rep1&type=pdf
+class TERRAIN_DECLSPEC ReducedTriangleBlockRenderData : public IBlockRenderData
 {
 public:
    ReducedTriangleBlockRenderData(GraphicsTaskManager& taskManager) throw();

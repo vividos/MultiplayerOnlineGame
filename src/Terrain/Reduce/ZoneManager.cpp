@@ -173,7 +173,7 @@ ZoneManager::LevelData::LevelData(unsigned int uiBlockSize)
 }
 
 //
-// ZoneRenderData
+// ZoneManager::RenderData
 //
 
 ZoneManager::RenderData::RenderData()

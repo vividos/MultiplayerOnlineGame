@@ -63,7 +63,7 @@ private:
 /// \brief terrain level of detail triangle reduce algorithm
 /// \details uses Shamus Young's reduce algorithm to determine active (to be
 /// rendered) and inactive vertices in the terrain mesh. An instance of the
-/// BlockRenderDataReducedTriangles class renders the mesh then.
+/// ReducedTriangleBlockRenderData class renders the mesh then.
 class ReduceAlgorithmCameraDistance: public ReduceAlgorithmBase
 {
 public:
