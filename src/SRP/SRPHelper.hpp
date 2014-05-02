@@ -121,7 +121,7 @@ namespace Helper
 
    private:
       /// context object
-      boost::shared_ptr<_SHA_CTX> m_spContext;
+      std::shared_ptr<_SHA_CTX> m_spContext;
    };
 
    /// calculates SHA-1 hash from data
