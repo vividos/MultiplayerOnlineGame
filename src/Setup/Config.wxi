@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+  MultiplayerOnlineGame - multiplayer game project
+  Copyright (C) 2008-2014 Michael Fink
+
+  Config.wxi - Configuration include file
+
+-->
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?include BuildNumber.wxi ?>
+
+  <!-- version -->
+  <?define MajorVersion = "1" ?>
+  <?define MinorVersion = "0" ?>
+  <?define SubVersion = "0" ?>
+  <?define Version = "$(var.MajorVersion).$(var.MinorVersion).$(var.SubVersion).$(var.BuildNumber)" ?>
+
+  <!-- client settings -->
+  <?define ClientProductId = "fef21fdc-38e5-46ed-85f0-3ca5f27dcc71" ?>
+  <?define ClientProductName = "MultiplayerOnlineGame" ?>
+  <?define ClientUpgradeCode = "9ef28810-b6e4-487a-a35d-c4ddcf56ae82" ?>
+
+  <!-- server settings -->
+  <?define ServerProductId = "3ac6bb52-4cd4-4de0-a5e3-608ee5263b7c" ?>
+  <?define ServerProductName = "MultiplayerOnlineGame Server" ?>
+  <?define ServerUpgradeCode = "b0ba9d72-1e39-456a-abae-f6dc2eb6de9d" ?>
+
+  <!-- set $(var.SourceFolder) -->
+  <?ifdef Release ?>
+  <?define SourceFolder = "$(sys.SOURCEFILEDIR)\..\..\bin\Win32\Release" ?>
+  <?else?>
+  <?define SourceFolder = "$(sys.SOURCEFILEDIR)\..\..\bin\Win32\Debug" ?>
+  <?endif?>
+
+</Include>

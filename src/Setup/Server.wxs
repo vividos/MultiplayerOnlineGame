@@ -1,0 +1,67 @@
+<?xml version='1.0'?>
+<!--
+
+  MultiplayerOnlineGame - multiplayer game project
+  Copyright (C) 2008-2014 Michael Fink
+
+  Server.wxs - Server install package
+
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?include Config.wxi ?>
+
+  <Product Id="$(var.ServerProductId)"
+     UpgradeCode="$(var.ServerUpgradeCode)"
+     Name="$(var.ServerProductName) Server"
+     Language="1033"
+     Version="$(var.Version)" Manufacturer="Michael Fink">
+
+    <Package Id="*"
+       Description="$(var.ServerProductName) Setup"
+       Comments="This installs $(var.ServerProductName)"
+       Manufacturer="Michael Fink"
+       InstallerVersion="405"
+       InstallPrivileges="elevated"
+       AdminImage="no"
+       Compressed="yes"
+       ShortNames="no"
+       Languages="1033"
+       Keywords="MultiplayerOnlineGame Server"
+       SummaryCodepage="1252"
+       Platform="x86" />
+
+    <Media Id="1" Cabinet="data1.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Merge Id="VCRedist" SourceFile="$(env.CommonProgramFiles)\Merge Modules\Microsoft_VC120_CRT_x86.msm" DiskId="1" Language="0" />
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="MainAppFolder" Name="MultiplayerOnlineGame">
+          <Directory Id="INSTALLDIR" Name=".">
+
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="ServerApp" Title="MultiplayerOnlineGame Server"
+       Description="Installs the MultiplayerOnlineGame server." Level="1"
+       AllowAdvertise="no" TypicalDefault="install" ConfigurableDirectory="INSTALLDIR">
+      <ComponentGroupRef Id="ServerFiles" />
+      <ComponentGroupRef Id="CommonFiles" />
+    </Feature>
+
+    <Feature Id="VCRedist" Title="Visual C++ 2013 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
+      <MergeRef Id="VCRedist"/>
+    </Feature>
+
+    <Property Id="ALLUSERS"><![CDATA[1]]></Property>
+
+    <Property Id="ARPURLINFOABOUT"><![CDATA[http://www.vividos.de/]]></Property>
+    <Property Id="ARPCOMMENTS"><![CDATA[For more information, please visit http://www.vividos.de/]]></Property>
+    <!-- Property Id="ARPPRODUCTICON" Value="WinLameShortcutIcon" / -->
+    <Property Id="ARPHELPLINK" Value="http://www.vividos.de/" />
+
+  </Product>
+
+</Wix>

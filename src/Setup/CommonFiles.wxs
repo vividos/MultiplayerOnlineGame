@@ -1,0 +1,37 @@
+<?xml version='1.0'?>
+<!--
+
+  MultiplayerOnlineGame - multiplayer game project
+  Copyright (C) 2008-2014 Michael Fink
+
+  CommonFiles.wxs - WiX source file for common files
+
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Config.wxi ?>
+  <Fragment>
+    <ComponentGroup Id="CommonFiles">
+
+      <Component Id="BaseDll" Guid="a86322d1-ac78-4102-ae3a-4a941094ab89" Directory="INSTALLDIR">
+        <File Id="BaseDll" Name="Base.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Base.dll" />
+      </Component>
+
+      <Component Id="CommonDll" Guid="8808447e-0357-48d6-acb1-1ed4fa018318" Directory="INSTALLDIR">
+        <File Id="CommonDll" Name="Common.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Common.dll" />
+      </Component>
+
+      <Component Id="Sdl2Dll" Guid="2b19fd0f-f89c-4333-b59a-729955a6d7d9" Directory="INSTALLDIR">
+        <File Id="Sdl2Dll" Name="SDL2.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\SDL2.dll" />
+      </Component>
+
+      <Component Id="ZlibDll" Guid="ec20c608-9a2d-42f5-9072-5852d0818aee" Directory="INSTALLDIR">
+        <File Id="ZlibDll" Name="zlib1.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\zlib1.dll" />
+      </Component>
+
+      <Component Id="NetworkDll" Guid="c153fd6c-f572-423c-8a0b-4998ec1e6c6b" Directory="INSTALLDIR">
+        <File Id="NetworkDll" Name="Network.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Network.dll" />
+      </Component>
+
+    </ComponentGroup>
+  </Fragment>
+</Wix>

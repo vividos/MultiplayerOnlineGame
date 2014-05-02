@@ -1,0 +1,37 @@
+<?xml version='1.0'?>
+<!--
+
+  MultiplayerOnlineGame - multiplayer game project
+  Copyright (C) 2008-2014 Michael Fink
+
+  OpenAL.wxs - OpenAL install custom action (fragment)
+
+  To include the OpenAL installer, just add this to your main file:
+  <CustomActionRef Id="InstallOpenAL" />
+  
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Config.wxi ?>
+  <Fragment>
+
+    <Binary Id="OpenALInstaller" SourceFile="$(var.SourceFolder)\oalinst.exe" />
+
+    <!-- Must start the installer with Impersonate="no" so that it runs under the
+         system context, or else we get error 1721. -->
+    <CustomAction Id="InstallOpenAL"
+                  ExeCommand="/s"
+                  BinaryKey="OpenALInstaller"
+                  Execute="deferred"
+                  Impersonate="no"
+                  Return="check" />
+
+    <InstallExecuteSequence>
+      <Custom Action="InstallOpenAL" Before="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>
+
+    <UI>
+      <ProgressText Action="InstallOpenAL">Installing OpenAL...</ProgressText>
+    </UI>
+
+  </Fragment>
+</Wix>
