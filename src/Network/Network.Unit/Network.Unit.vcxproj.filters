@@ -7,6 +7,12 @@
     <ClCompile Include="TestMessages.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestSRPAuthModule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SRPClientAuthModule.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Tested Files">
@@ -19,6 +25,12 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AuthModuleTester.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SRPClientAuthModule.hpp">
+      <Filter>Tested Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
