@@ -1,9 +1,81 @@
 [
   {
+    "id": "music.a-mission",
+    "len": 43,
+    "file": "music\\A Mission.ogg",
+    "tags": ["normal"]
+  },
+  {
+    "id": "music.aftermath",
+    "len": 180,
+    "file": "music\\Aftermath.ogg",
+    "tags": ["dungeon"]
+  },
+  {
+    "id": "music.air-prelude",
+    "len": 340,
+    "file": "music\\Air Prelude.ogg",
+    "tags": ["safe"]
+  },
+  {
     "id": "music.arcadia",
     "len": 96,
     "file": "music\\Arcadia.ogg",
     "tags": ["safe", "normal"]
+  },
+  {
+    "id": "music.colossus",
+    "len": 270,
+    "file": "music\\Colossus.ogg",
+    "tags": ["normal", "dungeon"]
+  },
+  {
+    "id": "music.constance",
+    "len": 138,
+    "file": "music\\Constance.ogg",
+    "tags": ["normal", "dungeon"]
+  },
+  {
+    "id": "music.dangerous",
+    "len": 54,
+    "file": "music\\Dangerous.ogg",
+    "tags": ["dungeon"]
+  },
+  {
+    "id": "music.dragon-and-toast",
+    "len": 352,
+    "file": "music\\Dragon and Toast.ogg",
+    "tags": ["dungeon"]
+  },
+  {
+    "id": "music.dreamy-flashback",
+    "len": 126,
+    "file": "music\\Dreamy Flashback.ogg",
+    "tags": ["safe"]
+  },
+  {
+    "id": "music.earth-prelude",
+    "len": 228,
+    "file": "music\\Earth Prelude.ogg",
+    "tags": ["safe"]
+  },
+  {
+    "id": "music.evening-fall-harp",
+    "len": 145,
+    "file": "music\\Evening Fall - Harp.ogg",
+    "tags": ["normal"]
+  },
+  {
+    "id": "music.for-originz",
+    "len": 218,
+    "file": "music\\For Originz.ogg",
+    "tags": ["safe"]
+  },
+  {
+    "id": "music.for-the-fallen",
+    "len": 95,
+    "file": "music\\For the Fallen.ogg",
+    "tags": ["safe"]
   },
   {
     "id": "music.frost-waltz-alternate",
@@ -12,9 +84,57 @@
     "tags": ["normal"]
   },
   {
+    "id": "music.interloper",
+    "len": 262,
+    "file": "music\\Interloper.ogg",
+    "tags": ["normal", "dungeon"]
+  },
+  {
+    "id": "music.nerves",
+    "len": 171,
+    "file": "music\\Nerves.ogg",
+    "tags": ["dungeon"]
+  },
+  {
+    "id": "music.procession-of-the-king",
+    "len": 180,
+    "file": "music\\Procession of the King.ogg",
+    "tags": ["safe", "normal"]
+  },
+  {
+    "id": "music.road-to-hell",
+    "len": 111,
+    "file": "music\\Road to Hell.ogg",
+    "tags": ["dungeon"]
+  },
+  {
     "id": "music.schmetterling",
     "len": 62,
     "file": "music\\Schmetterling.ogg",
     "tags": ["normal"]
+  },
+  {
+    "id": "music.the-forest-and-the-trees",
+    "len": 93,
+    "file": "music\\The Forest and the Trees.ogg",
+    "tags": ["safe"]
+  },
+  {
+    "id": "music.time-passes",
+    "len": 70,
+    "file": "music\\Time Passes.ogg",
+    "tags": ["safe", "normal"]
+  },
+  {
+    "id": "music.water-prelude",
+    "len": 324,
+    "file": "music\\Water Prelude.ogg",
+    "tags": ["normal"]
+  },
+  {
+    "id": "music.zombie-hoodoo",
+    "len": 86,
+    "file": "music\\Zombie Hoodoo.ogg",
+    "tags": ["safe", "normal"]
   }
 ]
