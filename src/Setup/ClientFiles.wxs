@@ -36,6 +36,10 @@
         <File Id="RenderEngineDll" Name="RenderEngine.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\RenderEngine.dll" />
       </Component>
 
+      <Component Id="Model3dDll" Guid="37f6c1eb-0698-42ca-a736-2d2e3d03cd1b" Directory="INSTALLDIR">
+        <File Id="Model3dDll" Name="Model3D.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Model3D.dll" />
+      </Component>
+
       <Component Id="TerrainDll" Guid="5a81c64c-9ddf-43b4-9b6a-b8e1e1c8db18" Directory="INSTALLDIR">
         <File Id="TerrainDll" Name="Terrain.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Terrain.dll" />
       </Component>

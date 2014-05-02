@@ -12,6 +12,10 @@
   <Fragment>
     <ComponentGroup Id="CommonFiles">
 
+      <Component Id="UlibDll" Guid="aaaef7fa-7fa3-4f8d-b331-27689cc5c662" Directory="INSTALLDIR">
+        <File Id="UlibDll" Name="ulib.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\ulib.dll" />
+      </Component>
+
       <Component Id="BaseDll" Guid="a86322d1-ac78-4102-ae3a-4a941094ab89" Directory="INSTALLDIR">
         <File Id="BaseDll" Name="Base.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Base.dll" />
       </Component>

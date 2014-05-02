@@ -20,9 +20,9 @@
         <File Id="DatabaseDll" Name="Database.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Database.dll" />
       </Component-->
 
-      <!--Component Id="ServerExe" Guid="bd076435-fbcf-4fe3-9170-c5a5739d7f71" Directory="INSTALLDIR">
-        <File Id="ServerExe" Name="Server.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Server.exe" />
-        <ServiceInstall Id="ServerExeServiceInstall"
+      <Component Id="ServerExe" Guid="bd076435-fbcf-4fe3-9170-c5a5739d7f71" Directory="INSTALLDIR">
+        <File Id="GameServerExe" Name="GameServer.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\GameServer.exe" />
+        <ServiceInstall Id="GameServerExeServiceInstall"
                         Name="MultiplayerOnlineGame-Service"
                         DisplayName="$(var.ServerProductName)"
                         Description="Runs the $(var.ServerProductName) server"
@@ -31,13 +31,13 @@
                         ErrorControl="normal"
                         Vital="yes"
                         Interactive="no" />
-        <ServiceControl Id="ServerExeServiceControl"
+        <ServiceControl Id="GameServerExeServiceControl"
                         Name="MultiplayerOnlineGame-Service"
                         Start="install"
                         Stop="uninstall"
                         Remove="uninstall"
                         Wait='yes'/>
-      </Component-->
+      </Component>
 
       <Component Id="ServerLogicDll" Guid="b68e2f62-a268-4e15-84da-f706d7d78a8a" Directory="INSTALLDIR">
         <File Id="ServerLogicDll" Name="ServerLogic.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\ServerLogic.dll" />
