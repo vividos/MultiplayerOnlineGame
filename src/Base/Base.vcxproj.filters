@@ -75,6 +75,9 @@
     <ClCompile Include="CrashReporter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BSpline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABox.hpp">
@@ -216,6 +219,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CrashReporter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BSpline.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

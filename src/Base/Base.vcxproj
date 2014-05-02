@@ -68,6 +68,7 @@
     <ClCompile Include="AsioHelper.cpp" />
     <ClCompile Include="AstronomyMath.cpp" />
     <ClCompile Include="BaseFileSystem.cpp" />
+    <ClCompile Include="BSpline.cpp" />
     <ClCompile Include="CrashReporter.cpp" />
     <ClCompile Include="Filesystem.cpp" />
     <ClCompile Include="HashedData.cpp" />
@@ -102,6 +103,7 @@
     <ClInclude Include="AstronomyMath.hpp" />
     <ClInclude Include="Base.hpp" />
     <ClInclude Include="BaseFileSystem.hpp" />
+    <ClInclude Include="BSpline.hpp" />
     <ClInclude Include="ByteStream.hpp" />
     <ClInclude Include="Color.hpp" />
     <ClInclude Include="ColorGradient.hpp" />
