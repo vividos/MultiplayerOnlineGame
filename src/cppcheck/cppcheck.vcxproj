@@ -30,36 +30,34 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\cppcheck.props" />
+    <Import Project="..\MultiplayerOnlineGame-Release.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\cppcheck.props" />
+    <Import Project="..\MultiplayerOnlineGame-Debug.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>11.0.60610.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\..\intermediate\$(Configuration)\$(ProjectName)\</OutDir>
-    <IntDir>..\..\intermediate\$(Configuration)\$(ProjectName)\</IntDir>
-    <NMakeBuildCommandLine>cppcheck.exe ..\ --enable=all --template vs 2&gt; $(IntDir)cppcheck.txt
+    <NMakeBuildCommandLine>call RunCppCheck.cmd "$(IntDir)"
 type $(IntDir)cppcheck.txt</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>cppcheck.exe ..\ --enable=all --template vs 2&gt; $(IntDir)cppcheck.txt
+    <NMakeReBuildCommandLine>del $(IntDir)cppcheck.txt
+call RunCppCheck.cmd "$(IntDir)"
 type $(IntDir)cppcheck.txt</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine />
+    <NMakeCleanCommandLine>del $(IntDir)cppcheck.txt</NMakeCleanCommandLine>
     <NMakeOutput />
-    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\..\intermediate\$(Configuration)\$(ProjectName)\</OutDir>
-    <IntDir>..\..\intermediate\$(Configuration)\$(ProjectName)\</IntDir>
-    <NMakeBuildCommandLine>cppcheck.exe ..\ --enable=all --template vs 2&gt; $(IntDir)cppcheck.txt
+    <NMakeBuildCommandLine>call RunCppCheck.cmd "$(IntDir)"
 type $(IntDir)cppcheck.txt</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>cppcheck.exe ..\ --enable=all --template vs 2&gt; $(IntDir)cppcheck.txt
+    <NMakeReBuildCommandLine>del $(IntDir)cppcheck.txt
+call RunCppCheck.cmd "$(IntDir)"
 type $(IntDir)cppcheck.txt</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine />
+    <NMakeCleanCommandLine>del $(IntDir)cppcheck.txt</NMakeCleanCommandLine>
     <NMakeOutput />
-    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
@@ -68,6 +66,7 @@ type $(IntDir)cppcheck.txt</NMakeReBuildCommandLine>
   </ItemGroup>
   <ItemGroup>
     <None Include="MultiplayerOnlineGame.cppcheck" />
+    <None Include="RunCppCheck.cmd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
