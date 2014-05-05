@@ -73,6 +73,7 @@
     <ClCompile Include="ImageReader\PNG.cpp" />
     <ClCompile Include="ImageReader\PngImageReader.cpp" />
     <ClCompile Include="ImageReader\TgaImageReader.cpp" />
+    <ClCompile Include="LightingManager.cpp" />
     <ClCompile Include="LogDiagnostics.cpp" />
     <ClCompile Include="MilkyWaySkyboxRenderer.cpp" />
     <ClCompile Include="NamedTextureMap.cpp" />
@@ -111,6 +112,7 @@
     <ClInclude Include="ImageReader\TgaImageReader.hpp" />
     <ClInclude Include="IRenderable.hpp" />
     <ClInclude Include="IScenegraph.hpp" />
+    <ClInclude Include="LightingManager.hpp" />
     <ClInclude Include="MilkyWaySkyboxRenderer.hpp" />
     <ClInclude Include="NamedTextureMap.hpp" />
     <ClInclude Include="OpenGL.hpp" />
