@@ -12,6 +12,7 @@
 #include "StringsPakFile.hpp"
 #include "PropertiesLoader.hpp"
 #include "LevelImporter.hpp"
+#include "Decompiler.hpp"
 
 void Game::Init()
 {
@@ -38,4 +39,35 @@ void Game::Init()
 
 void Game::Done()
 {
+}
+
+void Game::Decompile()
+{
+   for (Uint16 block = 0x0e00; block < 0x0fff; block++)
+   {
+      if (!m_strings.IsBlockAvail(block))
+         continue;
+
+      Uint16 uiConv = block - 0x0e00;
+
+      Conv::Decompiler d(uiConv, m_fileSystem, m_strings);
+
+      std::string name = d.GetName();
+
+      std::ostringstream buffer;
+      buffer << "d:\\Projekte\\decompile-" << uiConv;
+      if (!name.empty())
+         buffer << "-" << name;
+
+      buffer << ".txt";
+
+      FILE* fd = nullptr;
+      errno_t err = fopen_s(&fd, buffer.str().c_str(), "wt");
+      if (err != 0 || fd == nullptr)
+         return;
+
+      d.Write(fd);
+
+      fclose(fd);
+   }
 }

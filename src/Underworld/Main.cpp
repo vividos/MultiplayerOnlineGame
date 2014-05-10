@@ -16,6 +16,7 @@ int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPTST
    {
       GameClient gc;
       gc.Start();
+      //gc.Decompile();
    }
    catch(Exception& ex)
    {

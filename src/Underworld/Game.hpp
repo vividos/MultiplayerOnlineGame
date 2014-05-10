@@ -54,4 +54,7 @@ struct Game
 
    /// cleans up game objects
    void Done();
+
+   void Decompile();
+   void Decompile(Uint16 uiConv);
 };

@@ -43,6 +43,12 @@ public:
       m_game.Done();
    }
 
+   void Decompile()
+   {
+      m_game.Init();
+      m_game.Decompile();
+   }
+
 private:
    /// game objects
    Game m_game;
