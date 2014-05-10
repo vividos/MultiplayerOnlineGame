@@ -1358,6 +1358,34 @@ void CodeGraph::CheckBablMenu(T_GraphIterator& start,
    }
 }
 
+/// For switch-case statement(s), code looks like this:
+///
+///   {expression1}             switch (variable-part)
+///   BEQ label1                case (value-part1)
+///   {code}                       {code}
+///   JMP label_end ------+        break;
+/// label1:               |
+///   {expression2}       |     case (value-part2)
+///   BEQ label2 ----+    |
+///   {code}         |    |        {code}
+///   JMP label_end -|----+        break;
+/// label2:  <-------+    |
+///   {expression}        |     case (value-part3)
+///   BEQ label3 ----+    |
+///   {code}         |    |        {code}
+///   JMP label_end -|----+        break;
+///                  V    V
+///    ...               ...
+/// labelN:               |     case (value-partN)
+///   {expression}        |
+///   BEQ label_end ------+
+///   {code}              |        {code}
+///   JMP label_end ------+        break;
+/// label_end:   <--------+     switch-end
+///   ...
+///
+/// Expression is split into the "variable-part" of an == operator and the "value-part" that
+/// is used in every case expression.
 void CodeGraph::FindSwitchCase(FuncInfo& funcInfo)
 {
    T_GraphIterator iter = FindPos(funcInfo.start),
@@ -1526,6 +1554,16 @@ bool CodeGraph::FindAndAddNextSwitchCase(T_GraphIterator& expr_iter, T_GraphIter
    return true;
 }
 
+/// For while statement, code looks like this:
+///
+/// label1:   <----+
+///   {expression} |
+///   BEQ label2 --|--+
+///   {code}       |  |
+///   BRA label1 --+  |
+/// label2:   <-------+
+///   ...
+///
 void CodeGraph::FindWhile(FuncInfo& funcInfo)
 {
    T_GraphIterator iter = FindPos(funcInfo.start),
@@ -1609,6 +1647,25 @@ void CodeGraph::FindWhile(FuncInfo& funcInfo)
    }
 }
 
+/// An if without else branch, code looks like this:
+///
+///   {expression}
+///   BEQ label1 -----+
+///   {code}          |
+/// label1:   <-------+
+///   ...
+///
+/// For if-else, code looks like this:
+///
+///   {expression}
+///   BEQ label1 -----+
+///   {code}          |
+///   BRA label2 --+  |
+/// label1:   <----|--+
+///   {code}       |
+/// label2:   <----+
+///   ...
+///
 void CodeGraph::FindIfElse(FuncInfo& funcInfo)
 {
    T_GraphIterator iter = FindPos(funcInfo.start),
