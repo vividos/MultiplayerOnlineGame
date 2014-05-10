@@ -215,6 +215,12 @@ private:
 
    /// quest flags
    QuestFlags m_questFlags;
+
+   // missing:
+   // Runeshelf
+   // active spells
+   // attack power (gem)
+   // days of imprisonment / date
 };
 
 } // namespace Underworld

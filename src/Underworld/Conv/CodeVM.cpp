@@ -389,13 +389,13 @@ void CodeVM::ReplacePlaceholder(std::string& str)
       // get param value
       switch(source)
       {
-      case 'G':
+      case 'G': // conv global, directly from stack
          value = m_stack.At(static_cast<Uint16>(static_cast<unsigned int>(param)));
          break;
-      case 'S':
+      case 'S': // value from parameter passed to function
          value = m_stack.At(static_cast<Uint16>(static_cast<unsigned int>(m_uiBasePtr + param)));
          break;
-      case 'P':
+      case 'P': // pointer value from parameter passed to function
          param = m_stack.At(static_cast<Uint16>(static_cast<unsigned int>(m_uiBasePtr + param)));
          value = m_stack.At(static_cast<Uint16>(static_cast<unsigned int>(param)));
          break;
@@ -405,10 +405,10 @@ void CodeVM::ReplacePlaceholder(std::string& str)
 
       switch(vartype)
       {
-      case 'S':
+      case 'S': // string
          varstr = GetLocalString(static_cast<Uint16>(value));
          break;
-      case 'I':
+      case 'I': // integer
          {
             std::ostringstream buffer;
             buffer << value;
