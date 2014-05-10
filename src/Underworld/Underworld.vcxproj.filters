@@ -162,6 +162,9 @@
     <ClCompile Include="Conv\CodeGraph.cpp">
       <Filter>Conv Files</Filter>
     </ClCompile>
+    <ClCompile Include="Conv\Decompiler.cpp">
+      <Filter>Conv Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -300,6 +303,9 @@
       <Filter>Main Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Conv\CodeGraph.hpp">
+      <Filter>Conv Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conv\Decompiler.hpp">
       <Filter>Conv Files</Filter>
     </ClInclude>
   </ItemGroup>

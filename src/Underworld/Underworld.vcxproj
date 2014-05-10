@@ -103,6 +103,7 @@
     <ClCompile Include="Conv\CodeGraph.cpp" />
     <ClCompile Include="Conv\CodeVM.cpp" />
     <ClCompile Include="Conv\Conversation.cpp" />
+    <ClCompile Include="Conv\Decompiler.cpp" />
     <ClCompile Include="DebugClient.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameLogic\MapNotes.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Conv\CodeVM.hpp" />
     <ClInclude Include="Conv\Conversation.hpp" />
     <ClInclude Include="Conv\ConvStack.hpp" />
+    <ClInclude Include="Conv\Decompiler.hpp" />
     <ClInclude Include="Conv\Opcodes.hpp" />
     <ClInclude Include="DebugClient.hpp" />
     <ClInclude Include="Game.hpp" />
