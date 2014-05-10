@@ -73,7 +73,7 @@ static struct
    const char* operator_text;
    /// operator precedence level
    int op_prec_level;
-} ua_conv_instructions[0x002a] =
+} g_aInstructions[0x002a] =
 {
    { "NOP",       0, "",       "",   -1 },
    { "OPADD",     0, "",       "+",  0x79 },
