@@ -34,9 +34,6 @@ MainFrame::~MainFrame() throw()
 
 BOOL MainFrame::PreTranslateMessage(MSG* pMsg)
 {
-   if (m_upController != nullptr && m_upController->PreTranslateMessage(pMsg))
-      return TRUE;
-
    if (m_upRenderView != nullptr && m_upRenderView->PreTranslateMessage(pMsg))
       return TRUE;
 
@@ -47,8 +44,12 @@ BOOL MainFrame::OnIdle()
 {
    UIUpdateToolBar();
 
-   if (m_upController != nullptr)
+   if (m_upController != nullptr && m_upRenderView != nullptr)
+   {
+      m_upRenderView->Activate();
       m_upController->OnIdle();
+      m_upRenderView->Deactivate();
+   }
 
    if (m_upRenderView != nullptr)
       m_upRenderView->RedrawWindow();
@@ -168,7 +169,8 @@ void MainFrame::CreateView()
 
    m_spWorldRenderManager.reset(new WorldRenderManager(*spRenderEngine, *m_upWorldGenerator.get()));
 
-   m_spWorldRenderManager->GetCamera()->SetPosition(Vector3d(117.0, 819.0, 576.0), -248.0, -57.0);
+   m_spWorldRenderManager->GetCamera()->SetPosition(
+      Vector3d(390.0, 440.0, 1140.0), -349.0, -42.0);
 
    m_upController.reset(new WorldBuilderController(m_spWorldRenderManager->GetCamera()));
 

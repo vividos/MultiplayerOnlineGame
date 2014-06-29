@@ -23,11 +23,11 @@ public:
    /// dtor
    ~WorldBuilderController() throw();
 
-   /// translates messages to keyboard and mouse events
-   BOOL PreTranslateMessage(MSG* pMsg);
-
    /// does idle processing
    void OnIdle();
+
+private:
+   void ProcessEvents();
 
 private:
    /// keyboard action manager

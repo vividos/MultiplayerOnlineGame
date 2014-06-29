@@ -44,6 +44,20 @@ public:
    /// returns render engine
    std::shared_ptr<RenderEngine> GetRenderEngine() { return m_spRenderEngine; }
 
+   /// activates GL context
+   void Activate()
+   {
+      CClientDC dc(m_hWnd);
+      dc.wglMakeCurrent(m_hRC);
+   }
+
+   /// deactivates GL context
+   void Deactivate()
+   {
+      CClientDC dc(m_hWnd);
+      dc.wglMakeCurrent(NULL);
+   }
+
 private:
    BEGIN_MSG_MAP(ThisClass)
       MESSAGE_HANDLER(WM_CREATE, OnCreate)
@@ -105,7 +119,7 @@ private:
       return 0;
    }
 
-   LRESULT OnSize(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM lParam, BOOL& /*bHandled*/)
+   LRESULT OnSize(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM lParam, BOOL& bHandled)
    {
       int cx = LOWORD(lParam);
       int cy = HIWORD(lParam);
@@ -119,6 +133,8 @@ private:
       m_spRenderEngine->GetRenderWindow().ResizeView(unsigned(cx), unsigned(cy));
 
       dc.wglMakeCurrent(NULL);
+
+      bHandled = FALSE;
 
       return 0;
    }

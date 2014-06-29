@@ -23,70 +23,49 @@ WorldBuilderController::~WorldBuilderController() throw()
 {
 }
 
-BOOL WorldBuilderController::PreTranslateMessage(MSG* pMsg)
-{
-   switch (pMsg->message)
-   {
-   case WM_MOUSEMOVE:
-      {
-         CPoint pt(pMsg->lParam);
-         CPoint ptRel(0, 0);
-
-         if (m_bLastMousePosValid)
-         {
-            ptRel = m_ptLastMousePos - pt;
-            CPoint m_ptLastMousePos;
-         }
-
-         m_spController->OnMouseMotionEvent(pt.x, pt.y, ptRel.x, ptRel.y);
-
-         m_ptLastMousePos = pt;
-         m_bLastMousePosValid = true;
-      }
-      break;
-
-   case WM_MOUSELEAVE:
-      m_bLastMousePosValid = false;
-      break;
-
-   case WM_LBUTTONDOWN:
-   case WM_LBUTTONUP:
-   case WM_RBUTTONDOWN:
-   case WM_RBUTTONUP:
-      {
-         CPoint pt(pMsg->lParam);
-         bool bDown = pMsg->message == WM_LBUTTONDOWN || pMsg->message == WM_RBUTTONDOWN;
-         bool bLeft = pMsg->message == WM_LBUTTONDOWN || pMsg->message == WM_LBUTTONUP;
-
-         T_enMouseButtonType enType = bLeft ? buttonLeft : buttonRight;
-         m_spController->OnMouseButtonEvent(bDown, enType, pt.x, pt.y);
-      }
-      break;
-
-   case WM_KEYDOWN:
-   case WM_KEYUP:
-      {
-         bool bDown = pMsg->message == WM_KEYDOWN;
-         unsigned int uiScancode = (pMsg->lParam >> 16) & 0xff; // bits 16-23
-
-         unsigned int uiMod = 0;
-         if (0 != ::GetKeyState(VK_MENU)) uiMod |= KMOD_ALT;
-         if (0 != ::GetKeyState(VK_SHIFT)) uiMod |= KMOD_SHIFT;
-         if (0 != ::GetKeyState(VK_CONTROL)) uiMod |= KMOD_CTRL;
-
-         if (!m_keyboardActionManager.OnKeyboardEvent(bDown, uiScancode, uiMod))
-            return FALSE;
-      }
-      break;
-
-   default:
-      return FALSE;
-   }
-
-   return TRUE; // message was handled
-}
-
 void WorldBuilderController::OnIdle()
 {
    m_spController->Tick();
+
+   ProcessEvents();
+}
+
+void WorldBuilderController::ProcessEvents()
+{
+   SDL_Event evt;
+
+   // get another event
+   while (SDL_PollEvent(&evt))
+   {
+      switch (evt.type)
+      {
+      case SDL_MOUSEBUTTONDOWN:
+         static_assert(SDL_BUTTON_LEFT == buttonLeft, "must correspond to SDL definition");
+         static_assert(SDL_BUTTON_MIDDLE == buttonMiddle, "must correspond to SDL definition");
+         static_assert(SDL_BUTTON_RIGHT == buttonRight, "must correspond to SDL definition");
+
+         m_spController->OnMouseButtonEvent(evt.button.state == SDL_PRESSED,
+            static_cast<T_enMouseButtonType>(evt.button.button), evt.button.x, evt.button.y);
+         break;
+
+      case SDL_MOUSEWHEEL:
+         m_spController->OnMouseWheelEvent(evt.wheel.x, evt.wheel.y);
+         break;
+
+      case SDL_MOUSEMOTION:
+         m_spController->OnMouseMotionEvent(evt.motion.x, evt.motion.y, evt.motion.xrel, evt.motion.yrel);
+         break;
+
+      case SDL_MOUSEBUTTONUP:
+         m_spController->OnMouseButtonEvent(evt.button.state == SDL_PRESSED,
+            static_cast<T_enMouseButtonType>(evt.button.button), evt.button.x, evt.button.y);
+         break;
+
+      case SDL_KEYDOWN:
+      case SDL_KEYUP:
+         // handle key presses
+         m_keyboardActionManager.OnKeyboardEvent(evt.key.state == SDL_PRESSED, evt.key.keysym.sym, evt.key.keysym.mod);
+         break;
+      }
+   }
 }

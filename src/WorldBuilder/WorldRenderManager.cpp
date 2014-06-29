@@ -19,6 +19,8 @@ WorldRenderManager::WorldRenderManager(RenderEngine& renderEngine, WorldGenerato
  m_worldGenerator(worldGenerator),
  m_enWorldViewMode(worldViewNone)
 {
+   m_spCamera->SetNearFarPlaneDistance(0.1, 4048.0);
+
    m_renderEngine.SetCamera(m_spCamera);
 }
 
