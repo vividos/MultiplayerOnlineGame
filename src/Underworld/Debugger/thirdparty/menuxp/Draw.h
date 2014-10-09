@@ -11,9 +11,9 @@ typedef DWORD HLSCOLOR;
 #define HLS(h,l,s) ((HLSCOLOR)(((BYTE)(h)|((WORD)((BYTE)(l))<<8))|(((DWORD)(BYTE)(s))<<16)))
 
 ///////////////////////////////////////////////////////////////////////////////
-#define HLS_H(hls) ((BYTE)(hls))
-#define HLS_L(hls) ((BYTE)(((WORD)(hls)) >> 8))
-#define HLS_S(hls) ((BYTE)((hls)>>16))
+#define HLS_H(hls) ((BYTE)(hls&0xFF))
+#define HLS_L(hls) ((BYTE)(((WORD)(hls&0xFFFF)) >> 8)&0xFF)
+#define HLS_S(hls) ((BYTE)((hls)>>16)&0xFF)
 
 ///////////////////////////////////////////////////////////////////////////////
 inline HLSCOLOR RGB2HLS (COLORREF rgb)
