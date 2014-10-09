@@ -51,7 +51,7 @@ private:
 void KeyboardActionManager::RegisterActionKey(const CString& cszKeyDescription, T_enAction enAction)
 {
    // parse description
-   unsigned int uiKeySymValue = ParseKeyDescription(cszKeyDescription);
+   uint64_t uiKeySymValue = ParseKeyDescription(cszKeyDescription);
    if (uiKeySymValue != 0)
       m_mapAllKeyActions[uiKeySymValue] = enAction;
 }
@@ -233,7 +233,7 @@ KeyNameMap g_aKeys[] =
 };
 
 
-unsigned int KeyboardActionManager::ParseKeyDescription(const CString& cszKeyDescription)
+uint64_t KeyboardActionManager::ParseKeyDescription(const CString& cszKeyDescription)
 {
    CString cszModifierKey, cszKey(cszKeyDescription);
    int iPos = cszKeyDescription.Find(_T('+'));
@@ -243,7 +243,7 @@ unsigned int KeyboardActionManager::ParseKeyDescription(const CString& cszKeyDes
       cszKey = cszKeyDescription.Mid(iPos+1);
    }
 
-   unsigned int uiKeySymValue = 0;
+   uint64_t uiKeySymValue = 0;
 
    // search for modifier key in mapping
    if (!cszModifierKey.IsEmpty())
@@ -252,7 +252,7 @@ unsigned int KeyboardActionManager::ParseKeyDescription(const CString& cszKeyDes
       for (size_t i=0, iMax=sizeof(g_aModifierKeys)/sizeof(*g_aModifierKeys); i<iMax; i++)
          if (cszModifierKey == g_aModifierKeys[i].pszName)
          {
-            uiKeySymValue |= (g_aModifierKeys[i].uiMod << 16);
+            uiKeySymValue |= (static_cast<uint64_t>(g_aModifierKeys[i].uiMod) << 32);
             break;
          }
    }

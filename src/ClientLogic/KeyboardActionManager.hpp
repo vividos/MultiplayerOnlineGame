@@ -100,7 +100,7 @@ private:
    friend class KeyActionHandle;
 
    /// parses key description and returns key/sym value
-   unsigned int ParseKeyDescription(const CString& cszKeyDescription);
+   uint64_t ParseKeyDescription(const CString& cszKeyDescription);
 
    /// unregisters handler
    void UnregisterActionHandler(T_enAction enAction, unsigned int uiHandlerId);
