@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ulib", "ulib\ulib.vcxproj", "{DAA1E880-4690-46C1-A9CB-C5C962F8C74C}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -19,6 +19,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Underworld", "Underworld\Underworld.vcxproj", "{2D2ECFAB-5064-4B2F-94A8-3DA4893CB749}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03} = {D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}
+		{341B0B68-E7F2-4E20-B24E-85F8679A5618} = {341B0B68-E7F2-4E20-B24E-85F8679A5618}
 		{DAA1E880-4690-46C1-A9CB-C5C962F8C74C} = {DAA1E880-4690-46C1-A9CB-C5C962F8C74C}
 		{CA2D1198-7966-4521-9128-6C28C556714C} = {CA2D1198-7966-4521-9128-6C28C556714C}
 		{F5C4AED3-7358-4EF7-B835-DE45155CF0A5} = {F5C4AED3-7358-4EF7-B835-DE45155CF0A5}
@@ -44,6 +45,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jpeg-8d", "Thirdparty\jpeg-8d\jpeg-8d.vcxproj", "{5B37D937-D0F7-47BE-97F7-DEF2DBA4970A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcxproj", "{54254FF9-AE31-4207-B98F-FB49BFE857A6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Debugger", "Underworld\Debugger\Debugger.vcxproj", "{341B0B68-E7F2-4E20-B24E-85F8679A5618}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +90,10 @@ Global
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Debug|Win32.Build.0 = Debug|Win32
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Release|Win32.ActiveCfg = Release|Win32
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6}.Release|Win32.Build.0 = Release|Win32
+		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Debug|Win32.ActiveCfg = Debug|Win32
+		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Debug|Win32.Build.0 = Debug|Win32
+		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Release|Win32.ActiveCfg = Release|Win32
+		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
