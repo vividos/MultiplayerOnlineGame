@@ -7,6 +7,7 @@
 
 // includes
 #include <ulib/RecursiveMutex.hpp>
+#include <thread>
 
 // forward references
 struct Game;
@@ -25,13 +26,25 @@ public:
    /// dtor
    ~DebugClient();
 
+   /// runs the debugger
+   void RunDebugger();
+
    /// returns a lock to the game world; needed before accessing world
    RecursiveMutex::LockType GetLock();
+
+   /// returns game object
+   Game& GetGame();
 
    /// returns world
    Underworld::World& GetWorld();
 
 private:
+   /// indicates if debugger already runs
+   bool m_bIsRunning;
+
+   /// debugger thread
+   std::unique_ptr<std::thread> m_upDebugThread;
+
    /// the game object
    Game& m_game;
 

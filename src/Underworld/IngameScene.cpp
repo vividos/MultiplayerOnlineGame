@@ -22,6 +22,8 @@ IngameScene::IngameScene(ISceneManager& sceneManager, RenderEngine& renderEngine
 {
    DefaultActionKeyDefs::Register(keyboardActionManager);
 
+   keyboardActionManager.RegisterActionKey(_T("ctrl+d"), KeyboardActionManager::actionDebugger);
+
    InitRenderer();
 
    m_spController.reset(new OverviewController(keyboardActionManager, m_spCamera));

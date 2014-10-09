@@ -11,6 +11,7 @@
 #include "GameClientBase.hpp"
 #include "LoadingScene.hpp"
 #include "Game.hpp"
+#include "DebugClient.hpp"
 
 /// game client
 class GameClient : public GameClientBase
@@ -19,8 +20,13 @@ public:
    /// ctor
    GameClient()
       :GameClientBase(_T("Underworld")),
-       m_game(GetGraphicsTaskManager())
+      m_game(GetGraphicsTaskManager()),
+      m_debugClient(m_game)
    {
+      GetKeyboardActionBindings().RegisterActionHandler(
+         KeyboardActionManager::actionDebugger, [&](bool){
+         m_debugClient.RunDebugger();
+      });
    }
    /// dtor
    virtual ~GameClient()
@@ -52,4 +58,7 @@ public:
 private:
    /// game objects
    Game m_game;
+
+   /// debug client
+   DebugClient m_debugClient;
 };

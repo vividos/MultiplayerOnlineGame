@@ -11,12 +11,34 @@
 #include "Game.hpp"
 
 DebugClient::DebugClient(Game& game)
-:m_game(game)
+:m_game(game),
+ m_bIsRunning(false)
 {
 }
 
 DebugClient::~DebugClient()
 {
+}
+
+void DebugClient::RunDebugger()
+{
+   if (m_bIsRunning)
+      return;
+
+   m_bIsRunning = true;
+
+   m_upDebugThread.reset(
+      new std::thread([&](){
+      HMODULE hMod = LoadLibrary(_T("Debugger.dll"));
+
+      typedef void(*T_fn)(DebugClient*);
+      T_fn fn = (T_fn)GetProcAddress(hMod, "Debug");
+
+      if (fn != nullptr)
+         fn(this);
+
+      FreeLibrary(hMod);
+   }));
 }
 
 RecursiveMutex::LockType DebugClient::GetLock()

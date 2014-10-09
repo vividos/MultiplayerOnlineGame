@@ -44,6 +44,9 @@ public:
    /// returns keyboard action manager
    KeyboardActionManager& GetKeyboardActionManager() throw() { return m_keyboardActionManager; }
 
+   /// returns keyboard action bindings
+   KeyboardActionBindings& GetKeyboardActionBindings() throw() { return m_actionBindings; }
+
    /// returns graphics task manager
    GraphicsTaskManager& GetGraphicsTaskManager() throw() { return m_graphicsTaskManager; }
 
