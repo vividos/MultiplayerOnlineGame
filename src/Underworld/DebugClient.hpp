@@ -8,6 +8,7 @@
 // includes
 #include <ulib/RecursiveMutex.hpp>
 #include <thread>
+#include <atomic>
 
 // forward references
 struct Game;
@@ -40,7 +41,7 @@ public:
 
 private:
    /// indicates if debugger already runs
-   bool m_bIsRunning;
+   std::atomic<bool> m_bIsRunning;
 
    /// debugger thread
    std::unique_ptr<std::thread> m_upDebugThread;

@@ -18,6 +18,8 @@ DebugClient::DebugClient(Game& game)
 
 DebugClient::~DebugClient()
 {
+   if (m_upDebugThread != nullptr)
+      m_upDebugThread->join();
 }
 
 void DebugClient::RunDebugger()
@@ -38,6 +40,8 @@ void DebugClient::RunDebugger()
          fn(this);
 
       FreeLibrary(hMod);
+
+      m_bIsRunning = false;
    }));
 }
 
