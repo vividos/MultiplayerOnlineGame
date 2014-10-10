@@ -22,6 +22,9 @@ public:
    /// returns folder name of machine wide application data folder; writable
    virtual CString AppDataFolder() const override;
 
+   /// returns if given file is available
+   virtual bool IsFileAvail(const CString& cszFilename) const override;
+
    /// opens a file stream; filename may be relative or absolute
    virtual std::shared_ptr<Stream::IStream> OpenFile(const CString& cszFilename,
       bool bForReading = true) override;

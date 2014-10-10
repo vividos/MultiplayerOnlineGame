@@ -9,6 +9,7 @@
 #include "StdAfx.h"
 #include "BaseFileSystem.hpp"
 #include "Filesystem.hpp"
+#include "Path.hpp"
 #include <ulib/stream/FileStream.hpp>
 
 CString BaseFileSystem::UserDataFolder() const
@@ -25,6 +26,11 @@ CString BaseFileSystem::AppDataFolder() const
    // TODO return Windows AppData folder
    return Filesystem().BaseFolder();
 #endif
+}
+
+bool BaseFileSystem::IsFileAvail(const CString& cszFilename) const
+{
+   return Path(cszFilename).FileExists();
 }
 
 std::shared_ptr<Stream::IStream> BaseFileSystem::OpenFile(const CString& cszFilename, bool bForReading)

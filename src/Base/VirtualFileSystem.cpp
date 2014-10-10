@@ -43,6 +43,14 @@ void VirtualFileSystem::AddArchive(const CString& cszFilename)
    }
 }
 
+bool VirtualFileSystem::IsFileAvail(const CString& cszFilename) const
+{
+   if (m_mapFilenameToArchive.find(cszFilename) != m_mapFilenameToArchive.end())
+      return true;
+
+   return BaseFileSystem::IsFileAvail(cszFilename);
+}
+
 std::shared_ptr<Stream::IStream> VirtualFileSystem::OpenFile(const CString& cszFilename,
    bool bForReading)
 {

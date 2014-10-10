@@ -31,6 +31,9 @@ public:
    /// adds another archive to the VFS
    void AddArchive(const CString& cszFilename);
 
+   /// returns if given file is available
+   virtual bool IsFileAvail(const CString& cszFilename) const override;
+
    /// opens a file for reading
    virtual std::shared_ptr<Stream::IStream> OpenFile(const CString& cszFilename,
       bool bForReading = true) override;
