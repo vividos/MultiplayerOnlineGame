@@ -121,6 +121,11 @@ void RenderWindow::InitVideo(const CString& cszWindowCaption, unsigned int uiWid
    SDL_GLContext glcontext = SDL_GL_CreateContext(pWindow);
    m_spGLCcontext.reset(glcontext, &SDL_GL_DeleteContext);
 
+#ifndef _DEBUG
+   // enable vsync for release; 1 means vsync on
+   SDL_GL_SetSwapInterval(1);
+#endif
+
    // output some OpenGL diagnostics
    OpenGL::LogDiagnostics();
 
