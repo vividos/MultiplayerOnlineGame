@@ -86,24 +86,24 @@ void OpenGL::LogDiagnostics()
 
    // list all extensions
    {
-      LOG_INFO(_T(" extensions:"), Log::Client::OpenGL);
       CString cszText;
+
       LPCSTR pszExtensions = reinterpret_cast<LPCSTR>(glGetString(GL_EXTENSIONS));
       for (; pszExtensions != NULL && pszExtensions[0] != 0;)
       {
          LPCSTR pszNext = strstr(pszExtensions, " ");
 
          if (pszNext != NULL)
-            cszText.Format(_T("  %hs"), CStringA(pszExtensions, pszNext - pszExtensions));
+            cszText.AppendFormat(_T("%hs, "), CStringA(pszExtensions, pszNext - pszExtensions));
          else
-            cszText.Format(_T("  %hs"), pszExtensions);
-
-         LOG_INFO(cszText, Log::Client::OpenGL);
+            cszText.AppendFormat(_T("%hs"), pszExtensions);
 
          if (pszNext != NULL)
             pszNext++;
 
          pszExtensions = pszNext;
       }
+
+      LOG_INFO(_T(" extensions: ") + cszText, Log::Client::OpenGL);
    }
 }
