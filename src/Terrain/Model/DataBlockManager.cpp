@@ -26,6 +26,14 @@ DataBlockManager::DataBlockManager(GraphicsTaskManager& taskManager,
    ATLASSERT(spDataSource != NULL);
 }
 
+bool DataBlockManager::IsAvailPos(double x, double y)
+{
+   unsigned int xblock = unsigned(x + 1.0) / c_uiBlockSize;
+   unsigned int yblock = unsigned(y + 1.0) / c_uiBlockSize;
+
+   return IsAvail(xblock, yblock);
+}
+
 bool DataBlockManager::IsAvail(unsigned int xblock, unsigned int yblock)
 {
    // already in map, or being prepared?

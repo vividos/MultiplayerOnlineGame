@@ -179,12 +179,14 @@ void ReducedTriangleBlockRenderData::Render(const RenderOptions& renderOptions, 
    if (!m_bUploaded)
       return;
 
-   glPolygonMode(GL_FRONT, GL_LINE);
+   bool bFilled = renderOptions.Get(RenderOptions::optionTerrainFilled);
+   glPolygonMode(GL_FRONT, bFilled ? GL_FILL : GL_LINE);
 
    m_vertexBuffer.Bind();
    m_indexBuffer.Bind();
 
-// TODO   m_texture.Bind();
+   // TODO
+   //m_texture.Bind();
 
    ArrayMapper2D zoneMapper(c_uiNumZones, c_uiNumZones);
 
@@ -215,6 +217,7 @@ void ReducedTriangleBlockRenderData::Render(const RenderOptions& renderOptions, 
          Color(255, 0, 255)
       };
 
+      ATLASSERT(uiLevel < _countof(levelColors));
       glColor3ubv(levelColors[uiLevel].m_color);
 #endif
 
@@ -231,7 +234,6 @@ void ReducedTriangleBlockRenderData::RenderZone(const ZoneLevelData& data,
 {
    bool bDrawBoundingBox = renderOptions.Get(RenderOptions::optionTerrainZoneBoundingBox);
    bool bUseFrustumCulling = renderOptions.Get(RenderOptions::optionTerrainFrustumCulling);
-   bUseFrustumCulling = false; // TODO remove
 
    if (bUseFrustumCulling)
    {

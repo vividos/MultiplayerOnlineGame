@@ -273,6 +273,7 @@ void ZoneManager::RenderData::Render(RangedAppendOnlyIndexBuffer& indexBuffer, b
       Color(255, 0, 255)
    };
 
+   ATLASSERT(m_uiCurrentLevel < _countof(levelColors));
    glColor3ubv(levelColors[m_uiCurrentLevel].m_color);
 #endif
 

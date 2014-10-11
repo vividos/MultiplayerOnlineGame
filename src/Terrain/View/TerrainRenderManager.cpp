@@ -162,11 +162,11 @@ void TerrainRenderManager::RenderBlock(RenderOptions& renderOptions, ViewFrustum
 void TerrainRenderManager::OnDataBlockLoaded(unsigned int xblock, unsigned int yblock,
                                         std::shared_ptr<Terrain::Model::DataBlock> spDataBlock)
 {
-   m_taskManager.UploadTaskGroup().Add(
+   m_taskManager.BackgroundTaskGroup().Add(
       std::bind(&TerrainRenderManager::PrepareRenderData, this, xblock, yblock, spDataBlock));
 }
 
-/// \note executed in render thread
+/// \note executed in background thread
 void TerrainRenderManager::PrepareRenderData(unsigned int xblock, unsigned int yblock,
                                         std::shared_ptr<Terrain::Model::DataBlock> spDataBlock)
 {
@@ -178,4 +178,7 @@ void TerrainRenderManager::PrepareRenderData(unsigned int xblock, unsigned int y
    spRenderData->Prepare(spDataBlock);
 
    m_renderDataMap.Store(xblock, yblock, spRenderData);
+
+   m_taskManager.UploadTaskGroup().Add(
+      std::bind(&IBlockRenderData::Upload, spRenderData));
 }

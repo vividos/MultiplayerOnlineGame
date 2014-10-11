@@ -10,6 +10,7 @@
 #include "BlockRenderDataVertexBuffer.hpp"
 #include "Model/DataBlock.hpp"
 #include "OpenGL.hpp"
+#include "RenderOptions.hpp"
 #include <vector>
 
 using Terrain::Model::DataBlock;
@@ -101,10 +102,11 @@ void BlockRenderDataVertexBuffer::Update(const Vector3d& /*vDist*/)
    // do nothing
 }
 
-void BlockRenderDataVertexBuffer::Render(const RenderOptions& /*renderOptions*/,
+void BlockRenderDataVertexBuffer::Render(const RenderOptions& renderOptions,
                                          const ViewFrustum3d& /*viewFrustum*/)
 {
-   glPolygonMode(GL_FRONT, GL_LINE);
+   bool bFilled = renderOptions.Get(RenderOptions::optionTerrainFilled);
+   glPolygonMode(GL_FRONT, bFilled ? GL_FILL : GL_LINE);
 
    m_vertData.Bind();
 

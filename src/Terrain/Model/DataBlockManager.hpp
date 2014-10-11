@@ -36,6 +36,9 @@ public:
    DataBlockManager(GraphicsTaskManager& taskManager,
                     std::shared_ptr<IDataSource> spDataSource);
 
+   /// returns if a block is available for given coordinates
+   bool IsAvailPos(double x, double y);
+
    /// returns if a block is available or is being prepared
    bool IsAvail(unsigned int xblock, unsigned int yblock);
 
