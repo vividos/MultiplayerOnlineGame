@@ -17,25 +17,27 @@ RenderContainer::RenderContainer(GraphicsTaskManager& taskManager)
 {
 }
 
-void RenderContainer::Add(std::shared_ptr<IRenderable> spRenderObject)
+void RenderContainer::Add(std::shared_ptr<IRenderable> spRenderObject, unsigned int uiPriority)
 {
+   QueueItem item(spRenderObject, uiPriority);
+
    if (spRenderObject->IsPrepareNeeded())
    {
       m_taskManager.BackgroundTaskGroup().Add(
-         boost::bind(&RenderContainer::AsyncPrepare, this, spRenderObject));
+         boost::bind(&RenderContainer::AsyncPrepare, this, item));
    }
    else
    if (spRenderObject->IsUploadNeeded())
    {
       // no prepare, but update
       m_taskManager.UploadTaskGroup().Add(
-         boost::bind(&RenderContainer::AsyncUpload, this, spRenderObject));
+         boost::bind(&RenderContainer::AsyncUpload, this, item));
    }
    else
    {
       // no prepare, no update: just add
       m_taskManager.UploadTaskGroup().Add(
-         boost::bind(&RenderContainer::InternalAdd, this, spRenderObject));
+         boost::bind(&RenderContainer::InternalAdd, this, item));
    }
 }
 
@@ -48,56 +50,61 @@ void RenderContainer::Remove(std::shared_ptr<IRenderable> spRenderObject)
 
 void RenderContainer::Render(RenderOptions& options)
 {
-   BOOST_FOREACH(std::shared_ptr<IRenderable> spRenderObject, m_vecRenderObjects)
-      spRenderObject->Render(options);
+   std::for_each(m_setRenderObjects.begin(), m_setRenderObjects.end(),
+      [&options](const QueueItem& item){
+         item.m_spRenderable->Render(options);
+   });
 }
 
-void RenderContainer::AsyncPrepare(std::shared_ptr<IRenderable> spRenderObject)
+void RenderContainer::AsyncPrepare(QueueItem item)
 {
-   ATLASSERT(spRenderObject->IsPrepareNeeded());
+   ATLASSERT(item.m_spRenderable->IsPrepareNeeded());
 
-   spRenderObject->Prepare();
+   item.m_spRenderable->Prepare();
 
-   if (spRenderObject->IsUploadNeeded())
+   if (item.m_spRenderable->IsUploadNeeded())
    {
       m_taskManager.UploadTaskGroup().Add(
-         boost::bind(&RenderContainer::AsyncUpload, this, spRenderObject));
+         boost::bind(&RenderContainer::AsyncUpload, this, item));
    }
    else
    {
       // no update: just add (in upload task)
       m_taskManager.UploadTaskGroup().Add(
-         boost::bind(&RenderContainer::InternalAdd, this, spRenderObject));
+         boost::bind(&RenderContainer::InternalAdd, this, item));
    }
 }
 
-void RenderContainer::AsyncUpload(std::shared_ptr<IRenderable> spRenderObject)
+void RenderContainer::AsyncUpload(QueueItem item)
 {
-   ATLASSERT(spRenderObject->IsPrepareNeeded());
+   ATLASSERT(item.m_spRenderable->IsPrepareNeeded());
 
-   spRenderObject->Upload();
+   item.m_spRenderable->Upload();
 
    // since we're already in the upload task, add object right away
-   InternalAdd(spRenderObject);
+   InternalAdd(item);
 }
 
-void RenderContainer::InternalAdd(std::shared_ptr<IRenderable> spRenderObject)
+void RenderContainer::InternalAdd(QueueItem item)
 {
-   m_vecRenderObjects.push_back(spRenderObject);
+   m_setRenderObjects.insert(item);
 }
 
 void RenderContainer::InternalRemove(std::shared_ptr<IRenderable> spRenderObject)
 {
    spRenderObject->Done();
 
-   for (size_t i=0, iMax=m_vecRenderObjects.size(); i<iMax; i++)
+   auto iter = m_setRenderObjects.begin(), stop = m_setRenderObjects.end();
+   for (; iter != stop; iter++)
    {
-      if (spRenderObject == m_vecRenderObjects[i])
+      const QueueItem& item = *iter;
+
+      if (item.m_spRenderable == spRenderObject)
       {
-         m_vecRenderObjects.erase(m_vecRenderObjects.begin() + i);
+         m_setRenderObjects.erase(iter);
          return;
       }
    }
 
-   ATLASSERT(false); // object should be in container!
+   ATLASSERT(false); // object must be in container!
 }

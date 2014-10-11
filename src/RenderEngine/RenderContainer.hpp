@@ -8,7 +8,7 @@
 
 // includes
 #include "RenderEngineCommon.hpp"
-#include <vector>
+#include <set>
 
 // forward references
 class GraphicsTaskManager;
@@ -23,7 +23,7 @@ public:
    RenderContainer(GraphicsTaskManager& taskManager);
 
    /// add renderable object
-   void Add(std::shared_ptr<IRenderable> spRenderObject);
+   void Add(std::shared_ptr<IRenderable> spRenderObject, unsigned int uiPriority);
 
    /// remove renderable object
    void Remove(std::shared_ptr<IRenderable> spRenderObject);
@@ -32,14 +32,17 @@ public:
    void Render(RenderOptions& options);
 
 private:
+   // forward reference
+   struct QueueItem;
+
    /// prepare object in background thread
-   void AsyncPrepare(std::shared_ptr<IRenderable> spRenderObject);
+   void AsyncPrepare(QueueItem item);
 
    /// upload object in OpenGL thread
-   void AsyncUpload(std::shared_ptr<IRenderable> spRenderObject);
+   void AsyncUpload(QueueItem item);
 
    /// internal add function
-   void InternalAdd(std::shared_ptr<IRenderable> spRenderObject);
+   void InternalAdd(QueueItem item);
 
    /// internal remove function
    void InternalRemove(std::shared_ptr<IRenderable> spRenderObject);
@@ -48,6 +51,32 @@ private:
    /// task manager
    GraphicsTaskManager& m_taskManager;
 
+   /// priority queue item
+   struct QueueItem
+   {
+      /// ctor
+      QueueItem(std::shared_ptr<IRenderable> spRenderable, unsigned int uiPriority)
+         :m_uiPriority(uiPriority),
+         m_spRenderable(spRenderable)
+      {
+      }
+
+      /// queue priority
+      unsigned int m_uiPriority;
+
+      /// renderable object
+      std::shared_ptr<IRenderable> m_spRenderable;
+
+      /// less operator
+      bool operator<(const QueueItem& rhs) const throw()
+      {
+         if (m_uiPriority != rhs.m_uiPriority)
+            return m_uiPriority < rhs.m_uiPriority;
+
+         return m_spRenderable.get() < rhs.m_spRenderable.get();
+      }
+   };
+
    /// all render objects
-   std::vector<std::shared_ptr<IRenderable>> m_vecRenderObjects;
+   std::multiset<QueueItem> m_setRenderObjects;
 };
