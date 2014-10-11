@@ -45,6 +45,9 @@
     <ClCompile Include="TimeBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LogFileAppender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.hpp">
@@ -120,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ZoneInfo.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFileAppender.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

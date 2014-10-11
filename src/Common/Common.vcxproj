@@ -66,6 +66,7 @@
     <ClCompile Include="ActionRegistry.cpp" />
     <ClCompile Include="CommandTranslator.cpp" />
     <ClCompile Include="Common.cpp" />
+    <ClCompile Include="LogFileAppender.cpp" />
     <ClCompile Include="MetricsManager.cpp" />
     <ClCompile Include="Mobile.cpp" />
     <ClCompile Include="MobileDisplayInfo.cpp" />
@@ -91,6 +92,7 @@
     <ClInclude Include="IController.hpp" />
     <ClInclude Include="IModel.hpp" />
     <ClInclude Include="LogCategories.hpp" />
+    <ClInclude Include="LogFileAppender.hpp" />
     <ClInclude Include="MetricsManager.hpp" />
     <ClInclude Include="Mobile.hpp" />
     <ClInclude Include="MobileActions.hpp" />
