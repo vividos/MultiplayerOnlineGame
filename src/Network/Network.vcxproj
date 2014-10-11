@@ -74,6 +74,7 @@
     <ClCompile Include="ClientSession.cpp" />
     <ClCompile Include="LocalController.cpp" />
     <ClCompile Include="LocalModel.cpp" />
+    <ClCompile Include="LocalModelSession.cpp" />
     <ClCompile Include="ServerController.cpp" />
     <ClCompile Include="ServerModel.cpp" />
     <ClCompile Include="ServerSession.cpp" />
@@ -107,6 +108,7 @@
     <ClInclude Include="ISessionManager.hpp" />
     <ClInclude Include="LocalController.hpp" />
     <ClInclude Include="LocalModel.hpp" />
+    <ClInclude Include="LocalModelSession.hpp" />
     <ClInclude Include="LogoutMessage.hpp" />
     <ClInclude Include="Message.hpp" />
     <ClInclude Include="MovePlayerMessage.hpp" />

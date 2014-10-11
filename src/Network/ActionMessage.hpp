@@ -9,6 +9,7 @@
 // includes
 #include "Network.hpp"
 #include "Message.hpp"
+#include "Action.hpp"
 
 // forward references
 class ByteStream;

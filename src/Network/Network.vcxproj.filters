@@ -72,6 +72,9 @@
     <ClCompile Include="ClientModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LocalModelSession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -183,6 +186,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IMessageSink.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalModelSession.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
