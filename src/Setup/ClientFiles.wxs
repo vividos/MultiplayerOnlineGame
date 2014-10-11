@@ -16,9 +16,9 @@
         <File Id="LauncherExe" Name="Launcher.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Launcher.exe" />
       </Component-->
 
-      <!--Component Id="ClientExe" Guid="c34a4b9b-a0d3-4829-a3ec-53f6348cf8eb" Directory="INSTALLDIR">
-        <File Id="ClientExe" Name="Client.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Client.exe" />
-      </Component-->
+      <Component Id="GameClientExe" Guid="c34a4b9b-a0d3-4829-a3ec-53f6348cf8eb" Directory="INSTALLDIR">
+        <File Id="GameClientExe" Name="GameClient.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\GameClient.exe" />
+      </Component>
 
       <Component Id="FreetypeDll" Guid="97eb5188-9520-43d8-aebb-6e5b7c6f45ce" Directory="INSTALLDIR">
         <File Id="FreetypeDll" Name="freetype6.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\freetype6.dll" />
@@ -48,12 +48,13 @@
         <File Id="UserInterfaceDll" Name="UserInterface.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\UserInterface.dll" />
       </Component>
 
-      <Component Id="ClientShortcut" Guid="f8ff1742-d73a-44e4-b6e1-6f78da8840b2" Directory="MainAppShortcutFolder">
-        <Shortcut Id="ClientShortcut"
+      <Component Id="GameClientShortcut" Guid="f8ff1742-d73a-44e4-b6e1-6f78da8840b2" Directory="MainAppShortcutFolder">
+        <Shortcut Id="GameClientShortcut"
            Name="$(var.ClientProductName) Client"
            Description="Starts $(var.ClientProductName)"
-           Target="[INSTALLDIR]Launcher.exe"
-           WorkingDirectory="INSTALLDIR"/>
+           Target="[INSTALLDIR]GameClient.exe"
+           WorkingDirectory="INSTALLDIR"
+           Icon="GameClientShortcutIcon" />
         <RemoveFolder Id="MainAppShortcutFolder" On="uninstall"/>
         <RegistryValue Root="HKCU" Key="Software\Microsoft\$(var.ClientProductName)" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
