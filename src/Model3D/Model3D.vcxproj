@@ -64,6 +64,10 @@
   <ItemGroup>
     <ClInclude Include="IModel3d.hpp" />
     <ClInclude Include="IModelDisplayState.hpp" />
+    <ClInclude Include="MD2\ModelData.hpp" />
+    <ClInclude Include="MD2\ModelDisplayState.hpp" />
+    <ClInclude Include="MD2\ModelManager.hpp" />
+    <ClInclude Include="MD2\Normals.hpp" />
     <ClInclude Include="MilkShape3D\AnimatedModel3d.hpp" />
     <ClInclude Include="MilkShape3D\AnimationData.hpp" />
     <ClInclude Include="MilkShape3D\CompositeModel3d.hpp" />
@@ -80,6 +84,15 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MD2\ModelData.cpp" />
+    <ClCompile Include="MD2\ModelDisplayState.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\MD2\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\MD2\</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="MD2\ModelManager.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)\MD2\</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)\MD2\</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="MilkShape3D\AnimatedModel3d.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MaxSpeed</Optimization>
       <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AnySuitable</InlineFunctionExpansion>

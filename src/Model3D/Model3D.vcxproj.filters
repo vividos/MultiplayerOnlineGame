@@ -16,6 +16,9 @@
     <Filter Include="MilkShape3D Files">
       <UniqueIdentifier>{c72f7a12-a497-458a-98d1-7201b44bc92d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MD2 Files">
+      <UniqueIdentifier>{c2d646c7-d258-4690-b7d5-a8204340ab50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -66,6 +69,18 @@
     <ClInclude Include="MilkShape3D\Ms3dxFileStreamDecoder.hpp">
       <Filter>MilkShape3D Files</Filter>
     </ClInclude>
+    <ClInclude Include="MD2\ModelData.hpp">
+      <Filter>MD2 Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MD2\Normals.hpp">
+      <Filter>MD2 Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MD2\ModelDisplayState.hpp">
+      <Filter>MD2 Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MD2\ModelManager.hpp">
+      <Filter>MD2 Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -106,6 +121,15 @@
     </ClCompile>
     <ClCompile Include="MilkShape3D\Ms3dxFileStreamDecoder.cpp">
       <Filter>MilkShape3D Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MD2\ModelData.cpp">
+      <Filter>MD2 Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MD2\ModelDisplayState.cpp">
+      <Filter>MD2 Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MD2\ModelManager.cpp">
+      <Filter>MD2 Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

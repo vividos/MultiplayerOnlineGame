@@ -11,6 +11,7 @@
 #include "IRenderable.hpp"
 #include "Mobile.hpp"
 #include "MilkShape3D\ModelManager.hpp"
+#include "MD2\ModelManager.hpp"
 #include <map>
 
 /// forward references
