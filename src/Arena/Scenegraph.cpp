@@ -8,7 +8,7 @@
 // includes
 #include "StdAfx.h"
 #include "Scenegraph.hpp"
-#include "Checkerboard.hpp"
+//#include "Checkerboard.hpp"
 #include "ViewModel.hpp"
 #include "ObjectMap.hpp"
 #include "Mobile.hpp"
@@ -17,6 +17,8 @@
 #include "RenderEngine.hpp"
 #include "ModelRenderManager.hpp"
 #include "ModelRenderInstance.hpp"
+#include "SkyRenderManager.hpp"
+#include "TerrainRenderManager.hpp"
 
 using Arena::Scenegraph;
 
@@ -28,13 +30,15 @@ Scenegraph::Scenegraph(Arena::ViewModel& viewModel,
  m_renderEngine(renderEngine),
  m_renderContainer(taskManager),
  m_spSkyRenderManager(new SkyRenderManager(taskManager, fileSystem)),
+ m_spTerrainRenderManager(new TerrainRenderManager(renderEngine, taskManager)),
  m_spModelRenderManager(new ModelRenderManager(fileSystem, taskManager))
 {
-   m_renderContainer.Add(m_spSkyRenderManager);
+   m_renderContainer.Add(m_spSkyRenderManager, 1);
 
-   m_renderContainer.Add(std::shared_ptr<IRenderable>(new Checkerboard(0, 32, 0, 32, -1.0)));
+   //m_renderContainer.Add(std::shared_ptr<IRenderable>(new Checkerboard(0, 32, 0, 32, -1.0)));
 
-   m_renderContainer.Add(m_spModelRenderManager);
+   m_renderContainer.Add(m_spTerrainRenderManager, 20);
+   m_renderContainer.Add(m_spModelRenderManager, 30);
 
    InitPlayer();
    InitMobiles();
@@ -90,9 +94,11 @@ void Scenegraph::InitPlayer()
    m_spModelRenderManager->InitPlayer(*spPlayer);
 }
 
-void Scenegraph::SetPosition(const Vector3d& /*vPosition*/, double /*dAngleDir*/)
+void Scenegraph::SetPosition(const Vector3d& vPosition, double dAngleDir)
 {
-   // TODO terrain position for LOD
+   // set terrain position for LOD
+   if (m_spTerrainRenderManager != nullptr)
+      m_spTerrainRenderManager->SetPosition(vPosition, dAngleDir);
 }
 
 void Scenegraph::UpdateSkyRenderManager()

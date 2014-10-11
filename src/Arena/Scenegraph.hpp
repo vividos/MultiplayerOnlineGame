@@ -9,7 +9,6 @@
 // includes
 #include "IScenegraph.hpp"
 #include "RenderContainer.hpp"
-#include "SkyRenderManager.hpp"
 #include "Object.hpp"
 #include <map>
 
@@ -17,12 +16,14 @@
 class RenderEngine;
 class IFileSystem;
 class GraphicsTaskManager;
+class SkyRenderManager;
 class ModelRenderManager;
 class Player;
 
 namespace Arena
 {
 class ViewModel;
+class TerrainRenderManager;
 
 /// \brief scenegraph for Arena
 /// \details renders sky, checkerboard, player and mobiles from ArenaViewModel
@@ -74,6 +75,9 @@ private:
 
    /// sky renderer
    std::shared_ptr<SkyRenderManager> m_spSkyRenderManager;
+
+   /// terrain render manager
+   std::shared_ptr<TerrainRenderManager> m_spTerrainRenderManager;
 
    /// model render manager
    std::shared_ptr<ModelRenderManager> m_spModelRenderManager;

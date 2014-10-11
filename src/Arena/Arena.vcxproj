@@ -108,6 +108,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TerrainRenderManager.cpp" />
     <ClCompile Include="View.cpp" />
     <ClCompile Include="ViewModel.cpp" />
   </ItemGroup>
@@ -120,6 +121,7 @@
     <ClInclude Include="Scenegraph.hpp" />
     <ClInclude Include="SelectionList.hpp" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TerrainRenderManager.hpp" />
     <ClInclude Include="View.hpp" />
     <ClInclude Include="ViewModel.hpp" />
   </ItemGroup>
@@ -152,6 +154,9 @@
     <ProjectReference Include="..\RenderEngine\RenderEngine.vcxproj">
       <Project>{f5c4aed3-7358-4ef7-b835-de45155cf0a5}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\Terrain\Terrain.vcxproj">
+      <Project>{dbc08d35-5928-49f1-b212-8c1f2688cba3}</Project>
     </ProjectReference>
     <ProjectReference Include="..\UserInterface\UserInterface.vcxproj">
       <Project>{b6ea8bae-e9fe-4087-8c25-5d3c7a977c50}</Project>
