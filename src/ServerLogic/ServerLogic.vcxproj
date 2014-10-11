@@ -65,6 +65,7 @@
   <ItemGroup>
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
+    <ClCompile Include="ServerSessionImpl.cpp" />
     <ClCompile Include="SessionManager.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -75,6 +76,7 @@
     <ClInclude Include="GameServer.hpp" />
     <ClInclude Include="NetworkManager.hpp" />
     <ClInclude Include="ServerLogic.hpp" />
+    <ClInclude Include="ServerSessionImpl.hpp" />
     <ClInclude Include="SessionManager.hpp" />
     <ClInclude Include="StaticAccountAuthManager.hpp" />
     <ClInclude Include="stdafx.h" />

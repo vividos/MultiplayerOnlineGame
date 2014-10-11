@@ -27,6 +27,9 @@
     <ClCompile Include="NetworkManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ServerSessionImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerLogic.hpp">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StaticAccountAuthManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerSessionImpl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

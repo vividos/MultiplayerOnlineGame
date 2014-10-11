@@ -8,8 +8,8 @@
 // includes
 #include "StdAfx.h"
 #include "SessionManager.hpp"
-#include "AuthServerSession.hpp"
 #include "IAuthManager.hpp"
+#include "ServerSessionImpl.hpp"
 
 SessionManager::SessionManager(IAuthManager& authManager, boost::asio::io_service& ioService)
 :m_authManager(authManager),
@@ -70,70 +70,30 @@ void SessionManager::LogoutAll()
    }
 }
 
-class SessionManagerServerSession: public AuthServerSession
-{
-public:
-   SessionManagerServerSession(boost::asio::io_service& ioService, SessionManager& sessionManager)
-      :AuthServerSession(ioService),
-       m_sessionManager(sessionManager)
-   {
-   }
-   virtual ~SessionManagerServerSession() throw() {}
-
-private:
-   virtual void SetupSession() override;
-
-   virtual void OnConnectionClosing() override;
-
-private:
-   SessionManager& m_sessionManager;
-};
-
-void SessionManagerServerSession::SetupSession()
-{
-   //m_serverSideModel.SetSession(Session::shared_from_this());
-
-   // register in session manager
-   std::weak_ptr<ServerSession> wpSession =
-      std::dynamic_pointer_cast<ServerSession>(shared_from_this());
-
-   m_sessionManager.Add(wpSession);
-
-   // load from database
-   //ObjectPtr spPlayer = m_playerInstanceManager.AddPlayer(GetAccountId(), wpSession);
-
-   //m_controller.Init(spPlayer->Id());
-
-   //MobilePtr spMobile = std::dynamic_pointer_cast<Mobile>(spPlayer);
-   //m_serverSideModel.InitialUpdate(spMobile);
-}
-
-void SessionManagerServerSession::OnConnectionClosing()
-{
-   // unregister in session manager
-   std::weak_ptr<ServerSession> wpSession =
-      std::dynamic_pointer_cast<ServerSession>(shared_from_this());
-
-   m_sessionManager.Remove(wpSession);
-}
-
 std::shared_ptr<Session> SessionManager::CreateNewSession()
 {
-   std::shared_ptr<SessionManagerServerSession> spSession(
-      new SessionManagerServerSession(m_ioService, *this));
    // TODO
-   //   new ServerSession(m_worldModel, m_playerInstanceManager, m_ioService));
+   std::shared_ptr<ServerSessionImpl> spSession;
+#if 0
+   std::shared_ptr<ServerSessionImpl> spSession(
+      new ServerSessionImpl(m_ioService, m_worldModel, *this));
 
    // query auth manager for server authentication module to use (if any)
    std::shared_ptr<IServerAuthModule> spAuthModule = m_authManager.GetAuthenticationModule();
    if (spAuthModule != NULL)
       spSession->SetAuthenticationModule(spAuthModule);
+#endif
 
    return spSession;
 }
 
-void SessionManager::ConnectSession(const ObjectId& /*objId*/, std::shared_ptr<Session> /*spSession*/)
+void SessionManager::ConnectSession(const ObjectId& /*objId*/, std::shared_ptr<Session> spSession)
 {
+   std::shared_ptr<ServerSessionImpl> spSessionImpl =
+      std::dynamic_pointer_cast<ServerSessionImpl>(spSession);
+
+   ATLASSERT(spSessionImpl != nullptr);
+
    // TODO connect player id with session
 }
 
