@@ -18,6 +18,7 @@
 #include "Loader.hpp"
 #include "IFileSystem.hpp"
 #include "TextureLoader.hpp"
+#include "Ms3dxFileStreamDecoder.hpp"
 #include <boost/foreach.hpp>
 
 #ifdef _DEBUG
@@ -26,6 +27,12 @@
 #endif
 
 using namespace MilkShape3D;
+
+/// decoder key
+const BYTE c_aMs3dxDecoderKey[] =
+{
+   240, 59, 117, 142, 148, 192, 244, 244, 25, 47, 54, 229, 223, 162, 66, 201, 28, 251, 16,
+};
 
 ModelManager::ModelManager(IFileSystem& fileSystem, GraphicsTaskManager& taskManager)
 :m_fileSystem(fileSystem),
@@ -134,7 +141,7 @@ void ModelManager::LoadStatic(const CString& cszName, StaticModel3d& model)
 
    CString cszFilename = _T("models\\objects\\") + cszName + _T(".ms3d");
 
-   loader.Load(*m_fileSystem.OpenFile(cszFilename));
+   loader.Load(*GetDataStream(cszFilename));
 
    model.Prepare();
 }
@@ -145,7 +152,7 @@ void ModelManager::LoadAnimated(const CString& cszName, AnimatedModel3d& model)
 
    CString cszFilename = _T("models\\chars\\") + cszName + _T(".ms3d");
 
-   loader.Load(*m_fileSystem.OpenFile(cszFilename));
+   loader.Load(*GetDataStream(cszFilename));
 
    model.Prepare();
 }
@@ -160,7 +167,27 @@ TexturePtr ModelManager::LoadTexture(const CString& cszTexture)
    m_textureMap.Register(cszTexture, spTexture);
 
    // load texture
-   m_spTextureLoader->Load(_T("models\\textures\\") + cszTexture, spTexture, false);
+   m_spTextureLoader->Load(GetDataStream(_T("models\\textures\\") + cszTexture), _T(".jpg"), spTexture, false);
 
    return spTexture;
+}
+
+std::shared_ptr<Stream::IStream> ModelManager::GetDataStream(CString cszFilename)
+{
+   bool bEncodedAvail = m_fileSystem.IsFileAvail(cszFilename + _T("x"));
+
+   if (bEncodedAvail)
+      cszFilename += _T("x");
+
+   std::shared_ptr<Stream::IStream> spStream = m_fileSystem.OpenFile(cszFilename);
+
+   if (!bEncodedAvail)
+      return spStream;
+
+   spStream.reset(
+      new Ms3dxFileStreamDecoder(
+      spStream,
+      std::initializer_list<BYTE>(std::begin(c_aMs3dxDecoderKey), std::end(c_aMs3dxDecoderKey))));
+
+   return spStream;
 }

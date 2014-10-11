@@ -76,6 +76,7 @@
     <ClInclude Include="Model3DCommon.hpp" />
     <ClInclude Include="ModelRenderInstance.hpp" />
     <ClInclude Include="ModelRenderManager.hpp" />
+    <ClInclude Include="MilkShape3D\Ms3dxFileStreamDecoder.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +100,7 @@
     <ClCompile Include="MilkShape3D\StaticModel3d.cpp" />
     <ClCompile Include="ModelRenderInstance.cpp" />
     <ClCompile Include="ModelRenderManager.cpp" />
+    <ClCompile Include="MilkShape3D\Ms3dxFileStreamDecoder.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -63,6 +63,9 @@
     <ClInclude Include="Model3DCommon.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MilkShape3D\Ms3dxFileStreamDecoder.hpp">
+      <Filter>MilkShape3D Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -99,6 +102,9 @@
       <Filter>MilkShape3D Files</Filter>
     </ClCompile>
     <ClCompile Include="MilkShape3D\AnimationData.cpp">
+      <Filter>MilkShape3D Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MilkShape3D\Ms3dxFileStreamDecoder.cpp">
       <Filter>MilkShape3D Files</Filter>
     </ClCompile>
   </ItemGroup>

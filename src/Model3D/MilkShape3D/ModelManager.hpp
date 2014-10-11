@@ -15,6 +15,10 @@ class IFileSystem;
 class GraphicsTaskManager;
 class TextureLoader;
 class Mobile;
+namespace Stream
+{
+   class IStream;
+}
 
 namespace MilkShape3D
 {
@@ -104,6 +108,9 @@ private:
 
    /// loads texture by name
    TexturePtr LoadTexture(const CString& cszTexture);
+
+   /// returns model or texture data stream by filename
+   std::shared_ptr<Stream::IStream> GetDataStream(CString cszFilename);
 
 private:
    /// file system
