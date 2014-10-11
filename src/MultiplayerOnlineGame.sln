@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ulib", "ulib\ulib.vcxproj", "{DAA1E880-4690-46C1-A9CB-C5C962F8C74C}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -111,6 +111,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Setup", "Setup\Setup.vcxpro
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain", "Terrain\Terrain.vcxproj", "{DBC08D35-5928-49F1-B212-8C1F2688CBA3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TerrainViewer", "TerrainViewer\TerrainViewer.vcxproj", "{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -226,6 +228,10 @@ Global
 		{DBC08D35-5928-49F1-B212-8C1F2688CBA3}.Debug|Win32.Build.0 = Debug|Win32
 		{DBC08D35-5928-49F1-B212-8C1F2688CBA3}.Release|Win32.ActiveCfg = Release|Win32
 		{DBC08D35-5928-49F1-B212-8C1F2688CBA3}.Release|Win32.Build.0 = Release|Win32
+		{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}.Debug|Win32.Build.0 = Debug|Win32
+		{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}.Release|Win32.ActiveCfg = Release|Win32
+		{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
