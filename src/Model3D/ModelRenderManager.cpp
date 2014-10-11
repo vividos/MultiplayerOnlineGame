@@ -43,7 +43,11 @@ void ModelRenderManager::UpdatePlayer(const Player& player)
       m_spPlayerModelRenderInstance->DisplayState());
 
    m_spPlayerModelRenderInstance->SetPosition(player.Pos(), player.ViewAngle());
-   m_spPlayerModelRenderInstance->UpdateMovementInfo(player.GetMovementInfo());
+
+   MovementInfo movementInfo = player.GetMovementInfo();
+   movementInfo.Position(player.Pos());
+
+   m_spPlayerModelRenderInstance->UpdateMovementInfo(movementInfo);
 
    m_selectedObjectId = player.Selection();
 }

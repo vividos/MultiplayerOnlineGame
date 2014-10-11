@@ -66,7 +66,7 @@ MovementInfo::T_enMovementType MovementInfo::MovementType() const throw()
 
 double MovementInfo::ViewAngle() const throw()
 {
-   if (m_enMovementMode == movementDirection)
+   if (m_enMovementMode == movementStand || m_enMovementMode == movementDirection)
       return m_dDirection;
 
    if (m_enMovementMode == movementTarget)

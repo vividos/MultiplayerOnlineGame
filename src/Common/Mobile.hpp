@@ -73,6 +73,13 @@ public:
 
    // actions
 
+   /// initializes mobile
+   void Init(const Vector3d& vInitialPos)
+   {
+      Pos(vInitialPos);
+      m_movementInfo.Position(vInitialPos);
+   }
+
    /// updates object
    void UpdateMovementInfo(const MovementInfo& info);
 
