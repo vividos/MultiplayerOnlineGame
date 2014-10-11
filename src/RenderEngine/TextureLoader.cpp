@@ -28,30 +28,58 @@ void TextureLoader::Load(const CString& cszFilename, std::shared_ptr<Texture> sp
 {
    ATLASSERT(spTexture != nullptr);
 
-   CString cszFilenameLower(cszFilename);
-   cszFilenameLower.MakeLower();
-
-   std::shared_ptr<IImageReader> spImageReader;
-
-   if (cszFilenameLower.Right(4) == _T(".pcx"))
-      spImageReader.reset(new PcxImageReader);
-
-   if (cszFilenameLower.Right(4) == _T(".tga"))
-      spImageReader.reset(new TgaImageReader);
-
-   if (cszFilenameLower.Right(4) == _T(".png"))
-      spImageReader.reset(new PngImageReader);
-
-   if (cszFilenameLower.Right(4) == _T(".jpg"))
-      spImageReader.reset(new JpegImageReader);
+   std::shared_ptr<IImageReader> spImageReader = SelectImageReader(cszFilename.Right(4));
 
    if (spImageReader == NULL)
       throw Exception(_T("image file type not supported; filename: ") + cszFilename, __FILE__, __LINE__);
 
-   spImageReader->Load(*m_fileSystem.OpenFile(cszFilename, true));
+   std::shared_ptr<Stream::IStream> spStream = m_fileSystem.OpenFile(cszFilename, true);
+
+   LoadInternal(spStream, spImageReader, spTexture, bGenerateMipmap);
+}
+
+void TextureLoader::Load(std::shared_ptr<Stream::IStream> spStream, const CString& cszExtensionWithDot,
+   std::shared_ptr<Texture> spTexture, bool bGenerateMipmap)
+{
+   std::shared_ptr<IImageReader> spImageReader = SelectImageReader(cszExtensionWithDot);
+
+   if (spImageReader == NULL)
+      throw Exception(_T("image file type not supported; extension: ") + cszExtensionWithDot, __FILE__, __LINE__);
+
+   LoadInternal(spStream, spImageReader, spTexture, bGenerateMipmap);
+}
+
+void TextureLoader::LoadInternal(std::shared_ptr<Stream::IStream> spStream,
+   std::shared_ptr<IImageReader> spImageReader,
+   std::shared_ptr<Texture> spTexture,
+   bool bGenerateMipmap)
+{
+   spImageReader->Load(*spStream);
 
    m_taskManager.UploadTaskGroup().Add(
       std::bind(&TextureLoader::Upload, this, spImageReader, spTexture, bGenerateMipmap));
+}
+
+std::shared_ptr<IImageReader> TextureLoader::SelectImageReader(const CString& cszExtensionWithDot)
+{
+   CString cszExtension(cszExtensionWithDot);
+   cszExtension.MakeLower();
+
+   std::shared_ptr<IImageReader> spImageReader;
+
+   if (cszExtension == _T(".pcx"))
+      spImageReader.reset(new PcxImageReader);
+
+   if (cszExtension == _T(".tga"))
+      spImageReader.reset(new TgaImageReader);
+
+   if (cszExtension == _T(".png"))
+      spImageReader.reset(new PngImageReader);
+
+   if (cszExtension == _T(".jpg"))
+      spImageReader.reset(new JpegImageReader);
+
+   return spImageReader;
 }
 
 void TextureLoader::Upload(std::shared_ptr<IImageReader> spImageReader, std::shared_ptr<Texture> spTexture, bool bGenerateMipmap)
