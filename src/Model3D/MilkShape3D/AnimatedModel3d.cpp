@@ -7,7 +7,6 @@
 
 // includes
 #include "StdAfx.h"
-#pragma optimize("gs", on)
 #include "AnimatedModel3d.hpp"
 #include "RenderOptions.hpp"
 #include "Quaternion4d.hpp"
