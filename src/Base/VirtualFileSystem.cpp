@@ -48,7 +48,7 @@ bool VirtualFileSystem::IsFileAvail(const CString& cszFilename) const
    if (m_mapFilenameToArchive.find(cszFilename) != m_mapFilenameToArchive.end())
       return true;
 
-   return BaseFileSystem::IsFileAvail(cszFilename);
+   return BaseFileSystem::IsFileAvail(Path::Combine(AppDataFolder(), cszFilename));
 }
 
 std::shared_ptr<Stream::IStream> VirtualFileSystem::OpenFile(const CString& cszFilename,
