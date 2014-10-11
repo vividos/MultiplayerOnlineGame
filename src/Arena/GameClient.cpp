@@ -13,6 +13,7 @@
 #include "IAudioManager.hpp"
 #include <ulib/log/Appender.hpp>
 #include <ulib/log/Layout.hpp>
+#include "LogFileAppender.hpp"
 
 using Arena::GameClient;
 
@@ -31,12 +32,28 @@ GameClient::~GameClient()
 
 void GameClient::SetupLogging()
 {
-   Log::AppenderPtr spTraceAppender(new Log::OutputDebugStringAppender);
+   {
+      Log::LayoutPtr spTraceLayout(new Log::PatternLayout(_T("%F(%L): log [%p] %m")));
 
-   Log::LayoutPtr spTraceLayout(new Log::PatternLayout(_T("%F(%L): log [%p] %m")));
-   spTraceAppender->Layout(spTraceLayout);
+      Log::AppenderPtr spTraceAppender(new Log::OutputDebugStringAppender);
+      spTraceAppender->Layout(spTraceLayout);
 
-   Log::Logger::GetRootLogger()->AddAppender(spTraceAppender);
+      Log::Logger::GetRootLogger()->AddAppender(spTraceAppender);
+   }
+
+   {
+      Log::LayoutPtr spLogFileLayout(new Log::PatternLayout(_T("%d [%p] [%c] %m")));
+
+      Log::AppenderPtr spLogFileAppender(new LogFileAppender);
+      spLogFileAppender->Layout(spLogFileLayout);
+
+      Log::Logger::GetRootLogger()->AddAppender(spLogFileAppender);
+   }
+
+#ifndef _DEBUG
+   // in release, only log info or higher
+   Log::Logger::GetRootLogger()->Level(Log::info);
+#endif
 }
 
 void GameClient::Start()
