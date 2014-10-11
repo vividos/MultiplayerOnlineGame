@@ -114,6 +114,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain", "Terrain\Terrain.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TerrainViewer", "TerrainViewer\TerrainViewer.vcxproj", "{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncodeFile", "..\data\tools\EncodeFile\EncodeFile.csproj", "{FA645202-913A-49B9-B30F-3D06AA056EBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -232,6 +234,10 @@ Global
 		{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}.Debug|Win32.Build.0 = Debug|Win32
 		{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}.Release|Win32.ActiveCfg = Release|Win32
 		{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}.Release|Win32.Build.0 = Release|Win32
+		{FA645202-913A-49B9-B30F-3D06AA056EBA}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{FA645202-913A-49B9-B30F-3D06AA056EBA}.Debug|Win32.Build.0 = Debug|Any CPU
+		{FA645202-913A-49B9-B30F-3D06AA056EBA}.Release|Win32.ActiveCfg = Release|Any CPU
+		{FA645202-913A-49B9-B30F-3D06AA056EBA}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
