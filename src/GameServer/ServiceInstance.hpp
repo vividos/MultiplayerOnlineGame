@@ -8,6 +8,8 @@
 
 // includes
 #include <ulib/Event.hpp>
+#include <thread>
+#include <functional>
 
 namespace Win32
 {
@@ -108,7 +110,7 @@ private:
       UpdateStatus(SERVICE_RUNNING, 0);
 
       // start thread
-      boost::thread t(boost::bind(&ThisType::ServiceThread, this));
+      std::thread t(std::bind(&ThisType::ServiceThread, this));
 
       // wait for thread to start
       m_evtStarted.Wait(INFINITE);
