@@ -12,6 +12,9 @@
 #include <gl/glu.h>
 #include "Color.hpp"
 
+/// shared pointer for Texture
+typedef std::shared_ptr<class Texture> TexturePtr;
+
 // auto-link
 #pragma comment(lib, "opengl32.lib")
 
@@ -81,6 +84,9 @@ namespace OpenGL
 
 
    // render helper functions
+
+   /// replace textures at all mipmap levels with colors
+   void RENDERENGINE_DECLSPEC ReplaceTextureAllMipmapLevels(TexturePtr spTexture, unsigned int xres, unsigned int yres);
 
    /// replaces texture at given mipmap level with given color
    void RENDERENGINE_DECLSPEC ReplaceTextureMipmapLevel(unsigned int texid,

@@ -10,6 +10,7 @@
 #include "OpenGL.hpp"
 #include "Bitmap.hpp"
 #include "Vector3d.hpp"
+#include "Texture.hpp"
 
 #pragma comment(lib, "glu32.lib")
 
@@ -77,6 +78,14 @@ void OpenGL::SetRenderThreadId(DWORD dwThreadId)
    std::swap(g_dwRenderThreadId, dwThreadId);
 }
 
+void OpenGL::ReplaceTextureAllMipmapLevels(TexturePtr spTexture, unsigned int xres, unsigned int yres)
+{
+   OpenGL::ReplaceTextureMipmapLevel(spTexture->Id(), 0, xres, yres, Color(255, 0, 0));
+   OpenGL::ReplaceTextureMipmapLevel(spTexture->Id(), 1, xres / 2, yres / 2, Color(255, 255, 0));
+   OpenGL::ReplaceTextureMipmapLevel(spTexture->Id(), 2, xres / 4, yres / 4, Color(0, 255, 0));
+   OpenGL::ReplaceTextureMipmapLevel(spTexture->Id(), 3, xres / 8, yres / 8, Color(0, 0, 255));
+   OpenGL::ReplaceTextureMipmapLevel(spTexture->Id(), 4, xres / 16, yres / 16, Color(255, 0, 255));
+}
 
 void OpenGL::ReplaceTextureMipmapLevel(unsigned int texid,
    unsigned int uiLevel, unsigned int xres, unsigned int yres, Color color)
