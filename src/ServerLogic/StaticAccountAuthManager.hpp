@@ -55,6 +55,7 @@ private:
          new SRP::ServerAuthModule(fnGetServerAuthInfo));
    }
 
+   /// returns server auth info
    void GetServerAuthInfo(const CString& cszUsername, std::vector<unsigned char>& vecPasswordKey,
       std::vector<unsigned char>& vecSalt, int& iAccountId)
    {

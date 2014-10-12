@@ -19,6 +19,7 @@ public:
 
 private:
    // virtual methods from AuthServerSession
+
    virtual void SetupSession() override;
 
    virtual void OnConnectionClosing() override;
@@ -27,11 +28,9 @@ private:
    /// session manager
    SessionManager& m_sessionManager;
 
-   // player instance members
+   /// server model
    ServerModel m_serverModel;
 
    /// world model
    IModel& m_worldModel;
-
-
 };
