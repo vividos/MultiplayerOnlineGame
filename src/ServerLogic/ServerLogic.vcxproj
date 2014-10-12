@@ -99,6 +99,9 @@
       <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\Database\Database.vcxproj">
+      <Project>{f03f428a-096f-47ae-82e1-565e6b7cfd49}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Network\Network.vcxproj">
       <Project>{83311fa4-5bb5-422a-a5b3-4d6b82884e8f}</Project>
     </ProjectReference>

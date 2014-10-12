@@ -10,6 +10,8 @@
 #include "GameServer.hpp"
 #include <ulib/log/Appender.hpp>
 #include <ulib/log/Layout.hpp>
+#include "Filesystem.hpp"
+#include "Path.hpp"
 
 GameServer::GameServer(unsigned short usPort)
 :m_evtStop(true, false), // manual-reset event
@@ -20,6 +22,9 @@ GameServer::GameServer(unsigned short usPort)
  m_worldRunner(m_worldModel),
  m_worldModel(m_sessionManager, m_actionQueue)
 {
+   InitDatabase();
+
+   // add static account
    Account a;
    a.Username(_T("michi"));
    a.Password(_T("88D60A34770813E4B5FB7735DBDB1FF1FAEC2F3A6376926D6A72F8CD26BB2ADAE1DA8A41F6B3B019863738C7E9AE168CA1A79A52269619E65D9C234B395A08BC41A5776F0FA92095CFF4A1AAEC9955F274A1C76E547CB300434A12D3E1A0AEA4C37E4C67EC7369A7FF2D5FBACCF1AC4A1B3C3932607F661D2E1A4DB620612D00"));
@@ -77,4 +82,14 @@ void GameServer::Stop()
    m_ioService.Get().stop();
 
    m_evtStopped.Wait();
+}
+
+void GameServer::InitDatabase()
+{
+   CString cszDatabaseFilename = Filesystem().UserFolder() + Database::c_pszDatabaseFilename;
+
+   if (!Path(cszDatabaseFilename).FileExists())
+      m_databaseManager.CreateDatabase(cszDatabaseFilename);
+   else
+      m_databaseManager.OpenExisting(cszDatabaseFilename);
 }

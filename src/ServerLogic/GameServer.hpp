@@ -10,7 +10,9 @@
 #include "ServerLogic.hpp"
 #include <ulib/Event.hpp>
 #include "IoServiceThread.hpp"
+#include "DatabaseManager.hpp"
 #include "NetworkManager.hpp"
+#include "SessionManager.hpp"
 #include "StaticAccountAuthManager.hpp"
 #include "AsyncActionQueue.hpp"
 #include "WorldModel.hpp"
@@ -37,6 +39,10 @@ public:
    void Stop();
 
 private:
+   /// opens or creates database
+   void InitDatabase();
+
+private:
    /// event to stop game server
    Event m_evtStop;
 
@@ -47,6 +53,9 @@ private:
 
    /// ioservice thread
    IoServiceThread m_ioService;
+
+   /// database manager
+   Database::Manager m_databaseManager;
 
    /// authentication manager (must come before network manager)
    StaticAccountAuthManager m_authManager;
