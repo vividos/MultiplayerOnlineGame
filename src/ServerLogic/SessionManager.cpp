@@ -11,8 +11,10 @@
 #include "IAuthManager.hpp"
 #include "ServerSessionImpl.hpp"
 
-SessionManager::SessionManager(IAuthManager& authManager, boost::asio::io_service& ioService)
+SessionManager::SessionManager(IAuthManager& authManager,
+   IModel& worldModel, boost::asio::io_service& ioService)
 :m_authManager(authManager),
+ m_worldModel(worldModel),
  m_ioService(ioService)
 {
 }
@@ -72,9 +74,6 @@ void SessionManager::LogoutAll()
 
 std::shared_ptr<Session> SessionManager::CreateNewSession()
 {
-   // TODO
-   std::shared_ptr<ServerSessionImpl> spSession;
-#if 0
    std::shared_ptr<ServerSessionImpl> spSession(
       new ServerSessionImpl(m_ioService, m_worldModel, *this));
 
@@ -82,7 +81,6 @@ std::shared_ptr<Session> SessionManager::CreateNewSession()
    std::shared_ptr<IServerAuthModule> spAuthModule = m_authManager.GetAuthenticationModule();
    if (spAuthModule != NULL)
       spSession->SetAuthenticationModule(spAuthModule);
-#endif
 
    return spSession;
 }

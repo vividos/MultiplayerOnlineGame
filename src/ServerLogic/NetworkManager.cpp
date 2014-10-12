@@ -8,14 +8,16 @@
 // includes
 #include "stdafx.h"
 #include "NetworkManager.hpp"
+#include "SessionManager.hpp"
 
 /// client's server session cleanup interval, in seconds
 const unsigned int c_uiCleanupClientIntervalSec = 10;
 
-NetworkManager::NetworkManager(IAuthManager& authManager, boost::asio::io_service& ioService, unsigned short usPort)
-:m_sessionManager(authManager, ioService),
- m_socketListenerIPv4(m_sessionManager, ioService, false, usPort),
- m_socketListenerIPv6(m_sessionManager, ioService, true, usPort),
+NetworkManager::NetworkManager(SessionManager& sessionManager,
+   boost::asio::io_service& ioService, unsigned short usPort)
+:m_sessionManager(sessionManager),
+ m_socketListenerIPv4(sessionManager, ioService, false, usPort),
+ m_socketListenerIPv6(sessionManager, ioService, true, usPort),
  m_timerCleanupClients(ioService),
  m_evtTimerEnded(true, false) // manual-reset event
 {

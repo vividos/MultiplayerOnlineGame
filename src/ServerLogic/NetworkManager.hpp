@@ -7,12 +7,11 @@
 #pragma once
 
 // includes
-#include "SessionManager.hpp"
 #include "SocketListener.hpp"
 #include <ulib/Event.hpp>
 
 // forward references
-class IAuthManager;
+class SessionManager;
 
 /// \brief network manager
 /// \details manages the network side of running the game server
@@ -20,7 +19,7 @@ class NetworkManager
 {
 public:
    /// ctor
-   NetworkManager(IAuthManager& authManager, boost::asio::io_service& ioService, unsigned short usPort);
+   NetworkManager(SessionManager& sessionManager, boost::asio::io_service& ioService, unsigned short usPort);
 
    /// starts network manager
    void Start();
@@ -37,7 +36,7 @@ private:
 
 private:
    /// session manager
-   SessionManager m_sessionManager;
+   SessionManager& m_sessionManager;
 
    /// IPv4 socket listener
    SocketListener m_socketListenerIPv4;

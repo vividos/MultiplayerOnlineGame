@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file GameServer.cpp game server class
+/// \file src/ServerLogic/GameServer.cpp game server class
 //
 
 // includes
@@ -14,7 +14,11 @@
 GameServer::GameServer(unsigned short usPort)
 :m_evtStop(true, false), // manual-reset event
  m_evtStopped(true, false), // manual-reset event
- m_networkManager(m_authManager, m_ioService.Get(), usPort)
+ m_sessionManager(m_authManager, m_worldModel, m_ioService.Get()),
+ m_networkManager(m_sessionManager, m_ioService.Get(), usPort),
+ m_actionQueue(m_ioService.Get(), m_worldModel),
+ m_worldRunner(m_worldModel),
+ m_worldModel(m_sessionManager, m_actionQueue)
 {
    Account a;
    a.Username(_T("michi"));
@@ -46,8 +50,8 @@ void GameServer::SetupLogging()
 
 void GameServer::Run()
 {
+   m_worldRunner.Start();
    m_networkManager.Start();
-   //m_worldRunner.Start();
 
    // run io service in another thread
    m_ioService.Run();
@@ -57,7 +61,7 @@ void GameServer::Run()
 
    // now stop all objects that use the IoServiceThread
    m_networkManager.Stop();
-   //m_worldRunner.Stop();
+   m_worldRunner.Stop();
 
    m_ioService.Join();
 
@@ -67,6 +71,10 @@ void GameServer::Run()
 void GameServer::Stop()
 {
    m_evtStop.Set();
+
+   m_worldRunner.Stop();
+
+   m_ioService.Get().stop();
 
    m_evtStopped.Wait();
 }

@@ -15,7 +15,7 @@ class TimeIndex
 {
 public:
    /// ctor
-   TimeIndex(double dTime)
+   TimeIndex(double dTime = 0.0)
       :m_dTime(dTime)
    {
    }

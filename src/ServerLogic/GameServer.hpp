@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file GameServer.hpp game server class
+/// \file src/ServerLogic/GameServer.hpp game server class
 //
 #pragma once
 
@@ -12,10 +12,13 @@
 #include "IoServiceThread.hpp"
 #include "NetworkManager.hpp"
 #include "StaticAccountAuthManager.hpp"
+#include "AsyncActionQueue.hpp"
+#include "WorldModel.hpp"
+#include "WorldRunner.hpp"
 
 /// \brief game server class
 /// \details This is the central game server class; it gets instanciated by
-/// Server.exe as service or ConsoleServer.exe as console application.
+/// GameServer.exe as service or ConsoleServer.exe as console application.
 class SERVERLOGIC_DECLSPEC GameServer
 {
 public:
@@ -48,6 +51,18 @@ private:
    /// authentication manager (must come before network manager)
    StaticAccountAuthManager m_authManager;
 
+   /// session manager
+   SessionManager m_sessionManager;
+
    /// network manager
    NetworkManager m_networkManager;
+
+   /// action queue
+   AsyncActionQueue m_actionQueue;
+
+   /// world model
+   WorldModel m_worldModel;
+
+   /// world runner
+   WorldRunner m_worldRunner;
 };

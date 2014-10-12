@@ -14,6 +14,7 @@
 
 // forward references
 class IAuthManager;
+class IModel;
 
 /// \brief session manager
 /// \details manages all sessions connected to the server
@@ -23,7 +24,7 @@ public:
    DEFINE_INSTANCE(SessionManager)
 
    /// ctor
-   SessionManager(IAuthManager& authManager, boost::asio::io_service& ioService);
+   SessionManager(IAuthManager& authManager, IModel& worldModel, boost::asio::io_service& ioService);
    /// dtor
    virtual ~SessionManager() throw() {}
 
@@ -52,6 +53,9 @@ private:
 private:
    /// authentication manager
    IAuthManager& m_authManager;
+
+   /// world model
+   IModel& m_worldModel;
 
    /// io service
    boost::asio::io_service& m_ioService;
