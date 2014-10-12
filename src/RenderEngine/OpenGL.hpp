@@ -44,6 +44,12 @@ namespace OpenGL
 
       /// extension to support VBO
       static TCHAR ARB_vertex_buffer_object[] = _T("GL_ARB_vertex_buffer_object");
+
+      /// extension to support framebuffer object
+      static TCHAR ARB_framebuffer_object[] = _T("GL_ARB_framebuffer_object");
+
+      /// extension to support glDrawBuffers call
+      static TCHAR ARB_draw_buffers[] = _T("GL_ARB_draw_buffers");
    }
 
    /// returns if a given extension is supported
