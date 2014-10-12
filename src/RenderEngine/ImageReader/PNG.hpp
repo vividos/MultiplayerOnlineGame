@@ -43,7 +43,7 @@ private:
    static void Init() throw();
 
    /// table of CRCs of all 8-bit messages
-   static boost::array<DWORD, 256> m_crc32Table;
+   static std::array<DWORD, 256> m_crc32Table;
 
    /// indicates if the crc32 table has been computed
    static bool m_bTableCalculated;

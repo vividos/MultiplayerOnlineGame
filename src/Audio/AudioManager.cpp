@@ -185,7 +185,7 @@ std::shared_ptr<IPlaybackControl> AudioManager::StartPlay(OpenAL::SourcePtr spSo
 
    // note: for some reason using std::bind here gives many errors in the functional header at line 1519
    m_ioServiceThread.Get().post(
-      boost::bind(&AudioManager::AsyncPlay, this, spSource, cszSoundId, spPlaybackControl, bLooping, bFadein));
+      std::bind(&AudioManager::AsyncPlay, this, spSource, cszSoundId, spPlaybackControl, bLooping, bFadein));
 
    return spPlaybackControl;
 }

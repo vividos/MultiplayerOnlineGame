@@ -24,20 +24,20 @@ void RenderContainer::Add(std::shared_ptr<IRenderable> spRenderObject, unsigned 
    if (spRenderObject->IsPrepareNeeded())
    {
       m_taskManager.BackgroundTaskGroup().Add(
-         boost::bind(&RenderContainer::AsyncPrepare, this, item));
+         std::bind(&RenderContainer::AsyncPrepare, this, item));
    }
    else
    if (spRenderObject->IsUploadNeeded())
    {
       // no prepare, but update
       m_taskManager.UploadTaskGroup().Add(
-         boost::bind(&RenderContainer::AsyncUpload, this, item));
+         std::bind(&RenderContainer::AsyncUpload, this, item));
    }
    else
    {
       // no prepare, no update: just add
       m_taskManager.UploadTaskGroup().Add(
-         boost::bind(&RenderContainer::InternalAdd, this, item));
+         std::bind(&RenderContainer::InternalAdd, this, item));
    }
 }
 
@@ -45,7 +45,7 @@ void RenderContainer::Remove(std::shared_ptr<IRenderable> spRenderObject)
 {
    // no prepare, no update: just add
    m_taskManager.UploadTaskGroup().Add(
-      boost::bind(&RenderContainer::InternalRemove, this, spRenderObject));
+      std::bind(&RenderContainer::InternalRemove, this, spRenderObject));
 }
 
 void RenderContainer::Render(RenderOptions& options)
@@ -65,13 +65,13 @@ void RenderContainer::AsyncPrepare(QueueItem item)
    if (item.m_spRenderable->IsUploadNeeded())
    {
       m_taskManager.UploadTaskGroup().Add(
-         boost::bind(&RenderContainer::AsyncUpload, this, item));
+         std::bind(&RenderContainer::AsyncUpload, this, item));
    }
    else
    {
       // no update: just add (in upload task)
       m_taskManager.UploadTaskGroup().Add(
-         boost::bind(&RenderContainer::InternalAdd, this, item));
+         std::bind(&RenderContainer::InternalAdd, this, item));
    }
 }
 

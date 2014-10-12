@@ -11,9 +11,7 @@
 #include "LogCategories.hpp"
 #include "Asio.hpp"
 #include <ulib/Thread.hpp>
-#pragma warning(disable: 4913) // user defined binary operator ',' exists but no overload could convert all operands, default built-in binary operator ',' used
-#include <boost/thread.hpp>
-#pragma warning(default: 4913)
+#include <thread>
 #include <functional>
 
 /// service thread for boost::asio::io_service instance
@@ -29,7 +27,7 @@ public:
       pszThreadName;
 
       if (bDefaultWork)
-         m_spWork.reset(new boost::asio::io_service::work(m_ioService));
+         m_upWork.reset(new boost::asio::io_service::work(m_ioService));
    }
 
    /// dtor
@@ -44,18 +42,18 @@ public:
    /// runs background thread
    void Run()
    {
-      m_spThread.reset(new boost::thread(std::bind(&IoServiceThread::ThreadRun, this)));
+      m_upThread.reset(new std::thread(std::bind(&IoServiceThread::ThreadRun, this)));
    }
 
    /// waits for background thread
    void Join()
    {
-      m_spWork.reset();
+      m_upWork.reset();
 
-      if (m_spThread != NULL)
-         m_spThread->join();
+      if (m_upThread != NULL)
+         m_upThread->join();
 
-      m_spThread.reset();
+      m_upThread.reset();
    }
 
 private:
@@ -114,10 +112,10 @@ private:
    boost::asio::io_service m_ioService;
 
    /// worker thread
-   boost::scoped_ptr<boost::thread> m_spThread;
+   std::unique_ptr<std::thread> m_upThread;
 
    /// default work
-   boost::scoped_ptr<boost::asio::io_service::work> m_spWork;
+   std::unique_ptr<boost::asio::io_service::work> m_upWork;
 
 #ifdef _DEBUG
    /// thread name

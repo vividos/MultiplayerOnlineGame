@@ -10,7 +10,7 @@
 #include "PNG.hpp"
 #include <ulib/stream/EndianAwareFilter.hpp>
 #include <ulib/stream/MemoryStream.hpp>
-#include <boost/array.hpp>
+#include <array>
 
 using namespace PNG;
 
@@ -45,7 +45,7 @@ bool PNG::CheckSignature(const unsigned char* buffer)
 
 bool Crc32::m_bTableCalculated = false;
 
-boost::array<DWORD, 256> Crc32::m_crc32Table;
+std::array<DWORD, 256> Crc32::m_crc32Table;
 
 void Crc32::Init() throw()
 {

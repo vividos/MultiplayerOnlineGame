@@ -29,5 +29,5 @@ private:
 
 private:
    /// log file
-   boost::shared_ptr<FILE> m_spLogFile;
+   std::shared_ptr<FILE> m_spLogFile;
 };

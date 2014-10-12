@@ -10,7 +10,7 @@
 #include "WorldGenerator.hpp"
 #include "IslandShape.hpp"
 #include "Voronoi2.hpp"
-#include <boost/bind.hpp>
+#include <functional>
 #include <boost/foreach.hpp>
 
 /// point density for generating random points; described as number of points per 64x64 square
@@ -189,9 +189,11 @@ void AddElementToList(std::vector<TElementPtr>& vecElemList, TElementPtr spElem)
    ATLASSERT(spElem != NULL);
 
    // find in vecCorner
-   if (vecElemList.end () ==
-      std::find_if(vecElemList.begin(), vecElemList.end(),
-      boost::bind(&TElementPtr::get, _1) == spElem.get()))
+   auto iter = std::find_if(vecElemList.begin(), vecElemList.end(), [&spElem](TElementPtr spOther){
+      return spElem == spOther;
+   });
+
+   if (iter == vecElemList.end())
    {
       // not found, so add it
       vecElemList.push_back(spElem);

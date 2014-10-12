@@ -44,7 +44,7 @@ void WorldRunner::OnTimerWorldTick(const boost::system::error_code& error)
    ProcessWorldTick();
 
    m_timerWorldTick.async_wait(
-      boost::bind(&WorldRunner::OnTimerWorldTick, this, _1));
+      std::bind(&WorldRunner::OnTimerWorldTick, this, std::placeholders::_1));
 }
 
 void WorldRunner::ProcessWorldTick()
