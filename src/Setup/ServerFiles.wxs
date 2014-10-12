@@ -16,11 +16,11 @@
         <File Id="ConsoleServerExe" Name="ConsoleServer.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\ConsoleServer.exe" />
       </Component>
 
-      <!--Component Id="DatabaseDll" Guid="3b99f7f2-5d76-4d76-90f4-20975de0e694" Directory="INSTALLDIR">
+      <Component Id="DatabaseDll" Guid="3b99f7f2-5d76-4d76-90f4-20975de0e694" Directory="INSTALLDIR">
         <File Id="DatabaseDll" Name="Database.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Database.dll" />
-      </Component-->
+      </Component>
 
-      <Component Id="ServerExe" Guid="bd076435-fbcf-4fe3-9170-c5a5739d7f71" Directory="INSTALLDIR">
+      <Component Id="GameServerExe" Guid="bd076435-fbcf-4fe3-9170-c5a5739d7f71" Directory="INSTALLDIR">
         <File Id="GameServerExe" Name="GameServer.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\GameServer.exe" />
         <ServiceInstall Id="GameServerExeServiceInstall"
                         Name="MultiplayerOnlineGame-Service"

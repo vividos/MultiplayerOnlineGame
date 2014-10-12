@@ -62,6 +62,7 @@ BuildData.exe data.cfg ..\data  $(OutDir)</NMakeReBuildCommandLine>
   <ItemGroup>
     <None Include="audio\music.json" />
     <None Include="data.cfg" />
+    <None Include="ServerData.cfg" />
     <None Include="sky\clearSky2_norle.tga" />
     <None Include="ui\LoadingScreen.json" />
   </ItemGroup>

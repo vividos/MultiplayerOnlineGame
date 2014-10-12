@@ -31,6 +31,7 @@
     <None Include="ui\LoadingScreen.json">
       <Filter>ui</Filter>
     </None>
+    <None Include="ServerData.cfg" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="audio\music\A Mission.mp3">
