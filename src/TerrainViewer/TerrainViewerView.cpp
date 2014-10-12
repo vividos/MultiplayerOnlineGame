@@ -42,7 +42,7 @@ TerrainViewer::View::View(RenderEngine& engine, GraphicsTaskManager& taskManager
    m_lightingManager.Add(ls);
    m_lightingManager.ColorTracking(true);
 
-   m_renderContainer.Add(m_spTerrainRenderer);
+   m_renderContainer.Add(m_spTerrainRenderer, 1);
 }
 
 void TerrainViewer::View::PreRender()
