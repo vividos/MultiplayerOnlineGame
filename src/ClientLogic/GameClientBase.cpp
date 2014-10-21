@@ -96,15 +96,29 @@ void GameClientBase::OnRender()
 
 void GameClientBase::OnEvent(SDL_Event& evt)
 {
+   static_assert(SDL_BUTTON_LEFT      == buttonLeft, "must correspond to SDL definition");
+   static_assert(SDL_BUTTON_MIDDLE    == buttonMiddle, "must correspond to SDL definition");
+   static_assert(SDL_BUTTON_RIGHT     == buttonRight, "must correspond to SDL definition");
+
    switch (evt.type)
    {
    case SDL_MOUSEBUTTONDOWN:
-      static_assert(SDL_BUTTON_LEFT      == buttonLeft, "must correspond to SDL definition");
-      static_assert(SDL_BUTTON_MIDDLE    == buttonMiddle, "must correspond to SDL definition");
-      static_assert(SDL_BUTTON_RIGHT     == buttonRight, "must correspond to SDL definition");
+   case SDL_MOUSEBUTTONUP:
+      {
+         bool bHandled = false;
 
-      m_spScene->OnMouseButtonEvent(evt.button.state == SDL_PRESSED,
-         static_cast<T_enMouseButtonType>(evt.button.button), evt.button.x, evt.button.y);
+         if (m_spWindowManager != nullptr)
+         {
+            bHandled = m_spWindowManager->OnMouseButtonEvent(evt.button.state == SDL_PRESSED,
+               static_cast<T_enMouseButtonType>(evt.button.button), evt.button.x, evt.button.y);
+         }
+
+         if (!bHandled)
+         {
+            m_spScene->OnMouseButtonEvent(evt.button.state == SDL_PRESSED,
+               static_cast<T_enMouseButtonType>(evt.button.button), evt.button.x, evt.button.y);
+         }
+      }
       break;
 
    case SDL_MOUSEWHEEL:
@@ -127,24 +141,6 @@ void GameClientBase::OnEvent(SDL_Event& evt)
          m_spWindowManager->OnMouseMotionEvent(evt.motion.x, evt.motion.y);
 
       m_spScene->OnMouseMotionEvent(evt.motion.x, evt.motion.y, evt.motion.xrel, evt.motion.yrel);
-      break;
-
-   case SDL_MOUSEBUTTONUP:
-      {
-         bool bHandled = false;
-
-         if (m_spWindowManager != nullptr)
-         {
-            bHandled = m_spWindowManager->OnMouseButtonEvent(evt.button.state == SDL_PRESSED,
-               static_cast<T_enMouseButtonType>(evt.button.button), evt.button.x, evt.button.y);
-         }
-
-         if (!bHandled)
-         {
-            m_spScene->OnMouseButtonEvent(evt.button.state == SDL_PRESSED,
-               static_cast<T_enMouseButtonType>(evt.button.button), evt.button.x, evt.button.y);
-         }
-      }
       break;
 
    case SDL_KEYDOWN:
