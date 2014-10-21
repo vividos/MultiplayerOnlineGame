@@ -120,6 +120,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameClient", "GameClient\Ga
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Database", "Database\Database.vcxproj", "{F03F428A-096F-47AE-82E1-565E6B7CFD49}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModelViewer", "ModelViewer\ModelViewer.vcxproj", "{39B04F05-65D4-49C2-8E8B-75A570FD667D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -250,6 +252,10 @@ Global
 		{F03F428A-096F-47AE-82E1-565E6B7CFD49}.Debug|Win32.Build.0 = Debug|Win32
 		{F03F428A-096F-47AE-82E1-565E6B7CFD49}.Release|Win32.ActiveCfg = Release|Win32
 		{F03F428A-096F-47AE-82E1-565E6B7CFD49}.Release|Win32.Build.0 = Release|Win32
+		{39B04F05-65D4-49C2-8E8B-75A570FD667D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{39B04F05-65D4-49C2-8E8B-75A570FD667D}.Debug|Win32.Build.0 = Debug|Win32
+		{39B04F05-65D4-49C2-8E8B-75A570FD667D}.Release|Win32.ActiveCfg = Release|Win32
+		{39B04F05-65D4-49C2-8E8B-75A570FD667D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

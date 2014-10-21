@@ -7,6 +7,7 @@
 #pragma once
 
 // includes
+#include "Model3DCommon.hpp"
 #include "IModelDisplayState.hpp"
 
 namespace MilkShape3D
@@ -17,7 +18,7 @@ namespace WarriorsAndCommoners
 {
 
 /// animation data for Warriors & Commoners model pack
-class AnimationData: public boost::noncopyable
+class MODEL3D_DECLSPEC AnimationData : public boost::noncopyable
 {
 public:
    /// returns all available animation names

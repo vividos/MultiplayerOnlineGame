@@ -1,0 +1,52 @@
+//
+// MultiplayerOnlineGame - multiplayer game project
+// Copyright (C) 2008-2014 Michael Fink
+//
+// ModelViewerPanel.json - UI for ModelViewer screen
+//
+{
+   "mainPanel": {
+      "Type": "Panel",
+      "Pos": "10,450",
+      "Size": "780,140",
+      "ShowBackground": "true",
+      "BackgroundColor": "#404040c0",
+      "Children": {
+         "static1": {
+            "Type": "TextField",
+            "Pos": "10,10",
+            "Size": "160,30",
+            "Text": "Animation",
+            "Color": "#ffffff"
+         },
+         "animationName": {
+            "Type": "TextField",
+            "Pos": "10,40",
+            "Size": "160,40",
+            "Text": "",
+            "Color": "#1fffff"
+         },
+         "btnPrevAnim": {
+            "Type": "Button",
+            "Pos": "10,90",
+            "Size": "80,35",
+            "Text": "< Prev"
+         },
+         "btnNextAnim": {
+            "Type": "Button",
+            "Pos": "100,90",
+            "Size": "80,35",
+            "Text": "Next >"
+         },
+
+         "static2": {
+            "Type": "TextField",
+            "Pos": "200,10",
+            "Size": "160,30",
+            "Text": "Model",
+            "Color": "#ffffff"
+         }
+
+      }
+   }
+}
