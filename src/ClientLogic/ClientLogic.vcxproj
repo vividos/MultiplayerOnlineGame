@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\RenderEngine;..\UserInterface;..\SRPxint;..\Terrain;..\Audio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\RenderEngine;..\UserInterface;..\SRPxint;..\Terrain;..\Audio;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CLIENTLOGIC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
@@ -57,13 +57,16 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\RenderEngine;..\UserInterface;..\SRPxint;..\Audio;..\Terrain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\RenderEngine;..\UserInterface;..\SRPxint;..\Audio;..\Terrain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;CLIENTLOGIC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
     <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CharGenerator\Controller.cpp" />
+    <ClCompile Include="CharGenerator\View.cpp" />
+    <ClCompile Include="CharGenerator\ViewModel.cpp" />
     <ClCompile Include="DefaultActionKeyDefs.cpp" />
     <ClCompile Include="GameClientBase.cpp" />
     <ClCompile Include="KeyboardActionManager.cpp" />
@@ -80,6 +83,9 @@
     <ClCompile Include="UserInterfaceAudioManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharGenerator\Controller.hpp" />
+    <ClInclude Include="CharGenerator\View.hpp" />
+    <ClInclude Include="CharGenerator\ViewModel.hpp" />
     <ClInclude Include="ClientLogic.hpp" />
     <ClInclude Include="DefaultActionKeyDefs.hpp" />
     <ClInclude Include="FrameCounter.hpp" />

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="CharGenerator Files">
+      <UniqueIdentifier>{a5146893-1a4d-495e-bfc6-e43f96eb3dc4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -47,6 +50,15 @@
     </ClCompile>
     <ClCompile Include="LoadingScene.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharGenerator\Controller.cpp">
+      <Filter>CharGenerator Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharGenerator\ViewModel.cpp">
+      <Filter>CharGenerator Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharGenerator\View.cpp">
+      <Filter>CharGenerator Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +115,15 @@
     </ClInclude>
     <ClInclude Include="PreloadManager.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CharGenerator\Controller.hpp">
+      <Filter>CharGenerator Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CharGenerator\ViewModel.hpp">
+      <Filter>CharGenerator Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CharGenerator\View.hpp">
+      <Filter>CharGenerator Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
