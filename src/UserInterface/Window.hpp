@@ -81,9 +81,10 @@ public:
    }
 
    /// destroys window
-   void Destroy()
+   virtual void Destroy()
    {
       ATLASSERT(Parent() != NULL);
+      Observable::UnregisterAllHandler();
       Parent()->UnregisterChild(shared_from_this());
    }
 

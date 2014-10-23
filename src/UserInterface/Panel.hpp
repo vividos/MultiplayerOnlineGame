@@ -61,8 +61,31 @@ public:
    virtual bool OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned int x, unsigned int y) override;
    virtual void OnMouseMotionEvent(unsigned int x, unsigned int y) override;
 
+   /// called to destroy panel
+   virtual void Destroy() override
+   {
+      // this does't really remove the children from the panel, since the panel could be
+      // re-shown by calling Create().
+
+      // unregister all handler of all children windows
+      for (size_t i = 0, iMax = m_vecAllChildWindows.size(); i < iMax; i++)
+         m_vecAllChildWindows[i]->UnregisterAllHandler();
+
+      Window::Destroy();
+   }
+
    /// finds window by name, including child windows
    WindowPtr FindByName(LPCTSTR pszWindowName);
+
+   /// unregisters an event of a child by given event id
+   bool Un(T_RegisteredEventId id)
+   {
+      for (size_t i = 0, iMax = m_vecAllChildWindows.size(); i < iMax; i++)
+         if (m_vecAllChildWindows[i]->Un(id))
+            return true;
+
+      return false;
+   }
 
 private:
    /// all child windows (in order)

@@ -110,11 +110,37 @@ public:
       // call all event handler
       const std::map<T_RegisteredEventId, T_fnEventHandler>& mapAllHandler = m_mapAllHandler.find(cszEventName)->second;
 
-      std::map<T_RegisteredEventId, T_fnEventHandler>::const_iterator iter = mapAllHandler.begin(),
-         stop = mapAllHandler.end();
+      auto iter = mapAllHandler.begin(), stop = mapAllHandler.end();
 
-      for (; iter != stop; ++iter)
-         iter->second();
+      for (; iter != stop; )
+      {
+         // advance iterator in case the handler unregisters itself
+         auto currentIter = iter++;
+
+         currentIter->second();
+
+         // check if event handler removed all handler
+         if (m_mapAllHandler.empty() || mapAllHandler.empty())
+            break;
+      }
+   }
+
+   /// unregisters all handler for a given event
+   void UnregisterHandler(const CString& cszEventName)
+   {
+      Init();
+      ATLASSERT(IsAvailEvent(cszEventName));
+
+      if (m_mapAllHandler.find(cszEventName) == m_mapAllHandler.end())
+         return; // no handler registered
+
+      m_mapAllHandler.find(cszEventName)->second.clear();
+   }
+
+   /// unregisters all handler for all events
+   void UnregisterAllHandler()
+   {
+      m_mapAllHandler.clear();
    }
 
 private:
