@@ -16,6 +16,7 @@ namespace Audio
 class IAudioManager;
 }
 class IWindowManager;
+class IFileSystem;
 
 /// manages audio for client
 class CLIENTLOGIC_DECLSPEC UserInterfaceAudioManager: public boost::noncopyable
@@ -27,7 +28,7 @@ public:
    ~UserInterfaceAudioManager() throw() {}
 
    /// connects window manager to audio manager
-   void Connect(IWindowManager& windowManager);
+   void Connect(IWindowManager& windowManager, IFileSystem& fileSystem);
 
    // called on user interface audio event
    void OnUserInterfaceAudioEvent(T_enUserInterfaceAudioEvents enAudioEvent) throw();

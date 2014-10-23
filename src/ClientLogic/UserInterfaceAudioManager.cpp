@@ -10,6 +10,7 @@
 #include "UserInterfaceAudioManager.hpp"
 #include "IAudioManager.hpp"
 #include "IWindowManager.hpp"
+#include "IFileSystem.hpp"
 #include "AudioSoundType.hpp"
 
 UserInterfaceAudioManager::UserInterfaceAudioManager(Audio::IAudioManager& audioManager)
@@ -18,10 +19,17 @@ UserInterfaceAudioManager::UserInterfaceAudioManager(Audio::IAudioManager& audio
    LoadUserInterfaceSounds();
 }
 
-void UserInterfaceAudioManager::Connect(IWindowManager& windowManager)
+void UserInterfaceAudioManager::Connect(IWindowManager& windowManager, IFileSystem& fileSystem)
 {
    windowManager.SetAudioEventHandler(
       std::bind(&UserInterfaceAudioManager::OnUserInterfaceAudioEvent, this, std::placeholders::_1));
+
+   m_audioManager.SetFileStreamResolver(
+      std::bind(&IFileSystem::OpenFile,
+      std::ref(fileSystem),
+      std::placeholders::_1,
+      true));
+
 }
 
 void UserInterfaceAudioManager::OnUserInterfaceAudioEvent(T_enUserInterfaceAudioEvents enAudioEvent) throw()
