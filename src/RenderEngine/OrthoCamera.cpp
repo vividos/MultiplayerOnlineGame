@@ -19,6 +19,11 @@ OrthoCamera::OrthoCamera(double dMinX, double dMaxX, double dMinY, double dMaxY)
 
 void OrthoCamera::Use()
 {
-   glOrtho(m_dMinX, m_dMaxX, m_dMaxY, m_dMinY, 1.0, 1000.0);
-   glTranslated(0.0, 0.0, -1.1);
+   glMatrixMode(GL_PROJECTION);
+   glLoadIdentity();
+
+   glOrtho(m_dMinX, m_dMaxX, m_dMaxY, m_dMinY, -1.0, 1.0);
+   //glTranslated(0.0, 0.0, -1.1);
+
+   glMatrixMode(GL_MODELVIEW);
 }
