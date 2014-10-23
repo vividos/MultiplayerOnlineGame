@@ -15,6 +15,7 @@
 namespace TextFieldAttr
 {
    static TCHAR Text[] = _T("Text");   ///< text
+   static TCHAR BackColor[] = _T("BackColor"); ///< background color
    static TCHAR Color[] = _T("Color"); ///< text color
 };
 
@@ -30,6 +31,7 @@ public:
    BEGIN_ATTR_MAP()
       INHERIT_ATTR_MAP(Control)
       ATTR_ENTRY(TextFieldAttr::Text, _T(""))
+      ATTR_ENTRY(TextFieldAttr::BackColor, _T("#00000000"))
       ATTR_ENTRY(TextFieldAttr::Color, _T("#FFFFFF"))
    END_ATTR_MAP()
 

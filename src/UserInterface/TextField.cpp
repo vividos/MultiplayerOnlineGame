@@ -24,6 +24,7 @@ void TextField::OnAttributeChanged(const CString& cszAttributeName) throw()
       return;
 
    if (cszAttributeName == TextFieldAttr::Text ||
+       cszAttributeName == TextFieldAttr::BackColor ||
        cszAttributeName == TextFieldAttr::Color)
       UpdateTexture();
 }
@@ -35,6 +36,7 @@ void TextField::UpdateTexture()
    Size s = GetSize();
    CString cszText = GetAttr(TextFieldAttr::Text);
    Color cText = GetAttrAsColor(TextFieldAttr::Color);
+   Color cBack = GetAttrAsColor(TextFieldAttr::BackColor);
 
-   m_text.UpdateText(font, cszText, s, TextTexture::textAlignLeft, cText, Color::Transparent());
+   m_text.UpdateText(font, cszText, s, TextTexture::textAlignLeft, cText, cBack);
 }
