@@ -67,6 +67,12 @@ public:
    /// starts tracking mouse and calls function when leaving rect
    virtual void TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) throw() = 0;
 
+   /// starts tracking mouse until mouse button is up, regardless if mouse leaves window
+   virtual void TrackMouseUp(WindowPtr spWindow, int iMouseButton) = 0;
+
+   /// returns if given window is tracked by call to TrackMouseUp()
+   virtual bool IsTrackedMouseUp(WindowPtr spWindow, int iMouseButton) = 0;
+
    /// plays back audio event
    virtual void PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) throw() = 0;
 };

@@ -8,6 +8,7 @@
 // includes
 #include "StdAfx.h"
 #include "Panel.hpp"
+#include "IWindowManager.hpp"
 
 void Panel::Render(Rect& rectArea) throw()
 {
@@ -63,17 +64,17 @@ bool Panel::OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned int x, 
       Rect rc = wnd.GetRect();
       rc.Add(GetPos()); // add parent's position
 
-      if (rc.IsInside(pt))
+      if (rc.IsInside(pt) || GetWindowManager().IsTrackedMouseUp(spWnd, iMouseButton))
       {
          bHandled = wnd.OnMouseButtonEvent(bPressed, iMouseButton, x, y);
          break;
       }
    }
 
-   // only signal "handled" state when panel background is shown
    if (bHandled)
       return true;
 
+   // only signal "handled" state when panel background is shown
    return GetAttrAsBool(PanelAttr::ShowBackground) ? true : bHandled;
 }
 

@@ -38,6 +38,9 @@ private:
    /// maps coordinates to window coordinates
    void MapCoords(unsigned int& x, unsigned int& y);
 
+   /// clear "mouse up" tracked windows
+   void ClearTrackMouseUpWindows(int iMouseButton);
+
    // methods from IWindowManager
 
    /// sets audio event handler
@@ -72,6 +75,12 @@ private:
    /// starts tracking mouse and calls function when leaving rect
    virtual void TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) throw() override;
 
+   /// starts tracking mouse until mouse button is up, regardless if mouse leaves window
+   virtual void TrackMouseUp(WindowPtr spWindow, int iMouseButton) override;
+
+   /// returns if given window is tracked by call to TrackMouseUp()
+   virtual bool IsTrackedMouseUp(WindowPtr spWindow, int iMouseButton) override;
+
    /// plays back audio event
    virtual void PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) throw() override;
 
@@ -93,6 +102,12 @@ private:
 
    /// all entries for tracking mouse leave events
    std::list<T_TrackMouseLeaveEntry> m_listAllTrackMouseLeaveEntries;
+
+   /// type for mapping from mouse button to set of windows to track
+   typedef std::map<int, std::set<WindowPtr>> T_MapTrackMouseUpWindows;
+
+   /// mapping from mouse button to set of windows to track until mouse up
+   T_MapTrackMouseUpWindows m_mapTrackMouseUpWindows;
 
    /// callback for playing user interface audio events
    T_fnOnUserInterfaceAudioEvent m_fnOnUserInterfaceAudioEvent;

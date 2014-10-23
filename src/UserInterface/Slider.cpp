@@ -69,6 +69,9 @@ bool Slider::OnMouseButtonEvent(bool bPressed, int /*iMouseButton*/, unsigned in
       unsigned int uiMid = DividerPoint();
 
       m_iDragOffset = x - int(rect.Left() + uiMid);
+
+      // start mouse motion tracking until mouse button is up
+      GetWindowManager().TrackMouseUp(shared_from_this(), iMouseButton);
    }
    else
       m_bMouseButtonDown = false;

@@ -73,6 +73,9 @@ WindowManager::WindowManager(unsigned int uiWidth, unsigned int uiHeight)
    // set attributes
    w[WindowAttr::Pos] = _T("0,0");
    w.SetAttr(WindowAttr::Size, Size(uiWidth, uiHeight));
+
+   m_mapTrackMouseUpWindows[SDL_BUTTON_LEFT] = std::set<WindowPtr>();
+   m_mapTrackMouseUpWindows[SDL_BUTTON_RIGHT] = std::set<WindowPtr>();
 }
 
 CString WindowManager::LoadJson(IFileSystem& fileSystem, const CString& cszRelativeFilename)
@@ -110,6 +113,15 @@ void WindowManager::MapCoords(unsigned int& x, unsigned int& y)
    // translate to window coords
    x = static_cast<unsigned int>((double(windowSize.Width()) / m_screenSize.Width()) * x);
    y = static_cast<unsigned int>((double(windowSize.Height()) / m_screenSize.Height()) * y);
+}
+
+void WindowManager::ClearTrackMouseUpWindows(int iMouseButton)
+{
+   if (iMouseButton != SDL_BUTTON_LEFT &&
+       iMouseButton != SDL_BUTTON_RIGHT)
+      return;
+
+   m_mapTrackMouseUpWindows[iMouseButton].clear();
 }
 
 void WindowManager::PreRender()
@@ -164,7 +176,12 @@ bool WindowManager::OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned
    MapCoords(x, y);
 
    // hand over to root window
-   return m_spRootWindow->OnMouseButtonEvent(bPressed, iMouseButton, x, y);
+   bool bRet = m_spRootWindow->OnMouseButtonEvent(bPressed, iMouseButton, x, y);
+
+   if (!bPressed)
+      ClearTrackMouseUpWindows(iMouseButton);
+
+   return bRet;
 }
 
 void WindowManager::OnMouseMotionEvent(unsigned int x, unsigned int y)
@@ -246,6 +263,25 @@ void WindowManager::SetFocus(WindowPtr spFocusedWnd) throw()
 void WindowManager::TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) throw()
 {
    m_listAllTrackMouseLeaveEntries.push_back(std::make_pair(rect, fnCallback));
+}
+
+void WindowManager::TrackMouseUp(WindowPtr spWindow, int iMouseButton)
+{
+   ATLASSERT(iMouseButton == SDL_BUTTON_LEFT ||
+      iMouseButton == SDL_BUTTON_RIGHT);
+
+   m_mapTrackMouseUpWindows[iMouseButton].insert(spWindow);
+}
+
+bool WindowManager::IsTrackedMouseUp(WindowPtr spWindow, int iMouseButton)
+{
+   if (iMouseButton != SDL_BUTTON_LEFT &&
+       iMouseButton != SDL_BUTTON_RIGHT)
+      return false;
+
+   auto setWindows = m_mapTrackMouseUpWindows[iMouseButton];
+
+   return setWindows.find(spWindow) != setWindows.end();
 }
 
 void WindowManager::PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) throw()
