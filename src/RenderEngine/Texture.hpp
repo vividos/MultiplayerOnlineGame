@@ -36,6 +36,9 @@ public:
    /// uploads bitmap to texture
    void Upload(const Bitmap& bmp, bool bGenerateMipmap = false);
 
+   /// uploads empty bitmap
+   void UploadEmpty(unsigned int xres, unsigned int yres);
+
    // get functions
 
    /// returns if texture object is valid

@@ -79,3 +79,12 @@ void Texture::Upload(const Bitmap& bmp, bool bGenerateMipmap)
       m_uiSize = bmp.XRes() * bmp.YRes() * 4;
    }
 }
+
+void Texture::UploadEmpty(unsigned int xres, unsigned int yres)
+{
+   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, xres, yres, 0,
+      GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+}
