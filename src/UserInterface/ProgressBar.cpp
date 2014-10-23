@@ -13,6 +13,8 @@ void ProgressBar::Render(Rect& rectArea) throw()
 {
    int iMid = int(rectArea.Left() + DividerPoint());
 
+   glDisable(GL_TEXTURE_2D);
+
    glBegin(GL_QUADS);
       // render background quad
       glColor4ubv(m_backColor.m_color);

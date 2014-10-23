@@ -14,6 +14,7 @@
 void TextTexture::Render(Rect rc)
 {
    // draw text
+   glEnable(GL_TEXTURE_2D);
    m_tex.Bind();
 
    double u = 1.0;
@@ -26,6 +27,8 @@ void TextTexture::Render(Rect rc)
       glTexCoord2d(  u,   v); glVertex2i(rc.Right(), rc.Bottom());
       glTexCoord2d(  u, 0.0); glVertex2i(rc.Right(), rc.Top());
    glEnd();
+
+   glDisable(GL_TEXTURE_2D);
 }
 
 void TextTexture::UpdateText(Font& font,
