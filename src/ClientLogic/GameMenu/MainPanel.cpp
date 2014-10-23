@@ -58,6 +58,8 @@ void MainPanel::Show(IWindowManager& windowManager)
    spBtnCredits->On(ButtonEvent::Clicked, std::bind(&MainPanel::OnButtonPressed, this, buttonCredits));
    spBtnExit->On(ButtonEvent::Clicked, std::bind(&MainPanel::OnButtonPressed, this, buttonExit));
    spBtnReturn->On(ButtonEvent::Clicked, std::bind(&MainPanel::OnButtonPressed, this, buttonReturn));
+
+   windowManager.PlayAudioEvent(uiDialogOpen);
 }
 
 void MainPanel::Hide()
@@ -69,6 +71,8 @@ void MainPanel::Hide()
 
    if (m_spSubPanel != nullptr)
       m_spSubPanel->Hide();
+
+   m_windowManager.PlayAudioEvent(uiDialogClose);
 }
 
 void MainPanel::OnButtonPressed(T_enButtonType enButtonType)

@@ -13,15 +13,9 @@
 enum T_enUserInterfaceAudioEvents
 {
    uiButtonPress = 0,   ///< button is pressed
-   uiButtonLeave,       ///< button is depressed and more than 1 second has passed
    uiItemSelect,        ///< item, checkbox is being selected
-   uiDialogOpenModal,      ///< modal dialog opened
-   uiDialogOpenNonmodal,   ///< modal dialog closed
-   uiDialogCloseModal,     ///< nonmodal dialog opened
-   uiDialogCloseNonmodal,  ///< nonmodal dialog closed
-   uiTooltipOpened,        ///< a tooltip has been opened using a button
-   uiScrollOpen,        ///< a dialog with a scroll is opened (quest scroll, map, ...)
-   uiScrollClosed,      ///< a dialog with a scroll is closed
+   uiDialogOpen,        ///< dialog opened
+   uiDialogClose,       ///< dialog closed
 };
 
 /// typedef of a function that signals audio events for UI

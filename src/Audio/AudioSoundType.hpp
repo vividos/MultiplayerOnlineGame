@@ -22,10 +22,10 @@ static const TCHAR ButtonPress[] = _T("sound.ui.buttonpressed");
 static const TCHAR ItemSelected[] = _T("sound.ui.itemselected");
 
 /// open dialog sound
-static const TCHAR Open[] = _T("sound.ui.opendialog");
+static const TCHAR DialogOpen[] = _T("sound.ui.opendialog");
 
 /// close dialog sound
-static const TCHAR Close[] = _T("sound.ui.closedialog");
+static const TCHAR DialogClose[] = _T("sound.ui.closedialog");
 
 } // namespace UI
 

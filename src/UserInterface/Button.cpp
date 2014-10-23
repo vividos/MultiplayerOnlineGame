@@ -127,11 +127,7 @@ bool Button::OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned int /*
       }
 
       if (!bPressed)
-      {
          FireEvent(ButtonEvent::Clicked);
-
-         GetWindowManager().PlayAudioEvent(uiButtonLeave);
-      }
    }
    return true;
 }
