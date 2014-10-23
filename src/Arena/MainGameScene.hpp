@@ -14,6 +14,11 @@
 // forward references
 class PreloadManager;
 
+namespace GameMenu
+{
+   class MainPanel;
+}
+
 namespace Arena
 {
 class GameClient;
@@ -34,11 +39,27 @@ public:
    void Prepare(PreloadManager& preloadManager);
 
 private:
+   /// called when the game menu action key is pressed
+   void OnActionKeyGameMenu();
+
+   /// called when "exit" button is pressed on game menu
+   void OnGameMenuExit();
+
+private:
    /// view model
    Arena::ViewModel m_viewModel;
 
    /// music director
    Audio::MusicDirector m_musicDirector;
+
+   /// ref to game client
+   GameClient& m_gameClient;
+
+   /// ref to game object
+   Game& m_game;
+
+   /// game menu
+   std::shared_ptr<GameMenu::MainPanel> m_spGameMenu;
 };
 
 } // namespace Arena

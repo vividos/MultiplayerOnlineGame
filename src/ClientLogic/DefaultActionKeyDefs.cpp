@@ -15,6 +15,7 @@ void DefaultActionKeyDefs::Register(KeyboardActionManager& mgr)
    // register some keys
    mgr.RegisterActionKey(_T("strg+f11"), KeyboardActionManager::actionToggleFullscreen);
    mgr.RegisterActionKey(_T("alt+x"), KeyboardActionManager::actionQuitApplication);
+   mgr.RegisterActionKey(_T("esc"), KeyboardActionManager::actionGameMenu);
    mgr.RegisterActionKey(_T("1"), KeyboardActionManager::actionAction1);
    mgr.RegisterActionKey(_T("2"), KeyboardActionManager::actionAction2);
    mgr.RegisterActionKey(_T("tab"), KeyboardActionManager::actionSelectNext);

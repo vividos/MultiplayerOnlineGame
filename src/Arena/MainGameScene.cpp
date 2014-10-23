@@ -22,13 +22,16 @@
 #include "View.hpp"
 #include "RenderOptions.hpp"
 #include "PreloadManager.hpp"
+#include "GameMenu/MainPanel.hpp"
 
 using namespace Arena;
 
 MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient, Game& game) throw()
 :Scene(sceneManager),
  m_viewModel(game.GetModel()),
- m_musicDirector(Audio::IAudioManager::Get(), game.GetFileSystem())
+ m_musicDirector(Audio::IAudioManager::Get(), game.GetFileSystem()),
+ m_gameClient(gameClient),
+ m_game(game)
 {
    std::shared_ptr<View> spView(new View(
       gameClient.GetKeyboardActionManager(),
@@ -49,8 +52,14 @@ MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient
    m_spController.reset(new OverviewController(gameClient.GetKeyboardActionManager(), spView->GetCamera()));
 #endif
 
+   // key bindings
    DefaultActionKeyDefs::Register(
       gameClient.GetKeyboardActionManager());
+
+   gameClient.GetKeyboardActionBindings().RegisterActionHandler(
+      KeyboardActionManager::actionGameMenu,
+      true, // at key down
+      std::bind(&MainGameScene::OnActionKeyGameMenu, this));
 
    //RenderOptions& options = gameClient.GetRenderEngine().GetRenderOptions();
    //options.Set(RenderOptions::optionSkyMeshLines, true);
@@ -58,4 +67,24 @@ MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient
 
 void MainGameScene::Prepare(PreloadManager& /*preloadManager*/)
 {
+}
+
+void MainGameScene::OnActionKeyGameMenu()
+{
+   if (m_spGameMenu == nullptr)
+   {
+      m_spGameMenu.reset(new GameMenu::MainPanel(m_gameClient.GetWindowManager(), m_game.GetFileSystem()));
+
+      m_spGameMenu->RegisterExitClickedHandler(
+         std::bind(&MainGameScene::OnGameMenuExit, this));
+   }
+
+   m_spGameMenu->Show(m_gameClient.GetWindowManager());
+}
+
+void MainGameScene::OnGameMenuExit()
+{
+   // exit by setting null scene
+   ISceneManager& sceneManager = m_gameClient;
+   sceneManager.ChangeScene(nullptr);
 }

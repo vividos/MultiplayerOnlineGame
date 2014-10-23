@@ -31,6 +31,7 @@ public:
       // misc. actions
       actionQuitApplication,  ///< quits application
       actionToggleFullscreen, ///< toggles fullscreen
+      actionGameMenu,         ///< shows/hides game menu
       actionDebugger,         ///< starts debugger
 
       // moving the player character
