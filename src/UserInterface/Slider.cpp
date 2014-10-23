@@ -8,59 +8,68 @@
 // includes
 #include "StdAfx.h"
 #include "Slider.hpp"
+#include "IWindowManager.hpp"
+#include <SDL.h>
 
 /// percent of height that consists of the bar
 const double c_dBarHeightPercent = 0.3;
 
 /// width of slider
-const unsigned int c_uiSliderWidth = 30;
+const unsigned int c_uiSliderWidth = 25;
 
 /// square root of 2, from Wolfram Alpha
 const double c_dSquareRoot2 = 1.4142135623730950488016887242096980785696718753769480;
 
 void Slider::Render(Rect& rectArea) throw()
 {
-   // render progress bar part
+   RenderProgressBar(rectArea);
+   RenderSlider(rectArea);
+}
+
+void Slider::RenderProgressBar(Rect& rectArea) throw()
+{
+   Rect rectBar(rectArea);
+   rectBar.Top(rectBar.Bottom() - int(rectBar.Height() * c_dBarHeightPercent));
+
+   BaseClass::Render(rectBar);
+}
+
+void Slider::RenderSlider(Rect& rectArea) throw()
+{
+   int iMid = rectArea.Left() + int(DividerPoint());
+
+   double dAspect = 1.33333;
+
+   unsigned int uiRemainingHeight = unsigned(rectArea.Height() * (1.0 - c_dBarHeightPercent));
+   unsigned int y = static_cast<unsigned int>((c_uiSliderWidth * dAspect / 2.0) / c_dSquareRoot2);
+   unsigned int x = (uiRemainingHeight < y) ? 0 : (uiRemainingHeight - y);
+
+   for (int i = 0; i<2; i++)
    {
-      Rect rectBar(rectArea);
-      rectBar.Top(rectBar.Bottom() - int(rectBar.Height() * c_dBarHeightPercent));
+      glBegin(i == 0 ? GL_POLYGON : GL_LINE_LOOP);
 
-      BaseClass::Render(rectBar);
-   }
+      if (i == 0)
+         glColor4ubv(m_sliderColor.m_color);
+      else
+         glColor3ub(0, 0, 0);
 
-   // render slider
-   {
-      int iMid = rectArea.Left() + int(DividerPoint());
-
-      double dAspect = 1.33333;
-
-      unsigned int uiRemainingHeight = unsigned(rectArea.Height() * (1.0 - c_dBarHeightPercent));
-      unsigned int y = static_cast<unsigned int>((c_uiSliderWidth * dAspect/2.0 ) / c_dSquareRoot2);
-      unsigned int x = (uiRemainingHeight < y) ? 0 : (uiRemainingHeight - y);
-
-      for (int i=0; i<2; i++)
-      {
-         glBegin(i == 0 ? GL_POLYGON : GL_LINE_LOOP);
-
-            if (i == 0)
-               glColor4ubv(m_sliderColor.m_color);
-            else
-               glColor3ub(0, 0, 0);
-
-            glVertex2i(iMid-c_uiSliderWidth/2, rectArea.Top());
-            glVertex2i(iMid-c_uiSliderWidth/2, rectArea.Top()+x);
-            glVertex2i(iMid,                   rectArea.Top()+uiRemainingHeight);
-            glVertex2i(iMid+c_uiSliderWidth/2, rectArea.Top()+x);
-            glVertex2i(iMid+c_uiSliderWidth/2, rectArea.Top());
-         glEnd();
-      }
+      glVertex2i(iMid - c_uiSliderWidth / 2, rectArea.Top());
+      glVertex2i(iMid - c_uiSliderWidth / 2, rectArea.Top() + x);
+      glVertex2i(iMid, rectArea.Top() + uiRemainingHeight);
+      glVertex2i(iMid + c_uiSliderWidth / 2, rectArea.Top() + x);
+      glVertex2i(iMid + c_uiSliderWidth / 2, rectArea.Top());
+      glEnd();
    }
 }
 
-bool Slider::OnMouseButtonEvent(bool bPressed, int /*iMouseButton*/, unsigned int x, unsigned int y)
+bool Slider::OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned int x, unsigned int y)
 {
    if (bPressed && IsInsideSliderArea(Point(x, y)))
    {
+      // set focus to ourselves
+      GetWindowManager().SetFocus(shared_from_this());
+      m_bFocused = true;
+
       // start sliding
       m_bMouseButtonDown = true;
 
@@ -96,11 +105,35 @@ void Slider::OnMouseMotionEvent(unsigned int x, unsigned int /*y*/)
    }
 }
 
-bool Slider::OnKeyboardEvent(bool /*bKeyDown*/, unsigned int /*sym*/, unsigned int /*mod*/)
+bool Slider::OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int /*mod*/)
 {
-   // TODO
+   if (!m_bFocused || !bKeyDown)
+      return false;
+
    // check left and right keys
-   return false;
+   bool bLeftKey = sym == SDLK_LEFT || sym == SDLK_UP || sym == SDLK_PAGEUP;
+   bool bRightKey = sym == SDLK_RIGHT || sym == SDLK_DOWN || sym == SDLK_PAGEDOWN;
+
+   if (!bLeftKey && !bRightKey)
+      return false;
+
+   unsigned int uiNewSliderPos = BaseClass::Current();
+
+   if (bLeftKey && uiNewSliderPos > 0)
+      uiNewSliderPos--;
+   else
+      if (bRightKey && uiNewSliderPos + 1 <= BaseClass::Max())
+         uiNewSliderPos++;
+
+   if (BaseClass::Current() != uiNewSliderPos)
+   {
+      // current pos moved
+      BaseClass::Current(uiNewSliderPos);
+
+      FireEvent(SliderEvent::Moved);
+   }
+
+   return true;
 }
 
 void Slider::OnFocusChanged(bool bGotFocus)

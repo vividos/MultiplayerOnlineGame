@@ -59,6 +59,12 @@ public:
    virtual void OnAttributeChanged(const CString& cszAttributeName) throw() override;
 
 private:
+   /// renders progress bar part of slider
+   void RenderProgressBar(Rect& rectArea) throw();
+
+   /// renders slider part
+   void RenderSlider(Rect& rectArea) throw();
+
    /// determines if point is in slider area
    bool IsInsideSliderArea(Point pt) const throw();
 
