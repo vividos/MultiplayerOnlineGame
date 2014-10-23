@@ -1,16 +1,33 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2013 Michael Fink
+// Copyright (C) 2008-2014 Michael Fink
 //
 // LoadingScreen.json - UI for Loading screen
 //
 {
-   "progress": {
-      "Type": "ProgressBar",
-      "Pos": "10,100",
-      "Size": "580,40",
-      "Current": "0",
-      "Max": "100",
-      "Color": "#ffffff"
+   "loadingScreenPanel": {
+      "Type": "Panel",
+      "Pos": "0,240",
+      "Size": "800,120",
+      "ShowBackground": "true",
+      "BackgroundColor": "#404040c0",
+      "Children": {
+         "static1": {
+            "Type": "TextField",
+            "Pos": "20,20",
+            "Size": "160,30",
+            "Text": "Loading...",
+            "Color": "#ffffff"
+         },
+         "progress": {
+            "Type": "ProgressBar",
+            "Pos": "10,80",
+            "Size": "780,4",
+            "Current": "0",
+            "Max": "100",
+            "Color": "#ffffff",
+            "BackColor": "#7f7f7f"
+         }
+      }
    }
 }

@@ -43,6 +43,9 @@ private:
    /// sets up UI
    void SetupUI(IFileSystem& fileSystem);
 
+   /// async finish queue handler
+   void AsyncFinishQueue(T_fnFinishedLoading fnFinishedLoading);
+
    // virtual methods from Scene
 
    /// is called before rendering a scene
