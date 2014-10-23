@@ -129,4 +129,30 @@ namespace OpenGL
       }
    };
 
+   /// class to restore viewport in dtor
+   class ViewportRestorer
+   {
+   public:
+      /// ctor; stores current viewport
+      ViewportRestorer() throw()
+      {
+         glGetIntegerv(GL_VIEWPORT, &m_aiViewportInfo.front());
+         glTraceError(_T("glGetIntegerv"));
+      }
+      /// dtor; restores viewport
+      ~ViewportRestorer() throw()
+      {
+         glViewport(
+            m_aiViewportInfo[0],
+            m_aiViewportInfo[1],
+            m_aiViewportInfo[2],
+            m_aiViewportInfo[3]);
+         glTraceError(_T("glViewport"));
+      }
+
+   private:
+      /// stored viewport infos
+      std::array<GLint, 4> m_aiViewportInfo;
+   };
+
 } // namespace OpenGL
