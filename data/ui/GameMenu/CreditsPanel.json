@@ -1,0 +1,38 @@
+//
+// MultiplayerOnlineGame - multiplayer game project
+// Copyright (C) 2008-2014 Michael Fink
+//
+// GameMenuVideoPanel.json - UI for game menu; credits panel
+//
+{
+   "panel": {
+      "Type": "Panel",
+      "Pos": "200,150",
+      "Size": "400,300",
+      "ShowBackground": "true",
+      "BackgroundColor": "#404040c0",
+      "Children": {
+         "captionBackground" : {
+            "Type": "Panel",
+            "Pos": "0,0",
+            "Size": "400,40",
+            "ShowBackground": "true",
+            "BackgroundColor": "#ffffff20"
+         },
+         "caption": {
+            "Type": "TextField",
+            "Pos": "10,5",
+            "Size": "380,30",
+            "Text": "Credits",
+            "Color": "#ffffff"
+         },
+         "btnClose": {
+            "Type": "Button",
+            "Pos": "290,250",
+            "Size": "100,40",
+            "Text": "Close"
+         }
+
+      }
+   }
+}

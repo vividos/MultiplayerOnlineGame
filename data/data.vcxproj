@@ -64,7 +64,13 @@ BuildData.exe data.cfg ..\data  $(OutDir)</NMakeReBuildCommandLine>
     <None Include="data.cfg" />
     <None Include="ServerData.cfg" />
     <None Include="sky\clearSky2_norle.tga" />
+    <None Include="ui\GameMenu\AudioPanel.json" />
+    <None Include="ui\GameMenu\ControlsPanel.json" />
+    <None Include="ui\GameMenu\CreditsPanel.json" />
+    <None Include="ui\GameMenu\MainPanel.json" />
+    <None Include="ui\GameMenu\VideoPanel.json" />
     <None Include="ui\LoadingScreen.json" />
+    <None Include="ui\ModelViewerPanel.json" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="audio\music\A Mission.mp3" />

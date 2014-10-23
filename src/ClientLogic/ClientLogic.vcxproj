@@ -69,6 +69,11 @@
     <ClCompile Include="CharGenerator\ViewModel.cpp" />
     <ClCompile Include="DefaultActionKeyDefs.cpp" />
     <ClCompile Include="GameClientBase.cpp" />
+    <ClCompile Include="GameMenu\AudioPanel.cpp" />
+    <ClCompile Include="GameMenu\ControlsPanel.cpp" />
+    <ClCompile Include="GameMenu\CreditsPanel.cpp" />
+    <ClCompile Include="GameMenu\MainPanel.cpp" />
+    <ClCompile Include="GameMenu\VideoPanel.cpp" />
     <ClCompile Include="KeyboardActionManager.cpp" />
     <ClCompile Include="LoadingScene.cpp" />
     <ClCompile Include="MainGameLoop.cpp" />
@@ -90,6 +95,12 @@
     <ClInclude Include="DefaultActionKeyDefs.hpp" />
     <ClInclude Include="FrameCounter.hpp" />
     <ClInclude Include="GameClientBase.hpp" />
+    <ClInclude Include="GameMenu\AudioPanel.hpp" />
+    <ClInclude Include="GameMenu\ControlsPanel.hpp" />
+    <ClInclude Include="GameMenu\CreditsPanel.hpp" />
+    <ClInclude Include="GameMenu\ISubPanel.hpp" />
+    <ClInclude Include="GameMenu\MainPanel.hpp" />
+    <ClInclude Include="GameMenu\VideoPanel.hpp" />
     <ClInclude Include="IPlayerViewModel.hpp" />
     <ClInclude Include="ISceneManager.hpp" />
     <ClInclude Include="IView.hpp" />

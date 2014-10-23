@@ -19,6 +19,9 @@
     <Filter Include="audio\ui">
       <UniqueIdentifier>{94baec7c-31a6-41e9-9cbf-349c830cb5a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ui\GameMenu">
+      <UniqueIdentifier>{6acc282b-48cf-42fe-9ea8-8522bb034d0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="audio\music.json">
@@ -32,6 +35,24 @@
       <Filter>ui</Filter>
     </None>
     <None Include="ServerData.cfg" />
+    <None Include="ui\ModelViewerPanel.json">
+      <Filter>ui</Filter>
+    </None>
+    <None Include="ui\GameMenu\AudioPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ui\GameMenu\ControlsPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ui\GameMenu\CreditsPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ui\GameMenu\MainPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ui\GameMenu\VideoPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Media Include="audio\music\A Mission.mp3">
