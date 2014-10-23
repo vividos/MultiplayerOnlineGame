@@ -137,7 +137,7 @@ namespace OpenGL
       ViewportRestorer() throw()
       {
          glGetIntegerv(GL_VIEWPORT, &m_aiViewportInfo.front());
-         glTraceError(_T("glGetIntegerv"));
+         glTraceError("glGetIntegerv");
       }
       /// dtor; restores viewport
       ~ViewportRestorer() throw()
@@ -147,7 +147,7 @@ namespace OpenGL
             m_aiViewportInfo[1],
             m_aiViewportInfo[2],
             m_aiViewportInfo[3]);
-         glTraceError(_T("glViewport"));
+         glTraceError("glViewport");
       }
 
    private:
