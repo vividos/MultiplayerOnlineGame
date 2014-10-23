@@ -73,6 +73,13 @@ public:
       m_ioService.post(std::bind(&TaskGroup::RunOneTask, this));
    }
 
+   /// sets handler for "task queue empty" event; handler is reset after calling it once
+   void SetTaskQueueEmptyHandler(std::function<void()> fnOnTaskQueueEmpty)
+   {
+      MutexLock<LightweightMutex> lock(m_mtxTaskList);
+      m_fnOnTaskQueueEmpty = fnOnTaskQueueEmpty;
+   }
+
 private:
    /// runs one task
    void RunOneTask()
@@ -93,6 +100,16 @@ private:
 //#endif
 
       fnTask();
+
+      {
+         MutexLock<LightweightMutex> lock(m_mtxTaskList);
+         if (m_deqTaskList.empty() && m_fnOnTaskQueueEmpty != nullptr)
+         {
+            m_fnOnTaskQueueEmpty();
+
+            m_fnOnTaskQueueEmpty = nullptr;
+         }
+      }
    }
 
 private:
@@ -107,4 +124,7 @@ private:
 
    /// io service to run tasks on
    boost::asio::io_service& m_ioService;
+
+   /// handler for task queue empty event
+   std::function<void()> m_fnOnTaskQueueEmpty;
 };

@@ -25,8 +25,7 @@ void PreloadManager::AddBackgroundTask(T_fnBackgroundTask fnTask)
 
 void PreloadManager::FinishQueue(T_fnFinishedPreload fnFinishedPreload)
 {
-   // add last background task
-   AddBackgroundTask(
+   m_taskManager.BackgroundTaskGroup().SetTaskQueueEmptyHandler(
       std::bind(&PreloadManager::AsyncFinishBackgroundQueue, this, fnFinishedPreload));
 }
 
