@@ -33,10 +33,10 @@ FrameBuffer::FrameBuffer() throw()
 
 void FrameBuffer::Init() throw()
 {
-   glGenFramebuffersARB = (PFNGLGENBUFFERSARBPROC)wglGetProcAddress("glGenFramebuffersARB");
-   glBindFramebufferARB = (PFNGLBINDFRAMEBUFFERPROC)wglGetProcAddress("glBindFramebufferARB");
-   glDeleteFramebuffersARB = (PFNGLDELETEFRAMEBUFFERSPROC)wglGetProcAddress("glDeleteFramebuffersARB");
-   glFrameBufferTextureARB = (PFNGLFRAMEBUFFERTEXTUREARBPROC)wglGetProcAddress("glFrameBufferTextureARB");
+   glGenFramebuffersARB = (PFNGLGENBUFFERSARBPROC)wglGetProcAddress("glGenFramebuffers");
+   glBindFramebufferARB = (PFNGLBINDFRAMEBUFFERPROC)wglGetProcAddress("glBindFramebuffer");
+   glDeleteFramebuffersARB = (PFNGLDELETEFRAMEBUFFERSPROC)wglGetProcAddress("glDeleteFramebuffers");
+   glFrameBufferTextureARB = (PFNGLFRAMEBUFFERTEXTUREARBPROC)wglGetProcAddress("glFramebufferTextureARB");
    glDrawBuffersARB = (PFNGLDRAWBUFFERSARBPROC)wglGetProcAddress("glDrawBuffersARB");
-   glFramebufferRenderbufferARB = (PFNGLFRAMEBUFFERRENDERBUFFERPROC)wglGetProcAddress("glFramebufferRenderbufferARB");
+   glFramebufferRenderbufferARB = (PFNGLFRAMEBUFFERRENDERBUFFERPROC)wglGetProcAddress("glFramebufferRenderbuffer");
 }

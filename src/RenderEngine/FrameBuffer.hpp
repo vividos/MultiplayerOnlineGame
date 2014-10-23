@@ -78,13 +78,13 @@ public:
    }
 
    /// sets texture as target for frame buffer rendering
-   void SetTexture(TexturePtr spTexture, GLint iLevel)
+   void SetTexture(TexturePtr spTexture)
    {
       ATLASSERT(m_uiFrameBufferName != 0);
       ATLASSERT(glFrameBufferTextureARB != NULL);
       ATLASSERT(glDrawBuffersARB != NULL);
 
-      glFrameBufferTextureARB(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, spTexture->Id(), iLevel);
+      glFrameBufferTextureARB(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, spTexture->Id(), 0);
       glTraceError("glFrameBufferTextureARB");
 
       GLenum DrawBuffers[1] = { GL_COLOR_ATTACHMENT0 };
