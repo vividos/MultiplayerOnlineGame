@@ -19,6 +19,7 @@
 #include "ModelRenderInstance.hpp"
 #include "SkyRenderManager.hpp"
 #include "TerrainRenderManager.hpp"
+#include "PreloadManager.hpp"
 
 using Arena::Scenegraph;
 
@@ -39,9 +40,6 @@ Scenegraph::Scenegraph(Arena::ViewModel& viewModel,
 
    m_renderContainer.Add(m_spTerrainRenderManager, 20);
    m_renderContainer.Add(m_spModelRenderManager, 30);
-
-   InitPlayer();
-   InitMobiles();
 
    // register events
    m_viewModel.AddObjectEvent().Add(std::bind(&Scenegraph::AddMobile, this, std::placeholders::_1));
@@ -99,6 +97,15 @@ void Scenegraph::SetPosition(const Vector3d& vPosition, double dAngleDir)
    // set terrain position for LOD
    if (m_spTerrainRenderManager != nullptr)
       m_spTerrainRenderManager->SetPosition(vPosition, dAngleDir);
+}
+
+void Scenegraph::Prepare(PreloadManager& preloadManager)
+{
+   preloadManager.AddBackgroundTask(
+      std::bind(&Scenegraph::InitMobiles, this));
+
+   preloadManager.AddBackgroundTask(
+      std::bind(&Scenegraph::InitPlayer, this));
 }
 
 void Scenegraph::UpdateSkyRenderManager()

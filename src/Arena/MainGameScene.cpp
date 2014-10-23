@@ -65,8 +65,20 @@ MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient
    //options.Set(RenderOptions::optionSkyMeshLines, true);
 }
 
-void MainGameScene::Prepare(PreloadManager& /*preloadManager*/)
+void MainGameScene::Prepare(PreloadManager& preloadManager)
 {
+   std::shared_ptr<View> spView = std::dynamic_pointer_cast<View>(m_spView);
+   ATLASSERT(spView != nullptr);
+
+   spView->Prepare(preloadManager);
+}
+
+void MainGameScene::ActivateView()
+{
+   std::shared_ptr<View> spView = std::dynamic_pointer_cast<View>(m_spView);
+   ATLASSERT(spView != nullptr);
+
+   spView->Activate(m_gameClient.GetRenderEngine());
 }
 
 void MainGameScene::OnActionKeyGameMenu()

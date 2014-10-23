@@ -63,22 +63,21 @@ void GameClient::Start()
    // enable audio events
    m_uiAudioManager.Connect(GetWindowManager(), m_game.GetFileSystem());
 
-#if 1
-   std::shared_ptr<MainGameScene> spMainGameScene(new MainGameScene(*this, *this, m_game));
-   ChangeScene(spMainGameScene);
-#else
    // prepare loading screen
+   std::shared_ptr<MainGameScene> spMainGameScene(new MainGameScene(*this, *this, m_game));
    std::shared_ptr<LoadingScene> spLoadingScene(new LoadingScene(*this, *this, m_game.GetFileSystem()));
 
-   spMainGameScene->Prepare(spLoadingScene->GetPreloadManager());
+   spLoadingScene->GetPreloadManager().AddBackgroundTask([&](){
+      spMainGameScene->Prepare(spLoadingScene->GetPreloadManager());
 
-   spLoadingScene->FinishQueue([&](){
-      // start main game scene
-      ChangeScene(spMainGameScene);
+      spLoadingScene->FinishQueue([&spMainGameScene, this](){
+         // start main game scene
+         ChangeScene(spMainGameScene);
+         spMainGameScene->ActivateView();
+      });
    });
 
    ChangeScene(spLoadingScene);
-#endif
 
    Run();
 }

@@ -17,6 +17,7 @@ class GraphicsTaskManager;
 class RenderEngine;
 class ModelRenderManager;
 class PerspectiveCamera;
+class PreloadManager;
 
 namespace Arena
 {
@@ -38,6 +39,12 @@ public:
 
    /// returns camera
    std::shared_ptr<PerspectiveCamera> GetCamera() { return m_spCamera; }
+
+   /// add objects to prepare using preload manager
+   void Prepare(PreloadManager& preloadManager);
+
+   /// activates view after pre-loading
+   void Activate(RenderEngine& engine);
 
    // virtual methods from IView
 

@@ -38,6 +38,9 @@ public:
    /// prepares some assets
    void Prepare(PreloadManager& preloadManager);
 
+   /// activates game view after preloading
+   void ActivateView();
+
 private:
    /// called when the game menu action key is pressed
    void OnActionKeyGameMenu();

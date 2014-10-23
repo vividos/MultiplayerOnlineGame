@@ -19,6 +19,7 @@ class GraphicsTaskManager;
 class SkyRenderManager;
 class ModelRenderManager;
 class Player;
+class PreloadManager;
 
 namespace Arena
 {
@@ -39,6 +40,9 @@ public:
 
    /// sets new LOD center position
    void SetPosition(const Vector3d& vPosition, double dAngleDir) throw();
+
+   /// add objects to prepare using preload manager
+   void Prepare(PreloadManager& preloadManager);
 
 private:
    /// a new mobile has been added
