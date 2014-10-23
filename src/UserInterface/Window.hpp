@@ -87,6 +87,17 @@ public:
       Parent()->UnregisterChild(shared_from_this());
    }
 
+   /// makes a relative rect absolute by asking parent
+   void MakeAbsolute(Rect& rectRel) const
+   {
+      if (Parent() != nullptr)
+      {
+         rectRel.Add(Parent()->GetPos());
+
+         Parent()->MakeAbsolute(rectRel);
+      }
+   }
+
    // virtual methods
 
    /// returns window manager

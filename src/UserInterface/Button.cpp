@@ -117,7 +117,10 @@ bool Button::OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned int /*
       if (bPressed)
       {
          // start tracking if mouse leaves our area
-         GetWindowManager().TrackMouseLeave(GetRect(),
+         Rect rectAbs = GetRect();
+         MakeAbsolute(rectAbs);
+
+         GetWindowManager().TrackMouseLeave(rectAbs,
             std::bind(&Button::OnMouseLeft, this));
 
          GetWindowManager().PlayAudioEvent(uiButtonPress);
