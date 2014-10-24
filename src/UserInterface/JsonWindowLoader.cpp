@@ -13,6 +13,7 @@
 #include "EditField.hpp"
 #include "ProgressBar.hpp"
 #include "Slider.hpp"
+#include "Checkbox.hpp"
 #include "Panel.hpp"
 #include <json\json.h>
 #include "StringTools.hpp"
@@ -118,6 +119,12 @@ WindowPtr JsonWindowLoader::WalkObject(const std::string& strName, WindowPtr spP
    {
       std::shared_ptr<Slider> spSlider(new Slider());
       spWnd = spSlider;
+   }
+   else
+   if (strType == "Checkbox")
+   {
+      std::shared_ptr<Checkbox> spCheckbox(new Checkbox());
+      spWnd = spCheckbox;
    }
    else
       throw Exception(_T("unknown Type attribute value"), __FILE__, __LINE__);

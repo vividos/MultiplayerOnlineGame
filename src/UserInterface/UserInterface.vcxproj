@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Checkbox.cpp" />
     <ClCompile Include="EditField.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="JsonWindowLoader.cpp" />
@@ -85,6 +86,7 @@
   <ItemGroup>
     <ClInclude Include="AttributeMap.hpp" />
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="Checkbox.hpp" />
     <ClInclude Include="Control.hpp" />
     <ClInclude Include="EditField.hpp" />
     <ClInclude Include="Font.hpp" />
