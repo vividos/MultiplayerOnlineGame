@@ -90,6 +90,11 @@ void Graph::Clear()
    m_centerLookup.Clear();
    m_cornerLookup.Clear();
 
+   // as all center, corner and edge objects hold each other, first clear all objects before removing them
+   std::for_each(m_centers.begin(), m_centers.end(), std::bind(&Center::Clear, std::placeholders::_1));
+   std::for_each(m_corners.begin(), m_corners.end(), std::bind(&Corner::Clear, std::placeholders::_1));
+   std::for_each(m_edges.begin(), m_edges.end(), std::bind(&Edge::Clear, std::placeholders::_1));
+
    m_centers.clear();
    m_corners.clear();
    m_edges.clear();

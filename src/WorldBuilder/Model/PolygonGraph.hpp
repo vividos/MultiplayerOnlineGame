@@ -91,6 +91,13 @@ struct Center
    {
    }
 
+   void Clear()
+   {
+      neighbors.clear();
+      borders.clear();
+      corners.clear();
+   }
+
    size_t index; ///< center index
    Vector2d point; ///< center point
    bool water;
@@ -125,6 +132,15 @@ struct Corner
    {
    }
 
+   void Clear()
+   {
+      touches.clear();
+      protrudes.clear();
+      adjacent.clear();
+      downslope.reset();
+      watershed.reset();
+   }
+
    size_t index; ///< corner index
    Vector2d point; ///< corner point
    bool water;
@@ -154,6 +170,14 @@ struct Edge
       :index(index_),
        river(0)
    {
+   }
+
+   void Clear()
+   {
+      v0.reset();
+      v1.reset();
+      d0.reset();
+      d1.reset();
    }
 
    size_t index; ///< corner index
@@ -262,6 +286,18 @@ private:
 class Graph
 {
 public:
+   /// dtor
+   ~Graph() throw()
+   {
+      try
+      {
+         Clear();
+      }
+      catch (...)
+      {
+      }
+   }
+
    void SetSize(unsigned int uiSizeX, unsigned int uiSizeY)
    {
       m_sizeX = uiSizeX;
