@@ -22,7 +22,6 @@ create ingame action bar
 
 Model3D
 -------
-Caching loaded Milkshape3D::Data
 using Matrix3f and Vector3f to optimize calculations
 
 Terrain

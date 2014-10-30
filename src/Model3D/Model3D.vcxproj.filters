@@ -81,6 +81,9 @@
     <ClInclude Include="MD2\ModelManager.hpp">
       <Filter>MD2 Files</Filter>
     </ClInclude>
+    <ClInclude Include="MilkShape3D\Model3dCache.hpp">
+      <Filter>MilkShape3D Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -13,6 +13,7 @@
 #include "MilkShape3D/Data.hpp"
 #include "Matrix4d.hpp"
 #include "AABox.hpp"
+#include <atomic>
 
 // forward references
 class RenderOptions;
@@ -66,6 +67,8 @@ private:
 
    /// range to draw
    IndexRange m_indexRange;
+
+   std::atomic<bool> m_bAlreadyUploaded;
 };
 
 } // namespace MilkShape3D

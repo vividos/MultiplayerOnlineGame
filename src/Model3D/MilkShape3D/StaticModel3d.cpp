@@ -103,6 +103,11 @@ void StaticModel3d::PrepareIndices()
 
 void StaticModel3d::Upload() throw()
 {
+   if (m_bAlreadyUploaded)
+      return;
+
+   m_bAlreadyUploaded = true;
+
    ATLASSERT(OpenGL::IsRenderThread() == true);
 
    m_vbo.Upload();

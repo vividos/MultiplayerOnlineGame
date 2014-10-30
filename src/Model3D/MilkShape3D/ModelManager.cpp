@@ -121,40 +121,56 @@ void ModelManager::CreateBlueprintFromMobile(const Mobile& mobile, ModelBlueprin
 
 void ModelManager::LoadModelBlueprint(const ModelBlueprint& blueprint, std::shared_ptr<CompositeModel3d> spModel)
 {
-   std::shared_ptr<AnimatedModel3d> spAnimated(new AnimatedModel3d);
-   LoadAnimated(blueprint.m_cszAnimatedModelName, *spAnimated);
+   std::shared_ptr<AnimatedModel3d> spAnimated = LoadAnimated(blueprint.m_cszAnimatedModelName);
 
    spModel->SetAnimated(spAnimated);
 
    BOOST_FOREACH(const ModelBlueprint::StaticModelBlueprint& staticBlueprint, blueprint.m_vecStaticBlueprints)
    {
-      std::shared_ptr<StaticModel3d> spStatic(new StaticModel3d);
-      LoadStatic(staticBlueprint.m_cszStaticModelName, *spStatic);
+      std::shared_ptr<StaticModel3d> spStatic = LoadStatic(staticBlueprint.m_cszStaticModelName);
 
       spModel->AddStatic(staticBlueprint.m_cszMountJoint, spStatic);
    }
 }
 
-void ModelManager::LoadStatic(const CString& cszName, StaticModel3d& model)
+std::shared_ptr<StaticModel3d> ModelManager::LoadStatic(const CString& cszName)
 {
-   Loader loader(model.GetData());
-
    CString cszFilename = _T("models\\objects\\") + cszName + _T(".ms3d");
 
+   if (m_staticModelCache.IsAvail(cszFilename))
+      return m_staticModelCache.Get(cszFilename);
+
+   std::shared_ptr<StaticModel3d> spStatic(new StaticModel3d);
+
+   Loader loader(spStatic->GetData());
+
    loader.Load(*GetDataStream(cszFilename));
 
-   model.Prepare();
+   spStatic->Prepare();
+
+   m_staticModelCache.Add(cszFilename, spStatic);
+
+   return spStatic;
 }
 
-void ModelManager::LoadAnimated(const CString& cszName, AnimatedModel3d& model)
+std::shared_ptr<AnimatedModel3d> ModelManager::LoadAnimated(const CString& cszName)
 {
-   Loader loader(model.GetData());
-
    CString cszFilename = _T("models\\chars\\") + cszName + _T(".ms3d");
+
+   if (m_animatedModelCache.IsAvail(cszFilename))
+      return m_animatedModelCache.Get(cszFilename);
+
+   std::shared_ptr<AnimatedModel3d> spAnimated(new AnimatedModel3d);
+
+   Loader loader(spAnimated->GetData());
 
    loader.Load(*GetDataStream(cszFilename));
 
-   model.Prepare();
+   spAnimated->Prepare();
+
+   m_animatedModelCache.Add(cszFilename, spAnimated);
+
+   return spAnimated;
 }
 
 TexturePtr ModelManager::LoadTexture(const CString& cszTexture)

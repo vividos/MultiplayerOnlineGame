@@ -73,6 +73,7 @@
     <ClInclude Include="MilkShape3D\AnimationData.hpp" />
     <ClInclude Include="MilkShape3D\CompositeModel3d.hpp" />
     <ClInclude Include="MilkShape3D\Data.hpp" />
+    <ClInclude Include="MilkShape3D\Model3dCache.hpp" />
     <ClInclude Include="MilkShape3D\Loader.hpp" />
     <ClInclude Include="MilkShape3D\Model3dBase.hpp" />
     <ClInclude Include="MilkShape3D\ModelDisplayState.hpp" />

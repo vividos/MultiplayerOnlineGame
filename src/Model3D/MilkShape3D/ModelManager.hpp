@@ -9,6 +9,7 @@
 // includes
 #include "NamedTextureMap.hpp"
 #include "IModelDisplayState.hpp"
+#include "Model3dCache.hpp"
 
 // forward references
 class IFileSystem;
@@ -101,10 +102,10 @@ private:
    void LoadModelBlueprint(const ModelBlueprint& blueprint, std::shared_ptr<CompositeModel3d> spModel);
 
    /// loads static model
-   void LoadStatic(const CString& cszName, StaticModel3d& model);
+   std::shared_ptr<StaticModel3d> LoadStatic(const CString& cszName);
 
    /// loads animated model
-   void LoadAnimated(const CString& cszName, AnimatedModel3d& model);
+   std::shared_ptr<AnimatedModel3d> LoadAnimated(const CString& cszName);
 
    /// loads texture by name
    TexturePtr LoadTexture(const CString& cszTexture);
@@ -124,6 +125,12 @@ private:
 
    /// texture map for all model textures
    NamedTextureMap m_textureMap;
+
+   /// cache for AnimatedModel3d objects
+   Model3dCache<AnimatedModel3d> m_animatedModelCache;
+
+   /// cache for StaticModel3d objects
+   Model3dCache<StaticModel3d> m_staticModelCache;
 };
 
 } // namespace MilkShape3D
