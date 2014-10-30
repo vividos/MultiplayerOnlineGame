@@ -16,6 +16,9 @@
 /// settings registry key (subkey "Ribbon" is used for menu band)
 LPCTSTR c_pszSettingsRegkey = _T("Software\\MultiplayerOnlineGame\\WorldBuilder");
 
+/// render cycle time, in ms; 50 ms gives about 20 fps
+const unsigned int c_uiRenderCycleInMs = 50;
+
 /// ctor
 MainFrame::MainFrame() throw()
 :m_upWorldGenerator(new WorldGenerator(1024)),
@@ -82,6 +85,8 @@ LRESULT MainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/,
 
    ShowRibbonUI(true);
 
+   SetTimer(IDT_RENDER, c_uiRenderCycleInMs);
+
    return 0;
 }
 
@@ -103,6 +108,8 @@ LRESULT MainFrame::OnClose(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, 
 
 LRESULT MainFrame::OnDestroy(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& bHandled)
 {
+   KillTimer(IDT_RENDER);
+
    m_upRenderView->DestroyWindow();
    m_upRenderView.reset();
 
@@ -142,6 +149,14 @@ LRESULT MainFrame::OnMove(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, B
 
       m_progressBar.MoveWindow(&rcPane, true);
    }
+
+   return 0;
+}
+
+LRESULT MainFrame::OnTimer(UINT /*uMsg*/, WPARAM wParam, LPARAM /*lParam*/, BOOL& /*bHandled*/)
+{
+   if (wParam == IDT_RENDER && m_upRenderView != nullptr)
+      m_upRenderView->RedrawWindow();
 
    return 0;
 }

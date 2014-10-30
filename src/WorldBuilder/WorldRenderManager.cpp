@@ -31,7 +31,16 @@ WorldRenderManager::~WorldRenderManager() throw()
 void WorldRenderManager::SetWorldViewMode(T_enWorldViewMode enWorldViewMode)
 {
    if (m_enWorldViewMode == enWorldViewMode)
+   {
+      if (enWorldViewMode == worldViewPolygonGraph)
+      {
+         // upload new render data
+         m_taskManager.UploadTaskGroup().Add(
+            std::bind(&PolygonGraphRenderer::Upload, m_upPolygonGraphRenderer.get()));
+      }
+
       return;
+   }
 
    switch (enWorldViewMode)
    {
@@ -91,7 +100,7 @@ void WorldRenderManager::RenderOutline()
    glBegin(GL_LINE_LOOP);
    glVertex3d(0.0, 0.0, 0.0);
    glVertex3d(1024.0, 0.0, 0.0);
-   glVertex3d(1024.0, 1024.0, 0.0);
-   glVertex3d(0.0, 1024.0, 0.0);
+   glVertex3d(1024.0, 0.0, 1024.0);
+   glVertex3d(0.0, 0.0, 1024.0);
    glEnd();
 }
