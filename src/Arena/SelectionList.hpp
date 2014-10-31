@@ -9,9 +9,9 @@
 // includes
 #include "ClientLogic.hpp"
 #include "Object.hpp"
+#include "Vector3d.hpp"
 
 // forward referces
-class Vector3d;
 class ObjectMap;
 
 /// list of selectable mobiles in range

@@ -11,9 +11,9 @@
 #include "IViewController.hpp"
 #include "TimedEffect.hpp"
 #include "Scene.hpp"
+#include "Vector3d.hpp"
 
 // forward references
-class Vector3d;
 class IPlayerViewModel;
 class ISceneManager;
 class KeyboardActionManager;

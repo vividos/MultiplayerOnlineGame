@@ -11,15 +11,13 @@
 #include <SDL_OpenGL.h>
 #include <gl/glu.h>
 #include "Color.hpp"
+#include "Vector3d.hpp"
 
 /// shared pointer for Texture
 typedef std::shared_ptr<class Texture> TexturePtr;
 
 // auto-link
 #pragma comment(lib, "opengl32.lib")
-
-// forward references
-class Vector3d;
 
 /// helper macro to output OpenGL errors when previous OpenGL call failed
 #ifdef _DEBUG

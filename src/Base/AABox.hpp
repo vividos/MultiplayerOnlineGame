@@ -8,6 +8,7 @@
 
 // includes
 #include "Vector3d.hpp"
+#include <limits>
 
 /// \brief axis aligned box
 /// \details can be used as a bounding box

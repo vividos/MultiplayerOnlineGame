@@ -17,11 +17,11 @@
 #include "LightingManager.hpp"
 #include "ModelRenderManager.hpp"
 #include "Player.hpp"
+#include "Vector3d.hpp"
 
 // forward references
 class IFileSystem;
 class RenderEngine;
-class Vector3d;
 class PerspectiveCamera;
 
 namespace TerrainViewer

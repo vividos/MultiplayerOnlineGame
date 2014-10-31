@@ -6,8 +6,10 @@
 //
 #pragma once
 
+// includes
+#include "Vector3d.hpp"
+
 // forward references
-class Vector3d;
 class ViewFrustum3d;
 class RenderOptions;
 

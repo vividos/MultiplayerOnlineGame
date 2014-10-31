@@ -9,11 +9,11 @@
 // includes
 #include "Model3dBase.hpp"
 #include "RangedAppendOnlyIndexBuffer.hpp"
+#include "Vector3d.hpp"
 
 // forward references
 class GraphicsTaskManager;
 class RenderOptions;
-class Vector3d;
 class Quaternion4d;
 
 namespace MilkShape3D

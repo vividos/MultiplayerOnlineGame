@@ -8,10 +8,10 @@
 
 // includes
 #include "RenderEngineCommon.hpp"
+#include "Vector3d.hpp"
 #include "Plane3d.hpp"
 
 // forward references
-class Vector3d;
 class AABox;
 
 /// \brief a camera view frustum in 3d space

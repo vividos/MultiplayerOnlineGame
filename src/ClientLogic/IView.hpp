@@ -8,9 +8,7 @@
 
 // includes
 #include "IMouseEventReceiver.hpp"
-
-// forward references
-class Vector3d;
+#include "Vector3d.hpp"
 
 /// MVVM view interface
 class IView: public IMouseEventReceiver

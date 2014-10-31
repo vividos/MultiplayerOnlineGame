@@ -12,19 +12,20 @@
 
 /// \brief 4x4 matrix
 /// \details values are ordered column-first: [1][2] is column 1, row 2.
-class Matrix4d
+template <typename T>
+class Matrix4T
 {
 public:
    /// default ctor
-   Matrix4d() throw()
+   Matrix4T() throw()
    {
       std::uninitialized_fill(&m_d[0][0], &m_d[4][0], 0.0);
    }
 
    /// returns identity matrix
-   static Matrix4d Identity() throw()
+   static Matrix4T Identity() throw()
    {
-      Matrix4d m;
+      Matrix4T m;
       m[0][0] = m[1][1] = m[2][2] = m[3][3] = 1.0;
       return m;
    }
@@ -102,7 +103,7 @@ public:
    }
 
    /// multiply two matrices
-   static void Mult(Matrix4d& matOut, const Matrix4d& matLeft, const Matrix4d& matRight) throw()
+   static void Mult(Matrix4T& matOut, const Matrix4T& matLeft, const Matrix4T& matRight) throw()
    {
       matOut[0][0] = matLeft[0][0] * matRight[0][0] + matLeft[0][1] * matRight[1][0] + matLeft[0][2] * matRight[2][0] + matLeft[0][3] * matRight[3][0];
       matOut[0][1] = matLeft[0][0] * matRight[0][1] + matLeft[0][1] * matRight[1][1] + matLeft[0][2] * matRight[2][1] + matLeft[0][3] * matRight[3][1];
@@ -123,15 +124,15 @@ public:
    }
 
    /// builds a rotation matrix from axis and angle
-   static Matrix4d Rotate(Vector3d vAxis, double dAngleRot)
+   static Matrix4T<T> Rotate(Vector3T<T> vAxis, T dAngleRot)
    {
       vAxis.Normalize();
 
-      double cs = std::cos(-dAngleRot);
-      double sn = std::sin(-dAngleRot);
-      double t = 1.0 - cs;
+      T cs = std::cos(-dAngleRot);
+      T sn = std::sin(-dAngleRot);
+      T t = T(1.0) - cs;
 
-      Matrix4d matRotate;
+      Matrix4T<T> matRotate;
       matRotate.Row(0, Vector3d(t * vAxis.X() * vAxis.X() + cs,             t * vAxis.X() * vAxis.Y() - sn * vAxis.Z(), t * vAxis.X() * vAxis.Z() + sn * vAxis.Y()));
       matRotate.Row(1, Vector3d(t * vAxis.X() * vAxis.Y() + sn * vAxis.Z(), t * vAxis.Y() * vAxis.Y() + cs,             t * vAxis.Y() * vAxis.Z() - sn * vAxis.X()));
       matRotate.Row(2, Vector3d(t * vAxis.X() * vAxis.Z() - sn * vAxis.Y(), t * vAxis.Y() * vAxis.Z() + sn * vAxis.X(), t * vAxis.Z() * vAxis.Z() + cs));
@@ -140,27 +141,27 @@ public:
    }
 
    /// builds a rotation matrix from quaternion
-   static Matrix4d Rotate(Quaternion4d& quat)
+   static Matrix4T<T> Rotate(Quaternion4d& quat)
    {
       Vector3d vAxis;
-      double dAngle;
+      T dAngle;
 
       quat.ToAxisAngle(vAxis, dAngle);
       return Rotate(vAxis, dAngle);
    }
 
    /// access to const data
-   const double* const Data() const throw() { return &m_d[0][0]; }
+   const T* const Data() const throw() { return &m_d[0][0]; }
 
    /// access to non-const data
-   double* const Data() throw() { return &m_d[0][0]; }
+   T* const Data() throw() { return &m_d[0][0]; }
 
    /// proxy class for column access, write; used in operator[]
    class MatrixColumnProxyWrite
    {
    public:
       /// ctor
-      MatrixColumnProxyWrite(Matrix4d& matrix, unsigned int uiColumn)
+      MatrixColumnProxyWrite(Matrix4T& matrix, unsigned int uiColumn)
          :m_matrix(matrix),
           m_uiColumn(uiColumn)
       {
@@ -168,7 +169,7 @@ public:
       }
 
       /// write array operator access
-      double& operator[](unsigned int uiRow) throw()
+      T& operator[](unsigned int uiRow) throw()
       {
          ATLASSERT(uiRow < 4);
          return m_matrix.m_d[m_uiColumn][uiRow];
@@ -176,7 +177,7 @@ public:
 
    private:
       /// matrix
-      Matrix4d& m_matrix;
+      Matrix4T& m_matrix;
       /// column
       unsigned int m_uiColumn;
    };
@@ -186,7 +187,7 @@ public:
    {
    public:
       /// ctor
-      MatrixColumnProxyRead(const Matrix4d& matrix, unsigned int uiColumn)
+      MatrixColumnProxyRead(const Matrix4T& matrix, unsigned int uiColumn)
          :m_matrix(matrix),
           m_uiColumn(uiColumn)
       {
@@ -194,7 +195,7 @@ public:
       }
 
       /// read-only array operator access
-      double operator[](unsigned int uiRow) const throw()
+      T operator[](unsigned int uiRow) const throw()
       {
          ATLASSERT(uiRow < 4);
          return m_matrix.m_d[m_uiColumn][uiRow];
@@ -202,7 +203,7 @@ public:
 
    private:
       /// matrix
-      const Matrix4d& m_matrix;
+      const Matrix4T& m_matrix;
       /// column
       unsigned int m_uiColumn;
    };
@@ -226,5 +227,8 @@ private:
    friend MatrixColumnProxyWrite;
 
    /// matrix values; column-first
-   double m_d[4][4];
+   T m_d[4][4];
 };
+
+typedef Matrix4T<double> Matrix4d;
+typedef Matrix4T<float> Matrix4f;

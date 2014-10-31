@@ -8,9 +8,9 @@
 
 // includes
 #include "Audio.hpp"
+#include "Vector3d.hpp"
 
 // forward references
-class Vector3d;
 namespace Stream
 {
 class IStream;

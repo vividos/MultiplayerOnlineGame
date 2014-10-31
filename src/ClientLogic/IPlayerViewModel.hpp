@@ -6,8 +6,10 @@
 //
 #pragma once
 
+// includes
+#include "Vector3d.hpp"
+
 // forward references
-class Vector3d;
 class MovementInfo;
 
 /// interface to player in ViewModel
