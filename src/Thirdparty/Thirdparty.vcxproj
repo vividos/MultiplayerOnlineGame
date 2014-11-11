@@ -41,7 +41,7 @@
     <OutDir>..\..\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>..\..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <NMakeBuildCommandLine>copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
-copy "$(ProjectDir)\SDL2-2.0.0\lib\x86\SDL2.dll" "$(OutDir)"
+copy "$(ProjectDir)\SDL2-2.0.3\lib\x86\SDL2.dll" "$(OutDir)"
 copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
 copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
@@ -49,7 +49,7 @@ del "$(OutDir)SDL2.dll" &gt; nul
 del "$(OutDir)zlib1.dll" &gt; nul
 del "$(OutDir)oalinst.exe" &gt; nul
 copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
-copy "$(ProjectDir)\SDL2-2.0.0\lib\x86\SDL2.dll" "$(OutDir)"
+copy "$(ProjectDir)\SDL2-2.0.3\lib\x86\SDL2.dll" "$(OutDir)"
 copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
 copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
@@ -63,7 +63,7 @@ del "$(OutDir)oalinst.exe" &gt; nul</NMakeCleanCommandLine>
     <OutDir>..\..\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>..\..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <NMakeBuildCommandLine>copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
-copy "$(ProjectDir)\SDL2-2.0.0\lib\x86\SDL2.dll" "$(OutDir)"
+copy "$(ProjectDir)\SDL2-2.0.3\lib\x86\SDL2.dll" "$(OutDir)"
 copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
 copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
@@ -71,7 +71,7 @@ del "$(OutDir)SDL2.dll" &gt; nul
 del "$(OutDir)zlib1.dll" &gt; nul
 del "$(OutDir)oalinst.exe" &gt; nul
 copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
-copy "$(ProjectDir)\SDL2-2.0.0\lib\x86\SDL2.dll" "$(OutDir)"
+copy "$(ProjectDir)\SDL2-2.0.3\lib\x86\SDL2.dll" "$(OutDir)"
 copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
 copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
