@@ -9,6 +9,7 @@
 // includes
 #include "GameClientBase.hpp"
 #include "UserInterfaceAudioManager.hpp"
+#include "VirtualFileSystem.hpp"
 
 /// game client
 class GameClient : public GameClientBase
@@ -27,4 +28,7 @@ private:
 private:
    /// UI audio manager
    UserInterfaceAudioManager m_uiAudioManager;
+
+   /// file system
+   VirtualFileSystem m_fileSystem;
 };

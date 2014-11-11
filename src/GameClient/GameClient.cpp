@@ -48,7 +48,7 @@ void GameClient::Start()
    Init(800, 600, false);
 
    // enable audio events
-   m_uiAudioManager.Connect(GetWindowManager());
+   m_uiAudioManager.Connect(GetWindowManager(), m_fileSystem);
 
    //std::shared_ptr<MainGameScene> spMainGameScene(new MainGameScene(*this, *this, m_game));
    //ChangeScene(spMainGameScene);
