@@ -10,6 +10,7 @@
 #include "TerrainCommon.hpp"
 #include "IRenderable.hpp"
 #include "BlockRenderDataMap.hpp"
+#include "BlockTextureGenerator.hpp"
 #include "Timer.hpp"
 #include "Vector3d.hpp"
 #include <atomic>
@@ -66,19 +67,28 @@ private:
       const Vector2d& vBlockBase, const Vector3d& vBlockPosition);
 
 private:
+   /// render engine
    RenderEngine& m_engine;
 
+   /// task manager
    GraphicsTaskManager& m_taskManager;
 
+   /// texture generator for blocks
+   Terrain::BlockTextureGenerator m_blockTextureGenerator;
+
+   /// data block manager
    Terrain::Model::DataBlockManager& m_dataBlockManager;
 
+   /// render data map
    BlockRenderDataMap m_renderDataMap;
 
    /// current camera position
    Vector3d m_vPosition;
 
+   /// timer to update blocks
    Timer m_blockUpdateTimer;
 
+   /// flag to indicate cleanup phase
    std::atomic<bool> m_bCleanup;
 };
 

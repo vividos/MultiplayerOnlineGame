@@ -123,6 +123,9 @@
     <ClCompile Include="View\TerrainRenderManager.cpp">
       <Filter>View Files\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BlockTextureGenerator.cpp">
+      <Filter>Common Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -214,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="View\TerrainRenderManager.hpp">
       <Filter>View Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockTextureGenerator.hpp">
+      <Filter>Common Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

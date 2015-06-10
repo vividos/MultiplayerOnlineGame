@@ -14,11 +14,13 @@
 #include "Reduce/ReduceAlgorithm.hpp"
 #include "Reduce/TrianglesCompilerVertices.hpp"
 #include "GraphicsTaskManager.hpp"
+#include "BlockTextureGenerator.hpp"
 #include "ArrayMapper2D.hpp"
 #include "RenderOptions.hpp"
 #include "ViewFrustum3d.hpp"
 #include "TraceOutputStopwatch.hpp"
 #include "HighResolutionTimer.hpp"
+#include "TextureParameter.hpp"
 
 using Terrain::View::ReducedTriangleBlockRenderData;
 
@@ -28,8 +30,11 @@ const unsigned int c_uiNumLevels = 3;
 /// number of zone divisions in each direction
 const unsigned int c_uiNumZones = 8;
 
-ReducedTriangleBlockRenderData::ReducedTriangleBlockRenderData(GraphicsTaskManager& taskManager)
+ReducedTriangleBlockRenderData::ReducedTriangleBlockRenderData(
+   GraphicsTaskManager& taskManager,
+   Terrain::BlockTextureGenerator& blockTextureGenerator)
 :m_taskManager(taskManager),
+ m_blockTextureGenerator(blockTextureGenerator),
  m_uiZoneSize(0),
  m_vertexBuffer(0),
  m_bUploaded(false)
@@ -89,15 +94,25 @@ void ReducedTriangleBlockRenderData::Prepare(std::shared_ptr<Terrain::Model::Dat
          m_vecZoneLevelData[uiBaseIndex + uiZoneIndex] = data;
       }
    }
+
+   m_taskManager.UploadTaskGroup().Add(
+      std::bind(&ReducedTriangleBlockRenderData::GenerateTexture, this, spDataBlock));
 }
 
 void ReducedTriangleBlockRenderData::Upload()
 {
    m_indexBuffer.Update();
    m_vertexBuffer.Upload();
-//   m_texture.Upload();
 
    m_bUploaded = true;
+}
+
+void ReducedTriangleBlockRenderData::GenerateTexture(
+   std::shared_ptr<Terrain::Model::DataBlock> spDataBlock)
+{
+   ATLASSERT(m_bUploaded == false); // must occur before Upload() has been called
+
+   m_spTexture = m_blockTextureGenerator.Generate(spDataBlock);
 }
 
 void CalcMinMax(const std::vector<float>& vecElevationData, float& fMin, float& fMax)
@@ -185,8 +200,10 @@ void ReducedTriangleBlockRenderData::Render(const RenderOptions& renderOptions, 
    m_vertexBuffer.Bind();
    m_indexBuffer.Bind();
 
-   // TODO
-   //m_texture.Bind();
+   if (m_spTexture != nullptr)
+      m_spTexture->Bind();
+
+   TextureParameter<GL_REPEAT, GL_REPEAT, GL_LINEAR, GL_LINEAR, GL_MODULATE>::Use();
 
    ArrayMapper2D zoneMapper(c_uiNumZones, c_uiNumZones);
 

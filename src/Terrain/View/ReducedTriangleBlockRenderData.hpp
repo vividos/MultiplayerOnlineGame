@@ -20,6 +20,8 @@ class GraphicsTaskManager;
 
 namespace Terrain
 {
+class BlockTextureGenerator;
+
 namespace Model
 {
 class DataBlock;
@@ -38,7 +40,9 @@ namespace View
 class TERRAIN_DECLSPEC ReducedTriangleBlockRenderData : public IBlockRenderData
 {
 public:
-   ReducedTriangleBlockRenderData(GraphicsTaskManager& taskManager) throw();
+   /// ctor
+   ReducedTriangleBlockRenderData(GraphicsTaskManager& taskManager,
+      BlockTextureGenerator& blockTextureGenerator) throw();
    virtual ~ReducedTriangleBlockRenderData() throw() {}
 
 private:
@@ -59,14 +63,22 @@ private:
 private:
    struct ZoneLevelData;
 
+   /// generates texture for block and uploads it
+   void GenerateTexture(
+      std::shared_ptr<Terrain::Model::DataBlock> spDataBlock);
+
+   /// maps camera distance to level
    static unsigned int MapDistToLevel(double dist) throw();
 
+   /// fills zone level data
    void FillZoneLevelData(ZoneLevelData& data, std::shared_ptr<Terrain::Model::DataBlock> spZoneBlock,
       Terrain::Reduce::IActiveVertexMap& zoneActiveVertexMap, unsigned int uiLevel,
       unsigned int uiZoneOffsetX, unsigned int uiZoneOffsetY);
 
+   /// uploads vertex and index buffers
    void UploadBuffers();
 
+   /// renders single zone
    void RenderZone(const ZoneLevelData& data, unsigned int uiZoneX, unsigned int uiZoneY,
       const RenderOptions& renderOptions, const ViewFrustum3d& viewFrustum);
 
@@ -92,6 +104,9 @@ private:
    /// task manager
    GraphicsTaskManager& m_taskManager;
 
+   /// block texture generator
+   BlockTextureGenerator& m_blockTextureGenerator;
+
    /// current camera position
    Vector3d m_vPosition;
 
@@ -107,7 +122,7 @@ private:
    RangedAppendOnlyIndexBuffer m_indexBuffer;
 
    /// block texture
-   Texture m_texture;
+   TexturePtr m_spTexture;
 
    /// infos for all zones and levels
    std::vector<ZoneLevelData> m_vecZoneLevelData;

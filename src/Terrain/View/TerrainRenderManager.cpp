@@ -143,6 +143,7 @@ void TerrainRenderManager::RenderBlock(RenderOptions& renderOptions, ViewFrustum
    if (m_renderDataMap.IsAvail(uiBlockX, uiBlockY))
    {
       std::shared_ptr<IBlockRenderData> spRenderData = m_renderDataMap.Get(uiBlockX, uiBlockY);
+      ATLASSERT(spRenderData != nullptr); // must have been prepared
 
       spRenderData->Update(vBlockPosition);
 
@@ -171,7 +172,7 @@ void TerrainRenderManager::PrepareRenderData(unsigned int xblock, unsigned int y
                                         std::shared_ptr<Terrain::Model::DataBlock> spDataBlock)
 {
    std::shared_ptr<IBlockRenderData> spRenderData(
-      new ReducedTriangleBlockRenderData(m_taskManager));
+      new ReducedTriangleBlockRenderData(m_taskManager, m_blockTextureGenerator));
 //      new BlockRenderDataTexturedVertexBuffer(m_taskManager));
 //      new BlockRenderDataVertexBuffer);
 
