@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file src/Arena/TerrainRenderManager.hpp Arena terrain render manager
+/// \file Arena/TerrainRenderManager.hpp Arena terrain render manager
 //
 
 // includes

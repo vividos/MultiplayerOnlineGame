@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file ViewModel.cpp Arena view model
+/// \file Arena/ViewModel.cpp Arena view model
 //
 
 // includes

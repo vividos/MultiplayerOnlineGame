@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file TextureLoader.cpp Texture loader class
+/// \file RenderEngine/TextureLoader.cpp Texture loader class
 //
 #pragma once
 

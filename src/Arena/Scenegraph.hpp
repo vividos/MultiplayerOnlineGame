@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file ArenaScenegraph.hpp Arena scenegraph
+/// \file Arena/Scenegraph.hpp Arena scenegraph
 //
 #pragma once
 
