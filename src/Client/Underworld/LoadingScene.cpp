@@ -30,7 +30,7 @@ void LoadingScene::AsyncLoadGame()
 
    m_game.m_spRenderer = spRenderer;
 
-   m_game.m_renderContainer.Add(spRenderer);
+   m_game.m_renderContainer.Add(spRenderer, 0);
 
    spRenderer->AsyncLoadNewLevel(m_gameClient.GetGraphicsTaskManager(), m_game.m_world.GetLevelList().GetLevel(0));
 

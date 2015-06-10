@@ -55,7 +55,6 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>Underworld.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -100,6 +99,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\ulib\ulib.vcxproj">
       <Project>{daa1e880-4690-46c1-a9cb-c5c962f8c74c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Underworld.vcxproj">
+      <Project>{2d2ecfab-5064-4b2f-94a8-3da4893cb749}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
