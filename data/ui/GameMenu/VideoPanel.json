@@ -31,6 +31,16 @@
             "Pos": "290,250",
             "Size": "100,40",
             "Text": "Close"
+         },
+
+         "checkboxVsync": {
+            "Type": "Checkbox",
+            "Pos": "10,60",
+            "Size": "200,30",
+            "Text": "Vertical Sync",
+            "Color": "#ffffff",
+            "BackColor": "#00000000",
+            "Checked": "true"
          }
 
       }
