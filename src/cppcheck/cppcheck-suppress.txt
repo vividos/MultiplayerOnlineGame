@@ -15,3 +15,6 @@ unusedStructMember:../Base/ZipArchive.cpp
 unusedStructMember:../RenderEngine/Md2Model.cpp
 unusedStructMember:../RenderEngine/PcxImageReader.cpp
 functionConst:../Base/TimedEffect.hpp:56
+
+// no code file honors the reported error, so suppress it for all files
+noExplicitConstructor

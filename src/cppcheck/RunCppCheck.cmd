@@ -19,17 +19,18 @@ REM when xml is passed as second param, set format and output file
 set FORMAT=
 set OUTFILE=%INTDIR%cppcheck.txt
 if "%2" == "xml" set FORMAT=--xml
-if "%2" == "xml" set OUTFILE=%INTDIR%cppcheck-Results.xml
+if "%2" == "xml" set OUTFILE=%INTDIR%\cppcheck-Results.xml
 
 REM run cppcheck
 REM -I <dir>            Include path
 REM -i <dir>            Ignore path
+REM -D<define>          Define a symbol
 REM --suppressions-list=<file>   File with suppressed warnings
 REM -j 4                Multithreading
 REM --platform=win32W   Platform specific types
 REM --language=c++      Language (file extensions)
 REM --std=c++11         Language (syntax)%
 REM --enable=all        Enable warnings
-REM --template vs       Output format for warnings
-REM --check-config
-cppcheck.exe ..\ -i ..\Thirdparty -DWIN32 -D_WINDOWS -DNDEBUG -D__cplusplus=1 -D_MSC_VER=1800 --suppressions-list=cppcheck-suppress.txt -j 4 --platform=win32W --language=c++ --std=c++11 %FORMAT% --enable=all --template vs 2> %OUTFILE%
+REM --template=vs       Output format for warnings; vs=Visual Studio style
+REM --check-config      Checks config instead of checking source files
+cppcheck.exe ..\ -i ..\Thirdparty -DWIN32 -D_WINDOWS -DNDEBUG -D_UNICODE -DUNICODE -D_MSC_VER=1800 --suppressions-list=cppcheck-suppress.txt -j 4 --platform=win32W --language=c++ --std=c++11 %FORMAT% --enable=all --template=vs 2> %OUTFILE%
