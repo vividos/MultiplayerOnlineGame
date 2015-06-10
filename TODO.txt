@@ -38,6 +38,10 @@ find Sfx for user interface
 WorldGenerator
 --------------
 impl terrain generation in WorldGenerator
+impl render-to-texture to generate elevation data
+impl render-to-texture to generate texture mapping infos
+use proper icons in ribbon, app icon
+show dialog to input size of block, type of island and seed
 
 RenderEngine
 ------------

@@ -62,17 +62,7 @@ BOOL MainFrame::OnIdle()
 
 LRESULT MainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
-   // check if ribbon is available
-   bool bRibbonUI = RunTimeHelper::IsRibbonUIAvailable();
-
-   if (!bRibbonUI)
-   {
-      // TODO add message box
-      return 0;
-   }
-
-   CRibbonPersist(c_pszSettingsRegkey).Restore(bRibbonUI, m_hgRibbonSettings);
-
+   SetupRibbonBar();
    SetupStatusBar();
 
    CreateView();
@@ -173,6 +163,22 @@ LRESULT MainFrame::OnWorldCreate(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWnd
       std::bind(&MainFrame::GenerateWorld, this));
 
    return 0;
+}
+
+void MainFrame::SetupRibbonBar()
+{
+   // check if ribbon is available
+   bool bRibbonUI = RunTimeHelper::IsRibbonUIAvailable();
+
+   if (!bRibbonUI)
+   {
+      // TODO add message box
+      return;
+   }
+
+   UIAddMenu(AtlLoadMenu(IDR_MAINFRAME), true);
+
+   CRibbonPersist(c_pszSettingsRegkey).Restore(bRibbonUI, m_hgRibbonSettings);
 }
 
 void MainFrame::CreateView()

@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -16,102 +8,123 @@
     <Filter Include="Resource Files\Generated Files">
       <UniqueIdentifier>{76c5f8de-2a58-4162-a4de-d6b629106b96}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Model Source Files">
+    <Filter Include="Resource Files\Bitmap Files">
+      <UniqueIdentifier>{499f28f0-9448-4fff-8536-283d1b75b062}</UniqueIdentifier>
+      <Extensions>*.bmp;*.png;*.xcf</Extensions>
+    </Filter>
+    <Filter Include="Model Source Files">
       <UniqueIdentifier>{1702bf74-ddc7-4091-a89d-794d4fbcacec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI Files">
+      <UniqueIdentifier>{e1807160-a59e-483b-8245-04f9422069f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI Files\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="UI Files\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Model Source Files\Source Files">
+      <UniqueIdentifier>{de15f399-6b91-461f-8d3d-560601d1f650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model Source Files\Header Files">
+      <UniqueIdentifier>{6845b2f6-60f3-4b07-aff1-bff6adfc9638}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
+      <Filter>UI Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="App.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>UI Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainFrame.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>UI Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="res\MainFrameRibbon.h">
       <Filter>Resource Files\Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="RenderView.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\IslandShape.hpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\PerlinNoise.hpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\PolygonGraph.hpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\SimplexNoise.hpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\SVGOutput.hpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Voronoi.hpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Voronoi2.hpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\WorldGenerator.hpp">
-      <Filter>Source Files\Model Source Files</Filter>
+      <Filter>UI Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PolygonGraphRenderer.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>UI Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WorldBuilderController.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>UI Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WorldRenderManager.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>UI Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\IslandShape.hpp">
+      <Filter>Model Source Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\PerlinNoise.hpp">
+      <Filter>Model Source Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\PolygonGraph.hpp">
+      <Filter>Model Source Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\SimplexNoise.hpp">
+      <Filter>Model Source Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\SVGOutput.hpp">
+      <Filter>Model Source Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Voronoi.hpp">
+      <Filter>Model Source Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Voronoi2.hpp">
+      <Filter>Model Source Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\WorldGenerator.hpp">
+      <Filter>Model Source Files\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WorldBuilder.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainFrame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\PerlinNoise.cpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\PolygonGraph.cpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\SimplexNoise.cpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Voronoi.cpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Voronoi2.cpp">
-      <Filter>Source Files\Model Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\WorldGenerator.cpp">
-      <Filter>Source Files\Model Source Files</Filter>
+      <Filter>UI Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PolygonGraphRenderer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WorldBuilderController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WorldRenderManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\PerlinNoise.cpp">
+      <Filter>Model Source Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\PolygonGraph.cpp">
+      <Filter>Model Source Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\SimplexNoise.cpp">
+      <Filter>Model Source Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Voronoi.cpp">
+      <Filter>Model Source Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Voronoi2.cpp">
+      <Filter>Model Source Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\WorldGenerator.cpp">
+      <Filter>Model Source Files\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +138,27 @@
   <ItemGroup>
     <Image Include="res\WorldBuilder.ico">
       <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\app_exit.bmp">
+      <Filter>Resource Files\Bitmap Files</Filter>
+    </Image>
+    <Image Include="res\tools_pathbuilder.bmp">
+      <Filter>Resource Files\Bitmap Files</Filter>
+    </Image>
+    <Image Include="res\tools_treegen.bmp">
+      <Filter>Resource Files\Bitmap Files</Filter>
+    </Image>
+    <Image Include="res\views_biomes.bmp">
+      <Filter>Resource Files\Bitmap Files</Filter>
+    </Image>
+    <Image Include="res\views_textures.bmp">
+      <Filter>Resource Files\Bitmap Files</Filter>
+    </Image>
+    <Image Include="res\views_world3d.bmp">
+      <Filter>Resource Files\Bitmap Files</Filter>
+    </Image>
+    <Image Include="res\world_create.bmp">
+      <Filter>Resource Files\Bitmap Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

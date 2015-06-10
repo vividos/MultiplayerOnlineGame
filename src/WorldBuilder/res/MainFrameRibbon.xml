@@ -9,6 +9,7 @@
     <Command Name="builder_VIEWS_BIOMES" Symbol="ID_VIEWS_BIOMES" Id="32772"/>
     <Command Name="builder_VIEWS_TEXTURES" Symbol="ID_VIEWS_TEXTURES" Id="32773"/>
 
+    <Command Name="wtl_APP_ABOUT" Symbol="ID_APP_ABOUT" Id="0xE140"/>
     <Command Name="wtl_APP_EXIT" Symbol="ID_APP_EXIT" Id="0xE141"/>
 
     <!-- Tabs -->
@@ -27,16 +28,21 @@
   <Application.Views>
     <Ribbon>
       <!-- Application Menu -->
-      <Ribbon.ApplicationMenu >
-        <ApplicationMenu CommandName="AppMenu" >
-          <MenuGroup Class="StandardItems" >
+      <Ribbon.ApplicationMenu>
+        <ApplicationMenu CommandName="AppMenu">
+          <MenuGroup Class="StandardItems">
             <Button CommandName="builder_WORLD_CREATE"/>
           </MenuGroup>
-          <MenuGroup >
+          <MenuGroup>
             <Button CommandName="wtl_APP_EXIT"/>
           </MenuGroup>
         </ApplicationMenu>
-      </Ribbon.ApplicationMenu >
+      </Ribbon.ApplicationMenu>
+
+      <!-- Help button -->
+      <Ribbon.HelpButton>
+        <HelpButton CommandName="wtl_APP_ABOUT" />
+      </Ribbon.HelpButton>
 
       <!-- QAT (Quick Access Toolbar) -->
       <Ribbon.QuickAccessToolbar>
@@ -53,6 +59,8 @@
             <ScalingPolicy>
               <ScalingPolicy.IdealSizes>
                 <Scale Group="GroupWorld" Size="Large"/>
+                <Scale Group="GroupTools" Size="Large"/>
+                <Scale Group="GroupViews" Size="Large"/>
               </ScalingPolicy.IdealSizes>
             </ScalingPolicy>
           </Tab.ScalingPolicy>
@@ -72,7 +80,7 @@
             <Button CommandName="builder_VIEWS_TEXTURES"/>
           </Group>
         </Tab>
-        
+
       </Ribbon.Tabs>
     </Ribbon>
   </Application.Views>

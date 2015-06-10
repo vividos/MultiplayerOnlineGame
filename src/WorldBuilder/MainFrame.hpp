@@ -53,6 +53,12 @@ private:
    virtual BOOL OnIdle();
 
    BEGIN_UPDATE_UI_MAP(MainFrame)
+      UPDATE_ELEMENT(ID_WORLD_CREATE, UPDUI_MENUPOPUP | UPDUI_RIBBON)
+      UPDATE_ELEMENT(ID_TOOLS_PATH_BUILDER, UPDUI_MENUPOPUP | UPDUI_RIBBON)
+      UPDATE_ELEMENT(ID_TOOLS_TREE_GEN, UPDUI_MENUPOPUP | UPDUI_RIBBON)
+      UPDATE_ELEMENT(ID_VIEWS_WORLD_3D, UPDUI_MENUPOPUP | UPDUI_RIBBON)
+      UPDATE_ELEMENT(ID_VIEWS_BIOMES, UPDUI_MENUPOPUP | UPDUI_RIBBON)
+      UPDATE_ELEMENT(ID_VIEWS_TEXTURES, UPDUI_MENUPOPUP | UPDUI_RIBBON)
    END_UPDATE_UI_MAP()
 
    BEGIN_MSG_MAP(MainFrame)
@@ -82,6 +88,9 @@ private:
    LRESULT OnWorldCreate(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/);
 
 private:
+   /// sets up ribbon bar
+   void SetupRibbonBar();
+
    /// creates render view
    void CreateView();
 
