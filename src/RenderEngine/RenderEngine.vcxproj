@@ -93,6 +93,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="VertexBufferObject.cpp" />
+    <ClCompile Include="ViewFrustum2d.cpp" />
     <ClCompile Include="ViewFrustum3d.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +136,7 @@
     <ClInclude Include="TextureLoader.hpp" />
     <ClInclude Include="TextureParameter.hpp" />
     <ClInclude Include="VertexBufferObject.hpp" />
+    <ClInclude Include="ViewFrustum2d.hpp" />
     <ClInclude Include="ViewFrustum3d.hpp" />
   </ItemGroup>
   <ItemGroup>
