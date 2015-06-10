@@ -25,6 +25,12 @@
     <Filter Include="Header Files\win32">
       <UniqueIdentifier>{73406447-f484-4197-a005-734c6d818ad7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\test">
+      <UniqueIdentifier>{b3ec5585-ae9c-4c2c-9091-e5eaf642d748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\test">
+      <UniqueIdentifier>{636efd35-9069-404d-84c1-268eacd4091f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ulib\config\Atl.hpp">
@@ -138,6 +144,9 @@
     <ClInclude Include="Thread.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="test\AutoCleanupFolder.hpp">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="log\Logger.cpp">
@@ -169,6 +178,9 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\AutoCleanupFolder.cpp">
+      <Filter>Source Files\test</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

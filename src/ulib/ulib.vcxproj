@@ -104,6 +104,7 @@
     <ClInclude Include="RecursiveMutex.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SystemException.hpp" />
+    <ClInclude Include="test\AutoCleanupFolder.hpp" />
     <ClInclude Include="Thread.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +121,7 @@
     </ClCompile>
     <ClCompile Include="stream\FileStream.cpp" />
     <ClCompile Include="stream\TextStreamFilter.cpp" />
+    <ClCompile Include="test\AutoCleanupFolder.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
