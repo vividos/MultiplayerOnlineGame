@@ -143,24 +143,37 @@ void Slider::OnFocusChanged(bool bGotFocus)
 
 void Slider::OnAttributeChanged(const CString& cszAttributeName) throw()
 {
-   if (SliderAttr::SliderColor == cszAttributeName)
+   try
    {
-      m_sliderColor = GetAttrAsColor(cszAttributeName);
+      if (SliderAttr::SliderColor == cszAttributeName)
+      {
+         m_sliderColor = GetAttrAsColor(cszAttributeName);
+      }
+      else
+         BaseClass::OnAttributeChanged(cszAttributeName);
    }
-   else
-      BaseClass::OnAttributeChanged(cszAttributeName);
+   catch (...)
+   {
+   }
 }
 
 bool Slider::IsInsideSliderArea(Point pt) const throw()
 {
-   Rect rect = Window::GetRect();
-   rect.Add(Parent()->GetPos());
+   try
+   {
+      Rect rect = Window::GetRect();
+      rect.Add(Parent()->GetPos());
 
-   unsigned int uiMid = DividerPoint() + rect.Left();
-   rect.Left(uiMid - c_uiSliderWidth/2);
-   rect.Right(uiMid + c_uiSliderWidth/2);
+      unsigned int uiMid = DividerPoint() + rect.Left();
+      rect.Left(uiMid - c_uiSliderWidth/2);
+      rect.Right(uiMid + c_uiSliderWidth/2);
 
-   return rect.IsInside(pt);
+      return rect.IsInside(pt);
+   }
+   catch (...)
+   {
+      return false;
+   }
 }
 
 unsigned int Slider::SliderPosByOffset(unsigned int uiAbsPosX)

@@ -66,7 +66,7 @@ public:
 
 private:
    /// updates edit field texture
-   void UpdateTexture();
+   void UpdateTexture() throw();
    /// updates caret position
    void UpdateCaretPos();
 

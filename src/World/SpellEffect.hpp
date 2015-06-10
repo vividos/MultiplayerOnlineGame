@@ -154,7 +154,10 @@ class WORLD_DECLSPEC DamageHealSpellEffectBase: public SpellEffect
 
 public:
    DamageHealSpellEffectBase(T_enEffectType enEffectType)
-      :SpellEffect(enEffectType)
+      :SpellEffect(enEffectType),
+      m_bIsInstant(true),
+      m_uiDuration(0),
+      m_uiTickTime(0)
    {
       ATLASSERT(enEffectType == typeDamage || enEffectType == typeHeal);
    }
@@ -365,7 +368,8 @@ public:
 
    /// ctor
    DisableSpellEffect() throw()
-      :SpellEffect(SpellEffect::typeDisable)
+      :SpellEffect(SpellEffect::typeDisable),
+      m_enDisableType(disableAll)
    {
    }
 

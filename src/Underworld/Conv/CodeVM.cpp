@@ -58,7 +58,7 @@ void CodeVM::Init(CodeCallback* pCodeCallback, const Underworld::ConvGlobals& cg
       iter = m_mapImportedGlobals.begin();
       stop = m_mapImportedGlobals.end();
 
-      for (;iter!=stop; iter++)
+      for (;iter!=stop; ++iter)
       {
          Uint16 pos = (*iter).first;
          ImportedItem& iitem = (*iter).second;
@@ -229,7 +229,6 @@ bool CodeVM::Step()
       {
          arg1 = m_code[++m_uiInstrPtr];
 
-         std::string funcname;
          if (m_mapImportedFuncs.find(arg1) == m_mapImportedFuncs.end())
          {
             UaTrace("CodeVM: couldn't find imported function 0x%04x\n", arg1);

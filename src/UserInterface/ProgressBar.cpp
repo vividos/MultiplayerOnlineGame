@@ -34,24 +34,30 @@ void ProgressBar::Render(Rect& rectArea) throw()
 
 void ProgressBar::OnAttributeChanged(const CString& cszAttributeName) throw()
 {
-   if (ProgressBarAttr::Current == cszAttributeName)
+   try
    {
-      m_uiPos = GetAttrAsUnsignedInt(cszAttributeName);
+      if (ProgressBarAttr::Current == cszAttributeName)
+      {
+         m_uiPos = GetAttrAsUnsignedInt(cszAttributeName);
+      }
+      else
+      if (ProgressBarAttr::Max == cszAttributeName)
+      {
+         m_uiMax = GetAttrAsUnsignedInt(cszAttributeName);
+      }
+      else
+      if (ProgressBarAttr::Color == cszAttributeName)
+      {
+         m_color = GetAttrAsColor(cszAttributeName);
+      }
+      else
+      if (ProgressBarAttr::BackColor == cszAttributeName)
+      {
+         m_backColor = GetAttrAsColor(cszAttributeName);
+      }
    }
-   else
-   if (ProgressBarAttr::Max == cszAttributeName)
+   catch (...)
    {
-      m_uiMax = GetAttrAsUnsignedInt(cszAttributeName);
-   }
-   else
-   if (ProgressBarAttr::Color == cszAttributeName)
-   {
-      m_color = GetAttrAsColor(cszAttributeName);
-   }
-   else
-   if (ProgressBarAttr::BackColor == cszAttributeName)
-   {
-      m_backColor = GetAttrAsColor(cszAttributeName);
    }
 }
 

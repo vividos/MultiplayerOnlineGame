@@ -30,7 +30,8 @@ class Conversation: public CodeVM
 public:
    /// ctor
    Conversation(Underworld::World& uw)
-      :m_uw(uw)
+      :m_uw(uw),
+      m_uiConvLevel(0)
    {}
 
    /// inits basic conversation

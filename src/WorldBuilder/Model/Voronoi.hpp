@@ -141,7 +141,12 @@ private:
       size_t index0, index1; // indexes of center points of adjacent polygons
 
       Segment(Point p)
-         : start(p), end(0,0), done(false), invalid(false)
+         :start(p),
+         end(0,0),
+         done(false),
+         invalid(false),
+         index0(0),
+         index1(0)
       {
       }
 

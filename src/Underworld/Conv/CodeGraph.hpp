@@ -398,7 +398,7 @@ private:
    void SetOpcodesProcessed(T_GraphIterator iter, T_GraphIterator stop, unsigned int uiNumOpcodes);
 
    /// returns variable name of a global or imported variable
-   std::string CodeGraph::GetMemoryVarName(Uint16 memoryIndex) const;
+   std::string GetMemoryVarName(Uint16 memoryIndex) const;
 
    /// conver immediate value to global
    void PushiImmediateToGlobal(T_GraphIterator iter);

@@ -87,6 +87,12 @@ public:
       return false;
    }
 
+   /// returns if background is shown
+   bool IsShowBackground() throw();
+
+   /// returns background color
+   Color BackgroundColor() throw();
+
 private:
    /// all child windows (in order)
    std::vector<WindowPtr> m_vecAllChildWindows;

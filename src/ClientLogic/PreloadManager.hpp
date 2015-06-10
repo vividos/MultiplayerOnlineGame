@@ -25,7 +25,8 @@ public:
 
    /// ctor
    PreloadManager(GraphicsTaskManager& taskManager)
-      :m_taskManager(taskManager)
+      :m_taskManager(taskManager),
+      m_uiNumTasks(0)
    {
    }
 

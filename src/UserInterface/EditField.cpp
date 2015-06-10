@@ -174,16 +174,22 @@ CString EditField::GetDisplayText() const
    return m_cszText;
 }
 
-void EditField::UpdateTexture()
+void EditField::UpdateTexture() throw()
 {
-   Font& font = GetFont();
+   try
+   {
+      Font& font = GetFont();
 
-   Size s = GetSize();
+      Size s = GetSize();
 
-   m_text.UpdateText(font, GetDisplayText(), s, TextTexture::textAlignLeft,
-      Color::Black(), Color::White()); // TODO settable colors
+      m_text.UpdateText(font, GetDisplayText(), s, TextTexture::textAlignLeft,
+         Color::Black(), Color::White()); // TODO settable colors
 
-   UpdateCaretPos();
+      UpdateCaretPos();
+   }
+   catch (...)
+   {
+   }
 }
 
 void EditField::UpdateCaretPos()

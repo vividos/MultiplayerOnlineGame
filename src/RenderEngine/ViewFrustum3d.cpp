@@ -128,9 +128,9 @@ ViewFrustum3d::T_enIntersectResult ViewFrustum3d::IsBoxInside(const AABox& box) 
          // construct corner point from vMin and vMax, depending of bits 1..3 of k
          // this way we get all corner points without constructing a list beforehand
          Vector3d vPt(
-            k & 1 ? vMax.X() : vMin.X(),
-            k & 2 ? vMax.Y() : vMin.Y(),
-            k & 4 ? vMax.Z() : vMin.Z());
+            (k & 1) ? vMax.X() : vMin.X(),
+            (k & 2) ? vMax.Y() : vMin.Y(),
+            (k & 4) ? vMax.Z() : vMin.Z());
 
          double dDist = m_aPlanes[i].Distance(vPt);
          if (dDist < 0)

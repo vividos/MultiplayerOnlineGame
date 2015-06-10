@@ -17,13 +17,11 @@ LogFileAppender::LogFileAppender()
    CString cszLogFilename = CreateLogFileName();
 
    FILE* fd = NULL;
-   _tfopen_s(&fd, cszLogFilename, _T("at")); // append to text file
+   _tfopen_s(&fd, cszLogFilename, _T("at")); // append to text file; seeks to end
    if (fd == NULL)
       throw Exception(_T("couldn't open log file: ") + cszLogFilename, __FILE__, __LINE__);
 
    m_spLogFile.reset(fd, fclose);
-
-   fseek(fd, 0, SEEK_END); // seek to end
 }
 
 void LogFileAppender::DoAppend(const Log::LoggingEventPtr spLoggingEvent)

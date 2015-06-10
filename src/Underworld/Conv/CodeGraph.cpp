@@ -203,7 +203,7 @@ void CodeGraph::CollectXrefs()
 
    T_GraphIterator iter = m_graph.begin(), stop = m_graph.end();
 
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
       CodeGraphItem& item = *iter;
       if (item.m_type != typeOpcode)
@@ -354,7 +354,7 @@ bool CodeGraph::FindFunctionEntryPoint(T_GraphIterator& iter, T_GraphIterator st
    if (iter != m_graph.begin())
    {
       T_GraphIterator iter_start = iter;
-      iter_start--;
+      --iter_start;
 
       func_start = iter_start->m_type == typeOpcode &&
          iter_start->opcode_data.opcode == op_START;
@@ -415,7 +415,7 @@ void CodeGraph::UpdateCallJumpTargets()
    T_GraphIterator iter = m_graph.begin(), stop = m_graph.end();
 
    // go through code and search for functions
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
       // correct jump targets for opcodes here
       if (iter->m_type == typeOpcode && iter->opcode_data.opcode == op_CALL)
@@ -447,7 +447,7 @@ void CodeGraph::ProcessFunctionQueue()
 
       m_processed_funcs.insert(funcInfo.start);
 
-      T_GraphIterator iter = FindPos(funcInfo.start);
+      //T_GraphIterator iter = FindPos(funcInfo.start);
 
       ATLTRACE(_T("analyzing function \"%hs\" at %04x\n"),
          funcName.c_str(), funcInfo.start);
@@ -483,7 +483,7 @@ void CodeGraph::AnalyzeFunction(FuncInfo& funcInfo)
    // Expressions are incomplete values on the stack.
    // Operations are complete control statements that may consume zero or more
    // expressions.
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
       // only examine opcodes that weren't processed yet
       if (iter->m_type != typeOpcode || iter->m_isProcessed)
@@ -666,13 +666,13 @@ void CodeGraph::AddLocalArrayExpression(T_GraphIterator iter, FuncInfo& funcInfo
 
    // TODO arrays with offset == 0 really allowed?
    UaAssert(offset <= 0x7fff && offset >= 0);
-   arr_iter++;
+   ++arr_iter;
 
    // get local var index, from op_PUSHI_EFF
    UaAssert(arr_iter->m_type == typeOpcode && arr_iter->opcode_data.opcode == op_PUSHI_EFF);
 
    Uint16 localIndex = arr_iter->opcode_data.arg;
-   arr_iter++;
+   ++arr_iter;
 
    // add expression
    std::ostringstream buffer;
@@ -916,7 +916,7 @@ void CodeGraph::CombineOperators(FuncInfo& funcInfo)
       // search next operator
       bool bFound = false;
       T_GraphIterator iter;
-      for (iter = start; iter != stop; iter++)
+      for (iter = start; iter != stop; ++iter)
       {
          if (iter->m_type == typeOperator && !iter->m_isProcessed)
          {
@@ -1310,7 +1310,7 @@ void CodeGraph::CheckBablMenu(T_GraphIterator& start,
           iter->operator_data.op_opcode == op_CALLI)
          break; // found
 
-      iter++;
+      ++iter;
    }
 
    if (iter == stop)
@@ -1392,7 +1392,7 @@ void CodeGraph::FindSwitchCase(FuncInfo& funcInfo)
       stop = FindPos(funcInfo.end);
 
    // find open expression
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
       bool bIsExpression = iter->m_type == typeExpression && !iter->m_isProcessed;
       if (!bIsExpression)
@@ -1431,7 +1431,7 @@ bool CodeGraph::FindAndAddNextSwitchCase(T_GraphIterator& expr_iter, T_GraphIter
 {
    // a BEQ opcode must follow
    T_GraphIterator beq_iter = expr_iter;
-   for (; beq_iter != stop; beq_iter++)
+   for (; beq_iter != stop; ++beq_iter)
    {
       if (!beq_iter->m_isProcessed && beq_iter->m_type == typeOpcode)
       {
@@ -1450,8 +1450,8 @@ bool CodeGraph::FindAndAddNextSwitchCase(T_GraphIterator& expr_iter, T_GraphIter
 
    // find next JMP opcode, which is the break statement
    T_GraphIterator break_iter = beq_iter;
-   break_iter++;
-   for (; break_iter != stop; break_iter++)
+   ++break_iter;
+   for (; break_iter != stop; ++break_iter)
    {
       if (!break_iter->m_isProcessed && break_iter->m_type == typeOpcode)
       {
@@ -1489,7 +1489,7 @@ bool CodeGraph::FindAndAddNextSwitchCase(T_GraphIterator& expr_iter, T_GraphIter
       else
          break_iter->m_isProcessed = true;
 
-      break_iter++;
+      ++break_iter;
    }
 
    // when first call, check if target of BEQ is an expression
@@ -1526,7 +1526,7 @@ bool CodeGraph::FindAndAddNextSwitchCase(T_GraphIterator& expr_iter, T_GraphIter
 
       bSwitchAdded = true;
 
-      case_iter++;
+      ++case_iter;
    }
 
    // add case statement
@@ -1570,7 +1570,7 @@ void CodeGraph::FindWhile(FuncInfo& funcInfo)
       stop = FindPos(funcInfo.end);
 
    // find open expression
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
       bool bIsExpression = iter->m_type == typeExpression && !iter->m_isProcessed;
       if (!bIsExpression)
@@ -1580,7 +1580,7 @@ void CodeGraph::FindWhile(FuncInfo& funcInfo)
 
       // a BEQ opcode must follow
       T_GraphIterator beq_iter = expr_iter;
-      for (; beq_iter != stop; beq_iter++)
+      for (; beq_iter != stop; ++beq_iter)
       {
          if (!beq_iter->m_isProcessed && beq_iter->m_type == typeOpcode)
          {
@@ -1672,7 +1672,7 @@ void CodeGraph::FindIfElse(FuncInfo& funcInfo)
       stop = FindPos(funcInfo.end);
 
    // find open expression
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
       bool bIsExpression = iter->m_type == typeExpression && !iter->m_isProcessed;
       if (!bIsExpression)
@@ -1682,7 +1682,7 @@ void CodeGraph::FindIfElse(FuncInfo& funcInfo)
 
       // a BEQ opcode must follow
       T_GraphIterator beq_iter = expr_iter;
-      for (; beq_iter != stop; beq_iter++)
+      for (; beq_iter != stop; ++beq_iter)
       {
          if (!beq_iter->m_isProcessed && beq_iter->m_type == typeOpcode)
          {
@@ -1734,7 +1734,7 @@ void CodeGraph::FindIfElse(FuncInfo& funcInfo)
          bra_iter->m_isProcessed = true;
 
          else_iter = bra_iter;
-         else_iter++;
+         ++else_iter;
 
          endif_iter = FindPos(bra_target_pos);
       }
@@ -1770,7 +1770,7 @@ void CodeGraph::AddGotoJumps(FuncInfo& funcInfo)
       stop = FindPos(funcInfo.end);
 
    // find remaining opcodes
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
       // only examine opcodes that weren't processed yet
       if (iter->m_type != typeOpcode || iter->m_isProcessed)
@@ -1874,7 +1874,7 @@ void CodeGraph::PostProcessFunction(FuncInfo& funcInfo)
    // add function end
    iter = FindPos(funcInfo.end);
    while (iter != m_graph.end() && iter->m_type != typeFuncEnd)
-      iter++;
+      ++iter;
 
    CodeGraphItem& endStatement = AddStatement(iter++, "} // end-function");
    endStatement.statement_data.indent_change_before = -1;
@@ -1911,7 +1911,7 @@ CodeGraph::T_GraphIterator CodeGraph::FindPos(Uint16 target)
 {
    T_GraphIterator iter = m_graph.begin(), stop = m_graph.end();
 
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
       if (iter->m_pos == target)
          return iter;
 
@@ -1933,7 +1933,7 @@ CodeGraph::T_GraphIterator CodeGraph::FindOpcodePattern(T_GraphIterator iter, T_
 
    T_GraphIterator found = stop;
 
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
       if (iter->m_type != typeOpcode)
          continue;
@@ -1973,7 +1973,7 @@ bool CodeGraph::MatchOpcodePattern(T_ConstGraphIterator iter, T_ConstGraphIterat
 void CodeGraph::SetOpcodesProcessed(T_GraphIterator iter, T_GraphIterator stop,
    unsigned int uiNumOpcodes)
 {
-   for (unsigned int i = 0; i < uiNumOpcodes && iter != stop; iter++)
+   for (unsigned int i = 0; i < uiNumOpcodes && iter != stop; ++iter)
    {
       if (iter->m_type == typeOpcode)
       {

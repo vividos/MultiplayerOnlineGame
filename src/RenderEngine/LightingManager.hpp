@@ -66,7 +66,7 @@ public:
    /// set specular reflection properties
    void Specular(Color cSpecular, unsigned int uiShininess) throw()
    {
-      ATLASSERT(uiShininess >= 0 && uiShininess <= 128);
+      ATLASSERT(uiShininess <= 128);
 
       m_cSpecular = cSpecular;
       m_uiShininess = uiShininess;

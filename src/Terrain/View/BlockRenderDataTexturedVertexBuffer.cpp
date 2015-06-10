@@ -244,7 +244,7 @@ void BlockRenderDataTexturedVertexBuffer::FillTextureBitmap(Bitmap& bmp)
    for (unsigned int y=0; y<bmp.YRes(); y++)
    {
       // checkerboard pattern
-      Color c = (x+y) & 1 ? Color::Red() : Color::Blue();
+      Color c = ((x+y) & 1) ? Color::Red() : Color::Blue();
 
 /*
       // based on max. slope angle

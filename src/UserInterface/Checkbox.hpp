@@ -50,7 +50,7 @@ public:
    END_ATTR_MAP()
 
    /// returns if checkbox is checked
-   bool IsChecked() const throw()
+   bool IsChecked() const
    {
       return GetAttrAsBool(CheckboxAttr::Checked);
    }
@@ -71,7 +71,7 @@ public:
 
 private:
    /// updates texture
-   void UpdateTexture();
+   void UpdateTexture() throw();
 
    /// renders box and check
    void RenderCheck(Rect& rectArea);

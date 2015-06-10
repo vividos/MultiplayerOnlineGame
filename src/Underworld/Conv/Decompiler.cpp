@@ -50,7 +50,7 @@ void Decompiler::Write(FILE* fd)
    int indentLevel = 0;
    const Conv::CodeGraph::T_GraphList& g = m_spCodeGraph->GetGraph();
    Conv::CodeGraph::T_ConstGraphIterator iter = g.begin(), stop = g.end();
-   for (; iter != stop; iter++)
+   for (; iter != stop; ++iter)
    {
 #if 0
       if (iter->m_isProcessed && iter->m_labelName.length() != 0 && iter->m_xrefCount > 0)
@@ -74,7 +74,7 @@ void Decompiler::Write(FILE* fd)
          if (funcName.find("unused_") == 0 || iter->m_xrefCount == 0)
          {
             while (iter != stop && iter->m_type != Conv::typeFuncEnd)
-               iter++;
+               ++iter;
 
             // jump over opcodes from function end
             std::advance(iter, 3);

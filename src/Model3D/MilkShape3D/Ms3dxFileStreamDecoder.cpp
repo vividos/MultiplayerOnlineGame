@@ -11,7 +11,8 @@
 
 Ms3dxFileStreamDecoder::Ms3dxFileStreamDecoder(std::shared_ptr<Stream::IStream> spSourceStream, const std::vector<BYTE>& vecXorKey)
 :m_spStream(spSourceStream),
-m_vecXorKey(vecXorKey)
+m_vecXorKey(vecXorKey),
+m_uiCurrentPos(0)
 {
 }
 

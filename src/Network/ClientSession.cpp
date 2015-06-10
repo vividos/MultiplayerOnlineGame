@@ -17,6 +17,7 @@
 ClientSession::ClientSession(boost::asio::io_service& ioService)
 :Session(ioService),
  m_resolver(ioService),
+ m_enConnectState(connectStateNotConnected),
  m_evtSocketConnected(true, false) // manual-reset Event
 {
 }

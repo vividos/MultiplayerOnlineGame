@@ -108,20 +108,26 @@ void Checkbox::OnAttributeChanged(const CString& cszAttributeName) throw()
    if (cszAttributeName == CheckboxAttr::Text ||
       cszAttributeName == CheckboxAttr::BackColor ||
       cszAttributeName == CheckboxAttr::Color)
-      UpdateTexture();
+         UpdateTexture();
 }
 
-void Checkbox::UpdateTexture()
+void Checkbox::UpdateTexture() throw()
 {
-   Font& font = GetFont();
+   try
+   {
+      Font& font = GetFont();
 
-   Size s = GetSize();
-   int iOffset = int(s.Height() * 1.1);
-   s.Width(s.Width() - iOffset);
+      Size s = GetSize();
+      int iOffset = int(s.Height() * 1.1);
+      s.Width(s.Width() - iOffset);
 
-   CString cszText = GetAttr(CheckboxAttr::Text);
-   Color cText = GetAttrAsColor(CheckboxAttr::Color);
-   Color cBack = GetAttrAsColor(CheckboxAttr::BackColor);
+      CString cszText = GetAttr(CheckboxAttr::Text);
+      Color cText = GetAttrAsColor(CheckboxAttr::Color);
+      Color cBack = GetAttrAsColor(CheckboxAttr::BackColor);
 
-   m_text.UpdateText(font, cszText, s, TextTexture::textAlignLeft, cText, cBack);
+      m_text.UpdateText(font, cszText, s, TextTexture::textAlignLeft, cText, cBack);
+   }
+   catch (...)
+   {
+   }
 }

@@ -68,9 +68,9 @@ public:
    // get methods
 
    // some convenience get/set methods for attributes
-   Size GetSize() const throw() { return GetAttrAsSize(WindowAttr::Size); } ///< returns size
-   Point GetPos() const throw() { return GetAttrAsPoint(WindowAttr::Pos); } ///< returns position
-   Rect GetRect() const throw() { return Rect(GetPos(), GetSize()); }       ///< returns rectangle
+   Size GetSize() const { return GetAttrAsSize(WindowAttr::Size); } ///< returns size
+   Point GetPos() const { return GetAttrAsPoint(WindowAttr::Pos); } ///< returns position
+   Rect GetRect() const { return Rect(GetPos(), GetSize()); }       ///< returns rectangle
 
    // set methods
 

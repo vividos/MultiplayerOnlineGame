@@ -56,7 +56,7 @@ private:
    void OnMouseLeft();
 
    /// updates button texture
-   void UpdateTexture();
+   void UpdateTexture() throw();
 
 private:
    /// indicates pressed button state

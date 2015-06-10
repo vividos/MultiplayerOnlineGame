@@ -140,7 +140,7 @@ void StringsPakFile::LoadStringBlock(Uint16 uiBlockId, std::vector<std::string>&
             }
 
             // decide which node is next
-            node = raw & 0x80 ? short(allnodes[node].right)
+            node = (raw & 0x80) ? short(allnodes[node].right)
                : short(allnodes[node].left);
 
             raw<<=1;

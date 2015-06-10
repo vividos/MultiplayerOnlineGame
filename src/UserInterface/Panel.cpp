@@ -12,12 +12,12 @@
 
 void Panel::Render(Rect& rectArea) throw()
 {
-   if (GetAttrAsBool(PanelAttr::ShowBackground))
+   if (IsShowBackground())
    {
       // first render background of panel
       glDisable(GL_TEXTURE_2D);
 
-      Color cBackground = GetAttrAsColor(PanelAttr::BackgroundColor);
+      Color cBackground = BackgroundColor();
 
       glBegin(GL_QUADS);
          glColor4f(cBackground.m_color[0]/255.0f,
@@ -115,4 +115,28 @@ WindowPtr Panel::FindByName(LPCTSTR pszWindowName)
    }
 
    return WindowPtr();
+}
+
+bool Panel::IsShowBackground() throw()
+{
+   try
+   {
+      return GetAttrAsBool(PanelAttr::ShowBackground);
+   }
+   catch (...)
+   {
+      return true;
+   }
+}
+
+Color Panel::BackgroundColor() throw()
+{
+   try
+   {
+      return GetAttrAsColor(PanelAttr::BackgroundColor);
+   }
+   catch (...)
+   {
+      return Color::Transparent();
+   }
 }

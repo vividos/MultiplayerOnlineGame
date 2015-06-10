@@ -15,7 +15,8 @@
 
 BSpline::BSpline(unsigned int uiOrder) throw()
 :m_uiOrder(uiOrder),
- m_vecPoints(0)
+ m_vecPoints(0),
+ m_uiNumControlPoints(0)
 {
    ATLASSERT(uiOrder >= 2);
 }
@@ -46,6 +47,8 @@ void BSpline::Generate(const std::vector<float>& vecPoints) throw()
 
 float BSpline::Get(float at) const throw()
 {
+   ATLASSERT(m_uiNumControlPoints > 0);
+
    // generate base function for the parameter
    const_cast<BSpline&>(*this).CalcBase(at);
 
@@ -60,6 +63,8 @@ float BSpline::Get(float at) const throw()
 /// calculates bspline base vector
 void BSpline::CalcBase(float param)
 {
+   ATLASSERT(m_uiNumControlPoints > 0);
+
    size_t nplusc = m_uiNumControlPoints + m_uiOrder;
 
    // scale param

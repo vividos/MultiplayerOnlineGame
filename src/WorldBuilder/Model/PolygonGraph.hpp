@@ -128,7 +128,8 @@ struct Corner
        enTerrainType(typeUnassigned),
        elevation(0.0),
        moisture(0.0),
-       river(0)
+       river(0),
+       watershedSize(0)
    {
    }
 
@@ -286,6 +287,13 @@ private:
 class Graph
 {
 public:
+   /// ctor
+   Graph()
+      :m_sizeX(0),
+      m_sizeY(0)
+   {
+   }
+
    /// dtor
    ~Graph() throw()
    {

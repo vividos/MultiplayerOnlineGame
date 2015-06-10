@@ -35,14 +35,14 @@ const double c_dLocalLongitude = 11.57959;
 
 
 SkyRenderManager::SkyRenderManager(GraphicsTaskManager& taskManager, IFileSystem& fileSystem)
-:m_dAngleDirection(0.0),
+:m_dtNow(DateTime::Now()),
+ m_dAngleDirection(0.0),
  m_dAngleUp(0.0),
  m_dFov(90.0),
  m_dRatio(1.333),
  m_milkyWaySkyboxRenderer(taskManager, fileSystem),
  m_spTextureLoader(new TextureLoader(taskManager, fileSystem))
 {
-   m_dtNow = DateTime::Now();
 }
 
 void SkyRenderManager::Prepare()

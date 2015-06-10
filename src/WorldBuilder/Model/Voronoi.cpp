@@ -330,9 +330,12 @@ bool LiangBarsky(double edgeLeft, double edgeRight, double edgeBottom, double ed
       if (edge==0) {  p = -xdelta;    q = -(edgeLeft-x0src);  }
       if (edge==1) {  p = xdelta;     q =  (edgeRight-x0src); }
       if (edge==2) {  p = -ydelta;    q = -(edgeBottom-y0src);}
-      if (edge==3) {  p = ydelta;     q =  (edgeTop-y0src);   }   
-      double r = q/p;
-      if (p==0 && q<0) return false;   // Don't draw line at all. (parallel line outside)
+      if (edge==3) {  p = ydelta;     q =  (edgeTop-y0src);   }
+
+      if (p==0 && q<0)
+         return false;   // Don't draw line at all. (parallel line outside)
+
+      double r = q / p;
 
       if (p<0)
       {
@@ -606,8 +609,8 @@ void Diagram::OutputSvg(LPCTSTR pszFilename, bool bDrawArrows, bool bDrawDelauna
       CString cszStyle;
 
       cszStyle.Format(_T("style=\"stroke:rgb(%s);stroke-width:%u\"/>\n"),
-         uiCount & 1 ? _T("99,99,0") : _T("99,0,99"),
-         uiCount & 1 ? 2 : 4
+         (uiCount & 1) ? _T("99,99,0") : _T("99,0,99"),
+         (uiCount & 1) ? 2 : 4
          );
 
       _ftprintf(fd, cszStyle);

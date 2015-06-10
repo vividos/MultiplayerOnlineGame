@@ -45,10 +45,10 @@ unsigned int MandelbrotTerrainDataSource::Iterate(double x, double y) throw()
    const unsigned int c_uiMaxIter = 64;
    unsigned int uiIter = 0;
 
-   double re = 0.0, im = 0.0, help;
+   double re = 0.0, im = 0.0;
    do
    {
-      help = re;
+      double help = re;
       re = re*re - im*im + x;
       im = 2*help*im + y;
 

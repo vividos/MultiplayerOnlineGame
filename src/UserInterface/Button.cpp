@@ -167,13 +167,19 @@ void Button::OnMouseLeft()
    m_bStatePressed = false;
 }
 
-void Button::UpdateTexture()
+void Button::UpdateTexture() throw()
 {
-   Font& font = GetFont();
+   try
+   {
+      Font& font = GetFont();
 
-   Size s = GetSize();
-   CString cszText = GetAttr(ButtonAttr::Text);
+      Size s = GetSize();
+      CString cszText = GetAttr(ButtonAttr::Text);
 
-   m_text.UpdateText(font, cszText, s, TextTexture::textAlignCenter,
-      Color::Black(), Color::Transparent());
+      m_text.UpdateText(font, cszText, s, TextTexture::textAlignCenter,
+         Color::Black(), Color::Transparent());
+   }
+   catch (...)
+   {
+   }
 }

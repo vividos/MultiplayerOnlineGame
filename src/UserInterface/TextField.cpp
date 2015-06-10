@@ -29,14 +29,20 @@ void TextField::OnAttributeChanged(const CString& cszAttributeName) throw()
       UpdateTexture();
 }
 
-void TextField::UpdateTexture()
+void TextField::UpdateTexture() throw()
 {
-   Font& font = GetFont();
+   try
+   {
+      Font& font = GetFont();
 
-   Size s = GetSize();
-   CString cszText = GetAttr(TextFieldAttr::Text);
-   Color cText = GetAttrAsColor(TextFieldAttr::Color);
-   Color cBack = GetAttrAsColor(TextFieldAttr::BackColor);
+      Size s = GetSize();
+      CString cszText = GetAttr(TextFieldAttr::Text);
+      Color cText = GetAttrAsColor(TextFieldAttr::Color);
+      Color cBack = GetAttrAsColor(TextFieldAttr::BackColor);
 
-   m_text.UpdateText(font, cszText, s, TextTexture::textAlignLeft, cText, cBack);
+      m_text.UpdateText(font, cszText, s, TextTexture::textAlignLeft, cText, cBack);
+   }
+   catch (...)
+   {
+   }
 }

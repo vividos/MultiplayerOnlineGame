@@ -351,8 +351,6 @@ bool Scanline::Decode(const BYTE* pbData, size_t uiLen,
 
    // update in ptr
    uiBytesUsed += uiLen - uiUnusedInBytes;
-   pbData += uiBytesUsed;
-   uiLen = uiUnusedInBytes;
 
    if (!vecUncompressedData.empty())
    {
@@ -395,9 +393,8 @@ bool Scanline::Decode(const BYTE* pbData, size_t uiLen,
 int PaethPredictor(int a, int b, int c)
 {
    // a = left, b = above, c = upper left
-   int p, pa, pb, pc;
+   int pa, pb, pc;
 
-   p = a + b - c;
    pa = abs(b-c);
    pb = abs(a-c);
    pc = abs(a+b-c-c);

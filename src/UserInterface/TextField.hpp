@@ -45,7 +45,7 @@ public:
 
 private:
    /// updates texture
-   void UpdateTexture();
+   void UpdateTexture() throw();
 
 private:
    /// texture

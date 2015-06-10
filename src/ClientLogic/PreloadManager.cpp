@@ -12,7 +12,7 @@
 
 unsigned int PreloadManager::PercentDone() const
 {
-   return m_uiTasksDone / m_uiNumTasks;
+   return m_uiNumTasks == 0 ? 0 : (m_uiTasksDone / m_uiNumTasks);
 }
 
 void PreloadManager::AddBackgroundTask(T_fnBackgroundTask fnTask)
