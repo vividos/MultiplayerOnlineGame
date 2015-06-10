@@ -39,12 +39,120 @@
             "Text": "Next >"
          },
 
-         "static2": {
+         "staticModel": {
             "Type": "TextField",
             "Pos": "200,10",
             "Size": "160,30",
             "Text": "Model",
             "Color": "#ffffff"
+         },
+
+         "staticFigure": {
+            "Type": "TextField",
+            "Pos": "200,40",
+            "Size": "70,30",
+            "Text": "Figure",
+            "Color": "#ffffff"
+         },
+         "staticSkin": {
+            "Type": "TextField",
+            "Pos": "200,90",
+            "Size": "70,30",
+            "Text": "Skin",
+            "Color": "#ffffff"
+         },
+
+         "sliderBaseFigure": {
+            "Type": "Slider",
+            "Pos": "290,40",
+            "Size": "100,40",
+            "Current": "0",
+            "Max": "3",
+            "Color": "#ffff00",
+            "BackColor": "#ff00ff",
+            "SliderColor": "#1fffff"
+         },
+         "sliderSkinColor": {
+            "Type": "Slider",
+            "Pos": "290,90",
+            "Size": "100,40",
+            "Current": "0",
+            "Max": "2",
+            "Color": "#ffff00",
+            "BackColor": "#ff00ff",
+            "SliderColor": "#1fffff"
+         },
+
+         "staticFace": {
+            "Type": "TextField",
+            "Pos": "410,40",
+            "Size": "70,30",
+            "Text": "Face",
+            "Color": "#ffffff"
+         },
+         "staticHair": {
+            "Type": "TextField",
+            "Pos": "410,90",
+            "Size": "70,30",
+            "Text": "Hair",
+            "Color": "#ffffff"
+         },
+
+         "sliderFaceStyle": {
+            "Type": "Slider",
+            "Pos": "480,40",
+            "Size": "100,40",
+            "Current": "0",
+            "Max": "7",
+            "Color": "#ffff00",
+            "BackColor": "#ff00ff",
+            "SliderColor": "#1fffff"
+         },
+         "sliderHairColor": {
+            "Type": "Slider",
+            "Pos": "480,90",
+            "Size": "100,40",
+            "Current": "0",
+            "Max": "4",
+            "Color": "#ffff00",
+            "BackColor": "#ff00ff",
+            "SliderColor": "#1fffff"
+         },
+
+         "staticPilosity": {
+            "Type": "TextField",
+            "Pos": "590,40",
+            "Size": "70,30",
+            "Text": "Pilosity",
+            "Color": "#ffffff"
+         },
+         "staticBrow": {
+            "Type": "TextField",
+            "Pos": "590,90",
+            "Size": "70,30",
+            "Text": "Brow",
+            "Color": "#ffffff"
+         },
+
+         "sliderPilosityHairStyle": {
+            "Type": "Slider",
+            "Pos": "670,40",
+            "Size": "100,40",
+            "Current": "0",
+            "Max": "4",
+            "Color": "#ffff00",
+            "BackColor": "#ff00ff",
+            "SliderColor": "#1fffff"
+         },
+         "sliderPilosityBrowStyle": {
+            "Type": "Slider",
+            "Pos": "670,90",
+            "Size": "100,40",
+            "Current": "0",
+            "Max": "11",
+            "Color": "#ffff00",
+            "BackColor": "#ff00ff",
+            "SliderColor": "#1fffff"
          }
 
       }
