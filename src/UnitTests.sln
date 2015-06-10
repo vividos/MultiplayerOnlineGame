@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base", "Base\Base.vcxproj", "{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -50,6 +50,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLogic.Unit", "ServerLogic\ServerLogic.Unit\ServerLogic.Unit.vcxproj", "{B4E34672-A991-4256-848D-DBA984E231A5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestService", "GameServer\TestService\TestService.vcxproj", "{68175EB5-02ED-447E-9797-742604D58203}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WorldBuilder.Unit", "WorldBuilder\WorldBuilder.Unit\WorldBuilder.Unit.vcxproj", "{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderEngine", "RenderEngine\RenderEngine.vcxproj", "{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -175,6 +179,18 @@ Global
 		{68175EB5-02ED-447E-9797-742604D58203}.Release|Win32.ActiveCfg = Release|Win32
 		{68175EB5-02ED-447E-9797-742604D58203}.Release|Win32.Build.0 = Release|Win32
 		{68175EB5-02ED-447E-9797-742604D58203}.Release|x64.ActiveCfg = Release|Win32
+		{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}.Debug|Win32.Build.0 = Debug|Win32
+		{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}.Debug|x64.ActiveCfg = Debug|Win32
+		{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}.Release|Win32.ActiveCfg = Release|Win32
+		{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}.Release|Win32.Build.0 = Release|Win32
+		{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}.Release|x64.ActiveCfg = Release|Win32
+		{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}.Debug|Win32.Build.0 = Debug|Win32
+		{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}.Debug|x64.ActiveCfg = Debug|Win32
+		{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}.Release|Win32.ActiveCfg = Release|Win32
+		{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}.Release|Win32.Build.0 = Release|Win32
+		{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
