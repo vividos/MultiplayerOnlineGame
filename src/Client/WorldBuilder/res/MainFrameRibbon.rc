@@ -1,0 +1,28 @@
+// ******************************************************************************
+// * This is an automatically generated file containing the ribbon resource for *
+// * your application.                                                          *
+// ******************************************************************************
+
+#include ".\MainFrameRibbon.h"
+
+STRINGTABLE 
+BEGIN
+    ID_TAB_HOME_LabelTitle_RESID L"Home" /* LabelTitle ID_TAB_HOME_LabelTitle_RESID: (null) */
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GROUP_WORLD_LabelTitle_RESID L"World" /* LabelTitle ID_GROUP_WORLD_LabelTitle_RESID: (null) */
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GROUP_TOOLS_LabelTitle_RESID L"Tools" /* LabelTitle ID_GROUP_TOOLS_LabelTitle_RESID: (null) */
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GROUP_VIEWS_LabelTitle_RESID L"Views" /* LabelTitle ID_GROUP_VIEWS_LabelTitle_RESID: (null) */
+END
+
+APPLICATION_RIBBON    UIFILE    "D:\\Projekte\\MultiplayerOnlineGame\\src\\WorldBuilder\\res\\MainFrameRibbon.bml"

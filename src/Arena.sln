@@ -18,7 +18,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base", "Base\Base.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcxproj", "{54254FF9-AE31-4207-B98F-FB49BFE857A6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio", "Audio\Audio.vcxproj", "{7CBD4454-1736-4C34-8813-F64C38F7C9A6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio", "Client\Audio\Audio.vcxproj", "{7CBD4454-1736-4C34-8813-F64C38F7C9A6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DAA1E880-4690-46C1-A9CB-C5C962F8C74C} = {DAA1E880-4690-46C1-A9CB-C5C962F8C74C}
 		{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730} = {9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}
@@ -26,14 +26,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio", "Audio\Audio.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jsoncpp", "Thirdparty\jsoncpp\src\lib_json\lib_json.vcxproj", "{9C39DDD4-5F0A-48AF-ABAB-9ACF79E45730}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderEngine", "RenderEngine\RenderEngine.vcxproj", "{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderEngine", "Client\RenderEngine\RenderEngine.vcxproj", "{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserInterface", "UserInterface\UserInterface.vcxproj", "{B6EA8BAE-E9FE-4087-8C25-5D3C7A977C50}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserInterface", "Client\UserInterface\UserInterface.vcxproj", "{B6EA8BAE-E9FE-4087-8C25-5D3C7A977C50}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DAA1E880-4690-46C1-A9CB-C5C962F8C74C} = {DAA1E880-4690-46C1-A9CB-C5C962F8C74C}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientLogic", "ClientLogic\ClientLogic.vcxproj", "{CA2D1198-7966-4521-9128-6C28C556714C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientLogic", "Client\ClientLogic\ClientLogic.vcxproj", "{CA2D1198-7966-4521-9128-6C28C556714C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DAA1E880-4690-46C1-A9CB-C5C962F8C74C} = {DAA1E880-4690-46C1-A9CB-C5C962F8C74C}
 		{B6EA8BAE-E9FE-4087-8C25-5D3C7A977C50} = {B6EA8BAE-E9FE-4087-8C25-5D3C7A977C50}
@@ -49,12 +49,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "World", "World\World.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jpeg-8d", "Thirdparty\jpeg-8d\jpeg-8d.vcxproj", "{5B37D937-D0F7-47BE-97F7-DEF2DBA4970A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arena", "Arena\Arena.vcxproj", "{DBCBD43C-E143-4233-BBCF-9E8BA2445CE2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arena", "Client\Arena\Arena.vcxproj", "{DBCBD43C-E143-4233-BBCF-9E8BA2445CE2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B7737583-1A2D-4F99-9CF8-335132391CBC} = {B7737583-1A2D-4F99-9CF8-335132391CBC}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Model3D", "Model3D\Model3D.vcxproj", "{35419D0D-BAE7-4AFD-A6A5-EA597E0A0DCD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Model3D", "Client\Model3D\Model3D.vcxproj", "{35419D0D-BAE7-4AFD-A6A5-EA597E0A0DCD}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SRP", "SRP\SRP.vcxproj", "{F52FE1AD-B5D1-4A8E-B9BA-D94966F5529D}"
 EndProject

@@ -29,7 +29,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "World.Unit", "World\World.Unit\World.Unit.vcxproj", "{4FE44D37-4F37-4B72-B120-4D8196FCA5A5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio.Unit", "Audio\Audio.Unit\Audio.Unit.vcxproj", "{FB4ED9EF-7403-41C3-B3C5-A721913267E3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio.Unit", "Client\Audio\Audio.Unit\Audio.Unit.vcxproj", "{FB4ED9EF-7403-41C3-B3C5-A721913267E3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SRP.Unit", "SRP\SRP.Unit\SRP.Unit.vcxproj", "{C8C9BC52-CBED-4F13-9ABF-277E92AA52FC}"
 EndProject
@@ -51,9 +51,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLogic.Unit", "ServerL
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestService", "GameServer\TestService\TestService.vcxproj", "{68175EB5-02ED-447E-9797-742604D58203}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WorldBuilder.Unit", "WorldBuilder\WorldBuilder.Unit\WorldBuilder.Unit.vcxproj", "{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WorldBuilder.Unit", "Client\WorldBuilder\WorldBuilder.Unit\WorldBuilder.Unit.vcxproj", "{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderEngine", "RenderEngine\RenderEngine.vcxproj", "{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderEngine", "Client\RenderEngine\RenderEngine.vcxproj", "{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AndroidApk", "Underworld\AndroidApk\AndroidApk.vcxproj", "{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AndroidApk", "Client\Underworld\AndroidApk\AndroidApk.vcxproj", "{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base.Android", "Base\Base.Android.vcxproj", "{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Underworld.Android", "Underworld\Underworld.Android.vcxproj", "{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Underworld.Android", "Client\Underworld\Underworld.Android.vcxproj", "{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ulib.Android", "ulib\ulib.Android.vcxproj", "{B04C58A9-E1C0-45EB-8608-F766E74EAA94}"
 EndProject

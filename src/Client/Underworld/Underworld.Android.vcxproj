@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}</ProjectGuid>
+    <RootNamespace>Underworld</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <Import Project="..\..\boost.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Android.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <Import Project="..\..\boost.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Android.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <ClCompile>
+      <PreprocessorDefinitions>DISABLE_IMPORTGL</PreprocessorDefinitions>
+      <AdditionalOptions>-std=c++11 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;UwBase;GameLogic;Conv;Renderer;Import;$(SolutionDir)Client\ClientLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <AntBuild>
+      <AntBuildPath>$(ProjectDir)\</AntBuildPath>
+    </AntBuild>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <ClCompile>
+      <PreprocessorDefinitions>DISABLE_IMPORTGL</PreprocessorDefinitions>
+      <AdditionalOptions>-std=c++11 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;UwBase;GameLogic;Conv;Renderer;Import;$(SolutionDir)Client\ClientLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <AntBuild>
+      <AntBuildPath>$(ProjectDir)\</AntBuildPath>
+    </AntBuild>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="GameLogic\MapNotes.cpp" />
+    <ClCompile Include="GameStrings.cpp" />
+    <ClCompile Include="LevelGeometry.cpp" />
+    <ClCompile Include="GameLogic\ConvGlobals.cpp" />
+    <ClCompile Include="GameLogic\Inventory.cpp" />
+    <ClCompile Include="GameLogic\LevelList.cpp" />
+    <ClCompile Include="GameLogic\Object.cpp" />
+    <ClCompile Include="GameLogic\ObjectList.cpp" />
+    <ClCompile Include="GameLogic\Player.cpp" />
+    <ClCompile Include="GameLogic\QuestFlags.cpp" />
+    <ClCompile Include="GameLogic\Runes.cpp" />
+    <ClCompile Include="GameLogic\Tilemap.cpp" />
+    <ClCompile Include="GameLogic\Underworld.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Constants.hpp" />
+    <ClInclude Include="GameLogic\MapNotes.hpp" />
+    <ClInclude Include="GameStrings.hpp" />
+    <ClInclude Include="LevelGeometry.hpp" />
+    <ClInclude Include="UwBase.hpp" />
+    <ClInclude Include="GameLogic\ConvGlobals.hpp" />
+    <ClInclude Include="GameLogic\Inventory.hpp" />
+    <ClInclude Include="GameLogic\Level.hpp" />
+    <ClInclude Include="GameLogic\LevelList.hpp" />
+    <ClInclude Include="GameLogic\Object.hpp" />
+    <ClInclude Include="GameLogic\ObjectList.hpp" />
+    <ClInclude Include="GameLogic\Player.hpp" />
+    <ClInclude Include="GameLogic\Properties.hpp" />
+    <ClInclude Include="GameLogic\QuestFlags.hpp" />
+    <ClInclude Include="GameLogic\Runes.hpp" />
+    <ClInclude Include="GameLogic\Tilemap.hpp" />
+    <ClInclude Include="GameLogic\Underworld.hpp" />
+    <ClInclude Include="UwBase\Savegame.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -64,7 +64,7 @@
     <Property Id="ARPPRODUCTICON" Value="GameClientShortcutIcon" />
     <Property Id="ARPHELPLINK" Value="http://www.vividos.de/" />
 
-    <Icon Id ="GameClientShortcutIcon" SourceFile="$(sys.SOURCEFILEDIR)..\GameClient\GameClient.ico" />
+    <Icon Id ="GameClientShortcutIcon" SourceFile="$(sys.SOURCEFILEDIR)..\Client\GameClient\GameClient.ico" />
 
     <UIRef Id="WixUI_InstallDir" />
     <Property Id="WIXUI_INSTALLDIR" Value="MainAppFolder" />
