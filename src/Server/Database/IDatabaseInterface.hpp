@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 /// \brief database access
 namespace Database
