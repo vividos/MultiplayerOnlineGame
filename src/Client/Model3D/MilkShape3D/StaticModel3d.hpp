@@ -11,7 +11,7 @@
 #include "TexturedVertexBuffer.hpp"
 #include "RangedAppendOnlyIndexBuffer.hpp"
 #include "MilkShape3D/Data.hpp"
-#include "Matrix4d.hpp"
+#include "Matrix4.hpp"
 #include "AABox.hpp"
 #include <atomic>
 

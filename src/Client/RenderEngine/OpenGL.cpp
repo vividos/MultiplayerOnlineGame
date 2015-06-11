@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 #include "OpenGL.hpp"
 #include "Bitmap.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "Texture.hpp"
 
 #pragma comment(lib, "glu32.lib")

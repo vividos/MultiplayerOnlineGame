@@ -8,7 +8,7 @@
 // includes
 #include "StdAfx.h"
 #include "ViewFrustum3d.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "AABox.hpp"
 #include "OpenGL.hpp"
 

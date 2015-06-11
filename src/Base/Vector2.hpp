@@ -2,7 +2,7 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file Vector2d.hpp Vector class (2D)
+/// \file Vector2.hpp Vector class (2D)
 //
 #pragma once
 

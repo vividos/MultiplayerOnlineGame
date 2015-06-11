@@ -2,12 +2,12 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file Quaternion4d.cpp Quaternion class
+/// \file Quaternion4.cpp Quaternion class
 //
 
 // includes
 #include "StdAfx.h"
-#include "Quaternion4d.hpp"
+#include "Quaternion4.hpp"
 #include "Math.hpp"
 
 double Quaternion4d::Length() const throw()

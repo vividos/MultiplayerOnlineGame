@@ -16,7 +16,7 @@
 #include "ReducedTriangleBlockRenderData.hpp"
 #include "Model/DataBlockManager.hpp"
 #include <functional>
-#include "Vector2d.hpp"
+#include "Vector2.hpp"
 #include "ViewFrustum3d.hpp"
 #include "PerspectiveCamera.hpp"
 #include "OpenGL.hpp"

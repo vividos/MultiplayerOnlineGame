@@ -10,7 +10,7 @@
 #include "RenderEngineCommon.hpp"
 #include "OpenGL.hpp"
 #include "VertexBufferObject.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "TexCoord2f.hpp"
 #include "Color.hpp"
 #include <vector>

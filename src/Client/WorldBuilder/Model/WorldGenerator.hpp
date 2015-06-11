@@ -8,7 +8,7 @@
 
 // include
 #include <vector>
-#include "Vector2d.hpp"
+#include "Vector2.hpp"
 #include "PolygonGraph.hpp"
 #include <boost/random.hpp>
 #include <functional>

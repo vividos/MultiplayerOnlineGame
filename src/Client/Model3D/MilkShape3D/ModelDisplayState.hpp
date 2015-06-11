@@ -8,7 +8,7 @@
 
 // includes
 #include "IModelDisplayState.hpp"
-#include "Matrix4d.hpp"
+#include "Matrix4.hpp"
 #include "Texture.hpp"
 #include "TexturedVertexBuffer.hpp"
 #include "SafeFlag.hpp"

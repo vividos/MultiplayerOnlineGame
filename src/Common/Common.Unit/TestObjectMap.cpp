@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "ObjectMap.hpp"
 #include <vector>
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 namespace UnitTest
 {

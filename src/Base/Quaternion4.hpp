@@ -2,12 +2,12 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file Quaternion4d.hpp Quaternion class
+/// \file Quaternion4.hpp Quaternion class
 //
 #pragma once
 
 // includes
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 /// quaternion
 class BASE_DECLSPEC Quaternion4d

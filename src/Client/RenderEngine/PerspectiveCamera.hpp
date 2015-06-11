@@ -9,7 +9,7 @@
 // includes
 #include "RenderEngineCommon.hpp"
 #include "ICamera.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "ViewFrustum3d.hpp"
 
 /// perspective camera

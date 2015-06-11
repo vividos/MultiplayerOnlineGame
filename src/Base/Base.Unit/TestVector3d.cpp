@@ -7,7 +7,7 @@
 
 // includes
 #include "stdafx.h"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

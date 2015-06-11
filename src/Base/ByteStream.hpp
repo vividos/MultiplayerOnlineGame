@@ -10,7 +10,7 @@
 #include <deque>
 #include <vector>
 #include "Uuid.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include <limits>
 
 /// \brief byte stream class

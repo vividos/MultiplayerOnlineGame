@@ -8,7 +8,7 @@
 
 // includes
 #include <vector>
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 /// \brief calculates a 1d rational b-spline
 /// \details The code to calculate spline curves was adapted from the example code

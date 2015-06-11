@@ -11,7 +11,7 @@
 #include <SDL_OpenGL.h>
 #include <gl/glu.h>
 #include "Color.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 /// shared pointer for Texture
 typedef std::shared_ptr<class Texture> TexturePtr;

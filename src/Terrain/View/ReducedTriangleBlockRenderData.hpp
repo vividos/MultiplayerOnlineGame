@@ -9,7 +9,7 @@
 // includes
 #include "TerrainCommon.hpp"
 #include "IBlockRenderData.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "AABox.hpp"
 #include "Texture.hpp"
 #include "TexturedVertexBuffer.hpp"

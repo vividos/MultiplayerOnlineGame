@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 #include "PolygonGraphRenderer.hpp"
 #include "PolygonGraph.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include <boost/foreach.hpp>
 #include <SDL_opengl.h>
 

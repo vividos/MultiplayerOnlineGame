@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include "Vector2d.hpp"
+#include "Vector2.hpp"
 
 /// a 2D camera view frustum
 class RENDERENGINE_DECLSPEC ViewFrustum2d

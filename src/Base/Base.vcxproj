@@ -74,8 +74,8 @@
     <ClCompile Include="HashedData.cpp" />
     <ClCompile Include="HighResolutionTimer.cpp" />
     <ClCompile Include="Path.cpp" />
-    <ClCompile Include="Plane3d.cpp" />
-    <ClCompile Include="Quaternion4d.cpp" />
+    <ClCompile Include="Plane3.cpp" />
+    <ClCompile Include="Quaternion4.cpp" />
     <ClCompile Include="ScatteredPointInterpolator.cpp" />
     <ClCompile Include="sha2.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -117,10 +117,10 @@
     <ClInclude Include="IoServiceThread.hpp" />
     <ClInclude Include="Lockable.hpp" />
     <ClInclude Include="Math.hpp" />
-    <ClInclude Include="Matrix4d.hpp" />
+    <ClInclude Include="Matrix4.hpp" />
     <ClInclude Include="Path.hpp" />
-    <ClInclude Include="Plane3d.hpp" />
-    <ClInclude Include="Quaternion4d.hpp" />
+    <ClInclude Include="Plane3.hpp" />
+    <ClInclude Include="Quaternion4.hpp" />
     <ClInclude Include="RC4Encoder.hpp" />
     <ClInclude Include="SafeFlag.hpp" />
     <ClInclude Include="ScatteredPointInterpolator.hpp" />
@@ -136,8 +136,8 @@
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="TraceOutputStopwatch.hpp" />
     <ClInclude Include="Uuid.hpp" />
-    <ClInclude Include="Vector2d.hpp" />
-    <ClInclude Include="Vector3d.hpp" />
+    <ClInclude Include="Vector2.hpp" />
+    <ClInclude Include="Vector3.hpp" />
     <ClInclude Include="..\version.h" />
     <ClInclude Include="VirtualFileSystem.hpp" />
     <ClInclude Include="ZigzagSquareIterator.hpp" />

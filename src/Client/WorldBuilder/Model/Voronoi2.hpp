@@ -8,7 +8,7 @@
 
 // include
 #include <boost.voronoi/boost/polygon/voronoi_diagram.hpp>
-#include "Vector2d.hpp"
+#include "Vector2.hpp"
 
 /// \brief classes for generating Voronoi diagram
 /// \see http://en.wikipedia.org/wiki/Voronoi_diagram

@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "Controller.hpp"
 #include "PerspectiveCamera.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 using CharGenerator::Controller;
 

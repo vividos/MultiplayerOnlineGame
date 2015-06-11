@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 #include "AnimatedModel3d.hpp"
 #include "RenderOptions.hpp"
-#include "Quaternion4d.hpp"
+#include "Quaternion4.hpp"
 #include "ModelDisplayState.hpp"
 #include <functional>
 #include <boost/foreach.hpp>

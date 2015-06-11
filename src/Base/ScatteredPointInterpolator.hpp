@@ -8,8 +8,8 @@
 
 // includes
 #include "Base.hpp"
-#include "Vector3d.hpp"
-#include "Vector2d.hpp"
+#include "Vector3.hpp"
+#include "Vector2.hpp"
 #include <vector>
 
 /// \brief scattered point interpolator

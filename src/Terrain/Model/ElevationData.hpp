@@ -8,7 +8,7 @@
 
 // includes
 #include "ArrayMapper2D.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include <vector>
 
 namespace Terrain

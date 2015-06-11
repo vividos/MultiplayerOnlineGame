@@ -9,7 +9,7 @@
 // includes
 #include "TrianglesCompiler.hpp"
 #include "TexturedVertexBuffer.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 namespace Terrain
 {

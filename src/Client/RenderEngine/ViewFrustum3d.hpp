@@ -8,8 +8,8 @@
 
 // includes
 #include "RenderEngineCommon.hpp"
-#include "Vector3d.hpp"
-#include "Plane3d.hpp"
+#include "Vector3.hpp"
+#include "Plane3.hpp"
 
 // forward references
 class AABox;

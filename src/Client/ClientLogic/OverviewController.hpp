@@ -8,7 +8,7 @@
 
 // includes
 #include "ClientLogic.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "KeyboardActionBindings.hpp"
 #include "IViewController.hpp"
 #include "TimedEffect.hpp"

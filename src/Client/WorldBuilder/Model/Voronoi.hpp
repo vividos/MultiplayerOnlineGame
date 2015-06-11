@@ -10,7 +10,7 @@
 #include <queue>
 #include <map>
 #include <cmath>
-#include "Vector2d.hpp"
+#include "Vector2.hpp"
 
 /// \brief classes for generating Voronoi diagram
 /// \see http://en.wikipedia.org/wiki/Voronoi_diagram

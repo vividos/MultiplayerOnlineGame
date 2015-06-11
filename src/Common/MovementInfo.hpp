@@ -8,7 +8,7 @@
 
 // includes
 #include "Common.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "Timer.hpp"
 
 // forward references

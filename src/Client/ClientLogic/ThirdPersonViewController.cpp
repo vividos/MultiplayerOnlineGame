@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 #include "ThirdPersonViewController.hpp"
 #include "KeyboardActionManager.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "MovementInfo.hpp"
 #include "SizePointRect.hpp"
 #include "KeyboardActionBindings.hpp"

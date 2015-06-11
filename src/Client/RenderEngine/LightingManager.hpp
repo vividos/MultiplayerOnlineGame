@@ -9,7 +9,7 @@
 // includes
 #include "RenderEngineCommon.hpp"
 #include "Color.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include <vector>
 
 namespace OpenGL

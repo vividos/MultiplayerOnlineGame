@@ -10,7 +10,7 @@
 #include "VertexBufferObject.hpp"
 #include "TestRenderContext.hpp"
 #include "PerspectiveCamera.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

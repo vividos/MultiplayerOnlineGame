@@ -12,7 +12,7 @@
 #include "Texture.hpp"
 #include "TexturedVertexBuffer.hpp"
 #include "RangedAppendOnlyIndexBuffer.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "SafeFlag.hpp"
 
 // forward references

@@ -12,7 +12,7 @@
 #include "BlockRenderDataMap.hpp"
 #include "BlockTextureGenerator.hpp"
 #include "Timer.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include <atomic>
 
 // forward references

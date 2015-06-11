@@ -36,12 +36,6 @@
     <ClCompile Include="Path.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Plane3d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Quaternion4d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sha2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -76,6 +70,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BSpline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -137,16 +137,7 @@
     <ClInclude Include="Math.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix4d.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Path.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Plane3d.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Quaternion4d.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RC4Encoder.hpp">
@@ -188,12 +179,6 @@
     <ClInclude Include="Uuid.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2d.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3d.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\version.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -222,6 +207,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BSpline.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane3.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion4.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

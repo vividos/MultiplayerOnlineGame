@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 /// positional source position control
 class PositionalPosCtrl: public CWindowImpl<PositionalPosCtrl>

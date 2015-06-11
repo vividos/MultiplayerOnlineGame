@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IPlayerViewModel.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 namespace CharGenerator
 {

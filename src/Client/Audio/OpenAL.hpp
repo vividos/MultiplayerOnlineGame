@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include <al.h>
 #include <alc.h>
 

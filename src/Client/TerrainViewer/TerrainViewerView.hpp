@@ -17,7 +17,7 @@
 #include "LightingManager.hpp"
 #include "ModelRenderManager.hpp"
 #include "Player.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 // forward references
 class IFileSystem;

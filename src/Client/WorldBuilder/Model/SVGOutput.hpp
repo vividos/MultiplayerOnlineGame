@@ -8,7 +8,7 @@
 
 // include
 #include <map>
-#include "Vector2d.hpp"
+#include "Vector2.hpp"
 
 /// \brief Scalable Vector Graphics format classes
 namespace SVG

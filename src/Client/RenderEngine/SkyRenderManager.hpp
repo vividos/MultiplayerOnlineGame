@@ -9,7 +9,7 @@
 // includes
 #include "RenderEngineCommon.hpp"
 #include "IRenderable.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "Texture.hpp"
 #include "MilkyWaySkyboxRenderer.hpp"
 #include <ulib/DateTime.hpp>

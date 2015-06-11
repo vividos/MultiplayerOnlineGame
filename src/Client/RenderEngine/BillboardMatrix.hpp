@@ -7,8 +7,8 @@
 #pragma once
 
 // includes
-#include "Vector3d.hpp"
-#include "Matrix4d.hpp"
+#include "Vector3.hpp"
+#include "Matrix4.hpp"
 
 /// base class for billboard matrix
 class BillboardMatrixBase

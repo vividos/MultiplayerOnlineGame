@@ -2,13 +2,13 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file Plane3d.hpp Plane class
+/// \file Plane3.hpp Plane class
 //
 #pragma once
 
 // includes
 #include "Base.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 /// \brief plane in 3d space
 class BASE_DECLSPEC Plane3d

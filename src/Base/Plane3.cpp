@@ -2,12 +2,12 @@
 // MultiplayerOnlineGame - multiplayer game project
 // Copyright (C) 2008-2014 Michael Fink
 //
-/// \file Plane3d.cpp Plane class
+/// \file Plane3.cpp Plane class
 //
 
 // includes
 #include "StdAfx.h"
-#include "Plane3d.hpp"
+#include "Plane3.hpp"
 
 Plane3d::Plane3d(const Vector3d& vPos, const Vector3d& vNormal) throw()
 :m_vNormal(vNormal)

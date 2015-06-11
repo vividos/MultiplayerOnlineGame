@@ -8,7 +8,7 @@
 
 // includes
 #include "RenderEngineCommon.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "Texture.hpp"
 #include "IRenderable.hpp"
 

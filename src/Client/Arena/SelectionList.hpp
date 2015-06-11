@@ -9,7 +9,7 @@
 // includes
 #include "ClientLogic.hpp"
 #include "Object.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 // forward referces
 class ObjectMap;

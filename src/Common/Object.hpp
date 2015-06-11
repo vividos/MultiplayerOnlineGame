@@ -10,7 +10,7 @@
 #include "Lockable.hpp"
 #include "Common.hpp"
 #include "Uuid.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 #include "MovementInfo.hpp"
 
 // forward references

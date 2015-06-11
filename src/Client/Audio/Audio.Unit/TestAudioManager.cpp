@@ -8,7 +8,7 @@
 // includes
 #include "stdafx.h"
 #include "IAudioManager.hpp"
-#include "Vector3d.hpp"
+#include "Vector3.hpp"
 
 namespace UnitTest
 {
