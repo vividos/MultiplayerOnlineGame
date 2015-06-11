@@ -63,6 +63,7 @@
     <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DatabaseAuthManager.cpp" />
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
     <ClCompile Include="ServerSessionImpl.cpp" />
@@ -76,6 +77,7 @@
     <ClCompile Include="WorldRunner.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DatabaseAuthManager.hpp" />
     <ClInclude Include="GameServer.hpp" />
     <ClInclude Include="NetworkManager.hpp" />
     <ClInclude Include="ServerLogic.hpp" />
