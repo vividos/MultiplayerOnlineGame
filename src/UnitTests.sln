@@ -23,11 +23,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ulib.Unit", "ulib\ulib.Unit
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Thirdparty", "thirdparty\Thirdparty.vcxproj", "{CB79C2AD-60D6-45FE-BA99-6038A2184197}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "World", "World\World.vcxproj", "{77EA7307-3F93-4B26-90FC-C5528EC21CD4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "World", "Server\World\World.vcxproj", "{77EA7307-3F93-4B26-90FC-C5528EC21CD4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcxproj", "{54254FF9-AE31-4207-B98F-FB49BFE857A6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "World.Unit", "World\World.Unit\World.Unit.vcxproj", "{4FE44D37-4F37-4B72-B120-4D8196FCA5A5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "World.Unit", "Server\World\World.Unit\World.Unit.vcxproj", "{4FE44D37-4F37-4B72-B120-4D8196FCA5A5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio.Unit", "Client\Audio\Audio.Unit\Audio.Unit.vcxproj", "{FB4ED9EF-7403-41C3-B3C5-A721913267E3}"
 EndProject
@@ -45,11 +45,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain", "Terrain\Terrain.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Network", "Network\Network.vcxproj", "{83311FA4-5BB5-422A-A5B3-4D6B82884E8F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLogic", "ServerLogic\ServerLogic.vcxproj", "{5BC6F73D-84AC-46F5-B842-E0EE42B0E402}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLogic", "Server\ServerLogic\ServerLogic.vcxproj", "{5BC6F73D-84AC-46F5-B842-E0EE42B0E402}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLogic.Unit", "ServerLogic\ServerLogic.Unit\ServerLogic.Unit.vcxproj", "{B4E34672-A991-4256-848D-DBA984E231A5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLogic.Unit", "Server\ServerLogic\ServerLogic.Unit\ServerLogic.Unit.vcxproj", "{B4E34672-A991-4256-848D-DBA984E231A5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestService", "GameServer\TestService\TestService.vcxproj", "{68175EB5-02ED-447E-9797-742604D58203}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestService", "Server\GameServer\TestService\TestService.vcxproj", "{68175EB5-02ED-447E-9797-742604D58203}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WorldBuilder.Unit", "Client\WorldBuilder\WorldBuilder.Unit\WorldBuilder.Unit.vcxproj", "{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}"
 EndProject

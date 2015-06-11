@@ -25,9 +25,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\thirdparty\sqlite\sqlite3.c">
-      <Filter>sqlite Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DatabaseSqlite3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,16 +34,13 @@
     <ClCompile Include="DatabaseManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Thirdparty\sqlite\sqlite3.c">
+      <Filter>sqlite Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\thirdparty\sqlite\sqlite3.h">
-      <Filter>sqlite Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\thirdparty\sqlite\sqlite3ext.h">
-      <Filter>sqlite Source Files</Filter>
     </ClInclude>
     <ClInclude Include="DatabaseCommon.hpp">
       <Filter>Header Files</Filter>
@@ -63,6 +57,12 @@
     <ClInclude Include="IDatabaseInterface.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Thirdparty\sqlite\sqlite3.h">
+      <Filter>sqlite Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Thirdparty\sqlite\sqlite3ext.h">
+      <Filter>sqlite Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="versioninfo.rc">
@@ -70,10 +70,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\data\script\0001_test-accounts.sql">
+    <None Include="..\..\..\data\script\0001_test-accounts.sql">
       <Filter>SQL Files</Filter>
     </None>
-    <None Include="..\..\data\script\init.sql">
+    <None Include="..\..\..\data\script\init.sql">
       <Filter>SQL Files</Filter>
     </None>
   </ItemGroup>

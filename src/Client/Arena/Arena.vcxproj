@@ -58,7 +58,7 @@
       <ProxyFileName>Arena_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)Server\World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
@@ -83,7 +83,7 @@
       <ProxyFileName>Arena_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)Server\World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
@@ -162,7 +162,7 @@
       <Project>{b6ea8bae-e9fe-4087-8c25-5d3c7a977c50}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\World\World.vcxproj">
+    <ProjectReference Include="..\..\Server\World\World.vcxproj">
       <Project>{77ea7307-3f93-4b26-90fc-c5528ec21cd4}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

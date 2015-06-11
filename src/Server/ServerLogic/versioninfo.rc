@@ -2,7 +2,7 @@
 // Copyright (C) 2006-2008
 // http://www.resedit.net
 
-#include "../version.h"
+#include "../../version.h"
 #include "winresrc.h"
 
 //
@@ -20,11 +20,11 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "CompanyName", VERSIONINFO_COMPANY_NAME
-            VALUE "FileDescription", "World"
+            VALUE "FileDescription", "Server logic"
             VALUE "FileVersion", VERSIONINFO_FILEVERSION_STRING
-            VALUE "InternalName", "World"
+            VALUE "InternalName", "ServerLogic"
             VALUE "LegalCopyright", VERSIONINFO_COPYRIGHT
-            VALUE "OriginalFilename", "World.dll"
+            VALUE "OriginalFilename", "ServerLogic.dll"
             VALUE "ProductName", VERSIONINFO_PRODUCTNAME
             VALUE "ProductVersion", VERSIONINFO_PRODUCTVERSION_STRING
         END

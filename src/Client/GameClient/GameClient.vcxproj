@@ -50,14 +50,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)Server\World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)Server\World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link />
   </ItemDefinitionGroup>

@@ -34,15 +34,15 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\MultiplayerOnlineGame-Debug.props" />
-    <Import Project="..\..\boost.props" />
-    <Import Project="..\..\atl71-x86.props" />
+    <Import Project="..\..\..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\..\..\boost.props" />
+    <Import Project="..\..\..\atl71-x86.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\MultiplayerOnlineGame-Release.props" />
-    <Import Project="..\..\boost.props" />
-    <Import Project="..\..\atl71-x86.props" />
+    <Import Project="..\..\..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\..\..\boost.props" />
+    <Import Project="..\..\..\atl71-x86.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
@@ -83,10 +83,10 @@
     <ClCompile Include="TestServiceControlManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Base\Base.vcxproj">
+    <ProjectReference Include="..\..\..\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\ulib\ulib.vcxproj">
+    <ProjectReference Include="..\..\..\ulib\ulib.vcxproj">
       <Project>{daa1e880-4690-46c1-a9cb-c5c962f8c74c}</Project>
     </ProjectReference>
   </ItemGroup>

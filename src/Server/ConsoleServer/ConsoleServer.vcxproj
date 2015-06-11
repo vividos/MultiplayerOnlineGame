@@ -11,19 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5BC6F73D-84AC-46F5-B842-E0EE42B0E402}</ProjectGuid>
-    <RootNamespace>ServerLogic</RootNamespace>
+    <ProjectGuid>{D543E63C-CAEF-49D5-8401-8A788D7F55DE}</ProjectGuid>
+    <RootNamespace>ConsoleServer</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -32,15 +32,15 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\MultiplayerOnlineGame-Release.props" />
-    <Import Project="..\boost.props" />
-    <Import Project="..\atl71-x86.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\..\boost.props" />
+    <Import Project="..\..\atl71-x86.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\MultiplayerOnlineGame-Debug.props" />
-    <Import Project="..\boost.props" />
-    <Import Project="..\atl71-x86.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\..\boost.props" />
+    <Import Project="..\..\atl71-x86.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -48,62 +48,49 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Network;$(SolutionDir)Database;$(SolutionDir)World;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;SERVERLOGIC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Network;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Server\Database;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <Link />
-    <Link />
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Network;$(SolutionDir)Database;$(SolutionDir)World;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;SERVERLOGIC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Network;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Server\Database;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <Link />
-    <Link />
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameServer.cpp" />
-    <ClCompile Include="NetworkManager.cpp" />
-    <ClCompile Include="ServerSessionImpl.cpp" />
-    <ClCompile Include="SessionManager.cpp" />
+    <ClCompile Include="ConsoleServer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UpdateManager.cpp" />
-    <ClCompile Include="WorldModel.cpp" />
-    <ClCompile Include="WorldRunner.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameServer.hpp" />
-    <ClInclude Include="NetworkManager.hpp" />
-    <ClInclude Include="ServerLogic.hpp" />
-    <ClInclude Include="ServerSessionImpl.hpp" />
-    <ClInclude Include="SessionManager.hpp" />
-    <ClInclude Include="StaticAccountAuthManager.hpp" />
+    <ClInclude Include="ConsoleServer.hpp" />
+    <ClInclude Include="ConsoleServerProgramOptions.hpp" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="UpdateManager.hpp" />
-    <ClInclude Include="WorldModel.hpp" />
-    <ClInclude Include="WorldRunner.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="versioninfo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Base\Base.vcxproj">
+    <ProjectReference Include="..\..\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\Common\Common.vcxproj">
+    <ProjectReference Include="..\..\Common\Common.vcxproj">
       <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\Database\Database.vcxproj">
-      <Project>{f03f428a-096f-47ae-82e1-565e6b7cfd49}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Network\Network.vcxproj">
-      <Project>{83311fa4-5bb5-422a-a5b3-4d6b82884e8f}</Project>
+    <ProjectReference Include="..\ServerLogic\ServerLogic.vcxproj">
+      <Project>{5bc6f73d-84ac-46f5-b842-e0ee42b0e402}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
