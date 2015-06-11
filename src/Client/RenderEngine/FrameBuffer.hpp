@@ -100,8 +100,9 @@ public:
 
       ATLASSERT(uiComponent == GL_DEPTH_ATTACHMENT);
 
-      //TODO
-      //glFramebufferRenderbufferARB(GL_FRAMEBUFFER, uiComponent, m_uiFrameBufferName, renderBuffer.Id())
+      uiComponent;
+      //glFramebufferRenderbufferARB(GL_FRAMEBUFFER, uiComponent, m_uiFrameBufferName, renderBuffer.Id());
+      //glTraceError("glFramebufferRenderbufferARB");
    }
 
 private:
