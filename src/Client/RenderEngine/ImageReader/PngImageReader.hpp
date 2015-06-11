@@ -7,13 +7,14 @@
 #pragma once
 
 // includes
+#include "RenderEngineCommon.hpp"
 #include "IImageReader.hpp"
 #include <ulib/stream/IStream.hpp>
 #include "Color.hpp"
 #include <vector>
 
 /// image reader for Portable Network Graphics (.png) image files
-class PngImageReader: public IImageReader
+class RENDERENGINE_DECLSPEC PngImageReader : public IImageReader
 {
 public:
    /// dtor

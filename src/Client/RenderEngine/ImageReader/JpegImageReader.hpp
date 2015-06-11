@@ -7,10 +7,11 @@
 #pragma once
 
 // includes
+#include "RenderEngineCommon.hpp"
 #include "IImageReader.hpp"
 
 /// image reader for JPEG image file format (.jpg) image files
-class JpegImageReader: public IImageReader
+class RENDERENGINE_DECLSPEC JpegImageReader : public IImageReader
 {
 public:
    /// dtor
