@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4FE44D37-4F37-4B72-B120-4D8196FCA5A5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>WorldUnit</RootNamespace>
+    <RootNamespace>World.Unit</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -79,7 +79,7 @@
     <ClCompile Include="TestThreatList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Base\Base.vcxproj">
+    <ProjectReference Include="..\..\..\Shared\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
     </ProjectReference>
     <ProjectReference Include="..\World.vcxproj">

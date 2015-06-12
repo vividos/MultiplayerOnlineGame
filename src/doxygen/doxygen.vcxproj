@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C1E05BF2-1AA0-4EB7-98AD-AE5B44265122}</ProjectGuid>
-    <RootNamespace>doc</RootNamespace>
+    <RootNamespace>doxygen</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -7,7 +7,7 @@
 
 // includes
 #include "stdafx.h"
-#include "Plane3d.hpp"
+#include "Plane3.hpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

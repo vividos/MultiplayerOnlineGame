@@ -60,7 +60,7 @@
       <ProxyFileName>Client_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>.;UwBase;GameLogic;Conv;Renderer;Import;$(SolutionDir)Base;$(SolutionDir)Common;$(SolutionDir)Client\ClientLogic;$(SolutionDir)\Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Thirdparty\SDL-1.2.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;UwBase;GameLogic;Conv;Renderer;Import;$(SolutionDir)Client\ClientLogic;$(SolutionDir)\Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Thirdparty\SDL-1.2.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
@@ -85,7 +85,7 @@
       <ProxyFileName>Client_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>.;UwBase;GameLogic;Conv;Renderer;Import;$(SolutionDir)Base;$(SolutionDir)Common;$(SolutionDir)Client\ClientLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Thirdparty\SDL-1.2.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;UwBase;GameLogic;Conv;Renderer;Import;;$(SolutionDir)Client\ClientLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Thirdparty\SDL-1.2.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat />
     </ClCompile>
@@ -198,7 +198,7 @@
     <Image Include="Uus.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Base\Base.vcxproj">
+    <ProjectReference Include="..\..\Shared\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
     </ProjectReference>
     <ProjectReference Include="..\ClientLogic\ClientLogic.vcxproj">

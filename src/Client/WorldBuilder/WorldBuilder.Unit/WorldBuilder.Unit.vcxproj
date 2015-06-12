@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>WorldBuilderUnit</RootNamespace>
+    <RootNamespace>WorldBuilder.Unit</RootNamespace>
     <ProjectGuid>{61CFBEBB-EBA6-45AB-906B-0DB077D9DACB}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -94,7 +94,7 @@
     <ClCompile Include="TestWorldGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Base\Base.vcxproj">
+    <ProjectReference Include="..\..\..\Shared\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\RenderEngine\RenderEngine.vcxproj">

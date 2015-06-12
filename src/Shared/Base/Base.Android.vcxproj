@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}</ProjectGuid>
-    <RootNamespace>Base</RootNamespace>
+    <RootNamespace>Base.Android</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -20,12 +20,12 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
-    <Import Project="..\boost.props" />
-    <Import Project="..\MultiplayerOnlineGame-Android.props" />
+    <Import Project="..\..\boost.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Android.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
-    <Import Project="..\boost.props" />
-    <Import Project="..\MultiplayerOnlineGame-Android.props" />
+    <Import Project="..\..\boost.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Android.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -120,7 +120,7 @@
     <ClInclude Include="Uuid.hpp" />
     <ClInclude Include="Vector2d.hpp" />
     <ClInclude Include="Vector3d.hpp" />
-    <ClInclude Include="..\version.h" />
+    <ClInclude Include="..\..\version.h" />
     <ClInclude Include="VirtualFileSystem.hpp" />
     <ClInclude Include="ZigzagSquareIterator.hpp" />
     <ClInclude Include="ZipArchive.hpp" />

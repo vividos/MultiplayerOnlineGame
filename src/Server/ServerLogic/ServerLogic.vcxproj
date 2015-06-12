@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Network;$(SolutionDir)Server\Database;$(SolutionDir)Server\World;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Shared\Network;$(SolutionDir)Server\Database;$(SolutionDir)Server\World;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;SERVERLOGIC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
@@ -56,7 +56,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Network;$(SolutionDir)Server\Database;$(SolutionDir)Server\World;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Shared\Network;$(SolutionDir)Server\Database;$(SolutionDir)Server\World;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;SERVERLOGIC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
@@ -93,18 +93,18 @@
     <ResourceCompile Include="versioninfo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Base\Base.vcxproj">
+    <ProjectReference Include="..\..\Shared\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\Common.vcxproj">
+    <ProjectReference Include="..\..\Shared\Common\Common.vcxproj">
       <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\Database\Database.vcxproj">
       <Project>{f03f428a-096f-47ae-82e1-565e6b7cfd49}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\Network\Network.vcxproj">
+    <ProjectReference Include="..\..\Shared\Network\Network.vcxproj">
       <Project>{83311fa4-5bb5-422a-a5b3-4d6b82884e8f}</Project>
     </ProjectReference>
   </ItemGroup>

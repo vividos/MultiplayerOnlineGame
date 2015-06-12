@@ -7,8 +7,8 @@
 #pragma once
 
 // includes
-#include "Terrain/View/TerrainRenderManager.hpp"
-#include "Terrain/Model/DataBlockManager.hpp"
+#include "View/TerrainRenderManager.hpp"
+#include "Model/DataBlockManager.hpp"
 
 // forward references
 namespace Terrain

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <RootNamespace>ulib</RootNamespace>
+    <RootNamespace>ulib.Android</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{B04C58A9-E1C0-45EB-8608-F766E74EAA94}</ProjectGuid>
   </PropertyGroup>

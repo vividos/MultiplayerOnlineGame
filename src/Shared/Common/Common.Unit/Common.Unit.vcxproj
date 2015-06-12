@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <RootNamespace>Network</RootNamespace>
+    <RootNamespace>Common.Unit</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{07F3C3DD-2216-4C05-A43E-F2600EC27098}</ProjectGuid>
+    <ProjectGuid>{CE64A7A9-F675-4AA2-8B10-CEAC62758678}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -32,17 +32,17 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\MultiplayerOnlineGame-Release.props" />
-    <Import Project="..\..\boost.props" />
-    <Import Project="..\..\atl71-x86.props" />
-    <Import Project="..\..\CppUnitTest.props" />
+    <Import Project="..\..\..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\..\..\boost.props" />
+    <Import Project="..\..\..\atl71-x86.props" />
+    <Import Project="..\..\..\CppUnitTest.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\MultiplayerOnlineGame-Debug.props" />
-    <Import Project="..\..\boost.props" />
-    <Import Project="..\..\atl71-x86.props" />
-    <Import Project="..\..\CppUnitTest.props" />
+    <Import Project="..\..\..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\..\..\boost.props" />
+    <Import Project="..\..\..\atl71-x86.props" />
+    <Import Project="..\..\..\CppUnitTest.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -67,25 +67,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Model\DataBlock.cpp" />
-    <ClCompile Include="..\Model\ElevationData.cpp" />
-    <ClCompile Include="..\Reduce\IActiveVertexMap.cpp" />
-    <ClCompile Include="..\Reduce\ReduceAlgorithm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TestActiveVertexBlockMap.cpp" />
-    <ClCompile Include="TestActiveVertexMap.cpp" />
-    <ClCompile Include="TestDataSource.cpp" />
-    <ClCompile Include="TestReduceAlgorithm.cpp" />
+    <ClCompile Include="TestMetricsManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestMovementInfo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestObjectMap.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Terrain.vcxproj">
-      <Project>{dbc08d35-5928-49f1-b212-8c1f2688cba3}</Project>
+    <ProjectReference Include="..\..\Base\Base.vcxproj">
+      <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ulib\ulib.vcxproj">
+      <Project>{daa1e880-4690-46c1-a9cb-c5c962f8c74c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.vcxproj">
+      <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

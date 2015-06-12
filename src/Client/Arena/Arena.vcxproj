@@ -58,7 +58,7 @@
       <ProxyFileName>Arena_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)Server\World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Shared\Network;$(SolutionDir)Shared\Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)Server\World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
@@ -83,7 +83,7 @@
       <ProxyFileName>Arena_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Network;$(SolutionDir)Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)Server\World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Server\ServerLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Client\UserInterface;$(SolutionDir)Shared\Network;$(SolutionDir)Shared\Terrain;$(SolutionDir)Client\Audio;$(SolutionDir)Server\World;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
@@ -133,7 +133,7 @@
       <Project>{7cbd4454-1736-4c34-8813-f64c38f7c9a6}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\Base\Base.vcxproj">
+    <ProjectReference Include="..\..\Shared\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
@@ -141,21 +141,21 @@
       <Project>{ca2d1198-7966-4521-9128-6c28c556714c}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\Common.vcxproj">
+    <ProjectReference Include="..\..\Shared\Common\Common.vcxproj">
       <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\Model3D\Model3D.vcxproj">
       <Project>{35419d0d-bae7-4afd-a6a5-ea597e0a0dcd}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\Network\Network.vcxproj">
+    <ProjectReference Include="..\..\Shared\Network\Network.vcxproj">
       <Project>{83311fa4-5bb5-422a-a5b3-4d6b82884e8f}</Project>
     </ProjectReference>
     <ProjectReference Include="..\RenderEngine\RenderEngine.vcxproj">
       <Project>{f5c4aed3-7358-4ef7-b835-de45155cf0a5}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\Terrain\Terrain.vcxproj">
+    <ProjectReference Include="..\..\Shared\Terrain\Terrain.vcxproj">
       <Project>{dbc08d35-5928-49f1-b212-8c1f2688cba3}</Project>
     </ProjectReference>
     <ProjectReference Include="..\UserInterface\UserInterface.vcxproj">

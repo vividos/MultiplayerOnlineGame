@@ -48,14 +48,14 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Terrain;$(SolutionDir)Client\UserInterface;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Shared\Terrain;$(SolutionDir)Client\UserInterface;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Terrain;$(SolutionDir)Client\UserInterface;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Client\ClientLogic;$(SolutionDir)Client\RenderEngine;$(SolutionDir)Shared\Terrain;$(SolutionDir)Client\UserInterface;$(SolutionDir)Client\Model3D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link />
@@ -76,7 +76,7 @@
     <ClInclude Include="TerrainViewerView.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Base\Base.vcxproj">
+    <ProjectReference Include="..\..\Shared\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
@@ -84,7 +84,7 @@
       <Project>{ca2d1198-7966-4521-9128-6c28c556714c}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\Common.vcxproj">
+    <ProjectReference Include="..\..\Shared\Common\Common.vcxproj">
       <Project>{54254ff9-ae31-4207-b98f-fb49bfe857a6}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
@@ -95,7 +95,7 @@
       <Project>{f5c4aed3-7358-4ef7-b835-de45155cf0a5}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\Terrain\Terrain.vcxproj">
+    <ProjectReference Include="..\..\Shared\Terrain\Terrain.vcxproj">
       <Project>{dbc08d35-5928-49f1-b212-8c1f2688cba3}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>

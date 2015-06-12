@@ -58,10 +58,10 @@
     <ClCompile Include="..\sha2.c">
       <Filter>Tested Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ulib\DateTime.cpp">
+    <ClCompile Include="..\..\..\ulib\DateTime.cpp">
       <Filter>Tested Files\ulib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ulib\ISO8601Parser.cpp">
+    <ClCompile Include="..\..\..\ulib\ISO8601Parser.cpp">
       <Filter>Tested Files\ulib</Filter>
     </ClCompile>
     <ClCompile Include="TestByteStream.cpp">
@@ -128,10 +128,10 @@
     <ClInclude Include="..\sha2.h">
       <Filter>Tested Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ulib\DateTime.hpp">
+    <ClInclude Include="..\..\..\ulib\DateTime.hpp">
       <Filter>Tested Files\ulib</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ulib\ISO8601Parser.hpp">
+    <ClInclude Include="..\..\..\ulib\ISO8601Parser.hpp">
       <Filter>Tested Files\ulib</Filter>
     </ClInclude>
     <ClInclude Include="..\ScatteredPointInterpolator.hpp">

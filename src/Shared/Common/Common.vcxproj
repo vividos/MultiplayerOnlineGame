@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C8C9BC52-CBED-4F13-9ABF-277E92AA52FC}</ProjectGuid>
-    <RootNamespace>SRP.Unit</RootNamespace>
+    <ProjectGuid>{54254FF9-AE31-4207-B98F-FB49BFE857A6}</ProjectGuid>
+    <RootNamespace>Common</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -35,14 +35,12 @@
     <Import Project="..\..\MultiplayerOnlineGame-Release.props" />
     <Import Project="..\..\boost.props" />
     <Import Project="..\..\atl71-x86.props" />
-    <Import Project="..\..\CppUnitTest.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\MultiplayerOnlineGame-Debug.props" />
     <Import Project="..\..\boost.props" />
     <Import Project="..\..\atl71-x86.props" />
-    <Import Project="..\..\CppUnitTest.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -50,40 +48,70 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..;$(SolutionDir)Thirdparty\boost.xint;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;COMMON_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..;$(SolutionDir)Thirdparty\boost.xint;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;COMMON_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <AdditionalOptions>/IGNORE:4197 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionRegistry.cpp" />
+    <ClCompile Include="CommandTranslator.cpp" />
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="LogFileAppender.cpp" />
+    <ClCompile Include="MetricsManager.cpp" />
+    <ClCompile Include="Mobile.cpp" />
+    <ClCompile Include="MobileDisplayInfo.cpp" />
+    <ClCompile Include="MovementInfo.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TestSRPxint.cpp" />
+    <ClCompile Include="TimeBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Account.hpp" />
+    <ClInclude Include="Action.hpp" />
+    <ClInclude Include="ActionRegistry.hpp" />
+    <ClInclude Include="AsyncActionQueue.hpp" />
+    <ClInclude Include="AuthInfo.hpp" />
+    <ClInclude Include="Command.hpp" />
+    <ClInclude Include="CommandTranslator.hpp" />
+    <ClInclude Include="Common.hpp" />
+    <ClInclude Include="CommonDefines.hpp" />
+    <ClInclude Include="IActionQueue.hpp" />
+    <ClInclude Include="IController.hpp" />
+    <ClInclude Include="IModel.hpp" />
+    <ClInclude Include="LogCategories.hpp" />
+    <ClInclude Include="LogFileAppender.hpp" />
+    <ClInclude Include="MetricsManager.hpp" />
+    <ClInclude Include="Mobile.hpp" />
+    <ClInclude Include="MobileActions.hpp" />
+    <ClInclude Include="MobileDisplayInfo.hpp" />
+    <ClInclude Include="MovementInfo.hpp" />
+    <ClInclude Include="MultiplayerOnlineGame.hpp" />
+    <ClInclude Include="Object.hpp" />
+    <ClInclude Include="ObjectMap.hpp" />
+    <ClInclude Include="Player.hpp" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TimeBase.hpp" />
+    <ClInclude Include="ZoneInfo.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Base\Base.vcxproj">
+    <ResourceCompile Include="versioninfo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.vcxproj">
       <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\SRP.vcxproj">
-      <Project>{f52fe1ad-b5d1-4a8e-b9ba-d94966f5529d}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>

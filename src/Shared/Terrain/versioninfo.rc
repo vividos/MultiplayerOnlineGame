@@ -2,7 +2,7 @@
 // Copyright (C) 2006-2008
 // http://www.resedit.net
 
-#include "../version.h"
+#include "../../version.h"
 #include "winresrc.h"
 
 //
@@ -20,11 +20,11 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "CompanyName", VERSIONINFO_COMPANY_NAME
-            VALUE "FileDescription", "Base classes"
+            VALUE "FileDescription", "Terrain render engine"
             VALUE "FileVersion", VERSIONINFO_FILEVERSION_STRING
-            VALUE "InternalName", "Base"
+            VALUE "InternalName", "Terrain"
             VALUE "LegalCopyright", VERSIONINFO_COPYRIGHT
-            VALUE "OriginalFilename", "Base.dll"
+            VALUE "OriginalFilename", "Terrain.dll"
             VALUE "ProductName", VERSIONINFO_PRODUCTNAME
             VALUE "ProductVersion", VERSIONINFO_PRODUCTVERSION_STRING
         END

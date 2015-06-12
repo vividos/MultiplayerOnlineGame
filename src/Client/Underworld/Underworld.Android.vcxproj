@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}</ProjectGuid>
-    <RootNamespace>Underworld</RootNamespace>
+    <RootNamespace>Underworld.Android</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />

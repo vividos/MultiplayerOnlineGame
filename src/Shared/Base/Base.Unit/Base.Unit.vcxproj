@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F8F39DF5-7644-4A20-A826-399ED1E043DB}</ProjectGuid>
-    <RootNamespace>UT_Base</RootNamespace>
+    <RootNamespace>Base.Unit</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -32,17 +32,17 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\MultiplayerOnlineGame-Release.props" />
-    <Import Project="..\..\boost.props" />
-    <Import Project="..\..\atl71-x86.props" />
-    <Import Project="..\..\CppUnitTest.props" />
+    <Import Project="..\..\..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\..\..\boost.props" />
+    <Import Project="..\..\..\atl71-x86.props" />
+    <Import Project="..\..\..\CppUnitTest.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\MultiplayerOnlineGame-Debug.props" />
-    <Import Project="..\..\boost.props" />
-    <Import Project="..\..\atl71-x86.props" />
-    <Import Project="..\..\CppUnitTest.props" />
+    <Import Project="..\..\..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\..\..\boost.props" />
+    <Import Project="..\..\..\atl71-x86.props" />
+    <Import Project="..\..\..\CppUnitTest.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -69,12 +69,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ulib\DateTime.cpp" />
-    <ClCompile Include="..\..\ulib\ISO8601Parser.cpp" />
+    <ClCompile Include="..\..\..\ulib\DateTime.cpp" />
+    <ClCompile Include="..\..\..\ulib\ISO8601Parser.cpp" />
     <ClCompile Include="..\AstronomyMath.cpp" />
     <ClCompile Include="..\HashedData.cpp" />
     <ClCompile Include="..\Path.cpp" />
-    <ClCompile Include="..\Plane3d.cpp" />
+    <ClCompile Include="..\Plane3.cpp" />
     <ClCompile Include="..\ScatteredPointInterpolator.cpp" />
     <ClCompile Include="..\sha2.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -107,18 +107,18 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ulib\DateTime.hpp" />
-    <ClInclude Include="..\..\ulib\ISO8601Parser.hpp" />
+    <ClInclude Include="..\..\..\ulib\DateTime.hpp" />
+    <ClInclude Include="..\..\..\ulib\ISO8601Parser.hpp" />
     <ClInclude Include="..\AstronomyMath.hpp" />
     <ClInclude Include="..\ByteStream.hpp" />
     <ClInclude Include="..\HashedData.hpp" />
     <ClInclude Include="..\Path.hpp" />
-    <ClInclude Include="..\Plane3d.hpp" />
+    <ClInclude Include="..\Plane3.hpp" />
     <ClInclude Include="..\RC4Encoder.hpp" />
     <ClInclude Include="..\ScatteredPointInterpolator.hpp" />
     <ClInclude Include="..\sha2.h" />
     <ClInclude Include="..\Uuid.hpp" />
-    <ClInclude Include="..\Vector3d.hpp" />
+    <ClInclude Include="..\Vector3.hpp" />
     <ClInclude Include="..\ZigzagSquareIterator.hpp" />
     <ClInclude Include="..\ZipArchive.hpp" />
     <ClInclude Include="..\ZipArchiveFile.hpp" />
