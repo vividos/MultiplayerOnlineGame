@@ -94,12 +94,13 @@ void Slider::OnMouseMotionEvent(unsigned int x, unsigned int /*y*/)
       return;
 
    // check if slider pos has moved since
-   unsigned int uiNewSliderPos = SliderPosByOffset(x + m_iDragOffset);
+   unsigned int uiNewSliderPos = SliderPosByOffset(x - m_iDragOffset);
 
    if (BaseClass::Current() != uiNewSliderPos)
    {
       // current pos moved
       BaseClass::Current(uiNewSliderPos);
+      SetAttr(ProgressBarAttr::Current, uiNewSliderPos);
 
       FireEvent(SliderEvent::Moved);
    }
