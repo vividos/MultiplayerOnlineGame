@@ -11,6 +11,7 @@
 #include "ModelViewerView.hpp"
 #include "ModelViewerViewModel.hpp"
 #include "KeyboardActionBindings.hpp"
+#include "ModelViewerPanel.hpp"
 
 // forward references
 class RenderEngine;
@@ -44,6 +45,9 @@ namespace ModelViewer
 
       /// called when animation should change
       void OnChangeAnimation(bool bNextAnim);
+
+      /// called when display info has changed by modifying sliders
+      void OnChangeSlider(ModelViewer::Panel::T_enSliderType enSliderType, unsigned int uiNewValue);
 
    private:
       /// view model

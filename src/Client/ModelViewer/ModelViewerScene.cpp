@@ -59,7 +59,9 @@ void ModelViewer::Scene::SetupPanel(IWindowManager& windowManager, IFileSystem& 
 
    m_spPanel->AnimationName(m_viewModel.AnimationName(m_viewModel.CurrentAnimation()));
 
-   m_spPanel->SetCallbacks(std::bind(&ModelViewer::Scene::OnChangeAnimation, this, std::placeholders::_1));
+   m_spPanel->SetCallbacks(
+      std::bind(&ModelViewer::Scene::OnChangeAnimation, this, std::placeholders::_1),
+      std::bind(&ModelViewer::Scene::OnChangeSlider, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 void ModelViewer::Scene::OnChangeAnimation(bool bNextAnim)
@@ -85,3 +87,24 @@ void ModelViewer::Scene::OnChangeAnimation(bool bNextAnim)
    CString cszAnimationName = m_viewModel.AnimationName(uiCurrentAnimation);
    m_spPanel->AnimationName(cszAnimationName);
 }
+
+void ModelViewer::Scene::OnChangeSlider(ModelViewer::Panel::T_enSliderType enSliderType, unsigned int uiNewValue)
+{
+   MobileDisplayInfo newDisplayInfo = m_viewModel.DisplayInfo();
+
+   switch (enSliderType)
+   {
+   case ModelViewer::Panel::sliderBaseFigure: newDisplayInfo.BaseFigure(uiNewValue); break;
+   case ModelViewer::Panel::sliderSkinColor: newDisplayInfo.SkinColor(uiNewValue); break;
+   case ModelViewer::Panel::sliderFaceStyle: newDisplayInfo.FaceStyle(uiNewValue); break;
+   case ModelViewer::Panel::sliderHairColor: newDisplayInfo.HairColor(uiNewValue); break;
+   case ModelViewer::Panel::sliderPilosityHairStyle: newDisplayInfo.PilosityHairStyle(uiNewValue); break;
+   case ModelViewer::Panel::sliderPilosityBrowStyle: newDisplayInfo.PilosityBrowStyle(uiNewValue); break;
+   default:
+      ATLASSERT(false);
+      break;
+   }
+
+   m_viewModel.DisplayInfo(newDisplayInfo);
+}
+
