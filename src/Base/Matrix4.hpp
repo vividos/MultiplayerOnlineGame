@@ -31,7 +31,7 @@ public:
    }
 
    /// sets column with vector components
-   void Column(unsigned int uiColumn, const Vector3d& vColumn) throw()
+   void Column(unsigned int uiColumn, const Vector3T<T>& vColumn) throw()
    {
       ATLASSERT(uiColumn < 4);
       m_d[uiColumn][0] = vColumn.X();
@@ -40,10 +40,10 @@ public:
    }
 
    /// returns column vector from components
-   Vector3d Column(unsigned int uiColumn) const throw()
+   Vector3T<T> Column(unsigned int uiColumn) const throw()
    {
       ATLASSERT(uiColumn < 4);
-      return Vector3d(
+      return Vector3T<T>(
          m_d[uiColumn][0],
          m_d[uiColumn][1],
          m_d[uiColumn][2]
@@ -51,10 +51,10 @@ public:
    }
 
    /// returns row vector from components
-   Vector3d Row(unsigned int uiRow) const throw()
+   Vector3T<T> Row(unsigned int uiRow) const throw()
    {
       ATLASSERT(uiRow < 4);
-      return Vector3d(
+      return Vector3T<T>(
          m_d[0][uiRow],
          m_d[1][uiRow],
          m_d[2][uiRow]
@@ -62,7 +62,7 @@ public:
    }
 
    /// sets row with vector components
-   void Row(unsigned int uiRow, const Vector3d& vRow) throw()
+   void Row(unsigned int uiRow, const Vector3T<T>& vRow) throw()
    {
       ATLASSERT(uiRow < 4);
       m_d[0][uiRow] = vRow.X();
@@ -76,10 +76,10 @@ public:
       std::swap(m_d[0][1], m_d[1][0]);
       std::swap(m_d[0][2], m_d[2][0]);
       std::swap(m_d[0][3], m_d[3][0]);
-                                 
+
       std::swap(m_d[1][2], m_d[2][1]);
       std::swap(m_d[1][3], m_d[3][1]);
-                                 
+
       std::swap(m_d[2][3], m_d[3][2]);
    }
 
@@ -88,14 +88,14 @@ public:
    {
       std::swap(m_d[0][1], m_d[1][0]);
       std::swap(m_d[0][2], m_d[2][0]);
-                                 
+
       std::swap(m_d[1][2], m_d[2][1]);
    }
 
    /// multiply operator
-   Vector3d operator*(const Vector3d& v) const throw()
+   Vector3T<T> operator*(const Vector3T<T>& v) const throw()
    {
-      return Vector3d(
+      return Vector3T<T>(
          m_d[0][0] * v.X() + m_d[1][0] * v.Y() + m_d[2][0] * v.Z() + m_d[3][0],
          m_d[0][1] * v.X() + m_d[1][1] * v.Y() + m_d[2][1] * v.Z() + m_d[3][1],
          m_d[0][2] * v.X() + m_d[1][2] * v.Y() + m_d[2][2] * v.Z() + m_d[3][2]
@@ -133,9 +133,9 @@ public:
       T t = T(1.0) - cs;
 
       Matrix4T<T> matRotate;
-      matRotate.Row(0, Vector3d(t * vAxis.X() * vAxis.X() + cs,             t * vAxis.X() * vAxis.Y() - sn * vAxis.Z(), t * vAxis.X() * vAxis.Z() + sn * vAxis.Y()));
-      matRotate.Row(1, Vector3d(t * vAxis.X() * vAxis.Y() + sn * vAxis.Z(), t * vAxis.Y() * vAxis.Y() + cs,             t * vAxis.Y() * vAxis.Z() - sn * vAxis.X()));
-      matRotate.Row(2, Vector3d(t * vAxis.X() * vAxis.Z() - sn * vAxis.Y(), t * vAxis.Y() * vAxis.Z() + sn * vAxis.X(), t * vAxis.Z() * vAxis.Z() + cs));
+      matRotate.Row(0, Vector3T<T>(t * vAxis.X() * vAxis.X() + cs, t * vAxis.X() * vAxis.Y() - sn * vAxis.Z(), t * vAxis.X() * vAxis.Z() + sn * vAxis.Y()));
+      matRotate.Row(1, Vector3T<T>(t * vAxis.X() * vAxis.Y() + sn * vAxis.Z(), t * vAxis.Y() * vAxis.Y() + cs, t * vAxis.Y() * vAxis.Z() - sn * vAxis.X()));
+      matRotate.Row(2, Vector3T<T>(t * vAxis.X() * vAxis.Z() - sn * vAxis.Y(), t * vAxis.Y() * vAxis.Z() + sn * vAxis.X(), t * vAxis.Z() * vAxis.Z() + cs));
       matRotate[3][3] = 1.0;
       return matRotate;
    }
@@ -143,7 +143,7 @@ public:
    /// builds a rotation matrix from quaternion
    static Matrix4T<T> Rotate(Quaternion4d& quat)
    {
-      Vector3d vAxis;
+      Vector3T<T> vAxis;
       T dAngle;
 
       quat.ToAxisAngle(vAxis, dAngle);
