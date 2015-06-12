@@ -101,9 +101,6 @@
     <ProjectReference Include="..\RenderEngine\RenderEngine.vcxproj">
       <Project>{f5c4aed3-7358-4ef7-b835-de45155cf0a5}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shared\SRP\SRP.vcxproj">
-      <Project>{f52fe1ad-b5d1-4a8e-b9ba-d94966f5529d}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\Shared\Terrain\Terrain.vcxproj">
       <Project>{dbc08d35-5928-49f1-b212-8c1f2688cba3}</Project>
     </ProjectReference>
