@@ -191,6 +191,14 @@ public:
       SetAttr(cszAttributeName, cszValue);
    }
 
+   /// sets new attribute value as unsigned integer value
+   void SetAttr(const CString& cszAttributeName, unsigned int uiValue)
+   {
+      CString cszValue;
+      cszValue.Format(_T("%ui"), uiValue);
+      SetAttr(cszAttributeName, cszValue);
+   }
+
    // operators
 
    /// get operator
