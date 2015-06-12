@@ -71,9 +71,7 @@
     </ResourceCompile>
     <Link />
     <Link />
-    <Link>
-      <AdditionalDependencies>Base.lib;Audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Link />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -97,9 +95,7 @@
     </ResourceCompile>
     <Link />
     <Link />
-    <Link>
-      <AdditionalDependencies>Base.lib;Audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
@@ -119,6 +115,14 @@
   <ItemGroup>
     <ResourceCompile Include="AudioPlayer.rc" />
     <ResourceCompile Include="versioninfo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Base\Base.vcxproj">
+      <Project>{d0b07058-a7fb-4bdf-9054-68baa9bf7e03}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Audio.vcxproj">
+      <Project>{7cbd4454-1736-4c34-8813-f64c38f7c9a6}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
