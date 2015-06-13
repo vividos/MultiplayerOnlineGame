@@ -12,6 +12,7 @@
 
 namespace CharGenerator
 {
+   /// view for character generator
    class CLIENTLOGIC_DECLSPEC View : public IView
    {
    public:

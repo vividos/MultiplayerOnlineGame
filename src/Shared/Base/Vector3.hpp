@@ -203,5 +203,8 @@ inline Vector3T<T> operator/(const Vector3T<T>& vec, const T d)
    return Vector3T<T>(vec.X()/d, vec.Y()/d, vec.Z()/d);
 }
 
+/// vector type that uses double
 typedef Vector3T<double> Vector3d;
+
+/// vector type that uses float
 typedef Vector3T<float> Vector3f;

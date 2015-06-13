@@ -10,7 +10,7 @@
 #include "ClientLogic.hpp"
 #include "UserInterfaceAudio.hpp"
 
-/// forward references
+// forward references
 namespace Audio
 {
 class IAudioManager;
@@ -30,7 +30,7 @@ public:
    /// connects window manager to audio manager
    void Connect(IWindowManager& windowManager, IFileSystem& fileSystem);
 
-   // called on user interface audio event
+   /// called on user interface audio event
    void OnUserInterfaceAudioEvent(T_enUserInterfaceAudioEvents enAudioEvent) throw();
 
 private:

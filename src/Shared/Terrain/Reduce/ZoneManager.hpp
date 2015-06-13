@@ -89,7 +89,7 @@ private:
    /// data for all levels
    std::vector<LevelData> m_vecLevelData;
 
-   // per-zone render data
+   /// per-zone render data
    class RenderData
    {
    public:

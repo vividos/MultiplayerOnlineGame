@@ -32,10 +32,18 @@ private:
    /// sets up session
    virtual void SetupSession() override;
 
-   /// message handler
+   // message handler
+
+   /// called for action message
    void OnMessageAction(RawMessage& rawMsg);
+
+   /// called for add/remove object message
    void OnMessageAddRemoveObject(RawMessage& rawMsg);
+
+   /// called for update object movement message
    void OnMessageUpdateObjectMovement(RawMessage& rawMsg);
+
+   /// called for session init message
    void OnMessageSessionInit(RawMessage& rawMsg);
 
 private:

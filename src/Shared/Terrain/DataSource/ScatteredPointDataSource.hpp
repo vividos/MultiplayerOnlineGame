@@ -29,6 +29,7 @@ public:
    virtual std::shared_ptr<Terrain::Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;
 
 private:
+   /// scattered point interpolator
    std::shared_ptr<::ScatteredPointInterpolator> m_spInterpolator;
 };
 

@@ -26,20 +26,20 @@ class TimeIndex;
    client. Every client also has a view and controller. The controller has to
    send its commands to the remote model, where it is checked. The resulting
    action is then sent to all clients. The controller that sent an action can
-   carry out a command to its local model, but must be prepared that these
+   apply a command to its local model, but must be prepared that these
    actions can be canceled or denied by the server.
 
    The classes to implement the adapted MVC pattern are flexible enough to be
    switched together to also support local only games. Here the different
    scenarios are described:
 
-   Local Model (e.g. Single player game)
+   Local Model (e.g. single player game)
    \dot
    digraph localmodel {
       node [shape=box]
-      View [ label="LocalView" URL="\ref LocalView"];
-      Model [ label="LocalModel" URL="\ref LocalModel"];
-      Controller [ label="LocalController" URL="\ref LocalController"];
+      View [ label="local view" URL="IView"];
+      Model [ label="LocalModel" URL="LocalModel"];
+      Controller [ label="LocalController" URL="LocalController"];
 
       View -> Model [label="shows"]
       Model -> View [label="notifies about updates"]
@@ -57,9 +57,9 @@ class TimeIndex;
          style=filled;
          color=lightgrey;
 
-         ClientView [ label="ClientView" URL="\ref ClientView" ];
-         ClientModel [ label="ClientModel" URL="\ref ClientModel" ];
-         ClientController [ label="ClientController" URL="\ref ClientController" ];
+         ClientView [ label="client view" URL="IView" ];
+         ClientModel [ label="ClientModel" URL="ClientModel" ];
+         ClientController [ label="ClientController" URL="ClientController" ];
 
          ClientView -> ClientModel [label="shows"]
          ClientModel -> ClientView [label="notifies about updates"]
@@ -70,8 +70,8 @@ class TimeIndex;
          style=filled;
          color=lightgrey;
 
-         ServerModel [ label="ServerModel" URL="\ref ServerModel" ];
-         ServerController [ label="ServerController" URL="\ref ServerController" ];
+         ServerModel [ label="ServerModel" URL="ServerModel" ];
+         ServerController [ label="ServerController" URL="ServerController" ];
 
          ServerController -> ServerModel [label="check command"]
       }
@@ -80,7 +80,7 @@ class TimeIndex;
          style=filled;
          color=lightgrey;
 
-         WorldModel [ label="WorldModel" URL="\ref WorldModel" ];
+         WorldModel [ label="WorldModel" URL="WorldModel" ];
       }
 
       ClientController -> ServerController [label="send command"]
@@ -97,7 +97,7 @@ class TimeIndex;
 /// \details duties of this class:
 /// * converts commands to one or more actions
 /// * applies actions to objects/mobiles
-/// * forwards actions and updates to another model, if any (e.g. ClientSideModel)
+/// * forwards actions and updates to another model, if any (e.g. ClientModel)
 /// * applies updates to objects
 class IModel
 {

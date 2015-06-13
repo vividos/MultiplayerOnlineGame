@@ -115,6 +115,7 @@ void ReducedTriangleBlockRenderData::GenerateTexture(
    m_spTexture = m_blockTextureGenerator.Generate(spDataBlock);
 }
 
+/// calculates min/max values from elevation data
 void CalcMinMax(const std::vector<float>& vecElevationData, float& fMin, float& fMax)
 {
    fMin = std::numeric_limits<float>::infinity();

@@ -230,5 +230,8 @@ private:
    T m_d[4][4];
 };
 
+/// matrix type that uses double
 typedef Matrix4T<double> Matrix4d;
+
+/// matrix type that uses float
 typedef Matrix4T<float> Matrix4f;
