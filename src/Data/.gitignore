@@ -1,0 +1,4 @@
+# ignore data files
+BuildData.exe
+madplay.exe
+oggenc2.exe
