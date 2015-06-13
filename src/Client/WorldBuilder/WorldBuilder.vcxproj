@@ -134,9 +134,6 @@
     <ProjectReference Include="..\RenderEngine\RenderEngine.vcxproj">
       <Project>{f5c4aed3-7358-4ef7-b835-de45155cf0a5}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\Thirdparty\Thirdparty.vcxproj">
-      <Project>{cb79c2ad-60d6-45fe-ba99-6038a2184197}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\ulib\ulib.vcxproj">
       <Project>{daa1e880-4690-46c1-a9cb-c5c962f8c74c}</Project>
     </ProjectReference>
