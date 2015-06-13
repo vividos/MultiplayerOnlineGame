@@ -29,9 +29,6 @@ private:
    /// calculates b-spline base vector
    void CalcBase(float at) throw();
 
-   BSpline(const BSpline&);
-   BSpline& operator=(const BSpline&);
-
 private:
    int m_uiOrder; ///< order of the bspline equation
 
