@@ -45,6 +45,7 @@ unsigned int MandelbrotTerrainDataSource::Iterate(double x, double y) throw()
    const unsigned int c_uiMaxIter = 64;
    unsigned int uiIter = 0;
 
+   // z(i+1) = z(i) ^ 2 + c
    double re = 0.0, im = 0.0;
    do
    {
@@ -54,7 +55,7 @@ unsigned int MandelbrotTerrainDataSource::Iterate(double x, double y) throw()
 
       uiIter++;
 
-   } while(uiIter < c_uiMaxIter && (re*re + im*im) < 4);
+   } while(uiIter < c_uiMaxIter && (re*re + im*im) < 4.0);
 
    return uiIter;
 }
