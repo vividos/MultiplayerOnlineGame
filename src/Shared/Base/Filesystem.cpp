@@ -22,7 +22,7 @@ Filesystem::Filesystem()
    ATLASSERT(iPos != -1);
    m_cszBaseFolder = m_cszBaseFolder.Left(iPos+1);
 
-   m_cszBaseFolder += _T("data\\");
+   m_cszBaseFolder += _T("ClientData\\");
 }
 
 CString Filesystem::ModuleFilename() throw()

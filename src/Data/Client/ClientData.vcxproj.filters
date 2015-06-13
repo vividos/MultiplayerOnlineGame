@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="audio">
+      <UniqueIdentifier>{cf334d90-1382-49bd-9bc3-d4585f6a35f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="audio\music">
+      <UniqueIdentifier>{0565bf86-8e87-4e12-b7ad-9ff5e109d10d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sky">
+      <UniqueIdentifier>{a444133a-79c3-44d5-998b-d2b6e3ba2a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{7e3a148d-d4a0-4dbf-ab77-d868272a2416}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="audio\ui">
+      <UniqueIdentifier>{94baec7c-31a6-41e9-9cbf-349c830cb5a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui\GameMenu">
+      <UniqueIdentifier>{6acc282b-48cf-42fe-9ea8-8522bb034d0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models">
+      <UniqueIdentifier>{3a9cafe2-b493-4843-a739-64149f51cb00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\chars">
+      <UniqueIdentifier>{e3546f43-90de-4ea0-974b-ac832e4511f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\md2">
+      <UniqueIdentifier>{f5d9a08e-a62d-4f6a-a8df-15c4d3e3f76e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\textures">
+      <UniqueIdentifier>{30060df0-199d-4ff8-9c0e-587bfd1bb189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\objects">
+      <UniqueIdentifier>{f5ed8eb1-170c-4f9b-b13b-5f4c09bf15af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models\md2\homer">
+      <UniqueIdentifier>{a1e6b5ae-d10d-4d10-8e77-fa8e3e06a0b8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="audio\music.json">
+      <Filter>audio</Filter>
+    </None>
+    <None Include="sky\clearSky2_norle.tga">
+      <Filter>sky</Filter>
+    </None>
+    <None Include="ui\LoadingScreen.json">
+      <Filter>ui</Filter>
+    </None>
+    <None Include="ui\ModelViewerPanel.json">
+      <Filter>ui</Filter>
+    </None>
+    <None Include="ui\GameMenu\AudioPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ui\GameMenu\ControlsPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ui\GameMenu\CreditsPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ui\GameMenu\MainPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ui\GameMenu\VideoPanel.json">
+      <Filter>ui\GameMenu</Filter>
+    </None>
+    <None Include="ClientData.cfg" />
+    <None Include="audio\music\A Mission.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Aftermath.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Air Prelude.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Arcadia.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Colossus.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Constance.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Dangerous.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Frost Waltz (Alternate).ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\For the Fallen.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\For Originz.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Evening Fall - Harp.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Earth Prelude.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Dreamy Flashback.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Dragon and Toast.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Interloper.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Nerves.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Procession of the King.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Road to Hell.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Schmetterling.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\The Forest and the Trees.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Time Passes.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Water Prelude.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="audio\music\Zombie Hoodoo.ogg">
+      <Filter>audio\music</Filter>
+    </None>
+    <None Include="models\textures\001.body.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\001.feet.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\001.hands.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\001.pants.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\001_D.hands.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\001_L.hands.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\01_1.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\01_2.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\01_3.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\1.pilosityTexture.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\02_1.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\02_2.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\02_3.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\2.pilosityTexture.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\03_1.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\03_2.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\03_3.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\3.pilosityTexture.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\04_1.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\04_2.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\04_3.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\4.pilosityTexture.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\05_1.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\05_2.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\05_3.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\5.pilosityTexture.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\06_1.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\06_2.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\06_3.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\07_1.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\07_2.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\07_3.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\08_1.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\08_2.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\08_3.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\axe01.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\base.body.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\base.feet.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\base.hands.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\base.head.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\base.pants.human.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\textures\hat01.jpgx">
+      <Filter>models\textures</Filter>
+    </None>
+    <None Include="models\objects\axe01.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\chars\CS_muscle_animated.ms3dx">
+      <Filter>models\chars</Filter>
+    </None>
+    <None Include="models\objects\hat01.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity01_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity01_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity01_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity01_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity01_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity02_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity02_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity02_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity02_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity02_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity03_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity03_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity03_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity03_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity03_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity04_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity04_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity04_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity04_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity04_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity05_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity05_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity05_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity05_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity05_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity06_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity06_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity06_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity06_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity06_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity07_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity07_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity07_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity07_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity07_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity08_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity08_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity08_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity08_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity08_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity09_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity09_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity09_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity09_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity09_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity10_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity10_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity10_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity10_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity10_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity11_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity11_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity11_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity11_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity11_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity12_1.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity12_2.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity12_3.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity12_4.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\objects\pilosity12_5.ms3dx">
+      <Filter>models\objects</Filter>
+    </None>
+    <None Include="models\md2\homer\homer.pcx">
+      <Filter>models\md2\homer</Filter>
+    </None>
+    <None Include="models\md2\homer\tris.md2">
+      <Filter>models\md2\homer</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="audio\ui\button-press.wav">
+      <Filter>audio\ui</Filter>
+    </Media>
+    <Media Include="audio\ui\dialog-close.wav">
+      <Filter>audio\ui</Filter>
+    </Media>
+    <Media Include="audio\ui\dialog-open.wav">
+      <Filter>audio\ui</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="sky\eso0932a-texcubes.jpg">
+      <Filter>sky</Filter>
+    </Image>
+    <Image Include="sky\fm1222_gendler_big_alpha_256.png">
+      <Filter>sky</Filter>
+    </Image>
+    <Image Include="sky\sun.png">
+      <Filter>sky</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

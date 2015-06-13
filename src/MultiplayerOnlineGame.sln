@@ -37,12 +37,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AudioPlayer", "Client\Audio
 		{DAA1E880-4690-46C1-A9CB-C5C962F8C74C} = {DAA1E880-4690-46C1-A9CB-C5C962F8C74C}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data", "..\data\data.vcxproj", "{B7737583-1A2D-4F99-9CF8-335132391CBC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientData", "Data\Client\ClientData.vcxproj", "{B7737583-1A2D-4F99-9CF8-335132391CBC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C21F9EA1-EF7F-4C03-A0CD-226D41C91877} = {C21F9EA1-EF7F-4C03-A0CD-226D41C91877}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildData", "..\data\tools\BuildData\BuildData.csproj", "{C21F9EA1-EF7F-4C03-A0CD-226D41C91877}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildData", "Tools\BuildData\BuildData.csproj", "{C21F9EA1-EF7F-4C03-A0CD-226D41C91877}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderEngine", "Client\RenderEngine\RenderEngine.vcxproj", "{F5C4AED3-7358-4EF7-B835-DE45155CF0A5}"
 EndProject
@@ -114,7 +114,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain", "Shared\Terrain\T
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TerrainViewer", "Client\TerrainViewer\TerrainViewer.vcxproj", "{E46C3A63-B0C3-4272-9903-A9F4390ED9A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncodeFile", "..\data\tools\EncodeFile\EncodeFile.csproj", "{FA645202-913A-49B9-B30F-3D06AA056EBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncodeFile", "Tools\EncodeFile\EncodeFile.csproj", "{FA645202-913A-49B9-B30F-3D06AA056EBA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameClient", "Client\GameClient\GameClient.vcxproj", "{CC0D4603-DD72-4306-B8CF-2F7200C9DAC1}"
 EndProject
@@ -135,6 +135,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc Projects", "Misc Projects", "{AA1B9266-8285-49E1-BE34-9D1E5B7923F0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Underworld", "Client\Underworld\Underworld.vcxproj", "{2D2ECFAB-5064-4B2F-94A8-3DA4893CB749}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerData", "Data\Server\ServerData.vcxproj", "{586159F3-851A-4560-BF2F-905BE5A87064}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C21F9EA1-EF7F-4C03-A0CD-226D41C91877} = {C21F9EA1-EF7F-4C03-A0CD-226D41C91877}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -274,6 +279,10 @@ Global
 		{2D2ECFAB-5064-4B2F-94A8-3DA4893CB749}.Debug|Win32.Build.0 = Debug|Win32
 		{2D2ECFAB-5064-4B2F-94A8-3DA4893CB749}.Release|Win32.ActiveCfg = Release|Win32
 		{2D2ECFAB-5064-4B2F-94A8-3DA4893CB749}.Release|Win32.Build.0 = Release|Win32
+		{586159F3-851A-4560-BF2F-905BE5A87064}.Debug|Win32.ActiveCfg = Debug|Win32
+		{586159F3-851A-4560-BF2F-905BE5A87064}.Debug|Win32.Build.0 = Debug|Win32
+		{586159F3-851A-4560-BF2F-905BE5A87064}.Release|Win32.ActiveCfg = Release|Win32
+		{586159F3-851A-4560-BF2F-905BE5A87064}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -312,5 +321,6 @@ Global
 		{F03F428A-096F-47AE-82E1-565E6B7CFD49} = {A527F380-826E-4CCE-883E-6593D12456F5}
 		{39B04F05-65D4-49C2-8E8B-75A570FD667D} = {C99E175A-C7B2-4164-A440-82AE34E9B329}
 		{2D2ECFAB-5064-4B2F-94A8-3DA4893CB749} = {C99E175A-C7B2-4164-A440-82AE34E9B329}
+		{586159F3-851A-4560-BF2F-905BE5A87064} = {AA1B9266-8285-49E1-BE34-9D1E5B7923F0}
 	EndGlobalSection
 EndGlobal
