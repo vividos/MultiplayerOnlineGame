@@ -14,7 +14,7 @@ namespace BuildData
 
          if (args.Length != 3)
          {
-            Console.WriteLine("Error: Must provide 2 arguments:");
+            Console.WriteLine("Error: Must provide 3 arguments:");
             Console.WriteLine("BuildData.exe ConfigFile.cfg SourcePath\\ OutputPath\\");
             return 1;
          }
@@ -23,6 +23,7 @@ namespace BuildData
          p.ConfigFile = args[0];
          p.SourcePath = args[1];
          p.OutputPath = args[2];
+         p.AppPath = Path.GetDirectoryName(p.GetType().Assembly.Location);
 
          if (!Directory.Exists(p.OutputPath))
             Directory.CreateDirectory(p.OutputPath);
@@ -48,6 +49,7 @@ namespace BuildData
       public string ConfigFile { get; set; }
       public string OutputPath { get; set; }
       public string SourcePath { get; set; }
+      public string AppPath { get; set; }
 
       private void Run()
       {
@@ -237,7 +239,7 @@ namespace BuildData
             arguments = "--downmix " + arguments;
 
          var p = new System.Diagnostics.Process();
-         p.StartInfo.FileName = this.SourcePath + @"\tools\oggenc2.exe";
+         p.StartInfo.FileName = Path.Combine(this.AppPath, "oggenc2.exe");
          p.StartInfo.Arguments = arguments;
          p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
          p.Start();
@@ -315,7 +317,7 @@ namespace BuildData
              sourceFilename, targetFilename);
 
          var p = new System.Diagnostics.Process();
-         p.StartInfo.FileName = this.SourcePath + @"\tools\madplay.exe";
+         p.StartInfo.FileName = Path.Combine(this.AppPath, "madplay.exe");
          p.StartInfo.Arguments = arguments;
          p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
          p.Start();
