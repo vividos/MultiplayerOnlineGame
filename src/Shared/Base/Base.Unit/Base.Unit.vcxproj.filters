@@ -37,7 +37,7 @@
     <ClCompile Include="..\Path.cpp">
       <Filter>Tested Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Plane3d.cpp">
+    <ClCompile Include="..\Plane3.cpp">
       <Filter>Tested Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Uuid.cpp">
@@ -101,7 +101,7 @@
     <ClInclude Include="..\Path.hpp">
       <Filter>Tested Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Plane3d.hpp">
+    <ClInclude Include="..\Plane3.hpp">
       <Filter>Tested Files</Filter>
     </ClInclude>
     <ClInclude Include="..\RC4Encoder.hpp">
@@ -110,7 +110,7 @@
     <ClInclude Include="..\Uuid.hpp">
       <Filter>Tested Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Vector3d.hpp">
+    <ClInclude Include="..\Vector3.hpp">
       <Filter>Tested Files</Filter>
     </ClInclude>
     <ClInclude Include="..\ZigzagSquareIterator.hpp">

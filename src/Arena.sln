@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ulib", "ulib\ulib.vcxproj", "{DAA1E880-4690-46C1-A9CB-C5C962F8C74C}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -51,14 +51,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jpeg-8d", "Thirdparty\jpeg-
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arena", "Client\Arena\Arena.vcxproj", "{DBCBD43C-E143-4233-BBCF-9E8BA2445CE2}"
 	ProjectSection(ProjectDependencies) = postProject
-		{B7737583-1A2D-4F99-9CF8-335132391CBC} = {B7737583-1A2D-4F99-9CF8-335132391CBC}
+		{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA} = {05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Model3D", "Client\Model3D\Model3D.vcxproj", "{35419D0D-BAE7-4AFD-A6A5-EA597E0A0DCD}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SRP", "Shared\SRP\SRP.vcxproj", "{F52FE1AD-B5D1-4A8E-B9BA-D94966F5529D}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data", "..\data\data.vcxproj", "{B7737583-1A2D-4F99-9CF8-335132391CBC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client Projects", "Client Projects", "{AD0412FC-FCCC-4E31-A0D4-C067A7AFF05C}"
 EndProject
@@ -69,6 +67,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Thirdparty Projects", "Thirdparty Projects", "{4E04FD4B-1F05-4CFA-BACD-BF39FE5BDBB4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc Projects", "Misc Projects", "{A10CFA99-3CF8-4B2C-89EA-02A3E72E1949}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientData", "Data\Client\ClientData.vcxproj", "{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -170,12 +170,12 @@ Global
 		{F52FE1AD-B5D1-4A8E-B9BA-D94966F5529D}.Release|Win32.Build.0 = Release|Win32
 		{F52FE1AD-B5D1-4A8E-B9BA-D94966F5529D}.Release|x64.ActiveCfg = Release|x64
 		{F52FE1AD-B5D1-4A8E-B9BA-D94966F5529D}.Release|x64.Build.0 = Release|x64
-		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Debug|Win32.Build.0 = Debug|Win32
-		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Debug|x64.ActiveCfg = Debug|Win32
-		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Release|Win32.ActiveCfg = Release|Win32
-		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Release|Win32.Build.0 = Release|Win32
-		{B7737583-1A2D-4F99-9CF8-335132391CBC}.Release|x64.ActiveCfg = Release|Win32
+		{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA}.Debug|Win32.Build.0 = Debug|Win32
+		{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA}.Debug|x64.ActiveCfg = Debug|Win32
+		{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA}.Release|Win32.ActiveCfg = Release|Win32
+		{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA}.Release|Win32.Build.0 = Release|Win32
+		{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -196,6 +196,6 @@ Global
 		{DBCBD43C-E143-4233-BBCF-9E8BA2445CE2} = {AD0412FC-FCCC-4E31-A0D4-C067A7AFF05C}
 		{35419D0D-BAE7-4AFD-A6A5-EA597E0A0DCD} = {AD0412FC-FCCC-4E31-A0D4-C067A7AFF05C}
 		{F52FE1AD-B5D1-4A8E-B9BA-D94966F5529D} = {DB0D226E-3C28-409D-A5D8-0831FD7C1B58}
-		{B7737583-1A2D-4F99-9CF8-335132391CBC} = {A10CFA99-3CF8-4B2C-89EA-02A3E72E1949}
+		{05B60A29-6073-4C06-A3BE-BDE1AAFBA2FA} = {A10CFA99-3CF8-4B2C-89EA-02A3E72E1949}
 	EndGlobalSection
 EndGlobal

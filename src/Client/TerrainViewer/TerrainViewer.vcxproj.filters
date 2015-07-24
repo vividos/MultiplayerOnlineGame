@@ -11,16 +11,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source Files\stdafx.cpp">
+    <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source Files\TerrainViewer.cpp">
+    <ClCompile Include="TerrainViewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source Files\TerrainViewerMainScene.cpp">
+    <ClCompile Include="TerrainViewerMainScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source Files\TerrainViewerView.cpp">
+    <ClCompile Include="TerrainViewerView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
