@@ -60,7 +60,7 @@ public:
             ex.Message());
 
          if (con.IsCalledFromConsole())
-            _tprintf(_T("Exception: %s\n\n"), ex.Message());
+            _tprintf(_T("Exception: %s\n\n"), ex.Message().GetString());
          else
             OutputMessageBox(_T("Exception: ") + ex.Message() + _T("\n\n"));
 
@@ -144,7 +144,6 @@ private:
 
             Win32::ServiceControlManager scm;
 
-            Win32::ServiceInfo si = TService::GetServiceInfo();
             Win32::Service s = scm.RegisterService(si);
          }
          break;

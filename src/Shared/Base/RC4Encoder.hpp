@@ -23,8 +23,8 @@ public:
    /// \param[in] key key bytes
    /// \param[in] key_length key length
    Encoder(const unsigned char* key, size_t key_length) throw()
-      :i(0),
-       j(0)
+      :m_i(0),
+       m_j(0)
    {
       Init(key, key_length);
    }
@@ -55,11 +55,10 @@ private:
    /// inits S-box
    void Init(const unsigned char* key, size_t key_length) throw()
    {
-      int i, j;
-      for (i = 0; i < 256; i++)
-         S[i] = static_cast<unsigned char>(i);
+      for (unsigned char i = 0; i < 256; i++)
+         S[i] = i;
 
-      for (int i = j = 0; i < 256; i++)
+      for (unsigned char i = 0, j = 0; i < 256; i++)
       {
          j = (j + key[i % key_length] + S[i]) & 255;
          std::swap(S[i], S[j]);
@@ -69,18 +68,18 @@ private:
    /// calculate output
    unsigned char Output() throw()
    {
-      i = (i + 1) & 255;
-      j = (j + S[i]) & 255;
+      m_i = (m_i + 1) & 255;
+      m_j = (m_j + S[m_i]) & 255;
 
-      std::swap(S[i], S[j]);
+      std::swap(S[m_i], S[m_j]);
 
-      return S[(S[i] + S[j]) & 255];
+      return S[(S[m_i] + S[m_j]) & 255];
    }
 
 private:
    unsigned char S[256]; ///< S-box
-   unsigned int i; ///< index i
-   unsigned int j; ///< index j
+   unsigned int m_i; ///< index i
+   unsigned int m_j; ///< index j
 };
 
 } // namespace RC4

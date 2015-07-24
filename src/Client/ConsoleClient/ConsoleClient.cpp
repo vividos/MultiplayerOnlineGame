@@ -139,7 +139,7 @@ void ConsoleClient::RunCommandLoop()
          TextMessage msg(TextMessage::textMsgSay, cszText);
          m_spSession->SendMessage(msg);
 
-         _tprintf(_T("You: %s\n"), cszText);
+         _tprintf(_T("You: %s\n"), cszText.GetString());
       }
       else
       if (strText[0] == 'w')

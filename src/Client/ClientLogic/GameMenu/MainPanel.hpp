@@ -47,7 +47,7 @@ namespace GameMenu
 
    private:
       /// main panel button types
-      typedef enum T_enButtonType
+      enum T_enButtonType
       {
          buttonVideo,      ///< "Video" button
          buttonAudio,      ///< "Audio" button

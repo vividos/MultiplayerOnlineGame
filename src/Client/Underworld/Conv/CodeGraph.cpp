@@ -1847,10 +1847,10 @@ void CodeGraph::PostProcessFunction(FuncInfo& funcInfo)
 
       if (type != dataTypeUnknown)
       {
-         std::ostringstream buffer;
-         buffer << DataTypeToString(type) << " local_" << j << ";";
+         std::ostringstream buffer2;
+         buffer2 << DataTypeToString(type) << " local_" << j << ";";
 
-         AddStatement(iter, buffer.str());
+         AddStatement(iter, buffer2.str());
       }
    }
 
@@ -1860,15 +1860,15 @@ void CodeGraph::PostProcessFunction(FuncInfo& funcInfo)
    {
       ArrayInfo array_info = funcInfo.array_info[n];
 
-      std::ostringstream buffer;
+      std::ostringstream buffer2;
 
       UaAssert(array_info.local_start <= funcInfo.locals_types.size());
 
-      buffer << DataTypeToString(funcInfo.locals_types[array_info.local_start]) <<
+      buffer2 << DataTypeToString(funcInfo.locals_types[array_info.local_start]) <<
          " local_" << array_info.local_start <<
          "[" << array_info.array_size << "];";
 
-      AddStatement(iter, buffer.str());
+      AddStatement(iter, buffer2.str());
    }
 
    // add function end

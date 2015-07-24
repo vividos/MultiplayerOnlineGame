@@ -222,8 +222,8 @@ void ZipArchive::FindCentralDirEndRecord(Stream::IStream& stream, ZipCentralDire
             // found!
             stream.Seek(1024-i, Stream::IStream::seekEnd);
 
-            DWORD dwSizeToRead = sizeof(ZipCentralDirectoryEndRecord);
-            if (!stream.Read(&endRecord, dwSizeToRead, dwBytesRead) || dwBytesRead != dwSizeToRead)
+            DWORD dwSizeToRead2 = sizeof(ZipCentralDirectoryEndRecord);
+            if (!stream.Read(&endRecord, dwSizeToRead2, dwBytesRead) || dwBytesRead != dwSizeToRead2)
                throw Exception(_T("couldn't read zip archive end record"), __FILE__, __LINE__);
 
             break;

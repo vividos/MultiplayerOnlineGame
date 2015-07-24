@@ -142,10 +142,17 @@ bool DamageSpellEffect::Restriction(T_enDamageEffectRestriction enRestriction) c
 void DamageSpellEffect::Restriction(T_enDamageEffectRestriction enRestriction, bool bRestrict)
 {
    Flags8 flags = m_ucRestriction;
+
    switch (enRestriction)
    {
-   case noArmor: flags.SetBit<0>(bRestrict);
-   case noParryBlock: flags.SetBit<1>(bRestrict);
+   case noArmor:
+      flags.SetBit<0>(bRestrict);
+      break;
+
+   case noParryBlock:
+      flags.SetBit<1>(bRestrict);
+      break;
+
    default:
       throw Exception(_T("invalid damage effect restriction"), __FILE__, __LINE__);
    }

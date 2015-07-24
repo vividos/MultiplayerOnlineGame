@@ -182,13 +182,13 @@ void PolygonGraph::Graph::OutputSvg(LPCTSTR pszFilename) const
       coastPolygonStyle.Add(_T("stroke-width"), 1);
 
       // output all centers
-      for (size_t i=0, iMax=m_centers.size(); i<iMax; i++)
+      for (size_t iCenter=0, iMaxCenter=m_centers.size(); iCenter<iMaxCenter; iCenter++)
       {
-         const Center& c = *m_centers[i];
+         const Center& c = *m_centers[iCenter];
 
          std::vector<Vector2d> vecPolygonPoints;
-         for (size_t i=0, iMax=c.corners.size(); i<iMax; i++)
-            vecPolygonPoints.push_back(c.corners[i]->point);
+         for (size_t iCorner=0, iMaxCorner=c.corners.size(); iCorner<iMaxCorner; iCorner++)
+            vecPolygonPoints.push_back(c.corners[iCorner]->point);
 
          // order them clockwise
          std::sort(vecPolygonPoints.begin(), vecPolygonPoints.end(), PolygonPointSorter(c.point));

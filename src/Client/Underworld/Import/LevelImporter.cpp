@@ -127,8 +127,6 @@ void LevelImporter::LoadUwLevels(Underworld::LevelList& levelList, bool bUw2Mode
 /// loading.
 void LevelImporter::LoadTextureMapping(std::vector<Uint16>& vecTextureMapping, bool bUw2Mode)
 {
-   unsigned int uiTex;
-
    Stream::EndianAwareFilter filter(*m_spFile);
 
    if (!bUw2Mode)
@@ -137,11 +135,11 @@ void LevelImporter::LoadTextureMapping(std::vector<Uint16>& vecTextureMapping, b
       vecTextureMapping.resize(48 + 10);
 
       // wall textures
-      for (uiTex = 0; uiTex < 48; uiTex++)
+      for (unsigned int uiTex = 0; uiTex < 48; uiTex++)
          vecTextureMapping[uiTex] = filter.Read16LE() + Underworld::c_uiStockTexturesWall;
 
       // floor textures
-      for (uiTex = 48; uiTex < 48 + 10; uiTex++)
+      for (unsigned int uiTex = 48; uiTex < 48 + 10; uiTex++)
          vecTextureMapping[uiTex] = filter.Read16LE() + Underworld::c_uiStockTexturesFloor;
 
       vecTextureMapping.resize(64);
@@ -152,8 +150,7 @@ void LevelImporter::LoadTextureMapping(std::vector<Uint16>& vecTextureMapping, b
       vecTextureMapping.resize(64);
 
       // combined wall/floor textures
-      unsigned int uiTex;
-      for (uiTex = 0; uiTex < 64; uiTex++)
+      for (unsigned int uiTex = 0; uiTex < 64; uiTex++)
          vecTextureMapping[uiTex] = filter.Read16LE();
    }
 

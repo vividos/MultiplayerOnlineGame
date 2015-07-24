@@ -148,17 +148,17 @@ coplanar the quad is.  The elevation of the corners are averaged, and compared
 to the elevation of the center.  The greater the difference between these two 
 values, the more non-coplanar this quad is.
 */
-double ReduceAlgorithmCameraDistance::CalcDelta(unsigned int x1, unsigned int y1, unsigned int size) throw()
+double ReduceAlgorithmCameraDistance::CalcDelta(unsigned int x1, unsigned int y1, unsigned int uiQuadSize) throw()
 {
-   unsigned int half = size / 2;
+   unsigned int half = uiQuadSize / 2;
    unsigned int xc = x1 + half;
-   unsigned int x2 = x1 + size;
+   unsigned int x2 = x1 + uiQuadSize;
    unsigned int yc = y1 + half;
-   unsigned int y2 = y1 + size;
+   unsigned int y2 = y1 + uiQuadSize;
 
-   unsigned int m_uiSize = GetSize();
+   unsigned int uiMapSize = GetSize();
 
-   if (x2 > m_uiSize || y2 > m_uiSize)
+   if (x2 > uiMapSize || y2 > uiMapSize)
       return 0.0;
 
    float ul, ur, ll, lr, center;
@@ -174,7 +174,7 @@ double ReduceAlgorithmCameraDistance::CalcDelta(unsigned int x1, unsigned int y1
    float delta = fabs((average - center)) * 5.0f;
 
    // scale the delta based on the size of the quad we are dealing with
-   delta /= (float)size;
+   delta /= (float)uiQuadSize;
 
    // scale based on distance
    float dist = (float)MapDistance(xc, yc);
@@ -185,7 +185,7 @@ double ReduceAlgorithmCameraDistance::CalcDelta(unsigned int x1, unsigned int y1
       delta *= 10.0f;
 
    // smaller quads are much less important
-   float size_bias = (float)(m_uiSize + size) / (float)(m_uiSize * 2);
+   float size_bias = (float)(uiMapSize + uiQuadSize) / (float)(uiMapSize * 2);
    delta *= size_bias;
 
    return delta;

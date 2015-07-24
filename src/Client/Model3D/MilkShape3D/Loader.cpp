@@ -358,9 +358,9 @@ void Loader::LoadJointList(Stream::IStream& stream)
    if (wNumJoints > c_uiMaxJoints)
       throw Exception(_T("invalid number of joints"), __FILE__, __LINE__);
 
-   for (WORD w = 0; w<wNumJoints; w++)
+   for (WORD wJoint = 0; wJoint<wNumJoints; wJoint++)
    {
-      Joint& j = m_data.m_vecJoints[w];
+      Joint& j = m_data.m_vecJoints[wJoint];
 
       j.bFlags = stream.ReadByte();
       if ((j.bFlags & ~(flagSelected | flagDirty | flagIsKey)) != 0)
@@ -384,31 +384,29 @@ void Loader::LoadJointList(Stream::IStream& stream)
       WORD wNumKeyFramesTrans = filter.Read16LE();
 
       j.RotationKeys().resize(wNumKeyFramesRot);
-      for (WORD w=0; w<wNumKeyFramesRot; w++)
+      for (WORD wKeyFramesRot=0; wKeyFramesRot<wNumKeyFramesRot; wKeyFramesRot++)
       {
          float fTime = ReadFloat(stream);
          fTime *= m_data.m_animationData.fAnimationFPS;
 
-         float x, y, z;
          x = ReadFloat(stream);
          y = ReadFloat(stream);
          z = ReadFloat(stream);
 
-         j.RotationKeys()[w] = KeyframeRot(fTime, RotAngle3d(x, y, z));
+         j.RotationKeys()[wKeyFramesRot] = KeyframeRot(fTime, RotAngle3d(x, y, z));
       }
 
       j.PositionKeys().resize(wNumKeyFramesTrans);
-      for (WORD w=0; w<wNumKeyFramesTrans; w++)
+      for (WORD wKeyFramesTrans=0; wKeyFramesTrans<wNumKeyFramesTrans; wKeyFramesTrans++)
       {
          float fTime = ReadFloat(stream);
          fTime *= m_data.m_animationData.fAnimationFPS;
 
-         float x, y, z;
          x = ReadFloat(stream);
          y = ReadFloat(stream);
          z = ReadFloat(stream);
 
-         j.PositionKeys()[w] = KeyframeTrans(fTime, Vector3d(x, y, z));
+         j.PositionKeys()[wKeyFramesTrans] = KeyframeTrans(fTime, Vector3d(x, y, z));
       }
    }
 }

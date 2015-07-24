@@ -121,8 +121,6 @@ public:
             static_cast<BYTE>((uiValue >> 16) & 0xFF),
             static_cast<BYTE>((uiValue >> 8) & 0xFF),
             static_cast<BYTE>(uiValue & 0xFF));
-
-      throw Exception(_T("invalid color attribute value: ") + cszValue, __FILE__, __LINE__);
    }
 
    /// returns attribute as size value; format is "height,width" (comma separated)

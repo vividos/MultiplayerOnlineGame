@@ -49,7 +49,7 @@ void AttachedConsole::Detach() throw()
 {
    if (m_bCalledFromConsole && !m_cszPrompt.IsEmpty())
    {
-      _tprintf(_T("%s"), m_cszPrompt);
+      _tprintf(_T("%s"), m_cszPrompt.GetString());
       m_cszPrompt.Empty();
 
       ATLVERIFY(TRUE == FreeConsole());

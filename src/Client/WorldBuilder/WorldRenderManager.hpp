@@ -29,7 +29,7 @@ public:
    std::shared_ptr<PerspectiveCamera> GetCamera() { return m_spCamera; }
 
    /// world view modes
-   typedef enum T_enWorldViewMode
+   enum T_enWorldViewMode
    {
       worldViewNone = 0,      ///< no view
       worldViewPolygonGraph,  ///< shows polygon graph

@@ -119,10 +119,10 @@ void Logger::LogEvent(Log::LoggingEventPtr spEvent)
 }
 
 Logger::Logger(const CString& cszName, LoggerPtr spParent)
-:m_spParent(spParent),
- m_cszName(cszName),
- m_enLevel(none),
- m_bAdditivity(true)
+:m_enLevel(none),
+ m_bAdditivity(true),
+ m_spParent(spParent),
+ m_cszName(cszName)
 {
    // construct a root logger?
    if (spParent.get() == NULL)

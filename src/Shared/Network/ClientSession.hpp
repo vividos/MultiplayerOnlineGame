@@ -37,7 +37,7 @@ public:
    ///    connectStateLoggedIn -> connectStateLoggedOut
    /// }
    /// \enddot
-   typedef enum T_enConnectState
+   enum T_enConnectState
    {
       connectStateNotConnected = 0,    ///< not connected with server or canceled by user
       connectStateLookupHostname = 1,  ///< looking up hostname

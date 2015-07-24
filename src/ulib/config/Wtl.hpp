@@ -9,15 +9,27 @@
 // needed includes
 #include <ulib/config/Atl.hpp>
 
+// min and max macros are used in atlcom.h, etc., so temporarily define them here
 #ifndef min
-/// temporary definition of min for ATL headers
-#  define min(x,y) (x) < (y) ? (x) : (y)
+#  define min(x,y) (x) < (y) ? (x) : (y) ///< temporary define of min()
 #endif
 
 #ifndef max
-/// temporary definition of max for ATL headers
-#  define max(x,y) (x) > (y) ? (x) : (y)
+#  define max(x,y) (x) > (y) ? (x) : (y) ///< temporary define of min()
 #endif
+
+// ignore prefast warnings in WTL header files
+#ifdef _PREFAST_
+#pragma warning(push)
+#pragma warning(disable: 6001 6011 6387 6509 6518 28252)
+#endif
+
+// ignore warnings in WTL header files not ported to Visual Studio 2015
+#pragma warning(push)
+#pragma warning(disable: 4302) // 'type cast' : truncation from 'T1' to 'T2'
+#pragma warning(disable: 4838) // conversion from 'T1' to 'T2' requires a narrowing conversion
+#pragma warning(disable: 4091) // 'typedef ' : ignored on left of 'T1' when no variable is declared
+#pragma warning(disable: 4458) // declaration of 'var1' hides class member
 
 // WTL includes
 #include <atlapp.h>
@@ -30,6 +42,12 @@ extern CAppModule _Module; ///< app module
 #include <shellapi.h> // needed for ShellExecute, used in atlctrlx.h
 #include <atlctrlx.h>
 #include <atlddx.h>
+
+#pragma warning(pop)
+
+#ifdef _PREFAST_
+#pragma warning(pop)
+#endif
 
 // undef the macros so that std::min and std::max work as they should be
 #undef min

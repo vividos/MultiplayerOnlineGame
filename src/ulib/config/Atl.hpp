@@ -12,25 +12,37 @@
 // exclude rarely-used stuff from Windows headers
 #define WIN32_LEAN_AND_MEAN
 #define VC_EXTRALEAN
+#define ATL_NO_LEAN_AND_MEAN
 
 // no min-max macors, we use std::min / std::max instead
 #define NOMINMAX
+
+// ignore prefast warnings in ATL header files
+#ifdef _PREFAST_
+#pragma warning(push)
+#pragma warning(disable: 6001 6011 6101 6386 6387 6506 6509 6518 28251 28252 28253 28302)
+#endif
 
 // ATL includes
 #include <atlbase.h>
 #include <atlstr.h>
 #define _WTL_NO_CSTRING // don't use WTL CString
+#define _WTL_NO_WTYPES
 #include <atltypes.h>
 #include <atlwin.h>
 
-// undef the macros so that std::min and std::max work as they should be
-#undef min
-#undef max
-
-// link to static ATL libs
-#ifdef _DEBUG
-   #pragma comment(lib, "atlsd.lib")
-#else
-   #pragma comment(lib, "atls.lib")
+#ifdef _PREFAST_
+#pragma warning(pop)
 #endif
-#pragma comment(lib, "atlthunk.lib")
+
+#if (_ATL_VER < 0x0800)
+#error ATL 8.0 or higher is needed!
+#endif
+
+// for _stdcallthunk
+#include <atlstdthunk.h>
+
+// for #pragma prefast
+#ifndef _PREFAST_
+#pragma warning(disable:4068)
+#endif

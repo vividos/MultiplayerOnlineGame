@@ -28,8 +28,8 @@ bool ServerSession::OnReceiveMessage(RawMessage& msg)
 {
    if (msg.MessageId() == msgPingRequest)
    {
-      PingResponseMessage msg;
-      SendMessage(msg);
+      PingResponseMessage responseMsg;
+      SendMessage(responseMsg);
       return true;
    }
 

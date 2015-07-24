@@ -73,14 +73,14 @@ namespace SVG
       {
          CString cszStyle = style.GetAttrib();
          _ftprintf(m_fd, _T("<circle cx=\"%3.2f\" cy=\"%3.2f\" r=\"%3.2f\" style=\"%s\"/>\n"),
-            vCenter.X(), vCenter.Y(), dRadius, cszStyle);
+            vCenter.X(), vCenter.Y(), dRadius, cszStyle.GetString());
       }
 
       void OutputLine(const Vector2d& v0, const Vector2d& v1, const Style& style = Style())
       {
          CString cszStyle = style.GetAttrib();
          _ftprintf(m_fd, _T("<line x1=\"%3.2f\" y1=\"%3.2f\" x2=\"%3.2f\" y2=\"%3.2f\" style=\"%s\"/>\n"),
-            v0.X(), v0.Y(), v1.X(), v1.Y(), cszStyle);
+            v0.X(), v0.Y(), v1.X(), v1.Y(), cszStyle.GetString());
       }
 
       void OutputPolygon(const std::vector<Vector2d>& vecPolygonPoints, const Style& style = Style())
@@ -96,7 +96,7 @@ namespace SVG
 
          CString cszStyle = style.GetAttrib();
          _ftprintf(m_fd, _T("<polygon points=\"%s\" style=\"%s\"/>\n"),
-            cszPolyPoints, cszStyle);
+            cszPolyPoints.GetString(), cszStyle.GetString());
       }
 
    private:

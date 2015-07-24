@@ -16,7 +16,7 @@
 #include <vector>
 
 /// VBO entry for vertex, normal, texture coordinates and color
-__declspec(align(1))
+__declspec(align(4))
 struct VertexBufferEntry
 {
    // default ctor

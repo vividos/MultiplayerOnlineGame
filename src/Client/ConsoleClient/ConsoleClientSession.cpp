@@ -48,7 +48,7 @@ void ConsoleClientSession::OnConnectionClosing()
 
 void ConsoleClientSession::OnConnectStateChanged(ClientSession::T_enConnectState enConnectState)
 {
-   _tprintf(_T("changed state: %s\n"), ConnectStateToString(enConnectState));
+   _tprintf(_T("changed state: %s\n"), ConnectStateToString(enConnectState).GetString());
 
    if (enConnectState == ClientSession::connectStateLoggedIn)
       m_evtConnectSuccess.Set();
