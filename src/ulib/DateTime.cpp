@@ -13,12 +13,7 @@
 
 // include Boost.DateTime
 #define BOOST_DATE_TIME_NO_LIB
-
-#pragma warning(push)
-#pragma warning(disable: 4244) // 'argument' : conversion from 'T1' to 'T2', possible loss of data
-#pragma warning(disable: 4245) // 'initializing' : conversion from 'T1' to 'T2', signed/unsigned mismatch
 #include <boost/date_time.hpp>
-#pragma warning(pop)
 
 /// \brief time span implementation
 /// \details uses boost::date_time classes
@@ -380,20 +375,21 @@ DateTime& DateTime::operator=(const DateTime& rhs)
 
 DateTime DateTime::Now() throw()
 {
-/*#ifndef _WIN32_WCE
+#ifdef __ANDROID__
    time_t now = time(NULL);
    struct tm tmNow = *gmtime(&now);
 
    return DateTime(
       tmNow.tm_year+1900,  tmNow.tm_mon+1,   tmNow.tm_mday,
       tmNow.tm_hour,       tmNow.tm_min,     tmNow.tm_sec);
-#else
-*/
+#endif
+
+#ifdef WIN32
    SYSTEMTIME stNow;
    GetSystemTime(&stNow);
    return DateTime(stNow.wYear, stNow.wMonth, stNow.wDay,
       stNow.wHour, stNow.wMinute, stNow.wSecond, stNow.wMilliseconds);
-//#endif
+#endif
 }
 
 DateTime DateTime::Today() throw()

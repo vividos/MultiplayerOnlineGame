@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AndroidApk", "Client\Underworld\AndroidApk\AndroidApk.vcxproj", "{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}"
-EndProject
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base.Android", "Shared\Base\Base.Android.vcxproj", "{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Underworld.Android", "Client\Underworld\Underworld.Android.vcxproj", "{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}"
@@ -11,34 +11,24 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ulib.Android", "ulib\ulib.A
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Android = Debug|Android
-		Release|Android = Release|Android
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}.Debug|Android.ActiveCfg = Debug|Android
-		{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}.Debug|Android.Build.0 = Debug|Android
-		{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}.Debug|Android.Deploy.0 = Debug|Android
-		{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}.Release|Android.ActiveCfg = Release|Android
-		{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}.Release|Android.Build.0 = Release|Android
-		{F3F25B49-2C6B-4FF0-98FB-47695DF70B8A}.Release|Android.Deploy.0 = Release|Android
-		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Debug|Android.ActiveCfg = Debug|Android
-		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Debug|Android.Build.0 = Debug|Android
-		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Debug|Android.Deploy.0 = Debug|Android
-		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Release|Android.ActiveCfg = Release|Android
-		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Release|Android.Build.0 = Release|Android
-		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Release|Android.Deploy.0 = Release|Android
-		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Debug|Android.ActiveCfg = Debug|Android
-		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Debug|Android.Build.0 = Debug|Android
-		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Debug|Android.Deploy.0 = Debug|Android
-		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Release|Android.ActiveCfg = Release|Android
-		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Release|Android.Build.0 = Release|Android
-		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Release|Android.Deploy.0 = Release|Android
-		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Debug|Android.ActiveCfg = Debug|Android
-		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Debug|Android.Build.0 = Debug|Android
-		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Debug|Android.Deploy.0 = Debug|Android
-		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Release|Android.ActiveCfg = Release|Android
-		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Release|Android.Build.0 = Release|Android
-		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Release|Android.Deploy.0 = Release|Android
+		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Debug|ARM.ActiveCfg = Debug|ARM
+		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Debug|ARM.Build.0 = Debug|ARM
+		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Release|ARM.ActiveCfg = Release|ARM
+		{D0B07058-A7FB-4BDF-9054-68BAA9BF7E03}.Release|ARM.Build.0 = Release|ARM
+		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Debug|ARM.ActiveCfg = Debug|Android
+		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Debug|ARM.Build.0 = Debug|Android
+		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Debug|ARM.Deploy.0 = Debug|Android
+		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Release|ARM.ActiveCfg = Release|Android
+		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Release|ARM.Build.0 = Release|Android
+		{D3BC2412-B02F-440D-9BE7-D86FCB034C5A}.Release|ARM.Deploy.0 = Release|Android
+		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Debug|ARM.Build.0 = Debug|ARM
+		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Release|ARM.ActiveCfg = Release|ARM
+		{B04C58A9-E1C0-45EB-8608-F766E74EAA94}.Release|ARM.Build.0 = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

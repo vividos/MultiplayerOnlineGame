@@ -23,10 +23,10 @@ public:
    virtual ~Layout() throw() {}
 
    /// appends header to output; override when necessary
-   virtual void AppendHeader(CString& cszOutput) throw() { cszOutput; }
+   virtual void AppendHeader(CString& /*cszOutput*/) throw() { }
 
    /// appends footer to output; override when necessary
-   virtual void AppendFooter(CString& cszOutput) throw() { cszOutput; }
+   virtual void AppendFooter(CString& /*cszOutput*/) throw() { }
 
    /// formats logging event to string
    virtual void Format(CString& cszOutput, const LoggingEventPtr spLoggingEvent) throw() = 0;

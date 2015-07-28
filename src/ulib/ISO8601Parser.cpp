@@ -8,6 +8,7 @@
 // includes
 #include "stdafx.h"
 #include "ISO8601Parser.hpp"
+#include <string>
 
 ISO8601Parser::ISO8601Parser(LPCTSTR pszTimestamp)
 :m_dt(boost::date_time::not_a_date_time)
@@ -44,7 +45,11 @@ bool ISO8601Parser::ParseDateTime(LPCTSTR pszTimestamp, std::wstring& strRemaini
    std::wstringstream ss;
    ss.imbue(std::locale(ss.getloc(), inputFacet));
 
+#ifdef _UNICODE
    ss.str(pszTimestamp);
+#else
+   ss.str(std::wstring(CStringW(pszTimestamp).GetString()));
+#endif
 
    boost::local_time::local_date_time localDateTime(
       boost::local_time::local_sec_clock::local_time(boost::local_time::time_zone_ptr()));
@@ -77,8 +82,7 @@ bool ISO8601Parser::ParseTimezoneOffset(std::wstring& strRemaining)
    else if (chNext == _T('+') || chNext == _T('-'))
    {
       // numeric offset
-      USES_CONVERSION;
-      std::string strRemaining2(T2CA(strRemaining.c_str()));
+      std::string strRemaining2(CStringA(strRemaining.c_str()).GetString());
       m_tzOffset = boost::posix_time::duration_from_string(strRemaining2);
    }
 

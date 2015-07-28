@@ -8,12 +8,7 @@
 
 // include Boost.DateTime
 #define BOOST_DATE_TIME_NO_LIB
-
-#pragma warning(push)
-#pragma warning(disable: 4244) // 'argument' : conversion from 'T1' to 'T2', possible loss of data
-#pragma warning(disable: 4245) // 'initializing' : conversion from 'T1' to 'T2', signed/unsigned mismatch
 #include <boost/date_time.hpp>
-#pragma warning(pop)
 
 /// \brief parser for ISO 8601 date formats
 class ISO8601Parser

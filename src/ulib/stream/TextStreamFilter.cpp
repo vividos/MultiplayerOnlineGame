@@ -64,13 +64,11 @@ TCHAR TextStreamFilter::ReadChar()
 
    case textEncodingAnsi:
       {
-         char cch[2];
-         cch[0] = m_stream.ReadByte();
-         cch[1] = 0;
+         char chAnsi = m_stream.ReadByte();
 
-         // use current codepage to convert
-         USES_CONVERSION;
-         ch = A2CT(cch)[0];
+         // use CString convert
+         CString cszCh(chAnsi);
+         ch = cszCh.GetAt(0);
       }
       break;
 
@@ -118,11 +116,10 @@ TCHAR TextStreamFilter::ReadChar()
 #if defined(_UNICODE) || defined(UNICODE)
          ch = static_cast<TCHAR>(dwBits & 0xffff);
 #else
-         WCHAR acData[2];
-         acData[0] = static_cast<WCHAR>(dwBits & 0xffff);
-         acData[1] = 0;
-         USES_CONVERSION;
-         ch = W2CT(acData)[0];
+         WCHAR chw = static_cast<WCHAR>(dwBits & 0xffff);
+
+         CStringA cszaCh(chw);
+         ch = cszaCh.GetAt(0);
 #endif
       }
       break;
@@ -231,27 +228,28 @@ void TextStreamFilter::ReadLine(CString& cszLine)
 void TextStreamFilter::Write(const CString& cszText)
 {
    // write text in proper encoding
-   USES_CONVERSION;
    DWORD dwWriteBytes = 0;
 
    switch (m_textEncoding)
    {
    case textEncodingAnsi:
       {
-         LPCSTR pszText = T2CA(cszText);
+         CStringA cszaText = cszText;
+         LPCSTR pszText = cszaText;
          m_stream.Write(pszText, static_cast<DWORD>(strlen(pszText) * sizeof(*pszText)), dwWriteBytes);
       }
       break;
 
    case textEncodingUTF8:
       {
-#ifdef UNICODE
-         LPCWSTR pszText = cszText;
-#else
-         LPCWSTR pszText = T2CW(cszText);
-#endif
+#ifdef _MSC_VER
+         CStringW cszwText(cszText);
+         LPCWSTR pszText = cszwText;
+
+         USES_CONVERSION;
          int iSize = WideCharToMultiByte(CP_UTF8, 0, pszText, static_cast<int>(wcslen(pszText)),
             NULL, 0, NULL, NULL);
+
          std::vector<BYTE> vecBuffer(iSize);
 
          int iRet = WideCharToMultiByte(CP_UTF8, 0,
@@ -259,6 +257,13 @@ void TextStreamFilter::Write(const CString& cszText)
             reinterpret_cast<LPSTR>(&vecBuffer[0]), iSize,
             NULL, NULL);
          ATLVERIFY(iRet == iSize);
+#endif
+
+#ifdef __ANDROID__
+         // TODO implement
+         std::vector<BYTE> vecBuffer;
+         int iRet = 0;
+#endif
 
          m_stream.Write(&vecBuffer[0], iRet, dwWriteBytes);
       }
@@ -266,7 +271,8 @@ void TextStreamFilter::Write(const CString& cszText)
 
    case textEncodingUCS2:
       {
-         LPCWSTR pszText = T2CW(cszText);
+         CStringW cszwText = cszText;
+         LPCWSTR pszText = cszwText;
          m_stream.Write(pszText, static_cast<DWORD>(wcslen(pszText) * sizeof(*pszText)), dwWriteBytes);
       }
       break;

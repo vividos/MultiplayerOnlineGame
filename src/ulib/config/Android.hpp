@@ -1,6 +1,6 @@
 //
 // ulib - a collection of useful classes
-// Copyright (C) 2013 Michael Fink
+// Copyright (C) 2013-2015 Michael Fink
 //
 /// \file Android.hpp Android NDK config
 //
@@ -16,54 +16,42 @@
 // Win32 types
 typedef unsigned int UINT;
 typedef unsigned char BYTE;
+typedef unsigned short WORD;
+typedef unsigned short USHORT;
 typedef unsigned int DWORD;
+typedef unsigned int UINT;
 typedef unsigned long long ULONGLONG;
 typedef signed long long LONGLONG;
 
 typedef char CHAR;
+typedef CHAR* LPSTR;
 typedef const CHAR* LPCSTR;
+
 typedef wchar_t WCHAR;
+typedef WCHAR* LPWSTR;
 typedef const WCHAR* LPCWSTR;
+
+#ifdef _UNICODE
+typedef WCHAR TCHAR;
+#define _T(x) L##x
+#else
 typedef CHAR TCHAR;
+#define _T(x) x
+#endif
+
+typedef TCHAR* LPTSTR;
 typedef const TCHAR* LPCTSTR;
 
-#define _T(x) x
+#ifdef _UNICODE
+#define _tprintf wprintf
+#define _tcsftime wcsftime
+#else
+#define _tprintf printf
+#define _tcsftime strftime
+#endif
 
-struct TIME_ZONE_INFORMATION
-{
-   const char* DaylightName;
-   const char* StandardName;
-};
-
-// minimal MFC string class
-class CString
-{
-public:
-   CString()
-   {
-   }
-   CString(const char*)
-   {
-   }
-};
-
-// android logging
-
-#define  LOG_TAG "Underworld"
-
-inline void AndroidLog(android_LogPriority prio, LPCSTR pszText, LPCSTR pszaFile, UINT uiLine)
-{
-   __android_log_print(prio, "Underworld", pszText);
-}
-
-#define LOG_DEBUG(msg, cat)   AndroidLog(ANDROID_LOG_DEBUG, LOG_TAG, ##msg, __FILE__, __LINE__)
-#define LOG_INFO(msg, cat)    AndroidLog(ANDROID_LOG_INFO, LOG_TAG, ##msg, __FILE__, __LINE__)
-#define LOG_WARN(msg, cat)    AndroidLog(ANDROID_LOG_WARN, LOG_TAG, ##msg, __FILE__, __LINE__)
-#define LOG_ERROR(msg, cat)   AndroidLog(ANDROID_LOG_ERROR, LOG_TAG, ##msg, __FILE__, __LINE__)
-#define LOG_FATAL(msg, cat)   AndroidLog(ANDROID_LOG_FATAL, LOG_TAG, ##msg, __FILE__, __LINE__)
-
-// trick to make declspec expand to nothing on android
-#define __declspec(xxx)
+// Win32 functions
+inline LPCTSTR GetCommandLine() { return _T(""); }
 
 // ATL stuff
 #define ATLASSERT assert
@@ -71,5 +59,7 @@ inline void AndroidLog(android_LogPriority prio, LPCSTR pszText, LPCSTR pszaFile
 #ifdef _DEBUG
 #define ATLVERIFY(x) ATLASSERT(x)
 #else
-#define ATLVERIFY(x) x
+#define ATLVERIFY(x) (void)(x)
 #endif
+
+#include "CString.hpp"

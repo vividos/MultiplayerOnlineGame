@@ -11,6 +11,8 @@
 // ULIB_VERBOSE_AUTO_LINK   when defined, prints what library is linked in
 // ULIB_NO_AUTO_LINK      disables auto-linking (for whatever reason)
 
+#ifndef __ANDROID__
+
 #ifndef ULIB_EXPORTS
 
    /// this is used to import classes and functions from ulib
@@ -42,3 +44,9 @@
    #define ULIB_DECLSPEC __declspec(dllexport)
 
 #endif // ULIB_EXPORTS
+
+#else // __ANDROID__
+
+   #define ULIB_DECLSPEC
+
+#endif // __ANDROID__

@@ -72,7 +72,7 @@ public:
    void RegisterOption(const CString& cszShortOptionChars, const CString& cszLongOption, const CString& cszHelpText, bool& bOptionFlag);
 
    /// parses command line options, C-style
-   void Parse(int argc, _TCHAR* argv[]);
+   void Parse(int argc, TCHAR* argv[]);
 
    /// parses command line options, Win32-style
    void Parse(LPCTSTR pszCommandLine);

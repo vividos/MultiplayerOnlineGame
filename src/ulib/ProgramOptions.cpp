@@ -107,7 +107,7 @@ bool ProgramOptions::OutputHelp()
    return true;
 }
 
-void ProgramOptions::Parse(int argc, _TCHAR* argv[])
+void ProgramOptions::Parse(int argc, TCHAR* argv[])
 {
    CommandLineParser parser(argc, argv);
    Parse(parser);

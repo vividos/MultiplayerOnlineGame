@@ -6,6 +6,10 @@
 //
 #pragma once
 
+#ifdef __ANDROID__
+#include <cerrno>
+#endif
+
 namespace Win32
 {
 
@@ -16,7 +20,7 @@ class ErrorMessage
 {
 public:
    /// ctor; takes a win32 error code
-   ErrorMessage(DWORD dwError = GetLastError())
+   ErrorMessage(DWORD dwError = ErrorMessage::LastError())
       :m_dwError(dwError)
    {
    }
@@ -24,6 +28,7 @@ public:
    /// Returns formatted error message
    CString Get()
    {
+#ifdef WIN32
       LPVOID lpMsgBuf = NULL;
       ::FormatMessage(
          FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -40,13 +45,33 @@ public:
       }
 
       cszErrorMessage.TrimRight(_T("\r\n"));
+#endif
+
+#ifdef __ANDROID__
+      CString cszErrorMessage;
+
+      cszErrorMessage.Format(_T("Error %i (%hs)"),
+         static_cast<int>(m_dwError),
+         strerror(static_cast<int>(m_dwError)));
+#endif
 
       return cszErrorMessage;
    }
+
+   static DWORD LastError() throw()
+   {
+#ifdef WIN32
+      return GetLastError();
+#endif
+
+#ifdef __ANDROID__
+      return static_cast<DWORD>(errno);
+#endif
+}
 
 private:
    /// error code
    DWORD m_dwError;
 };
 
-} // namespace Tools
+} // namespace Win32

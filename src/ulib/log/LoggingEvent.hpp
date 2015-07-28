@@ -9,6 +9,7 @@
 // includes
 #include <ulib/log/Log.hpp>
 #include <ulib/DateTime.hpp>
+#include <ulib/Thread.hpp>
 #include <vector>
 
 namespace Log
@@ -26,7 +27,7 @@ public:
        m_cszMessage(cszMessage),
        m_cszSourceFilename(cszSourceFilename),
        m_uiSourceLine(uiSourceLine),
-       m_dwThreadId(::GetCurrentThreadId()),
+       m_dwThreadId(Thread::CurrentId()),
        m_dtTimestamp(DateTime::Now())
    {
    }

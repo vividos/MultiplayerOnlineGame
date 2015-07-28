@@ -7,7 +7,6 @@
 #pragma once
 
 // includes
-#include <ulib/Event.hpp>
 
 #ifdef WIN32
 
@@ -60,6 +59,12 @@ public:
    /// returns current thread id
    static DWORD CurrentId()
    {
+#ifdef _MSC_VER
       return ::GetCurrentThreadId();
+#endif
+
+#ifdef __ANDROID__
+      return static_cast<DWORD>(pthread_self());
+#endif
    }
 };
