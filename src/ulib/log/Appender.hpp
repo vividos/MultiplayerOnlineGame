@@ -60,26 +60,4 @@ public:
    }
 };
 
-
-/// \brief appender that uses OutputDebugString
-/// \details outputs formatted text to the debug console
-class OutputDebugStringAppender: public Appender
-{
-public:
-   /// dtor
-   virtual ~OutputDebugStringAppender() throw() {}
-
-   /// outputs logging event using OutputDebugString
-   virtual void DoAppend(const LoggingEventPtr spLoggingEvent)
-   {
-      ATLASSERT(Layout().get() != NULL);
-
-      CString cszOutput;
-      Layout()->Format(cszOutput, spLoggingEvent);
-
-      OutputDebugString(cszOutput);
-      OutputDebugString(_T("\n"));
-   }
-};
-
 } // namespace Log

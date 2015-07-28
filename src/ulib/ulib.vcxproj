@@ -98,6 +98,7 @@
     <ClInclude Include="CriticalSection.hpp" />
     <ClInclude Include="ISO8601Parser.hpp" />
     <ClInclude Include="LightweightMutex.hpp" />
+    <ClInclude Include="log\OutputDebugStringAppender.hpp" />
     <ClInclude Include="MutexLock.hpp" />
     <ClInclude Include="RecursiveMutex.hpp" />
     <ClInclude Include="stdafx.h" />

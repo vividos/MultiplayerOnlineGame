@@ -150,6 +150,9 @@
     <ClInclude Include="TimeZone.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="log\OutputDebugStringAppender.hpp">
+      <Filter>Header Files\log</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="log\Logger.cpp">
