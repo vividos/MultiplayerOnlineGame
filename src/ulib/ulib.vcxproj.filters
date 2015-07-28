@@ -147,6 +147,9 @@
     <ClInclude Include="test\AutoCleanupFolder.hpp">
       <Filter>Header Files\test</Filter>
     </ClInclude>
+    <ClInclude Include="TimeZone.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="log\Logger.cpp">
@@ -181,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="test\AutoCleanupFolder.cpp">
       <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeZone.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
