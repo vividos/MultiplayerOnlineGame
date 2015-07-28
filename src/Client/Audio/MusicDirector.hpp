@@ -8,8 +8,8 @@
 
 // includes
 #include "Audio.hpp"
-#include <boost/random.hpp>
-#include <boost/array.hpp>
+#include <random>
+#include <array>
 #include <ulib/DateTime.hpp>
 #include <map>
 #include <set>
@@ -116,7 +116,7 @@ private:
    MusicDirectorConfig m_config;
 
    /// RNG
-   boost::mt19937 m_rng;
+   std::mt19937 m_rng;
 
    /// current danger level
    T_enDangerLevel m_enDangerLevel;

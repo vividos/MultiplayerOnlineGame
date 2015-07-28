@@ -102,13 +102,12 @@ void MusicDirector::StartPlayback()
    unsigned int uiTries = 0, uiMaxTries = setIds.size() * 2;
 
    ATLASSERT(setIds.empty() == false); // list must be filled
-   boost::uniform_int<> dist(0, setIds.size()-1);
-   boost::variate_generator<boost::mt19937&, boost::uniform_int<>> die(m_rng, dist);
+   std::uniform_int_distribution<int> dist(0, setIds.size()-1);
 
    while (!bFound && uiTries < uiMaxTries)
    {
       // find music id of next piece, dependent on danger level
-      unsigned int uiIndex = die();
+      unsigned int uiIndex = dist(m_rng);
 
       std::set<CString>::const_iterator iter = setIds.begin();
       std::advance(iter, uiIndex);
@@ -156,13 +155,11 @@ void MusicDirector::StartPlayback()
 void MusicDirector::StartBreak()
 {
    // generate new break time
-   boost::normal_distribution<> dist(
+   std::normal_distribution<double> dist(
       m_config.m_uiAverageBreakDuration,  // mean value
       m_config.m_uiStandardDeviationDuration); // sigma value
 
-   boost::variate_generator<boost::mt19937&, boost::normal_distribution<>> die(m_rng, dist);
-   
-   int iBreakLength = static_cast<int>(die());
+   int iBreakLength = static_cast<int>(dist(m_rng));
 
    unsigned int uiBreakLength = c_iMinBreakLength;
    if (iBreakLength >= int(c_iMinBreakLength))
