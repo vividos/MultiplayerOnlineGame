@@ -97,6 +97,9 @@ public:
    /// uploads display state
    void Upload();
 
+   /// returns currently set composite model
+   std::shared_ptr<CompositeModel3d> GetCompositeModel() { return m_spModel; }
+
    /// tick calculation
    virtual void Tick() override;
 

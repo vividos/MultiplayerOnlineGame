@@ -61,6 +61,9 @@ public:
    /// returns list of static models
    const std::vector<StaticModelData>& StaticList() const throw() { return m_vecStatics; }
 
+   /// returns list of static models; non-const version
+   std::vector<StaticModelData>& StaticList() throw() { return m_vecStatics; }
+
 private:
    /// animated model
    std::shared_ptr<AnimatedModel3d> m_spAnimated;

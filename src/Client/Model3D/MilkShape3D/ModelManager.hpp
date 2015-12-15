@@ -85,7 +85,7 @@ public:
    std::shared_ptr<IModelDisplayState> Create(const Mobile& mobile);
 
    /// updates model instance from mobile, e.g. when inventory changes
-   void Update(const Mobile& mobile, std::shared_ptr<IModelDisplayState> spDisplayState);
+   void Update(const Mobile& mobile, std::shared_ptr<IModelDisplayState> spIDisplayState);
 
 private:
    friend class ModelDisplayState;
@@ -93,6 +93,10 @@ private:
    /// loads model in background
    void AsyncLoadModel(const ModelBlueprint& blueprint,
       std::shared_ptr<CompositeModel3d> spModel,
+      std::shared_ptr<ModelDisplayState> spDisplayState);
+
+   /// updates model in background, with new blueprint
+   void AsyncUpdateModel(const ModelBlueprint& blueprint,
       std::shared_ptr<ModelDisplayState> spDisplayState);
 
    /// creates a model blueprint from a mobile

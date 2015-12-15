@@ -58,13 +58,17 @@ std::shared_ptr<IModelDisplayState> ModelManager::Create(const Mobile& mobile)
    return spDisplayState;
 }
 
-void ModelManager::Update(const Mobile& mobile, std::shared_ptr<IModelDisplayState> /*spDisplayState*/)
+void ModelManager::Update(const Mobile& mobile, std::shared_ptr<IModelDisplayState> spIDisplayState)
 {
    ModelBlueprint blueprint;
    CreateBlueprintFromMobile(mobile, blueprint);
 
-   // start loading/replacing in background, using ModelBlueprint
-   // TODO implement
+   std::shared_ptr<ModelDisplayState> spDisplayState =
+      std::dynamic_pointer_cast<ModelDisplayState>(spIDisplayState);
+
+   // update in background
+   m_taskManager.BackgroundTaskGroup().Add(
+      std::bind(&ModelManager::AsyncUpdateModel, this, blueprint, spDisplayState));
 }
 
 void ModelManager::AsyncLoadModel(const ModelBlueprint& blueprint,
@@ -74,6 +78,26 @@ void ModelManager::AsyncLoadModel(const ModelBlueprint& blueprint,
 #ifdef _DEBUG
    TraceOutputStopwatch<HighResolutionTimer> stopwatch(_T("ModelManager::AsyncLoadModel"));
 #endif
+
+   LoadModelBlueprint(blueprint, spModel);
+
+   spDisplayState->Prepare(*this, blueprint);
+
+   m_taskManager.UploadTaskGroup().Add(
+      std::bind(&ModelDisplayState::Upload, spDisplayState));
+}
+
+void ModelManager::AsyncUpdateModel(const ModelBlueprint& blueprint,
+   std::shared_ptr<ModelDisplayState> spDisplayState)
+{
+#ifdef _DEBUG
+   TraceOutputStopwatch<HighResolutionTimer> stopwatch(_T("ModelManager::AsyncUpdateModel"));
+#endif
+
+   std::shared_ptr<CompositeModel3d> spModel = spDisplayState->GetCompositeModel();
+
+   // TODO update model according to changed blueprint
+   spModel->StaticList().clear();
 
    LoadModelBlueprint(blueprint, spModel);
 
