@@ -14,7 +14,7 @@
 using ModelViewer::ViewModel;
 
 ViewModel::ViewModel()
-:m_uiCurrentAnimation(0),
+:m_uiCurrentAnimation(3), // 1h_idle
 m_player(ObjectId::New())
 {
    MilkShape3D::WarriorsAndCommoners::AnimationData::EnumAnimations(m_vecAnimationNames);
