@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ulib", "ulib\ulib.vcxproj", "{DAA1E880-4690-46C1-A9CB-C5C962F8C74C}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -55,6 +55,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Thirdparty Projects", "Thir
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc Projects", "Misc Projects", "{20FED424-68A9-497C-9B67-9A999A96AA36}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Audio", "Client\Audio\Audio.vcxproj", "{7CBD4454-1736-4C34-8813-F64C38F7C9A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -101,6 +103,10 @@ Global
 		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Debug|Win32.Build.0 = Debug|Win32
 		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Release|Win32.ActiveCfg = Release|Win32
 		{341B0B68-E7F2-4E20-B24E-85F8679A5618}.Release|Win32.Build.0 = Release|Win32
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6}.Debug|Win32.Build.0 = Debug|Win32
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6}.Release|Win32.ActiveCfg = Release|Win32
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,5 +122,6 @@ Global
 		{5B37D937-D0F7-47BE-97F7-DEF2DBA4970A} = {4E765386-C2BD-4BF2-9081-8552DD7AFCBF}
 		{54254FF9-AE31-4207-B98F-FB49BFE857A6} = {97ED4D88-6634-4060-A109-98DD443B97FA}
 		{341B0B68-E7F2-4E20-B24E-85F8679A5618} = {858B0373-04AC-4209-B5DB-184562897BC1}
+		{7CBD4454-1736-4C34-8813-F64C38F7C9A6} = {858B0373-04AC-4209-B5DB-184562897BC1}
 	EndGlobalSection
 EndGlobal
