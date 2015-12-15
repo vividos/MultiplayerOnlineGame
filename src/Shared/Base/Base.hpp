@@ -13,14 +13,15 @@
 // Win32
 #ifdef _MSC_VER
 #include <ulib/config/Atl.hpp>
-#include <ulib/Exception.hpp>
-#include <ulib/log/Logger.hpp>
-#include "Asio.hpp"
 // Android
 #elif defined(__ANDROID__)
 #include <ulib/config/Android.hpp>
-#include <ulib/Exception.hpp>
+#define ULIB_ASIO_NO_WINSOCK
 #endif
+
+#include <ulib/Exception.hpp>
+#include <ulib/log/Logger.hpp>
+#include "Asio.hpp"
 
 #include <memory>
 #include <functional>
