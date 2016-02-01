@@ -120,25 +120,38 @@ void ModelManager::CreateBlueprintFromMobile(const Mobile& mobile, ModelBlueprin
    // material 2, name [body_texture] texture [.\base.body.human.jpg]
    // material 3, name [hands_texture] texture [.\base.hands.human.jpg]
    // material 4, name [head_texture] texture [.\base.head.human.jpg]
+
+   // all textures come with looks from 001-024; some have a prefix
+   // _D or _L appended, for light and dark skin textures.
    blueprint.m_vecAnimatedMaterialTextures[0] = _T("001.feet.human.jpg");
    blueprint.m_vecAnimatedMaterialTextures[1] = _T("001.pants.human.jpg");
    blueprint.m_vecAnimatedMaterialTextures[2] = _T("001.body.human.jpg");
    blueprint.m_vecAnimatedMaterialTextures[3] = _T("001_D.hands.human.jpg");
 
+   // face style: 01..08 (7 face styles); skin color: 0..2 (normal, light, dark)
    blueprint.m_vecAnimatedMaterialTextures[4].Format(
       _T("%02u_%01u.head.human.jpg"), info.FaceStyle()+1, info.SkinColor()+1);
 
    CString cszPilosity;
    cszPilosity.Format(_T("pilosity%02u_%01u"),
-      info.PilosityBrowStyle()+1,
-      info.PilosityHairStyle()+1);
+      info.PilosityBrowStyle()+1, // range 01-12
+      info.PilosityHairStyle()+1); // range 1-5
 
    CString cszHairColor;
-   cszHairColor.Format(_T("%u."), info.HairColor()+1);
+   cszHairColor.Format(_T("%u."), info.HairColor()+1); // range 1-5
 
    blueprint.m_vecStaticBlueprints.push_back(ModelBlueprint::StaticModelBlueprint(cszPilosity, _T("mount1"), cszHairColor));
 
    // TODO process inventory/paperdoll
+   // all mount points:
+   // mount0: head, hat, helmet
+   // mount1: face, pilosity
+   // mount2: N/A
+   // mount3: right hand, sword, crossbow
+   // mount4: left hand, bow, shield
+   // mount5: right shoulder, shoulder pad R
+   // mount6: left shoulder, shoulder pad L
+   // mount7: back, quiver
    blueprint.m_vecStaticBlueprints.push_back(ModelBlueprint::StaticModelBlueprint(_T("axe01"), _T("mount3")));
    //blueprint.m_vecStaticBlueprints.push_back(ModelBlueprint::StaticModelBlueprint(_T("hat01"), _T("mount0")));
 }
