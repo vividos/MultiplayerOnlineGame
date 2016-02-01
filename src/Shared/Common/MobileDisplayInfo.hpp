@@ -19,7 +19,7 @@ public:
    /// checks if all values are valid
    bool IsValid() const throw();
 
-   /// returns base figure; values 0-3
+   /// returns base figure; values 0-3 (0: muscular, 1: fat, 2: wizard, 3: female)
    unsigned int BaseFigure() const throw();
    /// sets base figure
    void BaseFigure(unsigned int uiBaseFigure) throw();
