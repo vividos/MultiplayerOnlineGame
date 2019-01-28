@@ -96,7 +96,7 @@ void MusicConfigLoader::AddMusicTrack(const CString& cszId, unsigned int uiLen, 
                                       std::set<CString>& setTags)
 {
    ATLTRACE(_T("music track: id=%s, len=%u, file=%s, %u tags\n"),
-      cszId, uiLen, cszFilename, setTags.size());
+      cszId.GetString(), uiLen, cszFilename.GetString(), setTags.size());
 
    // add music info
    MusicDirector::MusicInfo musicInfo;

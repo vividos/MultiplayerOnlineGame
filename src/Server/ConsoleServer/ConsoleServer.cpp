@@ -32,7 +32,7 @@ void ConsoleServer::Run(const ConsoleServerProgramOptions& opt)
    catch (Exception& ex)
    {
       CString cszMessage;
-      cszMessage.Format(_T("Exception: %s"), ex.Message());
+      cszMessage.Format(_T("Exception: %s"), ex.Message().GetString());
       LOG_ERROR(cszMessage, Log::Server::General);
    }
    catch (std::exception& ex)

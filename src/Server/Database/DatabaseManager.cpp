@@ -35,7 +35,7 @@ void Manager::CreateDatabase(const CString& cszFilename)
    m_spDatabase = spProvider->Create(cszFilename);
 
    CString cszMessage;
-   cszMessage.Format(_T("creating database: %s"), cszFilename);
+   cszMessage.Format(_T("creating database: %s"), cszFilename.GetString());
    LOG_INFO(cszMessage, Log::Server::Database);
 
    SetupDatabase();
@@ -72,7 +72,7 @@ IDatabaseProviderPtr Manager::GetDatabaseProvider()
 
    CString cszLogMessage;
    cszLogMessage.Format(_T("Opening DB provider: [%s] version [%s]"),
-      cszProviderName, cszVersion);
+      cszProviderName.GetString(), cszVersion.GetString());
    LOG_INFO(cszLogMessage, Log::Server::Database);
 
    return spProvider;
@@ -237,8 +237,8 @@ void Manager::ExecuteSqlScript(const CString& cszFilename)
             {
                CString cszError;
                cszError.Format(_T("error in executing sql in file [%s], sql command [%s]"),
-                  cszFilename, cszLine);
-               LOG_ERROR(cszError, Log::Server::Database);         
+                  cszFilename.GetString(), cszLine.GetString());
+               LOG_ERROR(cszError, Log::Server::Database);
             }
 
             cszQuery.Empty();

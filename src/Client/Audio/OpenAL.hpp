@@ -34,7 +34,7 @@ typedef std::shared_ptr<class Source> SourcePtr;
    ALenum enError = alGetError(); \
    if (enError != AL_NO_ERROR) \
    { \
-      ATLTRACE(_T("%hs(%u): %s in %s"), __FILE__, __LINE__, Exception::ErrorText(enError), FuncName); \
+      ATLTRACE(_T("%hs(%u): %s in %s"), __FILE__, __LINE__, Exception::ErrorText(enError).GetString(), FuncName); \
       throw Exception(FuncName, enError, __FILE__, __LINE__); \
    } \
 }
@@ -44,7 +44,7 @@ typedef std::shared_ptr<class Source> SourcePtr;
 { \
    ALenum enError = alGetError(); \
    if (enError != AL_NO_ERROR) \
-      ATLTRACE(_T("%hs(%u): %s in %s"), __FILE__, __LINE__, Exception::ErrorText(enError), FuncName); \
+      ATLTRACE(_T("%hs(%u): %s in %s"), __FILE__, __LINE__, Exception::ErrorText(enError).GetString(), FuncName); \
 }
 
 
@@ -276,7 +276,7 @@ public:
       AL_CLEAR_ERROR();
 
       alSourcei(m_uiSource, AL_BUFFER, spBuffer == NULL ? NULL : spBuffer->Id());
-      AL_CHECK_ERROR(CString(_T("alSource(AL_BUFFER, )")) + (spBuffer == NULL ? _T("0)") : _T("id)")));
+      AL_CHECK_ERROR((CString(_T("alSource(AL_BUFFER, )")) + (spBuffer == NULL ? _T("0)") : _T("id)"))).GetString());
 
       m_spCurrentBuffer = spBuffer;
    }

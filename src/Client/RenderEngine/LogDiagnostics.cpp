@@ -94,7 +94,7 @@ void OpenGL::LogDiagnostics()
          LPCSTR pszNext = strstr(pszExtensions, " ");
 
          if (pszNext != NULL)
-            cszText.AppendFormat(_T("%hs, "), CStringA(pszExtensions, pszNext - pszExtensions));
+            cszText.AppendFormat(_T("%hs, "), CStringA(pszExtensions, pszNext - pszExtensions).GetString());
          else
             cszText.AppendFormat(_T("%hs"), pszExtensions);
 

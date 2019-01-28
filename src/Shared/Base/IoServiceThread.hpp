@@ -86,7 +86,7 @@ private:
          {
             CString cszText;
             cszText.Format(_T("%s(%u): exception in io thread: %s"),
-               ex.SourceFile(), ex.SourceLine(), ex.Message());
+               ex.SourceFile().GetString(), ex.SourceLine(), ex.Message().GetString());
             LOG_ERROR(cszText, Log::Threading);
             ATLASSERT(false);
          }

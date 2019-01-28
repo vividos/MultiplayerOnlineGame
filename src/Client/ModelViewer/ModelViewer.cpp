@@ -44,7 +44,7 @@ int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPTST
    catch (Exception& ex)
    {
       CString cszText;
-      cszText.Format(_T("Model Viewer ended with exception: %s"), ex.Message());
+      cszText.Format(_T("Model Viewer ended with exception: %s"), ex.Message().GetString());
       MessageBox(GetActiveWindow(), cszText, _T("ModelViewer"), MB_OK);
    }
 

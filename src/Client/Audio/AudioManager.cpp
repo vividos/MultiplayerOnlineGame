@@ -71,9 +71,9 @@ AudioManager::AudioManager()
    // output version
    CString cszText;
    cszText.Format(_T("using OpenAL %s, vendor [%s], renderer [%s]"),
-      m_audioDevice.Version(),
-      m_audioDevice.Vendor(),
-      m_audioDevice.Renderer()
+      m_audioDevice.Version().GetString(),
+      m_audioDevice.Vendor().GetString(),
+      m_audioDevice.Renderer().GetString()
       );
    LOG_INFO(cszText, Log::Client::Audio);
 

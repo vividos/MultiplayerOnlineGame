@@ -58,7 +58,7 @@ void SocketListener::HandleAccept(std::shared_ptr<Session> spSession,
 
       CString cszMessage;
       cszMessage.Format(_T("Incoming connection from %s (IPv%u)"),
-         EndpointToString(remoteEndpoint),
+         EndpointToString(remoteEndpoint).GetString(),
          remoteEndpoint.protocol() == boost::asio::ip::tcp::v4() ? 4 : 6);
 
       LOG_INFO(cszMessage, Log::Server::General);

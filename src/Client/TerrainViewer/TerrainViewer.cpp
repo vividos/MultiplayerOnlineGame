@@ -40,7 +40,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/,
    catch(Exception& ex)
    {
       CString cszText;
-      cszText.Format(_T("TerrainViewer ended with exception: %s"), ex.Message());
+      cszText.Format(_T("TerrainViewer ended with exception: %s"), ex.Message().GetString());
       MessageBox(GetActiveWindow(), cszText, _T("TerrainViewer"), MB_OK);
    }
 

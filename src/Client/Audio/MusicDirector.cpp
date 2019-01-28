@@ -137,7 +137,7 @@ void MusicDirector::StartPlayback()
 
    CString cszText;
    cszText.Format(_T("starting new title, id=%s, len=%u"),
-      cszId, static_cast<unsigned int>(info.m_tsDuration.TotalSeconds()));
+      cszId.GetString(), static_cast<unsigned int>(info.m_tsDuration.TotalSeconds()));
    LOG_INFO(cszText, Log::Client::AudioMusicDirector);
 
    info.m_dtLastPlayed = DateTime::Now();
