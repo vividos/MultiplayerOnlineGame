@@ -31,12 +31,10 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\wtl90.props" />
     <Import Project="..\..\..\MultiplayerOnlineGame-Release.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\wtl90.props" />
     <Import Project="..\..\..\MultiplayerOnlineGame-Debug.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -128,6 +126,7 @@
     <Import Project="..\..\..\packages\Vividos.UlibCpp.Static.4.1.4\build\native\Vividos.UlibCpp.Static.targets" Condition="Exists('..\..\..\packages\Vividos.UlibCpp.Static.4.1.4\build\native\Vividos.UlibCpp.Static.targets')" />
     <Import Project="..\..\..\packages\boost.1.68.0.0\build\boost.targets" Condition="Exists('..\..\..\packages\boost.1.68.0.0\build\boost.targets')" />
     <Import Project="..\..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets" Condition="Exists('..\..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets')" />
+    <Import Project="..\..\..\packages\wtl.10.0.8280\build\native\wtl.targets" Condition="Exists('..\..\..\packages\wtl.10.0.8280\build\native\wtl.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -136,5 +135,6 @@
     <Error Condition="!Exists('..\..\..\packages\Vividos.UlibCpp.Static.4.1.4\build\native\Vividos.UlibCpp.Static.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Vividos.UlibCpp.Static.4.1.4\build\native\Vividos.UlibCpp.Static.targets'))" />
     <Error Condition="!Exists('..\..\..\packages\boost.1.68.0.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\boost.1.68.0.0\build\boost.targets'))" />
     <Error Condition="!Exists('..\..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\wtl.10.0.8280\build\native\wtl.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\wtl.10.0.8280\build\native\wtl.targets'))" />
   </Target>
 </Project>
