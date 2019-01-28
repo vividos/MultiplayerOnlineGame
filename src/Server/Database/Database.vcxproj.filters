@@ -76,5 +76,6 @@
     <None Include="..\..\..\data\script\init.sql">
       <Filter>SQL Files</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
