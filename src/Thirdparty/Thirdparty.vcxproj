@@ -40,50 +40,28 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>..\..\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>..\..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <NMakeBuildCommandLine>copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
-copy "$(ProjectDir)\SDL2-2.0.3\lib\x86\SDL2.dll" "$(OutDir)"
-copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
-copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
-del "$(OutDir)SDL2.dll" &gt; nul
-del "$(OutDir)zlib1.dll" &gt; nul
-del "$(OutDir)oalinst.exe" &gt; nul
-copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
-copy "$(ProjectDir)\SDL2-2.0.3\lib\x86\SDL2.dll" "$(OutDir)"
-copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
-copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
-del "$(OutDir)SDL2.dll" &gt; nul
-del "$(OutDir)zlib1.dll" &gt; nul
-del "$(OutDir)oalinst.exe" &gt; nul</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>call Build.cmd "$(ProjectDir)" "$(OutDir)"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call Clean.cmd "$(OutDir)"
+call Build.cmd "$(ProjectDir)" "$(OutDir)"</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call Clean.cmd "$(OutDir)"</NMakeCleanCommandLine>
     <NMakeOutput>$(OutDir)freetype6.dll, $(OutDir)SDL2.dll, $(OutDir)zlib1.dll, $(OutDir)oalinst.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>..\..\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>..\..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <NMakeBuildCommandLine>copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
-copy "$(ProjectDir)\SDL2-2.0.3\lib\x86\SDL2.dll" "$(OutDir)"
-copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
-copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
-del "$(OutDir)SDL2.dll" &gt; nul
-del "$(OutDir)zlib1.dll" &gt; nul
-del "$(OutDir)oalinst.exe" &gt; nul
-copy "$(ProjectDir)\freetype-2.3.5-1\freetype6.dll" "$(OutDir)"
-copy "$(ProjectDir)\SDL2-2.0.3\lib\x86\SDL2.dll" "$(OutDir)"
-copy "$(ProjectDir)\zlib128\zlib1.dll" "$(OutDir)"
-copy "$(ProjectDir)\OpenAL-SDK\oalinst.exe" "$(OutDir)"</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>del "$(OutDir)freetype6.dll" &gt; nul
-del "$(OutDir)SDL2.dll" &gt; nul
-del "$(OutDir)zlib1.dll" &gt; nul
-del "$(OutDir)oalinst.exe" &gt; nul</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>call Build.cmd "$(ProjectDir)" "$(OutDir)"</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call Clean.cmd "$(OutDir)"
+call Build.cmd "$(ProjectDir)" "$(OutDir)"</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>call Clean.cmd "$(OutDir)"</NMakeCleanCommandLine>
     <NMakeOutput>$(OutDir)freetype6.dll, $(OutDir)SDL2.dll, $(OutDir)zlib1.dll, $(OutDir)oalinst.exe</NMakeOutput>
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="Build.cmd" />
+    <None Include="Clean.cmd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
