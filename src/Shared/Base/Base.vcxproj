@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thirdparty\zlib128\include;$(SolutionDir)Thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Thirdparty\zlib128\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;BASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -53,7 +53,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Thirdparty\zlib128\include;$(SolutionDir)Thirdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Thirdparty\zlib128\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;BASE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -72,7 +72,6 @@
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Plane3.cpp" />
     <ClCompile Include="Quaternion4.cpp" />
-    <ClCompile Include="ScatteredPointInterpolator.cpp" />
     <ClCompile Include="sha2.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -119,7 +118,6 @@
     <ClInclude Include="Quaternion4.hpp" />
     <ClInclude Include="RC4Encoder.hpp" />
     <ClInclude Include="SafeFlag.hpp" />
-    <ClInclude Include="ScatteredPointInterpolator.hpp" />
     <ClInclude Include="sha2.h" />
     <ClInclude Include="Singleton.hpp" />
     <ClInclude Include="stdafx.h" />

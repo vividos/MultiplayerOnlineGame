@@ -63,9 +63,6 @@
     <ClCompile Include="ZlibDecompressor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ScatteredPointInterpolator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CrashReporter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -198,9 +195,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TaskGroup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ScatteredPointInterpolator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CrashReporter.hpp">

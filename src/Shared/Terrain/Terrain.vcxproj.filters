@@ -126,6 +126,9 @@
     <ClCompile Include="BlockTextureGenerator.cpp">
       <Filter>Common Files</Filter>
     </ClCompile>
+    <ClCompile Include="ScatteredPointInterpolator.cpp">
+      <Filter>Common Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -219,6 +222,9 @@
       <Filter>View Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BlockTextureGenerator.hpp">
+      <Filter>Common Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScatteredPointInterpolator.hpp">
       <Filter>Common Files</Filter>
     </ClInclude>
   </ItemGroup>

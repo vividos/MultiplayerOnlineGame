@@ -61,6 +61,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BlockTextureGenerator.cpp" />
+    <ClCompile Include="ScatteredPointInterpolator.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -98,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlockTextureGenerator.hpp" />
+    <ClInclude Include="ScatteredPointInterpolator.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TerrainCommon.hpp" />
     <ClInclude Include="View\BlockRenderDataMap.hpp" />
@@ -154,6 +156,7 @@
     <Import Project="..\..\packages\Vividos.UlibCpp.Static.4.1.4\build\native\Vividos.UlibCpp.Static.targets" Condition="Exists('..\..\packages\Vividos.UlibCpp.Static.4.1.4\build\native\Vividos.UlibCpp.Static.targets')" />
     <Import Project="..\..\packages\boost.1.68.0.0\build\boost.targets" Condition="Exists('..\..\packages\boost.1.68.0.0\build\boost.targets')" />
     <Import Project="..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets" Condition="Exists('..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets')" />
+    <Import Project="..\..\packages\Eigen.3.3.3\build\native\Eigen.targets" Condition="Exists('..\..\packages\Eigen.3.3.3\build\native\Eigen.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -162,5 +165,6 @@
     <Error Condition="!Exists('..\..\packages\Vividos.UlibCpp.Static.4.1.4\build\native\Vividos.UlibCpp.Static.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Vividos.UlibCpp.Static.4.1.4\build\native\Vividos.UlibCpp.Static.targets'))" />
     <Error Condition="!Exists('..\..\packages\boost.1.68.0.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\boost.1.68.0.0\build\boost.targets'))" />
     <Error Condition="!Exists('..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Eigen.3.3.3\build\native\Eigen.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Eigen.3.3.3\build\native\Eigen.targets'))" />
   </Target>
 </Project>
