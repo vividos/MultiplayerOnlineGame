@@ -6,7 +6,7 @@
 //
 
 // includes
-#include <ulib/RecursiveMutex.hpp>
+#include <ulib/thread/RecursiveMutex.hpp>
 #include <thread>
 #include <atomic>
 

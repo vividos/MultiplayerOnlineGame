@@ -11,8 +11,9 @@
 #include "GameClient.hpp"
 #include "Filesystem.hpp"
 #include "IAudioManager.hpp"
-#include <ulib/log/Appender.hpp>
-#include <ulib/log/Layout.hpp>
+#include <ulib/log/ConsoleAppender.hpp>
+#include <ulib/log/OutputDebugStringAppender.hpp>
+#include <ulib/log/PatternLayout.hpp>
 #include "LogFileAppender.hpp"
 
 GameClient::GameClient()

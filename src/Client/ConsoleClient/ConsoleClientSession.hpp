@@ -21,7 +21,7 @@ public:
    virtual ~ConsoleClientSession() throw() {}
 
    /// returns event to signal connect success
-   Event& GetConnectSuccessEvent() throw()
+   ManualResetEvent& GetConnectSuccessEvent() throw()
    {
       return m_evtConnectSuccess;
    }
@@ -41,5 +41,5 @@ private:
 
 private:
    /// event to signal connect success
-   Event m_evtConnectSuccess;
+   ManualResetEvent m_evtConnectSuccess;
 };

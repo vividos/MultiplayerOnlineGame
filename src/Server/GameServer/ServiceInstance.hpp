@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include <ulib/Event.hpp>
+#include <ulib/thread/Event.hpp>
 #include <thread>
 #include <functional>
 
@@ -30,8 +30,8 @@ public:
 
    /// ctor
    ServiceInstance(LPCTSTR pszLogCategory)
-      :m_evtStopService(true, false), // manual-reset event
-       m_evtStarted(true, false), // manual-reset event
+      :m_evtStopService(false),
+       m_evtStarted(false),
        m_hStatus(0),
        m_cszLogCategory(pszLogCategory)
    {
@@ -213,10 +213,10 @@ private:
    SERVICE_STATUS_HANDLE m_hStatus;
 
    /// event that gets signaled when service thread has started
-   Event m_evtStarted;
+   ManualResetEvent m_evtStarted;
 
    /// event that gets signaled when service thread has stopped
-   Event m_evtStopService;
+   ManualResetEvent m_evtStopService;
 
    /// log category
    CString m_cszLogCategory;

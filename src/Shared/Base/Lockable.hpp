@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include "LightweightMutex.hpp"
+#include <ulib/thread/LightweightMutex.hpp>
 
 /// \brief Simple lockable class using a recursive mutex
 /// Use this class as base class for all classes that need to be lockable.

@@ -9,7 +9,7 @@
 // includes
 #include "Network.hpp"
 #include "Session.hpp"
-#include <ulib/Event.hpp>
+#include <ulib/thread/Event.hpp>
 #include <functional>
 #include "LogoutMessage.hpp"
 
@@ -118,5 +118,5 @@ private:
    T_fnOnLogout m_fnOnLogout;
 
    /// event that signals if a socket is connected
-   Event m_evtSocketConnected;
+   ManualResetEvent m_evtSocketConnected;
 };

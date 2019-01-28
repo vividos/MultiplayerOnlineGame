@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include "LightweightMutex.hpp"
+#include <ulib/thread/LightweightMutex.hpp>
 #include <map>
 
 namespace MilkShape3D

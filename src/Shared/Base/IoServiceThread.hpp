@@ -10,7 +10,7 @@
 #include "Base.hpp"
 #include "LogCategories.hpp"
 #include "Asio.hpp"
-#include <ulib/Thread.hpp>
+#include <ulib/thread/Thread.hpp>
 #include <thread>
 #include <functional>
 

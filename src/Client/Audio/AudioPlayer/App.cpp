@@ -11,8 +11,9 @@
 #include "resource.h"
 #include "AudioPlayerDlg.hpp"
 #include <crtdbg.h>
-#include <ulib/log/Appender.hpp>
-#include <ulib/log/Layout.hpp>
+#include <ulib/log/ConsoleAppender.hpp>
+#include <ulib/log/OutputDebugStringAppender.hpp>
+#include <ulib/log/PatternLayout.hpp>
 
  /// WTL app model
 CAppModule _Module;

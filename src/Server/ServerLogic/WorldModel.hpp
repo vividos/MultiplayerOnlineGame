@@ -12,7 +12,7 @@
 #include "ObjectMap.hpp"
 #include "CommandTranslator.hpp"
 #include "UpdateManager.hpp"
-#include "RecursiveMutex.hpp"
+#include <ulib/thread/RecursiveMutex.hpp>
 
 // forward references
 class ISessionManager;

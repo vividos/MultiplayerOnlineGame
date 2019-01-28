@@ -8,7 +8,7 @@
 
 // includes
 #include "ServerLogic.hpp"
-#include <ulib/RecursiveMutex.hpp>
+#include <ulib/thread/RecursiveMutex.hpp>
 #include "ISessionManager.hpp"
 #include <set>
 

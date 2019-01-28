@@ -8,7 +8,7 @@
 
 // includes
 #include "ServerLogic.hpp"
-#include <ulib/Event.hpp>
+#include <ulib/thread/Event.hpp>
 #include "IoServiceThread.hpp"
 #include "DatabaseManager.hpp"
 #include "NetworkManager.hpp"
@@ -44,10 +44,10 @@ private:
 
 private:
    /// event to stop game server
-   Event m_evtStop;
+   ManualResetEvent m_evtStop;
 
    /// event to signal that game server stopped
-   Event m_evtStopped;
+   ManualResetEvent m_evtStopped;
 
    // game objects
 

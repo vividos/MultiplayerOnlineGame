@@ -8,7 +8,7 @@
 
 // includes
 #include "SocketListener.hpp"
-#include <ulib/Event.hpp>
+#include <ulib/thread/Event.hpp>
 
 // forward references
 class SessionManager;
@@ -48,5 +48,5 @@ private:
    boost::asio::deadline_timer m_timerCleanupClients;
 
    /// event to signal ended timer
-   Event m_evtTimerEnded;
+   ManualResetEvent m_evtTimerEnded;
 };

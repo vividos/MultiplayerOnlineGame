@@ -11,7 +11,7 @@
 
 ConsoleClientSession::ConsoleClientSession(boost::asio::io_service& ioService)
 :AuthClientSession(ioService),
- m_evtConnectSuccess(true, false) // manual-reset event
+ m_evtConnectSuccess(false)
 {
    SetHandlerOnConnectStateChanged(
       std::bind(&ConsoleClientSession::OnConnectStateChanged, this, std::placeholders::_1));

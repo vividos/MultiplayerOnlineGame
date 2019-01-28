@@ -18,7 +18,7 @@ ClientSession::ClientSession(boost::asio::io_service& ioService)
 :Session(ioService),
  m_resolver(ioService),
  m_enConnectState(connectStateNotConnected),
- m_evtSocketConnected(true, false) // manual-reset Event
+ m_evtSocketConnected(false)
 {
 }
 
@@ -147,7 +147,7 @@ void ClientSession::OnConnect(const boost::system::error_code& error, boost::asi
 
    // set TCP_NODELAY option to disable Nagle's Algorithm
    boost::asio::ip::tcp::no_delay option(true);
-   Socket().set_option(option); 
+   Socket().set_option(option);
 
    // start session
    Session::Start();

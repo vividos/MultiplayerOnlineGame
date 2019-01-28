@@ -8,14 +8,15 @@
 // includes
 #include "StdAfx.h"
 #include "GameServer.hpp"
-#include <ulib/log/Appender.hpp>
-#include <ulib/log/Layout.hpp>
+#include <ulib/log/ConsoleAppender.hpp>
+#include <ulib/log/OutputDebugStringAppender.hpp>
+#include <ulib/log/PatternLayout.hpp>
 #include "Filesystem.hpp"
 #include "Path.hpp"
 
 GameServer::GameServer(unsigned short usPort)
-:m_evtStop(true, false), // manual-reset event
- m_evtStopped(true, false), // manual-reset event
+:m_evtStop(false),
+ m_evtStopped(false),
  m_sessionManager(m_authManager, m_worldModel, m_ioService.Get()),
  m_networkManager(m_sessionManager, m_ioService.Get(), usPort),
  m_actionQueue(m_ioService.Get(), m_worldModel),

@@ -11,7 +11,7 @@
 #include "Filesystem.hpp"
 #include <ulib/log/Appender.hpp>
 #include <ulib/log/Layout.hpp>
-#include <ulib/Event.hpp>
+#include <ulib/thread/Event.hpp>
 #include "ServiceInstance.hpp"
 
 /// service name

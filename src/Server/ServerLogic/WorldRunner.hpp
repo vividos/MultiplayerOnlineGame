@@ -9,7 +9,7 @@
 // includes
 #include "ServerLogic.hpp"
 #include "IoServiceThread.hpp"
-#include <ulib/Event.hpp>
+#include <ulib/thread/Event.hpp>
 #include "TimeBase.hpp"
 
 // forward references
@@ -24,7 +24,7 @@ public:
       :m_worldModel(worldModel),
        m_ioServiceThread(true, _T("World Runner Thread")),
        m_timerWorldTick(m_ioServiceThread.Get()),
-       m_evtWaitEndTimer(true, false) // manual-reset event
+       m_evtWaitEndTimer(false)
    {
    }
 
@@ -55,5 +55,5 @@ private:
    boost::asio::deadline_timer m_timerWorldTick;
 
    /// event to signal stop processing
-   Event m_evtWaitEndTimer;
+   ManualResetEvent m_evtWaitEndTimer;
 };

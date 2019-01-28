@@ -19,7 +19,7 @@ NetworkManager::NetworkManager(SessionManager& sessionManager,
  m_socketListenerIPv4(sessionManager, ioService, false, usPort),
  m_socketListenerIPv6(sessionManager, ioService, true, usPort),
  m_timerCleanupClients(ioService),
- m_evtTimerEnded(true, false) // manual-reset event
+ m_evtTimerEnded(false)
 {
 }
 

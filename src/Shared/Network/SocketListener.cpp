@@ -65,7 +65,7 @@ void SocketListener::HandleAccept(std::shared_ptr<Session> spSession,
 
       // set TCP_NODELAY option to disable Nagle's Algorithm
       boost::asio::ip::tcp::no_delay option(true);
-      spSession->Socket().set_option(option); 
+      spSession->Socket().set_option(option);
 
       spSession->Start();
 

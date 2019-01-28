@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include <ulib/Mutex.hpp>
+#include <ulib/thread/Mutex.hpp>
 #include <map>
 #include <set>
 

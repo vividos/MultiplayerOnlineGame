@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include <ulib\Exception.hpp>
+#include <ulib/Exception.hpp>
 
 /// exception for authentication failures
 class AuthException: public Exception

@@ -8,8 +8,8 @@
 
 // includes
 #include "Asio.hpp"
-#include "LightweightMutex.hpp"
-#include <ulib/Event.hpp>
+#include <ulib/thread/LightweightMutex.hpp>
+#include <ulib/thread/Event.hpp>
 #include <atomic>
 #include <deque>
 #include <functional>
@@ -43,9 +43,9 @@ public:
       }
 
       // wait for all tasks to be finished
-      Event evtEmptyQueue(true, false); // manual-reset
+      ManualResetEvent evtEmptyQueue(false);
 
-      m_ioService.post(std::bind(&Event::Set, &evtEmptyQueue));
+      m_ioService.post(std::bind(&ManualResetEvent::Set, &evtEmptyQueue));
 
       evtEmptyQueue.Wait();
    }
