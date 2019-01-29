@@ -68,7 +68,7 @@ void WorldModel::AddRemoveObject(const std::vector<ObjectPtr>& vecObjectsToAdd,
 void WorldModel::UpdateObjectMovement(const ObjectId& id, const MovementInfo& info)
 {
    CString cszText;
-   cszText.Format(_T("got update message from: %s"), id.ToString());
+   cszText.Format(_T("got update message from: %s"), id.ToString().GetString());
    LOG_INFO(cszText, Log::Server::World::Player);
 
    // determine who should get update message

@@ -251,7 +251,7 @@ CString Session::GetSessionLogCategory(const CString& cszBaseLogCategory)
 {
    CString cszCategory;
    if (Socket().is_open())
-      cszCategory.Format(_T("%s.%u"), cszBaseLogCategory, Socket().local_endpoint().port());
+      cszCategory.Format(_T("%s.%u"), cszBaseLogCategory.GetString(), Socket().local_endpoint().port());
    else
       cszCategory = cszBaseLogCategory;
 

@@ -55,9 +55,9 @@ public:
       catch(Exception& ex)
       {
          ATLTRACE(_T("%s(%u): Exception: %s\n"),
-            ex.SourceFile(),
+            ex.SourceFile().GetString(),
             ex.SourceLine(),
-            ex.Message());
+            ex.Message().GetString());
 
          if (con.IsCalledFromConsole())
             _tprintf(_T("Exception: %s\n\n"), ex.Message().GetString());

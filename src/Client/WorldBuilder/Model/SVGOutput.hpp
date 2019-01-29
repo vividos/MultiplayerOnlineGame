@@ -35,7 +35,7 @@ namespace SVG
          CString cszAttrib, cszTemp;
          for (std::map<CString, CString>::const_iterator iter = m_mapStyles.begin(); iter != m_mapStyles.end(); ++iter)
          {
-            cszTemp.Format(_T("%s:%s;"), iter->first, iter->second);
+            cszTemp.Format(_T("%s:%s;"), iter->first.GetString(), iter->second.GetString());
             cszAttrib += cszTemp;
          }
          cszAttrib.TrimRight(_T(";"));

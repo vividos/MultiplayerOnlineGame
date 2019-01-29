@@ -73,7 +73,7 @@ void MainGameLoop::UpdateCaption(double dFramesPerSecond)
    // set new caption
    CString cszCaption;
    cszCaption.Format(_T("%s; %3u.%01u frames/s, %u polygons"),
-      m_cszClientName,
+      m_cszClientName.GetString(),
       unsigned(dFramesPerSecond),
       unsigned((dFramesPerSecond-unsigned(dFramesPerSecond))*10.0),
       uiPolycount);
