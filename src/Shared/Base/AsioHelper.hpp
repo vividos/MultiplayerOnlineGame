@@ -8,7 +8,7 @@
 
 // includes
 #include "Base.hpp"
-#include "Asio.hpp"
+#include <ulib/config/BoostAsio.hpp>
 
 /// converts endpoint to readable string
 CString BASE_DECLSPEC EndpointToString(boost::asio::ip::tcp::endpoint& endpoint);

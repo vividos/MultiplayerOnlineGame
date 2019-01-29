@@ -74,9 +74,6 @@
     <ClInclude Include="ArrayMapper2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Asio.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AsioHelper.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

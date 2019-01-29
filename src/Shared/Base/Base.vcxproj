@@ -90,7 +90,6 @@
   <ItemGroup>
     <ClInclude Include="AABox.hpp" />
     <ClInclude Include="ArrayMapper2D.hpp" />
-    <ClInclude Include="Asio.hpp" />
     <ClInclude Include="AsioHelper.hpp" />
     <ClInclude Include="AstronomyMath.hpp" />
     <ClInclude Include="Base.hpp" />

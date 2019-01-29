@@ -20,5 +20,4 @@
 
 // game includes
 #pragma warning(disable: 4005) // '_WIN32_WINNT' : macro redefinition
-#define ULIB_ASIO_NO_WINSOCK
 #include "Base.hpp"

@@ -16,12 +16,11 @@
 // Android
 #elif defined(__ANDROID__)
 #include <ulib/config/Android.hpp>
-#define ULIB_ASIO_NO_WINSOCK
 #endif
 
 #include <ulib/Exception.hpp>
 #include <ulib/log/Logger.hpp>
-#include "Asio.hpp"
+#include <ulib/config/BoostAsio.hpp>
 
 #include <memory>
 #include <functional>

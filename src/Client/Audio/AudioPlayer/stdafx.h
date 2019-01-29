@@ -10,5 +10,4 @@
 #define _WIN32_WINNT _WIN32_WINNT_WIN7
 #include <ulib/config/Wtl.hpp>
 
-#define ULIB_ASIO_NO_WINSOCK
 #include "Base.hpp"

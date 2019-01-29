@@ -7,7 +7,6 @@
 #pragma once
 
 // includes
-#define ULIB_ASIO_NO_WINSOCK
 #include "Base.hpp"
 #include "Common.hpp" // for log categories
 #include "OpenGL.hpp"
