@@ -75,5 +75,5 @@ private:
    std::vector<unsigned int> m_vecIndices;
 
    /// GL function to draw range of elements
-   PFNGLDRAWRANGEELEMENTSWINPROC glDrawRangeElements;
+   PFNGLDRAWRANGEELEMENTSPROC glDrawRangeElements;
 };

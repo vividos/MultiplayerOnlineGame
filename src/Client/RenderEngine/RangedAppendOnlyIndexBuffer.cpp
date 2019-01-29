@@ -60,7 +60,7 @@ void RangedAppendOnlyIndexBuffer::RenderRange(const IndexRange& range) const
    if (glDrawRangeElements == NULL)
    {
       const_cast<RangedAppendOnlyIndexBuffer&>(*this).glDrawRangeElements =
-         (PFNGLDRAWRANGEELEMENTSWINPROC)wglGetProcAddress("glDrawRangeElements");
+         (PFNGLDRAWRANGEELEMENTSPROC)wglGetProcAddress("glDrawRangeElements");
    }
 
    ATLASSERT(glDrawRangeElements != NULL);

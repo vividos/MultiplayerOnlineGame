@@ -9,6 +9,7 @@
 // includes
 #include "RenderEngineCommon.hpp"
 #include <SDL_OpenGL.h>
+#include <SDL_opengl_glext.h>
 #include <gl/glu.h>
 #include "Color.hpp"
 #include "Vector3.hpp"

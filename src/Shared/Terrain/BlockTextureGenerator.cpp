@@ -77,7 +77,7 @@ TexturePtr BlockTextureGenerator::Generate(std::shared_ptr<Model::DataBlock> spD
 
    glDisable(GL_TEXTURE_2D);
    glDisable(GL_LIGHTING);
-   glDisable(GL_DEPTH_BUFFER);
+   glDisable(GL_DEPTH_TEST);
    //glDisable(GL_CULL_FACE);
 
    //glClearColor(255, 255, 0, 255);
