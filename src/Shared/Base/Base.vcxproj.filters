@@ -30,12 +30,6 @@
     <ClCompile Include="HashedData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HighResolutionTimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Path.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sha2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -61,9 +55,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ZlibDecompressor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CrashReporter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BSpline.cpp">
@@ -107,16 +98,10 @@
     <ClInclude Include="ColorGradient.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileFinder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Filesystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HashedData.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HighResolutionTimer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IFileSystem.hpp">
@@ -134,9 +119,6 @@
     <ClInclude Include="Math.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Path.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RC4Encoder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -144,9 +126,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sha2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Singleton.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -165,12 +144,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TimedEffect.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TraceOutputStopwatch.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Uuid.hpp">
@@ -195,9 +168,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TaskGroup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CrashReporter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BSpline.hpp">

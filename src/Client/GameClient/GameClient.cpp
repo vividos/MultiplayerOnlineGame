@@ -7,7 +7,7 @@
 
 // includes
 #include "stdafx.h"
-#include "CrashReporter.hpp"
+#include <ulib/CrashReporter.hpp>
 #include "GameClient.hpp"
 #include "Filesystem.hpp"
 #include "IAudioManager.hpp"
@@ -60,7 +60,7 @@ void GameClient::Start()
 /// GameClient main function
 int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPTSTR /*lpstrCmdLine*/, int /*nCmdShow*/)
 {
-   CrashReporter::Init(Filesystem().UserFolder() + c_pszCrashdumpFoldername);
+   CrashReporter::Init(_T("gameclient"), Filesystem().UserFolder() + c_pszCrashdumpFoldername);
 
    try
    {

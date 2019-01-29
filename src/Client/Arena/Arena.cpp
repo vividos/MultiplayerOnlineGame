@@ -8,13 +8,13 @@
 // includes
 #include "stdafx.h"
 #include "GameClient.hpp"
-#include "CrashReporter.hpp"
+#include <ulib/CrashReporter.hpp>
 #include "Filesystem.hpp"
 
 /// Arena main function
 int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPTSTR /*lpstrCmdLine*/, int /*nCmdShow*/)
 {
-   CrashReporter::Init(Filesystem().UserFolder() + c_pszCrashdumpFoldername);
+   CrashReporter::Init(_T("arena"), Filesystem().UserFolder() + c_pszCrashdumpFoldername);
 
    try
    {

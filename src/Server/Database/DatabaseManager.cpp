@@ -15,8 +15,8 @@
 #include <ulib/stream/TextFileStream.hpp>
 #include "LogCategories.hpp"
 #include "Filesystem.hpp"
-#include "FileFinder.hpp"
-#include "Path.hpp"
+#include <ulib/FileFinder.hpp>
+#include <ulib/Path.hpp>
 
 using namespace Database;
 

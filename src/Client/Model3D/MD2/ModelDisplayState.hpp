@@ -9,7 +9,7 @@
 // includes
 #include "IModelDisplayState.hpp"
 #include "Texture.hpp"
-#include "Timer.hpp"
+#include <ulib/Timer.hpp>
 
 // forward references
 namespace OpenGL

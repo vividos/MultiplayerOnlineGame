@@ -8,39 +8,18 @@
 // includes
 #include "StdAfx.h"
 #include "Filesystem.hpp"
-#include "Path.hpp"
+#include <ulib/Path.hpp>
 #include <shlobj.h> // for CSIDL_FONTS
 
-#pragma comment(lib, "shell32.lib") // for SHGetSpecialFolderPath
-
 Filesystem::Filesystem()
-:m_cszBaseFolder(Filesystem::ModuleFilename())
+:m_cszBaseFolder(Path::Combine(Path::ModuleFilename(), _T("ClientData")))
 {
-   // TODO replace with Path class calls
-   // remove filename
-   int iPos = m_cszBaseFolder.ReverseFind('\\');
-   ATLASSERT(iPos != -1);
-   m_cszBaseFolder = m_cszBaseFolder.Left(iPos+1);
-
-   m_cszBaseFolder += _T("ClientData\\");
-}
-
-CString Filesystem::ModuleFilename() throw()
-{
-   CString cszModuleFilename;
-
-   ::GetModuleFileName(NULL, cszModuleFilename.GetBuffer(MAX_PATH), MAX_PATH);
-   cszModuleFilename.ReleaseBuffer();
-
-   return cszModuleFilename;
 }
 
 CString Filesystem::FontsFolder() throw()
 {
    // returns windows fonts folder
-   CString cszFolder;
-   ATLVERIFY(TRUE == SHGetSpecialFolderPath(NULL, cszFolder.GetBuffer(MAX_PATH), CSIDL_FONTS, TRUE));
-   cszFolder.ReleaseBuffer();
+   CString cszFolder = Path::SpecialFolder(CSIDL_FONTS);
 
    Path::AddEndingBackslash(cszFolder);
 
@@ -50,9 +29,7 @@ CString Filesystem::FontsFolder() throw()
 CString Filesystem::UserFolder()
 {
    // get non-roaming app data folder
-   CString cszFolder;
-   ATLVERIFY(TRUE == SHGetSpecialFolderPath(NULL, cszFolder.GetBuffer(MAX_PATH), CSIDL_LOCAL_APPDATA, TRUE));
-   cszFolder.ReleaseBuffer();
+   CString cszFolder = Path::SpecialFolder(CSIDL_LOCAL_APPDATA);
 
    Path::AddEndingBackslash(cszFolder);
 

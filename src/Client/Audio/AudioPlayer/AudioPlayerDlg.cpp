@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "resource.h"
 #include "AudioPlayerDlg.hpp"
-#include "Path.hpp"
+#include <ulib/Path.hpp>
 
 /// number of seconds for audio fadeout
 const double c_dFadeoutTimeInSeconds = 2.0;

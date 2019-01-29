@@ -9,7 +9,7 @@
 // includes
 #include "Model3DCommon.hpp"
 #include "Vector3.hpp"
-#include "Timer.hpp"
+#include <ulib/Timer.hpp>
 
 // forward references
 class IModelDisplayState;

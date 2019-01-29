@@ -11,7 +11,7 @@
 #include "Panel.hpp"
 #include "JsonWindowLoader.hpp"
 #include <ulib/stream/TextStreamFilter.hpp>
-#include "Path.hpp"
+#include <ulib/Path.hpp>
 #include "IFileSystem.hpp"
 #include <SDL.h>
 

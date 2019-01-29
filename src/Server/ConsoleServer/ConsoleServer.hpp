@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#include "Singleton.hpp"
+#include <ulib/Singleton.hpp>
 #include "GameServer.hpp"
 
 // forward references

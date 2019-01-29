@@ -15,7 +15,7 @@
 #include "SRPClient.hpp"
 #include "SRPHelper.hpp"
 #include "LogCategories.hpp"
-#include "HighResolutionTimer.hpp"
+#include <ulib/HighResolutionTimer.hpp>
 
 using SRP::ClientAuthModule;
 

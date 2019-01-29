@@ -10,7 +10,7 @@
 #include "FontManager.hpp"
 #include <stdexcept>
 #include "Bitmap.hpp"
-#include "Path.hpp"
+#include <ulib/Path.hpp>
 #include <shlobj.h> // for CSIDL_FONTS
 
 // FreeType Headers
@@ -264,12 +264,7 @@ FontManager::FontManager()
 
 FontPtr FontManager::Create(const CString& cszTypeface, unsigned int uiHeight)
 {
-   // get windows fonts folder
-   CString cszFontFolder;
-   ATLVERIFY(TRUE == SHGetSpecialFolderPath(NULL, cszFontFolder.GetBuffer(MAX_PATH), CSIDL_FONTS, TRUE));
-   cszFontFolder.ReleaseBuffer();
-
-   CString cszFilename = Path::Combine(cszFontFolder, cszTypeface + _T(".ttf"));
+   CString cszFilename = Path::Combine(Path::SpecialFolder(CSIDL_FONTS), cszTypeface + _T(".ttf"));
 
    return FontPtr(new Font(new FontImpl(m_spImpl->Get(), cszFilename, uiHeight), m_spImpl));
 }

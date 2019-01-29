@@ -10,7 +10,7 @@
 #include "VirtualFileSystem.hpp"
 #include <ulib/stream/FileStream.hpp>
 #include "ZipArchive.hpp"
-#include "Path.hpp"
+#include <ulib/Path.hpp>
 
 VirtualFileSystem::VirtualFileSystem() throw()
 {

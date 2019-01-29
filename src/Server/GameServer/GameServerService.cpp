@@ -8,7 +8,7 @@
 // includes
 #include "StdAfx.h"
 #include "GameServerService.hpp"
-#include "Filesystem.hpp"
+#include <ulib/Path.hpp>
 #include <ulib/log/Appender.hpp>
 #include <ulib/log/Layout.hpp>
 #include <ulib/thread/Event.hpp>
@@ -31,7 +31,7 @@ Win32::ServiceInfo GameServerService::GetServiceInfo()
       _T("Multiplayer Online Game Server"),
       _T("Runs Multiplayer Online Game server"),
       Log::Server::Service,
-      Filesystem::ModuleFilename());
+      Path::ModuleFilename());
 }
 
 void GameServerService::Run()

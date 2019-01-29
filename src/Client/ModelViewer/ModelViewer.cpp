@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "ModelViewer.hpp"
 #include "ModelViewerScene.hpp"
-#include "CrashReporter.hpp"
+#include <ulib/CrashReporter.hpp>
 #include "Filesystem.hpp"
 #include "DefaultActionKeyDefs.hpp"
 
@@ -34,7 +34,7 @@ void ModelViewer::Client::Start()
 /// ModelViewer main function
 int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPTSTR /*lpstrCmdLine*/, int /*nCmdShow*/)
 {
-   CrashReporter::Init(Filesystem().BaseFolder() + c_pszCrashdumpFoldername);
+   CrashReporter::Init(_T("modelviewer"), Filesystem().BaseFolder() + c_pszCrashdumpFoldername);
 
    try
    {

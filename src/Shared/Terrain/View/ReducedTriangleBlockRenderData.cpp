@@ -18,8 +18,8 @@
 #include "ArrayMapper2D.hpp"
 #include "RenderOptions.hpp"
 #include "ViewFrustum3d.hpp"
-#include "TraceOutputStopwatch.hpp"
-#include "HighResolutionTimer.hpp"
+#include <ulib/TraceOutputStopwatch.hpp>
+#include <ulib/HighResolutionTimer.hpp>
 #include "TextureParameter.hpp"
 
 using Terrain::View::ReducedTriangleBlockRenderData;

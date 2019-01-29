@@ -8,7 +8,7 @@
 
 // includes
 #include "IAudioManager.hpp"
-#include "Singleton.hpp"
+#include <ulib/Singleton.hpp>
 #include "OpenAL.hpp"
 #include "NamedBufferMap.hpp"
 #include "PositionalSource.hpp"

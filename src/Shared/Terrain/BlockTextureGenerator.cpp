@@ -12,8 +12,8 @@
 #include "FrameBuffer.hpp"
 #include "OrthoCamera.hpp"
 #include "Bitmap.hpp"
-#include "TraceOutputStopwatch.hpp"
-#include "HighResolutionTimer.hpp"
+#include <ulib/TraceOutputStopwatch.hpp>
+#include <ulib/HighResolutionTimer.hpp>
 
 using namespace Terrain;
 

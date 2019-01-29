@@ -16,9 +16,6 @@ public:
    /// ctor
    Filesystem();
 
-   /// returns module filename
-   static CString ModuleFilename() throw();
-
    /// returns file system base folder, including trailing slash
    CString BaseFolder() const throw() { return m_cszBaseFolder; }
 

@@ -22,8 +22,8 @@
 #include <boost/foreach.hpp>
 
 #ifdef _DEBUG
-#include "TraceOutputStopwatch.hpp"
-#include "HighResolutionTimer.hpp"
+#include <ulib/TraceOutputStopwatch.hpp>
+#include <ulib/HighResolutionTimer.hpp>
 #endif
 
 using namespace MilkShape3D;

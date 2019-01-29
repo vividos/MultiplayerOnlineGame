@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "TerrainViewer.hpp"
 #include "TerrainViewerMainScene.hpp"
-#include "CrashReporter.hpp"
+#include <ulib/CrashReporter.hpp>
 #include "Filesystem.hpp"
 
 void TerrainViewer::Client::Start()
@@ -30,7 +30,7 @@ void TerrainViewer::Client::Start()
 int APIENTRY _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/,
                        LPTSTR    /*lpCmdLine*/, int       /*nCmdShow*/)
 {
-   CrashReporter::Init(Filesystem().BaseFolder() + c_pszCrashdumpFoldername);
+   CrashReporter::Init(_T("terrainviewer"), Filesystem().BaseFolder() + c_pszCrashdumpFoldername);
 
    try
    {
