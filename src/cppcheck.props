@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <ExecutablePath>C:\Program Files (x86)\Cppcheck\;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>C:\Program Files\Cppcheck\;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup />

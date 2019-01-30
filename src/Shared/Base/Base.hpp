@@ -54,6 +54,8 @@
 #ifdef CPPCHECK
 #define throw()
 #define override
+#define TEST_CLASS(x) class ##x
+#define TEST_METHOD(x) void ##x()
 #endif
 
 // provide defines when doxygen is generating docs
