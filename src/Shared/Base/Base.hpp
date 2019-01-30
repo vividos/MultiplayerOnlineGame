@@ -11,7 +11,7 @@
 #include <boost/noncopyable.hpp>
 
 // Win32
-#ifdef _MSC_VER
+#ifdef WIN32
 #include <ulib/config/Atl.hpp>
 // Android
 #elif defined(__ANDROID__)
