@@ -28,13 +28,13 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\doxygen.props" />
-    <Import Project="..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\..\doxygen.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Debug.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\doxygen.props" />
-    <Import Project="..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\..\doxygen.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Release.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -61,7 +61,7 @@ doxygen.exe %(FullPath)</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Common\MultiplayerOnlineGame.hpp" />
+    <ClInclude Include="..\..\Common\MultiplayerOnlineGame.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RunDoxygen.cmd" />

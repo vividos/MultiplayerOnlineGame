@@ -28,13 +28,13 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\MultiplayerOnlineGame-Release.props" />
-    <Import Project="..\wix-v3.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Release.props" />
+    <Import Project="..\..\wix-v3.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\MultiplayerOnlineGame-Debug.props" />
-    <Import Project="..\wix-v3.props" />
+    <Import Project="..\..\MultiplayerOnlineGame-Debug.props" />
+    <Import Project="..\..\wix-v3.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
