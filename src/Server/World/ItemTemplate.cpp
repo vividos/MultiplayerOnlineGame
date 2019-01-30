@@ -117,7 +117,7 @@ void ItemTemplate::Deserialize(ByteStream& stream)
 
    {
       unsigned char ucEquipSlotType = stream.Read8();
-      if (equipSlotCount > itemTypeMax)
+      if (ucEquipSlotType > equipSlotCount)
          throw Exception(_T("invalid equip slot type"), __FILE__, __LINE__);
 
       m_enEquipSlotType = static_cast<T_enEquipSlotType>(ucEquipSlotType);
