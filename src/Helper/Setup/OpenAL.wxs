@@ -2,13 +2,13 @@
 <!--
 
   MultiplayerOnlineGame - multiplayer game project
-  Copyright (C) 2008-2014 Michael Fink
+  Copyright (C) 2008-2019 Michael Fink
 
   OpenAL.wxs - OpenAL install custom action (fragment)
 
   To include the OpenAL installer, just add this to your main file:
   <CustomActionRef Id="InstallOpenAL" />
-  
+
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include Config.wxi ?>

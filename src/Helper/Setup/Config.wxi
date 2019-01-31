@@ -2,7 +2,7 @@
 <!--
 
   MultiplayerOnlineGame - multiplayer game project
-  Copyright (C) 2008-2014 Michael Fink
+  Copyright (C) 2008-2019 Michael Fink
 
   Config.wxi - Configuration include file
 
@@ -29,9 +29,9 @@
 
   <!-- set $(var.SourceFolder) -->
   <?ifdef Release ?>
-  <?define SourceFolder = "$(sys.SOURCEFILEDIR)\..\..\bin\Win32\Release" ?>
+  <?define SourceFolder = "$(sys.SOURCEFILEDIR)..\..\..\bin\Win32\Release" ?>
   <?else?>
-  <?define SourceFolder = "$(sys.SOURCEFILEDIR)\..\..\bin\Win32\Debug" ?>
+  <?define SourceFolder = "$(sys.SOURCEFILEDIR)..\..\..\bin\Win32\Debug" ?>
   <?endif?>
 
 </Include>

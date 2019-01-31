@@ -2,7 +2,7 @@
 <!--
 
   MultiplayerOnlineGame - multiplayer game project
-  Copyright (C) 2008-2014 Michael Fink
+  Copyright (C) 2008-2019 Michael Fink
 
   ClientFiles.wxs - Game client components (fragment)
 
@@ -10,53 +10,49 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include Config.wxi ?>
   <Fragment>
-    <ComponentGroup Id="ClientFiles">
+    <ComponentGroup Id="ClientFiles" Directory="INSTALLDIR">
 
-      <!--Component Id="LauncherExe" Guid="e93f5d72-e517-4365-8d68-5e3a541260e1" Directory="INSTALLDIR">
-        <File Id="LauncherExe" Name="Launcher.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Launcher.exe" />
-      </Component-->
-
-      <Component Id="GameClientExe" Guid="c34a4b9b-a0d3-4829-a3ec-53f6348cf8eb" Directory="INSTALLDIR">
+      <Component Id="GameClientExe" Guid="*">
         <File Id="GameClientExe" Name="GameClient.exe" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\GameClient.exe" />
       </Component>
 
-      <Component Id="FreetypeDll" Guid="97eb5188-9520-43d8-aebb-6e5b7c6f45ce" Directory="INSTALLDIR">
+      <Component Id="FreetypeDll" Guid="*">
         <File Id="FreetypeDll" Name="freetype6.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\freetype6.dll" />
       </Component>
 
-      <Component Id="AudioDll" Guid="ad80db48-6c0a-4fef-8028-b4f46add452e" Directory="INSTALLDIR">
+      <Component Id="AudioDll" Guid="*">
         <File Id="AudioDll" Name="Audio.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Audio.dll" />
       </Component>
 
-      <Component Id="ClientLogicDll" Guid="ccbe2c73-8422-41e8-8dce-1ff69ab5d252" Directory="INSTALLDIR">
+      <Component Id="ClientLogicDll" Guid="*">
         <File Id="ClientLogicDll" Name="ClientLogic.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\ClientLogic.dll" />
       </Component>
 
-      <Component Id="RenderEngineDll" Guid="1196d4dd-ba32-4c93-8cd4-f64b876bb1b0" Directory="INSTALLDIR">
+      <Component Id="RenderEngineDll" Guid="*">
         <File Id="RenderEngineDll" Name="RenderEngine.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\RenderEngine.dll" />
       </Component>
 
-      <Component Id="Model3dDll" Guid="37f6c1eb-0698-42ca-a736-2d2e3d03cd1b" Directory="INSTALLDIR">
+      <Component Id="Model3dDll" Guid="*">
         <File Id="Model3dDll" Name="Model3D.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Model3D.dll" />
       </Component>
 
-      <Component Id="TerrainDll" Guid="5a81c64c-9ddf-43b4-9b6a-b8e1e1c8db18" Directory="INSTALLDIR">
+      <Component Id="TerrainDll" Guid="*">
         <File Id="TerrainDll" Name="Terrain.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\Terrain.dll" />
       </Component>
 
-      <Component Id="UserInterfaceDll" Guid="c3c68150-0429-49ba-adb4-89e5be4fa526" Directory="INSTALLDIR">
+      <Component Id="UserInterfaceDll" Guid="*">
         <File Id="UserInterfaceDll" Name="UserInterface.dll" DiskId="1" KeyPath="yes" Source="$(var.SourceFolder)\UserInterface.dll" />
       </Component>
 
-      <Component Id="GameClientShortcut" Guid="f8ff1742-d73a-44e4-b6e1-6f78da8840b2" Directory="MainAppShortcutFolder">
+      <Component Id="GameClientShortcut" Guid="*">
         <Shortcut Id="GameClientShortcut"
            Name="$(var.ClientProductName) Client"
            Description="Starts $(var.ClientProductName)"
            Target="[INSTALLDIR]GameClient.exe"
            WorkingDirectory="INSTALLDIR"
            Icon="GameClientShortcutIcon" />
-        <RemoveFolder Id="MainAppShortcutFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\Microsoft\$(var.ClientProductName)" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RemoveFolder Id="MainAppShortcutFolder" Directory="MainAppShortcutFolder" On="uninstall"/>
+        <RegistryValue Root="HKLM" Key="Software\$(var.ClientProductName)\Client" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
 
     </ComponentGroup>

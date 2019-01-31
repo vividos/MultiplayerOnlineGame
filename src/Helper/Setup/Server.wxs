@@ -2,7 +2,7 @@
 <!--
 
   MultiplayerOnlineGame - multiplayer game project
-  Copyright (C) 2008-2014 Michael Fink
+  Copyright (C) 2008-2019 Michael Fink
 
   Server.wxs - Server install package
 
@@ -12,33 +12,35 @@
   <?include Config.wxi ?>
 
   <Product Id="$(var.ServerProductId)"
-     UpgradeCode="$(var.ServerUpgradeCode)"
-     Name="$(var.ServerProductName) Server"
-     Language="1033"
-     Version="$(var.Version)" Manufacturer="Michael Fink">
+           UpgradeCode="$(var.ServerUpgradeCode)"
+           Name="$(var.ServerProductName) Server"
+           Language="1033"
+           Version="$(var.Version)"
+           Manufacturer="Michael Fink">
 
     <Package Id="*"
-       Description="$(var.ServerProductName) Setup"
-       Comments="This installs $(var.ServerProductName)"
-       Manufacturer="Michael Fink"
-       InstallerVersion="405"
-       InstallPrivileges="elevated"
-       AdminImage="no"
-       Compressed="yes"
-       ShortNames="no"
-       Languages="1033"
-       Keywords="MultiplayerOnlineGame Server"
-       SummaryCodepage="1252"
-       Platform="x86" />
+             Description="$(var.ServerProductName) Setup"
+             Comments="This installs $(var.ServerProductName)"
+             Manufacturer="Michael Fink"
+             InstallerVersion="405"
+             InstallPrivileges="elevated"
+             InstallScope="perMachine"
+             AdminImage="no"
+             Compressed="yes"
+             ShortNames="no"
+             Languages="1033"
+             Keywords="MultiplayerOnlineGame Server"
+             SummaryCodepage="1252"
+             Platform="x86" />
 
-    <Media Id="1" Cabinet="data1.cab" EmbedCab="yes" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
 
     <Directory Id="TARGETDIR" Name="SourceDir">
-      <Merge Id="VCRedist" SourceFile="$(env.CommonProgramFiles)\Merge Modules\Microsoft_VC120_CRT_x86.msm" DiskId="1" Language="0" />
+      <Merge Id="VCRedist" SourceFile="$(env.ProgramFiles(x86))\Microsoft Visual Studio\2017\Community\VC\Redist\MSVC\14.16.27012\MergeModules\Microsoft_VC141_CRT_x86.msm" DiskId="1" Language="0" />
       <Directory Id="ProgramFilesFolder">
         <Directory Id="MainAppFolder" Name="MultiplayerOnlineGame">
           <Directory Id="INSTALLDIR" Name=".">
-
           </Directory>
         </Directory>
       </Directory>
@@ -51,16 +53,16 @@
       <ComponentGroupRef Id="CommonFiles" />
     </Feature>
 
-    <Feature Id="VCRedist" Title="Visual C++ 2013 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
+    <Feature Id="VCRedist" Title="Visual C++ 2017 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
       <MergeRef Id="VCRedist"/>
     </Feature>
 
-    <Property Id="ALLUSERS"><![CDATA[1]]></Property>
+    <Property Id="ARPURLINFOABOUT"><![CDATA[https://github.com/vividos/MultiplayerOnlineGame/]]></Property>
+    <Property Id="ARPCOMMENTS"><![CDATA[For more information, please visit https://github.com/vividos/MultiplayerOnlineGame/]]></Property>
+    <Property Id="ARPHELPLINK" Value="https://github.com/vividos/MultiplayerOnlineGame/" />
 
-    <Property Id="ARPURLINFOABOUT"><![CDATA[http://www.vividos.de/]]></Property>
-    <Property Id="ARPCOMMENTS"><![CDATA[For more information, please visit http://www.vividos.de/]]></Property>
-    <!-- Property Id="ARPPRODUCTICON" Value="WinLameShortcutIcon" / -->
-    <Property Id="ARPHELPLINK" Value="http://www.vividos.de/" />
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="MainAppFolder" />
 
   </Product>
 
