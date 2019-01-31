@@ -28,6 +28,12 @@
     <ClCompile Include="..\Model\ElevationData.cpp">
       <Filter>Tested Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestScatteredPointInterpolator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ScatteredPointInterpolator.cpp">
+      <Filter>Tested Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Tested Files">
