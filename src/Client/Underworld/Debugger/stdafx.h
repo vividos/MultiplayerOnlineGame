@@ -7,7 +7,7 @@
 #pragma once
 
 // includes
-#define _WIN32_WINNT _WIN32_WINNT_WINXP
+#define _WIN32_WINNT _WIN32_WINNT_WIN7
 #include <ulib/config/Wtl.hpp>
 
 // runtime-check safe macros for COLORREF
@@ -18,7 +18,6 @@
 #define GetGValue(rgb)      ((BYTE)((((WORD)(rgb&0xFFFF)) >> 8)&0xFF))
 #define GetBValue(rgb)      ((BYTE)(((rgb)>>16)&0xFF))
 
-#define ULIB_ASIO_NO_WINSOCK
 #include "Base.hpp"
 #include "UwBase.hpp"
 
