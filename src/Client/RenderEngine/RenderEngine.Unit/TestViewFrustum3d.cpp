@@ -10,7 +10,7 @@
 #include "ViewFrustum3d.hpp"
 #include "Bitmap.hpp"
 #include "BitmapImageWriter.hpp"
-#include <ulib/test/AutoCleanupFolder.hpp>
+#include <ulib/unittest/AutoCleanupFolder.hpp>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

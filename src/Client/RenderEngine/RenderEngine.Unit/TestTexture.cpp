@@ -11,7 +11,7 @@
 #include "Texture.hpp"
 #include "Color.hpp"
 #include "Bitmap.hpp"
-#include "Timer.hpp"
+#include <ulib/Timer.hpp>
 #include "OrthoCamera.hpp"
 #include "TextureParameter.hpp"
 

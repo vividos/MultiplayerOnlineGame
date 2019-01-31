@@ -31,7 +31,7 @@ TEST_CLASS(TestOpenAL)
       Assert::IsTrue(!vecDevices.empty());
 
       for (size_t i=0,iMax=vecDevices.size(); i<iMax; i++)
-         ATLTRACE(_T("Device #%u: %s"), i, vecDevices[i]);
+         ATLTRACE(_T("Device #%u: %s"), i, vecDevices[i].GetString());
    }
 
    /// tests Device default ctor
@@ -65,7 +65,7 @@ TEST_CLASS(TestOpenAL)
       Assert::IsTrue(d.Renderer().IsEmpty() == FALSE);
 
       ATLTRACE(_T("vendor: [%s], version: [%s], renderer: [%s]"),
-         d.Vendor(), d.Version(), d.Renderer());
+         d.Vendor().GetString(), d.Version().GetString(), d.Renderer().GetString());
    }
 
    /// tests GetListener()

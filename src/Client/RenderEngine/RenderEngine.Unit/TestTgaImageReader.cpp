@@ -9,8 +9,8 @@
 #include "stdafx.h"
 #include "TgaImageReader.hpp"
 #include <ulib/stream/FileStream.hpp>
-#include "FileFinder.hpp"
-#include "Path.hpp"
+#include <ulib/FileFinder.hpp>
+#include <ulib/Path.hpp>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using Stream::FileStream;
@@ -34,7 +34,7 @@ namespace UnitTest
 
                CString cszFilename = Path(ff.Filename()).FilenameAndExt();
 
-               ATLTRACE(_T("\nLoading [%s] ... "), cszFilename);
+               ATLTRACE(_T("\nLoading [%s] ... "), cszFilename.GetString());
 
                TgaImageReader reader;
 

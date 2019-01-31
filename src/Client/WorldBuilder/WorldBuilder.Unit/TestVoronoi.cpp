@@ -8,9 +8,9 @@
 // includes
 #include "stdafx.h"
 #include "Voronoi2.hpp"
-#include <ulib/test/AutoCleanupFolder.hpp>
+#include <ulib/unittest/AutoCleanupFolder.hpp>
 #include <boost/random.hpp>
-#include "Timer.hpp"
+#include <ulib/Timer.hpp>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

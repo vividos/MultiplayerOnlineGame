@@ -7,6 +7,5 @@
 #pragma once
 
 // includes
-#define ULIB_ASIO_NO_WINSOCK
 #include "Base.hpp"
 #include "CppUnitTest.h"

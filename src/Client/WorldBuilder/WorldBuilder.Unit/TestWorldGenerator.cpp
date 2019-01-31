@@ -8,7 +8,7 @@
 // includes
 #include "stdafx.h"
 #include "WorldGenerator.hpp"
-#include <ulib/test/AutoCleanupFolder.hpp>
+#include <ulib/unittest/AutoCleanupFolder.hpp>
 #include <functional>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;

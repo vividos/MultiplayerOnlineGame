@@ -1,14 +1,14 @@
 //
 // MultiplayerOnlineGame - multiplayer game project
-// Copyright (C) 2008-2014 Michael Fink
+// Copyright (C) 2008-2019 Michael Fink
 //
 /// \file TestService.hpp Test service for unit tests
 //
 #pragma once
 
 // include
-#include <ulib/Event.hpp>
-#include "Filesystem.hpp"
+#include <ulib/thread/Event.hpp>
+#include <ulib/Path.hpp>
 #include "ServiceInfo.hpp"
 #include "LogCategories.hpp"
 
@@ -18,7 +18,7 @@ class TestService
 public:
    /// ctor
    TestService()
-      :m_evtStop(true, false) // manual-reset event
+      :m_evtStop(false)
    {
    }
 
@@ -30,7 +30,7 @@ public:
          _T("Test Service 123"),
          _T("Tests Service class"),
          Log::Server::Service,
-         Filesystem::ModuleFilename());
+         Path::ModuleFilename());
    }
 
    /// runs service
@@ -50,5 +50,5 @@ public:
 
 private:
    /// event to signal stop
-   Event m_evtStop;
+   ManualResetEvent m_evtStop;
 };

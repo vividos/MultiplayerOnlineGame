@@ -9,8 +9,8 @@
 #include "stdafx.h"
 #include "PngImageReader.hpp"
 #include <ulib/stream/FileStream.hpp>
-#include "FileFinder.hpp"
-#include "Path.hpp"
+#include <ulib/FileFinder.hpp>
+#include <ulib/Path.hpp>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using Stream::FileStream;
@@ -90,7 +90,7 @@ namespace UnitTest
 
                CString cszFilename = Path(ff.Filename()).FilenameAndExt();
 
-               ATLTRACE(_T("\nLoading [%s] ... "), cszFilename);
+               ATLTRACE(_T("\nLoading [%s] ... "), cszFilename.GetString());
 
                PngImageReader reader;
 
@@ -115,10 +115,10 @@ namespace UnitTest
                catch (const Exception& ex)
                {
                   if (bExpectException)
-                     ATLTRACE(_T("ok, expected exception: %s"), ex.Message());
+                     ATLTRACE(_T("ok, expected exception: %s"), ex.Message().GetString());
                   else
                   {
-                     ATLTRACE(_T("exception: %s"), ex.Message());
+                     ATLTRACE(_T("exception: %s"), ex.Message().GetString());
                      uiErrors++;
                   }
                }

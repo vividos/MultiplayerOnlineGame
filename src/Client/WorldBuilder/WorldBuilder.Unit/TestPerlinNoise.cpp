@@ -10,7 +10,7 @@
 #include "PerlinNoise.hpp"
 #include "Bitmap.hpp"
 #include "BitmapImageWriter.hpp"
-#include <ulib/test/AutoCleanupFolder.hpp>
+#include <ulib/unittest/AutoCleanupFolder.hpp>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -85,7 +85,7 @@ TEST_CLASS(TestPerlinNoise)
          AutoCleanupFolder folder;
 
          CString cszFilename;
-         cszFilename.Format(_T("%sImprovedPerlin-%u.bmp"), folder.FolderName(), i);
+         cszFilename.Format(_T("%sImprovedPerlin-%u.bmp"), folder.FolderName().GetString(), i);
 
          biw.Write(cszFilename);
       }
