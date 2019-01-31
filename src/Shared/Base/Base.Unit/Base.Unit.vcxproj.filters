@@ -7,9 +7,6 @@
     <ClCompile Include="TestHashedData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestPath.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TestPlane3d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -34,9 +31,6 @@
     <ClCompile Include="..\HashedData.cpp">
       <Filter>Tested Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Path.cpp">
-      <Filter>Tested Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Plane3.cpp">
       <Filter>Tested Files</Filter>
     </ClCompile>
@@ -58,20 +52,8 @@
     <ClCompile Include="..\sha2.c">
       <Filter>Tested Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ulib\DateTime.cpp">
-      <Filter>Tested Files\ulib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\ulib\ISO8601Parser.cpp">
-      <Filter>Tested Files\ulib</Filter>
-    </ClCompile>
     <ClCompile Include="TestByteStream.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestScatteredPointInterpolator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ScatteredPointInterpolator.cpp">
-      <Filter>Tested Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,9 +62,6 @@
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{d1f81126-b3af-4364-b8f1-b81edbca676e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Tested Files\ulib">
-      <UniqueIdentifier>{7a6415fb-b038-4ae6-888c-66d70664fa3a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -96,9 +75,6 @@
       <Filter>Tested Files</Filter>
     </ClInclude>
     <ClInclude Include="..\HashedData.hpp">
-      <Filter>Tested Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Path.hpp">
       <Filter>Tested Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Plane3.hpp">
@@ -128,14 +104,8 @@
     <ClInclude Include="..\sha2.h">
       <Filter>Tested Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\ulib\DateTime.hpp">
-      <Filter>Tested Files\ulib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\ulib\ISO8601Parser.hpp">
-      <Filter>Tested Files\ulib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ScatteredPointInterpolator.hpp">
-      <Filter>Tested Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

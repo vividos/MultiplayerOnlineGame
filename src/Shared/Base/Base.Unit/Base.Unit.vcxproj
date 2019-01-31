@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,13 +18,13 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -33,13 +33,11 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\MultiplayerOnlineGame-Release.props" />
-    <Import Project="..\..\..\boost.props" />
     <Import Project="..\..\..\CppUnitTest.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\MultiplayerOnlineGame-Debug.props" />
-    <Import Project="..\..\..\boost.props" />
     <Import Project="..\..\..\CppUnitTest.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -67,13 +65,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\ulib\DateTime.cpp" />
-    <ClCompile Include="..\..\..\ulib\ISO8601Parser.cpp" />
     <ClCompile Include="..\AstronomyMath.cpp" />
     <ClCompile Include="..\HashedData.cpp" />
-    <ClCompile Include="..\Path.cpp" />
     <ClCompile Include="..\Plane3.cpp" />
-    <ClCompile Include="..\ScatteredPointInterpolator.cpp" />
     <ClCompile Include="..\sha2.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -91,11 +85,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="TestPath.cpp" />
     <ClCompile Include="TestPlane3d.cpp" />
     <ClCompile Include="TestRC4Encoder.cpp" />
     <ClCompile Include="TestByteStream.cpp" />
-    <ClCompile Include="TestScatteredPointInterpolator.cpp" />
     <ClCompile Include="TestUuid.cpp" />
     <ClCompile Include="TestVector3d.cpp" />
     <ClCompile Include="TestZigzagSquareIterator.cpp" />
@@ -105,15 +97,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\ulib\DateTime.hpp" />
-    <ClInclude Include="..\..\..\ulib\ISO8601Parser.hpp" />
     <ClInclude Include="..\AstronomyMath.hpp" />
     <ClInclude Include="..\ByteStream.hpp" />
     <ClInclude Include="..\HashedData.hpp" />
-    <ClInclude Include="..\Path.hpp" />
     <ClInclude Include="..\Plane3.hpp" />
     <ClInclude Include="..\RC4Encoder.hpp" />
-    <ClInclude Include="..\ScatteredPointInterpolator.hpp" />
     <ClInclude Include="..\sha2.h" />
     <ClInclude Include="..\Uuid.hpp" />
     <ClInclude Include="..\Vector3.hpp" />
@@ -123,7 +111,21 @@
     <ClInclude Include="..\ZlibDecompressor.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\..\..\packages\boost.1.68.0.0\build\boost.targets" Condition="Exists('..\..\..\packages\boost.1.68.0.0\build\boost.targets')" />
+    <Import Project="..\..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets" Condition="Exists('..\..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets')" />
+    <Import Project="..\..\..\packages\Vividos.UlibCpp.Static.4.1.5\build\native\Vividos.UlibCpp.Static.targets" Condition="Exists('..\..\..\packages\Vividos.UlibCpp.Static.4.1.5\build\native\Vividos.UlibCpp.Static.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\boost.1.68.0.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\boost.1.68.0.0\build\boost.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\boost_system-vc141.1.68.0.0\build\boost_system-vc141.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\Vividos.UlibCpp.Static.4.1.5\build\native\Vividos.UlibCpp.Static.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Vividos.UlibCpp.Static.4.1.5\build\native\Vividos.UlibCpp.Static.targets'))" />
+  </Target>
 </Project>
