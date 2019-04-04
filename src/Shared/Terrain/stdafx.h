@@ -6,5 +6,8 @@
 //
 #pragma once
 
+// for Eigen
+#define _SILENCE_CXX17_NEGATORS_DEPRECATION_WARNING
+
 // includes
 #include "Base.hpp"

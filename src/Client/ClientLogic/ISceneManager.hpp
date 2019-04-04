@@ -30,13 +30,13 @@ public:
    virtual void DispatchInEventLoop(std::function<void()> fn) = 0;
 
    /// returns mouse position
-   virtual Point GetMousePos() throw() = 0;
+   virtual Point GetMousePos() = 0;
 
    /// sets new mouse position
-   virtual void SetMousePos(const Point& pt) throw() = 0;
+   virtual void SetMousePos(const Point& pt) = 0;
 
    /// shows or hides mouse cursor
-   virtual void ShowCursor(bool bShow) throw() = 0;
+   virtual void ShowCursor(bool bShow) = 0;
 
    /// returns current screen size in pixels
    virtual Size GetScreenSize() const throw() = 0;

@@ -230,14 +230,14 @@ void GameClientBase::DispatchInEventLoop(std::function<void()> fn)
    ATLVERIFY(1 == SDL_PushEvent(&userEvent));
 }
 
-Point GameClientBase::GetMousePos() throw()
+Point GameClientBase::GetMousePos()
 {
    int x = 0, y = 0;
    SDL_GetMouseState(&x, &y);
    return Point(x, y);
 }
 
-void GameClientBase::SetMousePos(const Point& pt) throw()
+void GameClientBase::SetMousePos(const Point& pt)
 {
    // this call causes an event of type SDL_MOUSEMOTION ...
    if (m_spRenderEngine != nullptr)
@@ -252,7 +252,7 @@ void GameClientBase::SetMousePos(const Point& pt) throw()
    m_iMouseMotionPosToIgnoreY = pt.Y();
 }
 
-void GameClientBase::ShowCursor(bool bShow) throw()
+void GameClientBase::ShowCursor(bool bShow)
 {
    SDL_ShowCursor(bShow ? 1 : 0);
 }

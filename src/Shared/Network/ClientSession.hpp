@@ -90,7 +90,7 @@ protected:
    virtual void OnConnectionClosing() override;
 
    /// called on successful connection
-   virtual void OnConnectSuccess() throw() {}
+   virtual void OnConnectSuccess() {}
 
    /// updates current connect state
    void UpdateConnectState(T_enConnectState enConnectState);
