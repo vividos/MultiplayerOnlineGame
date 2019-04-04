@@ -245,7 +245,7 @@ void WorldGenerator::BuildGraph(std::vector<Vector2d>& vecPoints)
 
       voronoi.GetAllEdges(vecAllEdges);
 
-      BOOST_FOREACH(const Voronoi2::Edge& e, vecAllEdges)
+      for (const Voronoi2::Edge& e : vecAllEdges)
       {
          size_t nextIndex = m_graph.m_edges.size();
 
@@ -324,7 +324,7 @@ void WorldGenerator::ImproveCorners()
       {
          Vector2d point;
 
-         BOOST_FOREACH(PolygonGraph::CenterPtr spCenter, c->touches)
+         for (PolygonGraph::CenterPtr spCenter : c->touches)
          {
             point += spCenter->point;
          }
@@ -341,7 +341,7 @@ void WorldGenerator::ImproveCorners()
 
    // The edge midpoints were computed for the old corners and need
    // to be recomputed.
-   BOOST_FOREACH(PolygonGraph::EdgePtr spEdge, m_graph.m_edges)
+   for (PolygonGraph::EdgePtr spEdge : m_graph.m_edges)
    {
       ATLASSERT(spEdge->v0 != NULL);
       ATLASSERT(spEdge->v1 != NULL);
@@ -374,7 +374,7 @@ void WorldGenerator::AssignCornerElevations()
 {
    std::deque<PolygonGraph::CornerPtr> deqCorners;
 
-   BOOST_FOREACH(PolygonGraph::CornerPtr c, m_graph.m_corners)
+   for (PolygonGraph::CornerPtr c : m_graph.m_corners)
    {
       c->water = !IsInside(c->point);
 
@@ -399,7 +399,7 @@ void WorldGenerator::AssignCornerElevations()
       PolygonGraph::CornerPtr c = deqCorners.front();
       deqCorners.pop_front();
 
-      BOOST_FOREACH(PolygonGraph::CornerPtr adj, c->adjacent)
+      for (PolygonGraph::CornerPtr adj : c->adjacent)
       {
          // Every step up is epsilon over water or 1 over land. The
          // number doesn't matter because we'll rescale the
@@ -429,11 +429,11 @@ void WorldGenerator::AssignOceanCoastAndLand()
 {
    std::deque<PolygonGraph::CenterPtr> deqCenters;
 
-   BOOST_FOREACH(PolygonGraph::CenterPtr p, m_graph.m_centers)
+   for (PolygonGraph::CenterPtr p : m_graph.m_centers)
    {
       unsigned int numWater = 0;
 
-      BOOST_FOREACH(PolygonGraph::CornerPtr q, p->corners)
+      for (PolygonGraph::CornerPtr q : p->corners)
       {
          if (q->border)
          {
@@ -458,7 +458,7 @@ void WorldGenerator::AssignOceanCoastAndLand()
       PolygonGraph::CenterPtr p = deqCenters.front();
       deqCenters.pop_front();
 
-      BOOST_FOREACH(PolygonGraph::CenterPtr neighborCenter, p->neighbors)
+      for (PolygonGraph::CenterPtr neighborCenter : p->neighbors)
       {
          if (neighborCenter->water && !neighborCenter->ocean)
          {
@@ -471,12 +471,12 @@ void WorldGenerator::AssignOceanCoastAndLand()
    // Set the polygon attribute 'coast' based on its neighbors. If
    // it has at least one ocean and at least one land neighbor,
    // then this is a coastal polygon.
-   BOOST_FOREACH(PolygonGraph::CenterPtr p, m_graph.m_centers)
+   for (PolygonGraph::CenterPtr p : m_graph.m_centers)
    {
       unsigned int numOcean = 0;
       unsigned int numLand = 0;
 
-      BOOST_FOREACH(PolygonGraph::CenterPtr neighborCenter, p->neighbors)
+      for (PolygonGraph::CenterPtr neighborCenter : p->neighbors)
       {
          if (neighborCenter->ocean)
             numOcean++;
@@ -493,7 +493,7 @@ void WorldGenerator::AssignOceanCoastAndLand()
    // attributes. If all polygons connected to this corner are
    // ocean, then it's ocean; if all are land, then it's land;
    // otherwise it's coast.
-   BOOST_FOREACH(PolygonGraph::CornerPtr q, m_graph.m_corners)
+   for (PolygonGraph::CornerPtr q : m_graph.m_corners)
    {
       unsigned int numOcean = 0;
       unsigned int numLand = 0;
@@ -522,7 +522,7 @@ void WorldGenerator::AssignOceanCoastAndLand()
 
 
    // assign terrain type, at last
-   BOOST_FOREACH(PolygonGraph::CenterPtr p, m_graph.m_centers)
+   for (PolygonGraph::CenterPtr p : m_graph.m_centers)
    {
       if (p->border || p->ocean)
       {
@@ -594,7 +594,7 @@ void WorldGenerator::RedistributeElevations()
 
 void WorldGenerator::AssignWaterElevation()
 {
-   BOOST_FOREACH(PolygonGraph::CornerPtr q, m_graph.m_corners)
+   for (PolygonGraph::CornerPtr q : m_graph.m_corners)
    {
       if (q->ocean || q->coast)
          q->elevation = 0.0;
@@ -603,11 +603,11 @@ void WorldGenerator::AssignWaterElevation()
 
 void WorldGenerator::AssignPolygonElevations()
 {
-   BOOST_FOREACH(PolygonGraph::CenterPtr p, m_graph.m_centers)
+   for (PolygonGraph::CenterPtr p : m_graph.m_centers)
    {
       double sumElevation = 0.0;
 
-      BOOST_FOREACH(PolygonGraph::CornerPtr q, p->corners)
+      for (PolygonGraph::CornerPtr q : p->corners)
          sumElevation += q->elevation;
 
       p->elevation = sumElevation / p->corners.size();
@@ -619,11 +619,11 @@ void WorldGenerator::AssignPolygonElevations()
 /// generating rivers and watersheds.
 void WorldGenerator::CalculateDownslopes()
 {
-   BOOST_FOREACH(PolygonGraph::CornerPtr q, m_graph.m_corners)
+   for (PolygonGraph::CornerPtr q : m_graph.m_corners)
    {
       PolygonGraph::CornerPtr r = q;
 
-      BOOST_FOREACH(PolygonGraph::CornerPtr s, q->adjacent)
+      for (PolygonGraph::CornerPtr s : q->adjacent)
       {
          if (s->elevation <= r->elevation)
             r = s;
@@ -641,7 +641,7 @@ void WorldGenerator::CalculateDownslopes()
 void WorldGenerator::CalculateWatersheds()
 {
    // Initially the watershed pointer points downslope one step.
-   BOOST_FOREACH(PolygonGraph::CornerPtr q, m_graph.m_corners)
+   for (PolygonGraph::CornerPtr q : m_graph.m_corners)
    {
       q->watershed = q;
       if (!q->ocean && !q->coast)
@@ -656,7 +656,7 @@ void WorldGenerator::CalculateWatersheds()
    for (unsigned int i=0; i<100; i++)
    {
       bool changed = false;
-      BOOST_FOREACH(PolygonGraph::CornerPtr q, m_graph.m_corners)
+      for (PolygonGraph::CornerPtr q : m_graph.m_corners)
       {
          if (!q->ocean && !q->coast && !q->watershed->coast)
          {
@@ -674,7 +674,7 @@ void WorldGenerator::CalculateWatersheds()
    }
 
    // How big is each watershed?
-   BOOST_FOREACH(PolygonGraph::CornerPtr q, m_graph.m_corners)
+   for (PolygonGraph::CornerPtr q : m_graph.m_corners)
    {
       PolygonGraph::CornerPtr r = q->watershed;
       r->watershedSize = 1 + r->watershedSize; // TODO code ok?
@@ -725,7 +725,7 @@ void WorldGenerator::AssignCornerMoisture()
    std::deque<PolygonGraph::CornerPtr> deqCorners;
 
    // Fresh water
-   BOOST_FOREACH(PolygonGraph::CornerPtr q, m_graph.m_corners)
+   for (PolygonGraph::CornerPtr q : m_graph.m_corners)
    {
       if ((q->water || q->river > 0) && !q->ocean)
       {
@@ -743,7 +743,7 @@ void WorldGenerator::AssignCornerMoisture()
       PolygonGraph::CornerPtr q = deqCorners.front();
       deqCorners.pop_front();
 
-      BOOST_FOREACH(PolygonGraph::CornerPtr r, q->adjacent)
+      for (PolygonGraph::CornerPtr r : q->adjacent)
       {
          double newMoisture = q->moisture * 0.9;
          if (newMoisture > r->moisture)
@@ -755,7 +755,7 @@ void WorldGenerator::AssignCornerMoisture()
    }
 
    // Salt water
-   BOOST_FOREACH(PolygonGraph::CornerPtr q, m_graph.m_corners)
+   for (PolygonGraph::CornerPtr q : m_graph.m_corners)
    {
       if (q->ocean || q->coast)
          q->moisture = 1.0;
@@ -787,11 +787,11 @@ void WorldGenerator::RedistributeMoisture()
 
 void WorldGenerator::AssignPolygonMoisture()
 {
-   BOOST_FOREACH(PolygonGraph::CenterPtr p, m_graph.m_centers)
+   for (PolygonGraph::CenterPtr p : m_graph.m_centers)
    {
       double sumMoisture = 0.0;
 
-      BOOST_FOREACH(PolygonGraph::CornerPtr q, p->corners)
+      for (PolygonGraph::CornerPtr q : p->corners)
       {
          if (q->moisture > 1.0)
             q->moisture = 1.0;
@@ -862,6 +862,6 @@ PolygonGraph::T_enBiomeType GetBiomeType(PolygonGraph::CenterPtr p)
 
 void WorldGenerator::AssignBiomes()
 {
-   BOOST_FOREACH(PolygonGraph::CenterPtr p, m_graph.m_centers)
+   for (PolygonGraph::CenterPtr p : m_graph.m_centers)
       p->enBiomeType = GetBiomeType(p);
 }

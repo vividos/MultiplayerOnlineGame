@@ -107,7 +107,7 @@ void MusicConfigLoader::AddMusicTrack(const CString& cszId, unsigned int uiLen, 
    m_mapMusicIdToInfo.insert(std::make_pair(cszId, musicInfo));
 
    // add id to all appropriate danger levels
-   BOOST_FOREACH(const CString& cszTag, setTags)
+   for (const CString& cszTag : setTags)
    {
       if (cszTag == c_pszDangerLevelSafe)    m_aDangerLevelMusicIds[MusicDirector::dangerLevelSafe].insert(cszId);
       if (cszTag == c_pszDangerLevelNormal)  m_aDangerLevelMusicIds[MusicDirector::dangerLevelNormal].insert(cszId);

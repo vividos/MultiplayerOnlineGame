@@ -162,7 +162,7 @@ void ModelManager::LoadModelBlueprint(const ModelBlueprint& blueprint, std::shar
 
    spModel->SetAnimated(spAnimated);
 
-   BOOST_FOREACH(const ModelBlueprint::StaticModelBlueprint& staticBlueprint, blueprint.m_vecStaticBlueprints)
+   for (const ModelBlueprint::StaticModelBlueprint& staticBlueprint : blueprint.m_vecStaticBlueprints)
    {
       std::shared_ptr<StaticModel3d> spStatic = LoadStatic(staticBlueprint.m_cszStaticModelName);
 

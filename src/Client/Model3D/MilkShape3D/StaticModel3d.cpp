@@ -28,7 +28,7 @@ void StaticModel3d::PrepareVertices()
 
    // store triangles
    size_t uiTriangle = 0;
-   BOOST_FOREACH(const Triangle& t, m_data.m_vecTriangles)
+   for (const Triangle& t : m_data.m_vecTriangles)
    {
       for (unsigned int uiVertex = 0; uiVertex < 3; uiVertex++)
       {
@@ -75,7 +75,7 @@ void StaticModel3d::PrepareIndices()
 {
    // count all groups
    size_t uiNumTriangles = 0;
-   BOOST_FOREACH(const Group& g, m_data.m_vecGroups)
+   for (const Group& g : m_data.m_vecGroups)
       uiNumTriangles += g.m_vecTriangleIndices.size();
 
    // reserve space in index buffer
@@ -84,9 +84,9 @@ void StaticModel3d::PrepareIndices()
 
    // store triangles
    size_t uiTriangle = 0;
-   BOOST_FOREACH(const Group& group, m_data.m_vecGroups)
+   for (const Group& group : m_data.m_vecGroups)
    {
-      BOOST_FOREACH(size_t uiTriangleIndex, group.m_vecTriangleIndices)
+      for (size_t uiTriangleIndex : group.m_vecTriangleIndices)
       {
          unsigned int uiVertexIndex = uiTriangleIndex*3;
          ATLASSERT(uiVertexIndex < m_vbo.Vertices().size());

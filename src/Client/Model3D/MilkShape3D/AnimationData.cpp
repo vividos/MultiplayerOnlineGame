@@ -103,13 +103,13 @@ AnimData g_aAnimData[] =
 
 void AnimationData::EnumAnimations(std::vector<CString>& vecAnimations)
 {
-   BOOST_FOREACH(const AnimData& data, g_aAnimData)
+   for (const AnimData& data : g_aAnimData)
       vecAnimations.push_back(data.pszName);
 }
 
 void AnimationData::GetAnimationFrames(const CString& cszAnimation, unsigned int& uiStartFrame, unsigned int& uiEndFrame)
 {
-   BOOST_FOREACH(const AnimData& data, g_aAnimData)
+   for (const AnimData& data : g_aAnimData)
       if (data.pszName == cszAnimation)
       {
          uiStartFrame = data.uiStartFrame;

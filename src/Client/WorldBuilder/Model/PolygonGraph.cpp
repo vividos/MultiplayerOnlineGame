@@ -130,7 +130,7 @@ std::vector<CornerPtr> Graph::LandCorners() const
 {
    std::vector<CornerPtr> vecLocations;
 
-   BOOST_FOREACH(const CornerPtr q, m_corners)
+   for (const CornerPtr q : m_corners)
    {
       if (!q->ocean && !q->coast)
          vecLocations.push_back(q);
@@ -142,7 +142,7 @@ std::vector<CornerPtr> Graph::LandCorners() const
 
 EdgePtr Graph::LookupEdgeFromCorner(CornerPtr q, CornerPtr s) const
 {
-   BOOST_FOREACH(EdgePtr edge, q->protrudes)
+   for (EdgePtr edge : q->protrudes)
    {
       if (edge->v0 == s || edge->v1 == s)
          return edge;
@@ -209,7 +209,7 @@ void PolygonGraph::Graph::OutputSvg(LPCTSTR pszFilename) const
       riverStyle.Add(_T("stroke"), _T("rgb(113,116,242)"));
       riverStyle.Add(_T("stroke-width"), 5);
 
-      BOOST_FOREACH(PolygonGraph::EdgePtr spEdge, m_edges)
+      for (PolygonGraph::EdgePtr spEdge : m_edges)
       {
          if (spEdge->v0->river > 0 && spEdge->v1->river > 0)
             w.OutputLine(spEdge->v0->point, spEdge->v1->point, riverStyle);

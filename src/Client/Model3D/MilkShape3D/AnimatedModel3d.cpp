@@ -176,7 +176,7 @@ void AnimatedModel3d::PrepareIndexBuffer()
       vecVertexIndices.resize(group.m_vecTriangleIndices.size() * 3);
 
       size_t uiTriangle = 0;
-      BOOST_FOREACH(size_t uiTriangleIndex, group.m_vecTriangleIndices)
+      for (size_t uiTriangleIndex : group.m_vecTriangleIndices)
       {
          unsigned int uiVertexIndex = uiTriangleIndex*3;
 

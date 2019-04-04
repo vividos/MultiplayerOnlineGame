@@ -42,7 +42,7 @@ void PolygonGraphRenderer::PrepareEdges()
 
    glBegin(GL_LINES);
 
-   BOOST_FOREACH(PolygonGraph::EdgePtr spEdge, m_graph.m_edges)
+   for (PolygonGraph::EdgePtr spEdge : m_graph.m_edges)
    {
       PolygonGraph::CornerPtr v0 = spEdge->v0;
       PolygonGraph::CornerPtr v1 = spEdge->v1;
@@ -67,7 +67,7 @@ void PolygonGraphRenderer::PreparePolygons()
 
    m_displayListPolygons.Open();
 
-   BOOST_FOREACH(PolygonGraph::CenterPtr p, m_graph.m_centers)
+   for (PolygonGraph::CenterPtr p : m_graph.m_centers)
    {
       std::vector<PolygonGraph::CornerPtr> vecCorners = p->corners;
 
@@ -100,7 +100,7 @@ void PolygonGraphRenderer::PreparePolygons()
       // center
       glVertex3d(p->point.X(), p->elevation * c_dElevationScaleFactor, p->point.Y());
 
-      BOOST_FOREACH(PolygonGraph::CornerPtr q, vecCorners)
+      for (PolygonGraph::CornerPtr q : vecCorners)
          glVertex3d(q->point.X(), q->elevation * c_dElevationScaleFactor, q->point.Y());
 
       glVertex3d(vecCorners[0]->point.X(), vecCorners[0]->elevation * c_dElevationScaleFactor,

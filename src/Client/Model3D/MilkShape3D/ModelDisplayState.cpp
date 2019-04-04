@@ -72,7 +72,7 @@ void ModelDisplayState::PrepareAnimatedModel()
 
    // store vertices of all triangles
    size_t uiTriangle = 0;
-   BOOST_FOREACH(const Triangle& t, data.m_vecTriangles)
+   for (const Triangle& t : data.m_vecTriangles)
    {
       PrepareTriangle(model, data, t, &vecBuffer[uiTriangle*3], false);
 
@@ -172,7 +172,7 @@ void ModelDisplayState::UpdateVertices()
 
    // update vertices of all triangles
    size_t uiTriangle = 0;
-   BOOST_FOREACH(const Triangle& t, data.m_vecTriangles)
+   for (const Triangle& t : data.m_vecTriangles)
    {
       PrepareTriangle(model, data, t, &vecBuffer[uiTriangle*3], true);
 
@@ -199,7 +199,7 @@ void ModelDisplayState::UploadStaticModels()
    const std::vector<CompositeModel3d::StaticModelData>& vecStaticModels =
       m_spModel->StaticList();
 
-   BOOST_FOREACH(const CompositeModel3d::StaticModelData& data, vecStaticModels)
+   for (const CompositeModel3d::StaticModelData& data : vecStaticModels)
       data.m_spStatic->Upload();
 }
 
@@ -346,13 +346,13 @@ void ModelDisplayState::RenderAnimatedModelImmediateMode(RenderOptions& options)
    AABox boundingBox;
 
    // now render all groups, using vertex and normals from joint render data
-   BOOST_FOREACH(const Group& group, data.m_vecGroups)
+   for (const Group& group : data.m_vecGroups)
    {
       BindMaterial(group);
 
       glBegin(GL_TRIANGLES);
 
-      BOOST_FOREACH(size_t uiTriangleIndex, group.m_vecTriangleIndices)
+      for (size_t uiTriangleIndex : group.m_vecTriangleIndices)
       {
          ATLASSERT(uiTriangleIndex < data.m_vecTriangles.size());
 
@@ -492,7 +492,7 @@ void ModelDisplayState::RenderModelNormals(const Group& group) const throw()
 
    glBegin(GL_LINES);
 
-   BOOST_FOREACH(size_t uiTriangleIndex, group.m_vecTriangleIndices)
+   for (size_t uiTriangleIndex : group.m_vecTriangleIndices)
    {
       ATLASSERT(uiTriangleIndex < data.m_vecTriangles.size());
 

@@ -415,14 +415,14 @@ void Loader::CheckData()
 {
    // check joint indices
    size_t uiNumJoints = m_data.m_vecJoints.size();
-   BOOST_FOREACH(const Vertex& v, m_data.m_vecVertices)
+   for (const Vertex& v : m_data.m_vecVertices)
    {
       if (v.m_iJointIndex != -1 && static_cast<size_t>(v.m_iJointIndex) >= uiNumJoints)
          throw Exception(_T("invalid joint index in vertices"), __FILE__, __LINE__);
    }
 
    size_t uiNumMaterials = m_data.m_vecMaterials.size();
-   BOOST_FOREACH(const Group& g, m_data.m_vecGroups)
+   for (const Group& g : m_data.m_vecGroups)
    {
       if (g.m_uiMaterialIndex >= uiNumMaterials)
          throw Exception(_T("invalid material index in groups"), __FILE__, __LINE__);
