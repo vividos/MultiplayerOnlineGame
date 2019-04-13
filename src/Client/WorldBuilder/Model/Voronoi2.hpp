@@ -7,7 +7,10 @@
 #pragma once
 
 // include
+#pragma warning(push)
+#pragma warning(disable: 26495) // Variable 'x' is uninitialized.Always initialize a member variable(type.6).
 #include <boost.voronoi/boost/polygon/voronoi_diagram.hpp>
+#pragma warning(pop)
 #include "Vector2.hpp"
 
 /// \brief classes for generating Voronoi diagram

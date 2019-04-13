@@ -8,9 +8,13 @@
 // include
 #include "StdAfx.h"
 #include "Voronoi2.hpp"
+#pragma warning(push)
+#pragma warning(disable: 4456) // declaration of 'denom' hides previous local declaration
+#pragma warning(disable: 26495) // Variable 'x' is uninitialized.Always initialize a member variable(type.6).
 #include <boost.voronoi/boost/polygon/voronoi_diagram.hpp>
 #include <boost.voronoi/boost/polygon/voronoi_builder.hpp>
 #include <boost.voronoi/boost/polygon/voronoi_utils.hpp>
+#pragma warning(pop)
 #include "SVGOutput.hpp"
 
 // moved here, from voronoi_ctypes.hpp, since it contains a constant that must be defined only once per project
