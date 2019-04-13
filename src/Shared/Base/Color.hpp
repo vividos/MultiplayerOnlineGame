@@ -13,7 +13,7 @@
 struct Color
 {
    /// ctor
-   Color() {}
+   Color() { memset(m_color, 0, sizeof(m_color)); }
 
    /// ctor that takes array of RGBA components
    Color(const unsigned char c[4]) { memcpy(m_color, c, sizeof(m_color)); }
