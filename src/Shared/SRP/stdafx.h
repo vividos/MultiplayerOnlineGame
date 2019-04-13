@@ -8,9 +8,4 @@
 
 // includes
 #include "Base.hpp"
-
-#pragma warning(push)
-#pragma warning(disable: 4005) // 'STRICT' : macro redefinition
-#pragma warning(disable: 4512) // 'T' : assignment operator could not be generated
-#include <boost/xint/xint.hpp>
-#pragma warning(pop)
+#include "SRPCommon.hpp"
