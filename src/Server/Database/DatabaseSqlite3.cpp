@@ -41,7 +41,7 @@ DatabaseSqlite3::DatabaseSqlite3(LPCTSTR pszFilename)
    ATLVERIFY(SQLITE_OK == sqlite3_open16(pszFilename, &m_pDb));
 }
 
-DatabaseSqlite3::~DatabaseSqlite3() throw()
+DatabaseSqlite3::~DatabaseSqlite3()
 {
    ATLVERIFY(SQLITE_OK == sqlite3_close(GetDb()));
 }

@@ -20,7 +20,7 @@ public:
    /// ctor
    RampTerrainDataSource(){}
    /// dtor
-   virtual ~RampTerrainDataSource() throw() {}
+   virtual ~RampTerrainDataSource() {}
 
    /// loads block
    virtual std::shared_ptr<Terrain::Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;

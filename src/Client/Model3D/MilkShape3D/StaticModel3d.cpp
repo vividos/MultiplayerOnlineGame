@@ -13,7 +13,7 @@
 
 using namespace MilkShape3D;
 
-void StaticModel3d::Prepare() throw()
+void StaticModel3d::Prepare()
 {
    SetupJoints();
    PrepareVertices();
@@ -101,7 +101,7 @@ void StaticModel3d::PrepareIndices()
    m_indexRange = m_ibo.Add(vecVertexIndices);
 }
 
-void StaticModel3d::Upload() throw()
+void StaticModel3d::Upload()
 {
    if (m_bAlreadyUploaded)
       return;
@@ -123,7 +123,7 @@ CString StaticModel3d::SingleMaterialTextureName() const
    return m_data.m_vecMaterials[0].cszTexture;
 }
 
-void StaticModel3d::Render(RenderOptions& options) throw()
+void StaticModel3d::Render(RenderOptions& options)
 {
    m_vbo.Bind();
    m_ibo.Bind();

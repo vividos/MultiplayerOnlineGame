@@ -30,7 +30,7 @@ public:
    }
 
    /// dtor
-   ~RenderView() throw()
+   ~RenderView()
    {
       SDL_QuitSubSystem(SDL_INIT_VIDEO);
    }

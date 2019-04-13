@@ -28,7 +28,7 @@ inline void ColorToFloat(Color c, GLfloat position[4], bool bCopyAlpha = false)
 // LightSource
 //
 
-LightSource::LightSource(const Color& cLight, const Vector3d& vPos) throw()
+LightSource::LightSource(const Color& cLight, const Vector3d& vPos)
 :m_vPos(vPos),
  m_cAmbient(cLight),//51,51,51),
  m_cDiffuse(cLight),//204,204,204),
@@ -71,7 +71,7 @@ void LightSource::Enable(unsigned int uiLightName)
 //
 
 /// \details note that only front facing triangles use given material
-void Material::Use() const throw()
+void Material::Use() const
 {
    GLfloat materialColor[4];
    ColorToFloat(m_cMaterial, materialColor, true); // copy alpha as well
@@ -89,7 +89,7 @@ void Material::Use() const throw()
 // LightingManager
 //
 
-LightingManager::LightingManager() throw()
+LightingManager::LightingManager()
 :m_cAmbientLight(51,51,51,255), // OpenGL default
  m_bColorTracking(false)
 {

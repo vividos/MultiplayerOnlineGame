@@ -21,13 +21,13 @@ class IImageReader
 {
 public:
    /// ctor
-   IImageReader() throw()
+   IImageReader()
       :m_uiWidth(0),
        m_uiHeight(0)
    {
    }
    /// dtor
-   virtual ~IImageReader() throw()
+   virtual ~IImageReader()
    {
    }
 
@@ -37,13 +37,13 @@ public:
    // get methods
 
    /// returns x resolution
-   unsigned int Width() const throw() { return m_uiWidth; }
+   unsigned int Width() const { return m_uiWidth; }
 
    /// returns y resolution
-   unsigned int Height() const throw() { return m_uiHeight; }
+   unsigned int Height() const { return m_uiHeight; }
 
    /// returns image pixels
-   const std::vector<Color>& Pixels() const throw() { return m_vecPixels; }
+   const std::vector<Color>& Pixels() const { return m_vecPixels; }
 
 protected:
    /// width

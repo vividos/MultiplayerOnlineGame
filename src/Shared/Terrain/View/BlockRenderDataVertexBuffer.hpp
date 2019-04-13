@@ -31,7 +31,7 @@ public:
    }
 
    /// dtor
-   virtual ~BlockRenderDataVertexBuffer() throw() {}
+   virtual ~BlockRenderDataVertexBuffer() {}
 
    virtual void Prepare(std::shared_ptr<Model::DataBlock> spDataBlock) override;
    virtual void Upload() override;

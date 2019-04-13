@@ -16,7 +16,7 @@
 /// scale factor for elevation (that is between 0.0 and 1.0)
 const double c_dElevationScaleFactor = 256.0;
 
-PolygonGraphRenderer::PolygonGraphRenderer(const PolygonGraph::Graph& graph) throw()
+PolygonGraphRenderer::PolygonGraphRenderer(const PolygonGraph::Graph& graph)
 :m_graph(graph),
  m_bUploadDone(false)
 {

@@ -33,9 +33,9 @@ class MainFrame :
 
 public:
    /// ctor
-   MainFrame() throw();
+   MainFrame();
    /// dtor
-   virtual ~MainFrame() throw();
+   virtual ~MainFrame();
 
    DECLARE_FRAME_WND_CLASS(NULL, IDR_MAINFRAME)
 

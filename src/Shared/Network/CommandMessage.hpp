@@ -27,10 +27,10 @@ public:
    {
    }
    /// dtor
-   virtual ~CommandMessage() throw() {}
+   virtual ~CommandMessage() {}
 
    /// returns command
-   Command& GetCommand() throw() { return m_cmd; }
+   Command& GetCommand() { return m_cmd; }
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override

@@ -18,7 +18,7 @@ class RENDERENGINE_DECLSPEC PngImageReader : public IImageReader
 {
 public:
    /// dtor
-   virtual ~PngImageReader() throw()
+   virtual ~PngImageReader()
    {
    }
 

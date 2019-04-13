@@ -21,9 +21,9 @@ class TERRAIN_DECLSPEC ZoneDataSource: public IDataSource
 {
 public:
    /// ctor
-   ZoneDataSource(const Model::DataBlock& baseDataBlock, unsigned int uiZoneSize) throw();
+   ZoneDataSource(const Model::DataBlock& baseDataBlock, unsigned int uiZoneSize);
    /// dtor
-   virtual ~ZoneDataSource() throw() {}
+   virtual ~ZoneDataSource() {}
 
    /// returns block
    virtual std::shared_ptr<Terrain::Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;

@@ -27,11 +27,11 @@ public:
       const Terrain::Model::DataBlock& dataBlock,
       TexturedVertexBuffer& vertexBuffer,
       const Vector3d& vOffset);
-   virtual ~TrianglesCompilerVertices() throw() {}
+   virtual ~TrianglesCompilerVertices() {}
 
    void Compile();
 
-   const std::vector<unsigned int>& Indices() const throw() { return m_vecIndices; }
+   const std::vector<unsigned int>& Indices() const { return m_vecIndices; }
 
 private:
    /// adds a vertex to the vertex list; must implement this in derived classes

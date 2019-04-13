@@ -15,7 +15,7 @@ using Terrain::Reduce::ZoneDataSource;
 using Terrain::Model::DataBlock;
 using Terrain::Model::ElevationData;
 
-ZoneDataSource::ZoneDataSource(const DataBlock& baseDataBlock, unsigned int uiZoneSize) throw()
+ZoneDataSource::ZoneDataSource(const DataBlock& baseDataBlock, unsigned int uiZoneSize)
 :m_spBaseBlock(new DataBlock(baseDataBlock)),
  m_uiZoneSize(uiZoneSize)
 {

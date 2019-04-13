@@ -20,9 +20,9 @@ public:
    }
 
    /// returns index buffer entries array
-         std::vector<unsigned int>& IndexBuffer()       throw() { return m_vecIndices; }
+         std::vector<unsigned int>& IndexBuffer() { return m_vecIndices; }
    /// returns index buffer entries array; const version
-   const std::vector<unsigned int>& IndexBuffer() const throw() { return m_vecIndices; }
+   const std::vector<unsigned int>& IndexBuffer() const { return m_vecIndices; }
 
    /// uploads index buffer
    void Upload(bool bClearStorage = true)

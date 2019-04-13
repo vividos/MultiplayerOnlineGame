@@ -20,12 +20,12 @@ class CLIENTLOGIC_DECLSPEC Scene: public IMouseEventReceiver
 {
 public:
    /// ctor
-   Scene(ISceneManager& sceneManager) throw()
+   Scene(ISceneManager& sceneManager)
       :m_sceneManager(sceneManager)
    {
    }
    /// dtor
-   virtual ~Scene() throw()
+   virtual ~Scene()
    {
    }
 

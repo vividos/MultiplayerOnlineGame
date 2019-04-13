@@ -30,7 +30,7 @@ public:
    ~RenderEngine();
 
    /// sets scenegraph
-   void SetScenegraph(std::shared_ptr<IScenegraph> spScenegraph) throw();
+   void SetScenegraph(std::shared_ptr<IScenegraph> spScenegraph);
 
    /// sets camera
    void SetCamera(std::shared_ptr<ICamera> spCamera);

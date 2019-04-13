@@ -14,7 +14,7 @@
 
 /// starts new attribute map
 #define BEGIN_ATTR_MAP() \
-   virtual void GetAttributes(std::map<CString, CString>& mapAttrDefaultValues) const throw() override {
+   virtual void GetAttributes(std::map<CString, CString>& mapAttrDefaultValues) const override {
 
 /// attr name entry
 #define ATTR_ENTRY(AttrName, DefaultValue) \
@@ -34,30 +34,30 @@ class AttributeMap
 {
 public:
    /// ctor
-   AttributeMap() throw()
+   AttributeMap()
       :m_bInited(false)
    {
    }
    /// dtor
-   virtual ~AttributeMap() throw()
+   virtual ~AttributeMap()
    {
    }
 
    /// returns attributes map; overwritten by BEGIN_ATTR_MAP macro
-   virtual void GetAttributes(std::map<CString, CString>& /*mapAttrDefaultValues*/) const throw() = 0
+   virtual void GetAttributes(std::map<CString, CString>& /*mapAttrDefaultValues*/) const = 0
    {
       ATLASSERT(false); // must use BEGIN_ATTR_MAP macro to implement event map!
    }
 
    /// called when attribute has changed
-   virtual void OnAttributeChanged(const CString& /*cszAttributeName*/) throw()
+   virtual void OnAttributeChanged(const CString& /*cszAttributeName*/)
    {
    }
 
    // get methods
 
    /// returns attribute as string
-   CString GetAttr(const CString& cszAttributeName) const throw()
+   CString GetAttr(const CString& cszAttributeName) const
    {
       Init();
 
@@ -146,7 +146,7 @@ public:
    // set methods
 
    /// sets new attribute string value
-   void SetAttr(const CString& cszAttributeName, const CString& cszValue, bool bSilent = false) throw()
+   void SetAttr(const CString& cszAttributeName, const CString& cszValue, bool bSilent = false)
    {
       Init();
       if (m_mapAttrValues.find(cszAttributeName) == m_mapAttrValues.end())
@@ -159,13 +159,13 @@ public:
    }
 
    /// sets new attribute bool value
-   void SetAttrBool(const CString& cszAttributeName, bool bValue) throw()
+   void SetAttrBool(const CString& cszAttributeName, bool bValue)
    {
       SetAttr(cszAttributeName, bValue ? _T("true") : _T("false"), false);
    }
 
    /// sets new attribute size value
-   void SetAttr(const CString& cszAttributeName, const Size& value) throw()
+   void SetAttr(const CString& cszAttributeName, const Size& value)
    {
       CString cszValue;
       cszValue.Format(_T("%i,%i"), value.Width(), value.Height());
@@ -173,7 +173,7 @@ public:
    }
 
    /// sets new attribute point value
-   void SetAttr(const CString& cszAttributeName, const Point& value) throw()
+   void SetAttr(const CString& cszAttributeName, const Point& value)
    {
       CString cszValue;
       cszValue.Format(_T("%i,%i"), value.X(), value.Y());
@@ -181,7 +181,7 @@ public:
    }
 
    /// sets new attribute color value
-   void SetAttr(const CString& cszAttributeName, const Color& value) throw()
+   void SetAttr(const CString& cszAttributeName, const Color& value)
    {
       CString cszValue;
       cszValue.Format(_T("#%02x%02x%02x%02x"),
@@ -200,11 +200,11 @@ public:
    // operators
 
    /// get operator
-   CString operator[](const CString& cszAttributeName) const throw() { return GetAttr(cszAttributeName); }
+   CString operator[](const CString& cszAttributeName) const { return GetAttr(cszAttributeName); }
 
 private:
    /// initializes attributes list
-   void Init() const throw()
+   void Init() const
    {
       if (m_bInited)
          return;
@@ -219,7 +219,7 @@ private:
    {
    public:
       /// called when user assigns value
-      AttributeMap& operator=(const CString& cszValue) throw()
+      AttributeMap& operator=(const CString& cszValue)
       {
          m_attrMap.SetAttr(m_cszAttributeName, cszValue);
          return m_attrMap;
@@ -242,7 +242,7 @@ private:
 
 public:
    /// set operator
-   AttrSetProxy operator[](const CString& cszAttributeName) throw() { return AttrSetProxy(*this, cszAttributeName); }
+   AttrSetProxy operator[](const CString& cszAttributeName) { return AttrSetProxy(*this, cszAttributeName); }
 
 private:
    /// attribute values

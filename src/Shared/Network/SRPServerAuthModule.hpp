@@ -32,15 +32,15 @@ public:
    /// ctor
    ServerAuthModule(T_fnGetServerAuthInfo fnGetServerAuthInfo);
    /// dtor
-   virtual ~ServerAuthModule() throw() {}
+   virtual ~ServerAuthModule() {}
 
    /// returns account id
-   int AccountId() const throw() { return m_iAccountId; }
+   int AccountId() const { return m_iAccountId; }
 
    // virtual methods from IServerAuthModule
 
    virtual void InitAuthentication() override;
-   virtual bool IsAuthenticated() const throw() override;
+   virtual bool IsAuthenticated() const override;
    virtual bool OnReceiveMessage(RawMessage& msg) override;
    virtual std::shared_ptr<IEncryptModule> GetEncryptModule() override;
 

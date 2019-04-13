@@ -17,13 +17,13 @@ public:
    /// ctor
    AttachedConsole();
    /// dtor
-   ~AttachedConsole() throw();
+   ~AttachedConsole();
 
    /// prints prompt and detaches console
-   void Detach() throw();
+   void Detach();
 
    /// indicates if this process is started from console
-   bool IsCalledFromConsole() const throw() { return m_bCalledFromConsole; }
+   bool IsCalledFromConsole() const { return m_bCalledFromConsole; }
 
 private:
    /// reads command line prompt from current cursor pos

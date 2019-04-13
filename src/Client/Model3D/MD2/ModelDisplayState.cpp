@@ -111,7 +111,7 @@ m_dPercentFrameDone(0.0)
 {
 }
 
-void ModelDisplayState::Prepare() throw()
+void ModelDisplayState::Prepare()
 {
    if (m_enRenderMode == renderDisplayList)
    {
@@ -232,7 +232,7 @@ void ModelDisplayState::Render(RenderOptions& options)
    glPopMatrix();
 }
 
-void ModelDisplayState::RenderFrame(RenderOptions& options) const throw()
+void ModelDisplayState::RenderFrame(RenderOptions& options) const
 {
    // set front face to clockwise
    glPushAttrib(GL_POLYGON_BIT);
@@ -294,7 +294,7 @@ void ModelDisplayState::RenderFrame(RenderOptions& options) const throw()
 }
 
 void ModelDisplayState::PrepareFrameStep(OpenGL::DisplayListArray& dla, bool bCompileAndRender,
-   unsigned int uiFrame, unsigned int uiStep) throw()
+   unsigned int uiFrame, unsigned int uiStep)
 {
    dla.Open(uiFrame*c_uiNumStepsPerFrame + uiStep, bCompileAndRender);
 
@@ -311,7 +311,7 @@ void ModelDisplayState::PrepareFrameStep(OpenGL::DisplayListArray& dla, bool bCo
 }
 
 void ModelDisplayState::RenderFramePercent(unsigned int uiNumFrame, unsigned int uiNextFrame,
-   double dPercent, unsigned int& uiPolycount) const throw()
+   double dPercent, unsigned int& uiPolycount) const
 {
    const std::vector<int>& vecGlcmds = m_spModelData->m_vecGlcmds;
 
@@ -368,7 +368,7 @@ void ModelDisplayState::RenderFramePercent(unsigned int uiNumFrame, unsigned int
    }
 }
 
-void MD2::ModelDisplayState::RenderBoundingBox(unsigned int uiCurrentFrame) const throw()
+void MD2::ModelDisplayState::RenderBoundingBox(unsigned int uiCurrentFrame) const
 {
    const Vector3d& vMin = m_spModelData->m_vecMinBounds[uiCurrentFrame];
    const Vector3d& vMax = m_spModelData->m_vecMaxBounds[uiCurrentFrame];

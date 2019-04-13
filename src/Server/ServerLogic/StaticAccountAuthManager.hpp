@@ -19,9 +19,9 @@ class StaticAccountAuthManager: public IAuthManager
 {
 public:
    /// ctor
-   StaticAccountAuthManager() throw() {}
+   StaticAccountAuthManager() {}
    /// dtor
-   virtual ~StaticAccountAuthManager() throw() {}
+   virtual ~StaticAccountAuthManager() {}
 
    /// adds new account
    void AddAccount(const Account& account)
@@ -32,7 +32,7 @@ public:
 private:
    // virtual methods from IAuthManager
 
-   virtual bool IsAccountAvail(const CString& cszUsername) throw() override
+   virtual bool IsAccountAvail(const CString& cszUsername) override
    {
       return m_mapAllAccounts.find(cszUsername) != m_mapAllAccounts.end();
    }

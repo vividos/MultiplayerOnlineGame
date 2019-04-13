@@ -19,7 +19,7 @@ public:
    /// ctor
    PerspectiveCamera();
    /// dtor
-   virtual ~PerspectiveCamera() throw() {}
+   virtual ~PerspectiveCamera() {}
 
    // virtual methods from ICamera
 
@@ -39,16 +39,16 @@ public:
    // get methods
 
    /// returns position
-   const Vector3d& GetPosition() const throw() { return m_vPos; }
+   const Vector3d& GetPosition() const { return m_vPos; }
 
    /// returns direction angle
-   double GetAngleDirection() const throw() { return m_dAngleDirection; }
+   double GetAngleDirection() const { return m_dAngleDirection; }
 
    /// returns up angle
-   double GetAngleUp() const throw() { return m_dAngleUp; }
+   double GetAngleUp() const { return m_dAngleUp; }
 
    /// returns view frustum
-   ViewFrustum3d GetViewFrustum() const throw();
+   ViewFrustum3d GetViewFrustum() const;
 
 private:
    Vector3d m_vPos;           ///< camera position

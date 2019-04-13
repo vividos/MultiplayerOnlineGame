@@ -14,7 +14,7 @@ class IMessageSink
 {
 public:
    /// dtor
-   virtual ~IMessageSink() throw() {}
+   virtual ~IMessageSink() {}
 
    /// called when new message has arrived; returns true when message has been handled
    virtual bool OnReceiveMessage(RawMessage& msg) = 0;

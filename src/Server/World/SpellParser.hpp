@@ -19,7 +19,7 @@ class WORLD_DECLSPEC SpellParser
 {
 public:
    /// ctor
-   SpellParser() throw() {}
+   SpellParser() {}
 
    /// parses spell description
    std::shared_ptr<Spell> Parse(LPCTSTR pszText);

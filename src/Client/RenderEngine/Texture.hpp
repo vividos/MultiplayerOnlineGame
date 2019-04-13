@@ -18,20 +18,20 @@ class RENDERENGINE_DECLSPEC Texture: public boost::noncopyable
 {
 public:
    /// ctor
-   Texture() throw()
+   Texture()
       :m_texId(0),
        m_uiSize(0)
    {
    }
 
    /// dtor
-   ~Texture() throw();
+   ~Texture();
 
    /// generates texture id
    void Generate();
 
    /// binds current texture for use
-   void Bind() const throw();
+   void Bind() const;
 
    /// uploads bitmap to texture
    void Upload(const Bitmap& bmp, bool bGenerateMipmap = false);
@@ -42,13 +42,13 @@ public:
    // get functions
 
    /// returns if texture object is valid
-   bool IsValid() const throw() { return m_texId != 0; }
+   bool IsValid() const { return m_texId != 0; }
 
    /// returns texture id
-   unsigned int Id() const throw() { return m_texId; }
+   unsigned int Id() const { return m_texId; }
 
    /// returns size of texture in video ram
-   unsigned int Size() const throw() { return m_uiSize; }
+   unsigned int Size() const { return m_uiSize; }
 
 private:
    GLuint m_texId;         ///< texture id

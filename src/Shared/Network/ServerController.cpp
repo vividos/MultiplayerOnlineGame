@@ -14,7 +14,7 @@
 #include "MovePlayerMessage.hpp"
 #include "Mobile.hpp"
 
-ServerController::ServerController(ServerModel& serverModel, IModel& worldModel) throw()
+ServerController::ServerController(ServerModel& serverModel, IModel& worldModel)
 :m_playerId(ObjectId::Null()),
  m_serverModel(serverModel),
  m_worldModel(worldModel)

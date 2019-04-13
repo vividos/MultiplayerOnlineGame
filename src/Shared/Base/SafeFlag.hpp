@@ -20,19 +20,19 @@ public:
    }
 
    /// returns if flag is already set
-   bool IsSet() const throw()
+   bool IsSet() const
    {
       return m_bFlag;
    }
 
    /// sets flag
-   void Set() throw()
+   void Set()
    {
       m_bFlag = true;
    }
 
    /// resets flag
-   void Reset() throw()
+   void Reset()
    {
       m_bFlag = false;
    }

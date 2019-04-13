@@ -74,7 +74,7 @@ const BinaryData& Client::CalcM(const std::string& strUsername, const std::strin
    return m_M1;
 }
 
-bool Client::VerifyServer(const BinaryData& Mserver) const throw()
+bool Client::VerifyServer(const BinaryData& Mserver) const
 {
    BinaryData M2calculated = Helper::CalcM2(m_M1, m_A, m_K);
 

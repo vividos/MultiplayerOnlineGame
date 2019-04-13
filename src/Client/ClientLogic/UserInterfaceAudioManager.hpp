@@ -25,13 +25,13 @@ public:
    /// ctor
    UserInterfaceAudioManager(Audio::IAudioManager& audioManager);
    /// dtor
-   ~UserInterfaceAudioManager() throw() {}
+   ~UserInterfaceAudioManager() {}
 
    /// connects window manager to audio manager
    void Connect(IWindowManager& windowManager, IFileSystem& fileSystem);
 
    /// called on user interface audio event
-   void OnUserInterfaceAudioEvent(T_enUserInterfaceAudioEvents enAudioEvent) throw();
+   void OnUserInterfaceAudioEvent(T_enUserInterfaceAudioEvents enAudioEvent);
 
 private:
    void LoadUserInterfaceSounds();

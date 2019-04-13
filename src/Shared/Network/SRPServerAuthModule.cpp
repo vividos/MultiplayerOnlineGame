@@ -33,7 +33,7 @@ void ServerAuthModule::InitAuthentication()
    // sever does nothing initially
 }
 
-bool ServerAuthModule::IsAuthenticated() const throw()
+bool ServerAuthModule::IsAuthenticated() const
 {
    return m_bIsVerifiedClient;
 }

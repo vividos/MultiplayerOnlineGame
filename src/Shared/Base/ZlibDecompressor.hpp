@@ -21,7 +21,7 @@ public:
    ZlibDecompressor(bool bWindowSizeFromStream = false);
 
    /// dtor; closes stream
-   ~ZlibDecompressor() throw();
+   ~ZlibDecompressor();
 
    /// uncompresses more bytes
    /// \retval true end of stream; last bytes were decoded
@@ -30,16 +30,16 @@ public:
       std::vector<BYTE>& vecUncompressedData, size_t uiMaxUncompress);
 
    /// returns number of compressed bytes used so far
-   unsigned int TotalIn() const throw();
+   unsigned int TotalIn() const;
 
    /// returns number of uncompressed bytes already produced
-   unsigned int TotalOut() const throw();
+   unsigned int TotalOut() const;
 
    /// check version; throws exception on wrong zlib1.dll
    static void CheckVersion();
 
    /// returns zlib version string
-   static CString ZlibVersion() throw();
+   static CString ZlibVersion();
 
 private:
    /// zlib stream

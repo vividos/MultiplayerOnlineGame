@@ -20,7 +20,7 @@ LPCTSTR c_pszSettingsRegkey = _T("Software\\MultiplayerOnlineGame\\WorldBuilder"
 const unsigned int c_uiRenderCycleInMs = 50;
 
 /// ctor
-MainFrame::MainFrame() throw()
+MainFrame::MainFrame()
 :m_upWorldGenerator(new WorldGenerator(1024)),
  m_ioServiceGenerator(true, _T("WorldBuilder worker")) // thread with default work
 {
@@ -31,7 +31,7 @@ MainFrame::MainFrame() throw()
    m_ioServiceGenerator.Run();
 }
 
-MainFrame::~MainFrame() throw()
+MainFrame::~MainFrame()
 {
 }
 

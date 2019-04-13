@@ -9,13 +9,13 @@
 #include "StdAfx.h"
 #include "TimeBase.hpp"
 
-TimeBase::TimeBase() throw()
+TimeBase::TimeBase()
 :m_dEpochOffset(0.0)
 {
    m_timer.Start();
 }
 
-TimeIndex TimeBase::Now() const throw()
+TimeIndex TimeBase::Now() const
 {
    return TimeIndex(m_dEpochOffset + m_timer.Elapsed());
 }

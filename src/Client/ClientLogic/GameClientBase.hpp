@@ -42,13 +42,13 @@ public:
    IWindowManager& GetWindowManager();
 
    /// returns keyboard action manager
-   KeyboardActionManager& GetKeyboardActionManager() throw() { return m_keyboardActionManager; }
+   KeyboardActionManager& GetKeyboardActionManager() { return m_keyboardActionManager; }
 
    /// returns keyboard action bindings
-   KeyboardActionBindings& GetKeyboardActionBindings() throw() { return m_actionBindings; }
+   KeyboardActionBindings& GetKeyboardActionBindings() { return m_actionBindings; }
 
    /// returns graphics task manager
-   GraphicsTaskManager& GetGraphicsTaskManager() throw() { return m_graphicsTaskManager; }
+   GraphicsTaskManager& GetGraphicsTaskManager() { return m_graphicsTaskManager; }
 
 protected:
    // virtual methods from MainGameLoop
@@ -63,7 +63,7 @@ protected:
    virtual Point GetMousePos() override;
    virtual void SetMousePos(const Point& pt) override;
    virtual void ShowCursor(bool bShow) override;
-   virtual Size GetScreenSize() const throw() override;
+   virtual Size GetScreenSize() const override;
 
 private:
    /// updates caption of client

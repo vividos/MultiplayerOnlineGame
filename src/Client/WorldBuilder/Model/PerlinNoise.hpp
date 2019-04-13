@@ -19,7 +19,7 @@ public:
    typedef std::function<double(int, int)> T_fnNoise2D;
 
    /// ctor
-   PerlinNoise2D(unsigned int randomSeed, unsigned int numOctaves = 4, double persistence = 0.25) throw()
+   PerlinNoise2D(unsigned int randomSeed, unsigned int numOctaves = 4, double persistence = 0.25)
       :m_numOctaves(numOctaves),
        m_persistence(persistence),
        m_randomSeed(2 + randomSeed * randomSeed),
@@ -27,14 +27,14 @@ public:
    {
    }
 
-   void SetNoiseFunction(T_fnNoise2D fnNoise2D) throw() { m_fnNoise2D = fnNoise2D; }
+   void SetNoiseFunction(T_fnNoise2D fnNoise2D) { m_fnNoise2D = fnNoise2D; }
 
-   double Get(double x, double y) const throw();
+   double Get(double x, double y) const;
 
 private:
-   static double Noise2D(int x, int y) throw();
-   double SmoothNoise2D(int x, int y) const throw();
-   double InterpolatedNoise(double x, double y) const throw();
+   static double Noise2D(int x, int y);
+   double SmoothNoise2D(int x, int y) const;
+   double InterpolatedNoise(double x, double y) const;
 
 private:
    unsigned int m_numOctaves;
@@ -51,10 +51,10 @@ private:
 class ImprovedNoise
 {
 public:
-   ImprovedNoise() throw();
+   ImprovedNoise();
 
    /// returns values in range [-1.0, 1.0]
-   double noise(double x, double y, double z) const throw();
+   double noise(double x, double y, double z) const;
 
 private:
    std::array<int, 512> p;

@@ -31,7 +31,7 @@ namespace GameMenu
       /// ctor
       MainPanel(IWindowManager& windowManager, IFileSystem& fileSystem);
       /// dtor
-      ~MainPanel() throw() {}
+      ~MainPanel() {}
 
       /// shows panel
       void Show(IWindowManager& wm);

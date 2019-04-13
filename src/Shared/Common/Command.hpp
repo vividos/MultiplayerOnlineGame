@@ -34,13 +34,13 @@ public:
    // get methods
 
    /// returns command id; see T_enCommandId
-   unsigned short Id() const throw() { return m_id; }
+   unsigned short Id() const { return m_id; }
 
    /// returns command actor id
-   ObjectId ActorId() const throw() { return m_actorId; }
+   ObjectId ActorId() const { return m_actorId; }
 
    /// returns id of argument the command is acting on
-   ObjectId ArgumentId() const throw() { return m_argumentId; }
+   ObjectId ArgumentId() const { return m_argumentId; }
 
    // set methods
 

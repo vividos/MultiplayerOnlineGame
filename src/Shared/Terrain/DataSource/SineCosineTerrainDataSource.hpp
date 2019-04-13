@@ -18,7 +18,7 @@ class TERRAIN_DECLSPEC SineCosineTerrainDataSource: public IDataSource
 {
 public:
    /// ctor
-   SineCosineTerrainDataSource(double dAmplitude = 1.0, double dSineFactor = 3.0, double dCosineFactor = 2.0) throw()
+   SineCosineTerrainDataSource(double dAmplitude = 1.0, double dSineFactor = 3.0, double dCosineFactor = 2.0)
       :m_dAmplitude(dAmplitude),
        m_dSineFactor(dSineFactor),
        m_dCosineFactor(dCosineFactor)
@@ -26,7 +26,7 @@ public:
    }
 
    /// dtor
-   virtual ~SineCosineTerrainDataSource() throw() {}
+   virtual ~SineCosineTerrainDataSource() {}
 
    /// loads block
    virtual std::shared_ptr<Terrain::Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;

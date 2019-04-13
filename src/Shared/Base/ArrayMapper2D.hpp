@@ -22,7 +22,7 @@ public:
    }
 
    /// maps index to coordinates
-   void IndexToCoord(size_t uiIndex, unsigned int& uiX, unsigned int& uiY) const throw()
+   void IndexToCoord(size_t uiIndex, unsigned int& uiX, unsigned int& uiY) const
    {
       ATLASSERT(uiIndex < m_uiSizeX * m_uiSizeY);
 
@@ -31,7 +31,7 @@ public:
    }
 
    /// maps coordinates to index
-   size_t CoordToIndex(unsigned int uiX, unsigned int uiY) const throw()
+   size_t CoordToIndex(unsigned int uiX, unsigned int uiY) const
    {
       ATLASSERT(IsInRange(uiX, uiY));
 
@@ -39,7 +39,7 @@ public:
    }
 
    /// check if coordinates are in array range
-   bool IsInRange(unsigned int uiX, unsigned int uiY) const throw()
+   bool IsInRange(unsigned int uiX, unsigned int uiY) const
    {
       return uiX < m_uiSizeX && uiY < m_uiSizeY;
    }

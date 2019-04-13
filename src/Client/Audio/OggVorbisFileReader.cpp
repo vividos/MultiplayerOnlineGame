@@ -17,7 +17,7 @@
 #pragma comment(lib, "libvorbis_static.lib")
 #pragma comment(lib, "libogg_static.lib")
 
-OggVorbisFileReader::OggVorbisFileReader() throw()
+OggVorbisFileReader::OggVorbisFileReader()
 :m_uiChannels(0),
  m_uiSamplerate(0)
 {

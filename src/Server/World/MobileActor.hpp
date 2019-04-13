@@ -30,13 +30,13 @@ public:
    };
 
    /// ctor
-   MobileActor(const ObjectId& id) throw();
+   MobileActor(const ObjectId& id);
    /// dtor
-   virtual ~MobileActor() throw() {}
+   virtual ~MobileActor() {}
 
    // get methods
-   const ThreatList& GetThreatList() const throw() { ATLASSERT(m_spThreatList != NULL); return *m_spThreatList; }
-         ThreatList& GetThreatList()       throw() { ATLASSERT(m_spThreatList != NULL); return *m_spThreatList; }
+   const ThreatList& GetThreatList() const { ATLASSERT(m_spThreatList != NULL); return *m_spThreatList; }
+         ThreatList& GetThreatList() { ATLASSERT(m_spThreatList != NULL); return *m_spThreatList; }
 
    // actions
 

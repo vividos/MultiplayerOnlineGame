@@ -21,7 +21,7 @@ public:
    /// ctor
    SocketListener(ISessionManager& sessionManager, boost::asio::io_service& ioService, bool bUseIPv6, unsigned short usPort);
    /// dtor
-   ~SocketListener() throw();
+   ~SocketListener();
 
    /// handles accepting 
    void HandleAccept(std::shared_ptr<Session> spSession,

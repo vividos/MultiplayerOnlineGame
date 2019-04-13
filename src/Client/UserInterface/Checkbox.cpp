@@ -100,7 +100,7 @@ bool Checkbox::OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int /*m
    return false;
 }
 
-void Checkbox::OnAttributeChanged(const CString& cszAttributeName) throw()
+void Checkbox::OnAttributeChanged(const CString& cszAttributeName)
 {
    if (Parent() == nullptr)
       return;
@@ -111,7 +111,7 @@ void Checkbox::OnAttributeChanged(const CString& cszAttributeName) throw()
          UpdateTexture();
 }
 
-void Checkbox::UpdateTexture() throw()
+void Checkbox::UpdateTexture()
 {
    try
    {

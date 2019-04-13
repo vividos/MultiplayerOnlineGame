@@ -29,7 +29,7 @@ class USERINTERFACE_DECLSPEC Button: public Control
 {
 public:
    /// ctor
-   Button() throw()
+   Button()
       :m_bStatePressed(false)
    {
    }
@@ -49,14 +49,14 @@ public:
    virtual void OnMouseMotionEvent(unsigned int x, unsigned int y) override;
    virtual bool OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int mod) override;
 
-   virtual void OnAttributeChanged(const CString& cszAttributeName) throw() override;
+   virtual void OnAttributeChanged(const CString& cszAttributeName) override;
 
 private:
    /// called when mouse left the button area when clicked
    void OnMouseLeft();
 
    /// updates button texture
-   void UpdateTexture() throw();
+   void UpdateTexture();
 
 private:
    /// indicates pressed button state

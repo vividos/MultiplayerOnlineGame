@@ -17,7 +17,7 @@ class Transaction
 {
 public:
    /// ctor; begins transaction
-   Transaction(IDatabasePtr spDatabase) throw()
+   Transaction(IDatabasePtr spDatabase)
       :m_spDatabase(spDatabase),
        m_bCommited(false)
    {
@@ -25,21 +25,21 @@ public:
    }
 
    /// dtor; rolls back transaction when not already committed
-   ~Transaction() throw()
+   ~Transaction()
    {
       if (!m_bCommited)
          Rollback();
    }
 
    /// commits transaction
-   void Commit() throw()
+   void Commit()
    {
       ATLVERIFY(true == m_spDatabase->ExecuteDirect(_T("commit transaction")));
       m_bCommited = true;
    }
 
    /// rolls back transaction
-   void Rollback() throw()
+   void Rollback()
    {
       ATLVERIFY(true == m_spDatabase->ExecuteDirect(_T("rollback transaction")));
    }

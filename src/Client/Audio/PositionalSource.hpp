@@ -21,7 +21,7 @@ public:
    /// ctor
    PositionalSource(AudioManager& audioManager, OpenAL::SourcePtr spSource);
    /// dtpr
-   virtual ~PositionalSource() throw();
+   virtual ~PositionalSource();
 
    /// sets new position; note that +X is right, +Y is up and +Z is towards the origin
    virtual void SetPosition(const Vector3d& vPos)

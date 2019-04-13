@@ -19,13 +19,13 @@ class RENDERENGINE_DECLSPEC NamedTextureMap: public boost::noncopyable
 {
 public:
    /// ctor
-   NamedTextureMap() throw()
+   NamedTextureMap()
       :m_uiSize(0)
    {
    }
 
    /// returns if a given texture is available
-   bool IsTextureAvail(const CString& cszName) const throw();
+   bool IsTextureAvail(const CString& cszName) const;
 
    /// register texture as named texture
    void Register(const CString& cszName, TexturePtr spTexture);
@@ -37,10 +37,10 @@ public:
    TexturePtr Get(const CString& cszName);
 
    /// returns texture size in video ram
-   unsigned int TextureSize() const throw() { return m_uiSize; }
+   unsigned int TextureSize() const { return m_uiSize; }
 
    /// returns number of textures in map
-   unsigned int NumTextures() const throw() { return m_mapAllTextures.size(); }
+   unsigned int NumTextures() const { return m_mapAllTextures.size(); }
 
 private:
    /// type for named textures mapping

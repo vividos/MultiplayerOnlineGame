@@ -24,7 +24,7 @@ namespace GameMenu
       /// ctor
       AudioPanel(IWindowManager& windowManager, IFileSystem& fileSystem, std::function<void()> fnOnReturnMainPanel);
       /// dtor
-      virtual ~AudioPanel() throw() {}
+      virtual ~AudioPanel() {}
 
       /// shows sub panel
       virtual void Show(IWindowManager& windowManager) override;

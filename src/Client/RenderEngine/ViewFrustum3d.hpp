@@ -32,13 +32,13 @@ public:
    ViewFrustum3d(const Vector3d& vPos, double dAngle, double dAngleUp, double fov, double ratio, double nearDist, double farDist);
 
    /// checks if a given point is inside the frustum
-   bool IsPointInside(const Vector3d& vPos) const throw();
+   bool IsPointInside(const Vector3d& vPos) const;
 
    /// checks if a sphere is inside the frustum
-   T_enIntersectResult IsSphereInside(const Vector3d& vPos, double dRadius) const throw();
+   T_enIntersectResult IsSphereInside(const Vector3d& vPos, double dRadius) const;
 
    /// checks if a given axis-aligned box (e.g. a bounding box) is inside the frustum
-   T_enIntersectResult IsBoxInside(const AABox& box) const throw();
+   T_enIntersectResult IsBoxInside(const AABox& box) const;
 
    /// render frustum as lines
    static void RenderLines(const Vector3d& vPos, double dAngle, double dAngleUp, double fov, double ratio, double nearDist, double farDist);

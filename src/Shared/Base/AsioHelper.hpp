@@ -14,4 +14,4 @@
 CString BASE_DECLSPEC EndpointToString(boost::asio::ip::tcp::endpoint& endpoint);
 
 /// returns if IPv6 is available
-bool BASE_DECLSPEC IsAvailIPv6() throw();
+bool BASE_DECLSPEC IsAvailIPv6();

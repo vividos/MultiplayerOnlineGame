@@ -24,7 +24,7 @@ WorldRenderManager::WorldRenderManager(RenderEngine& renderEngine, WorldGenerato
    m_renderEngine.SetCamera(m_spCamera);
 }
 
-WorldRenderManager::~WorldRenderManager() throw()
+WorldRenderManager::~WorldRenderManager()
 {
 }
 

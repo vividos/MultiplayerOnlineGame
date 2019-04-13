@@ -12,7 +12,7 @@
 #include "OpenGL.hpp"
 #include "Bitmap.hpp"
 
-Texture::~Texture() throw()
+Texture::~Texture()
 {
    if (m_texId != 0)
    {
@@ -31,7 +31,7 @@ void Texture::Generate()
    glTraceError("glGenTextures");
 }
 
-void Texture::Bind() const throw()
+void Texture::Bind() const
 {
    ATLASSERT(m_texId != 0); // Generate() not called?
 

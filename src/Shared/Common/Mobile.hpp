@@ -32,44 +32,44 @@ public:
    }
 
    /// dtor
-   virtual ~Mobile() throw() {}
+   virtual ~Mobile() {}
 
    // get methods
 
    /// display info
-   const MobileDisplayInfo& DisplayInfo() const throw() { return m_displayInfo; }
+   const MobileDisplayInfo& DisplayInfo() const { return m_displayInfo; }
 
    /// movement info
-   const MovementInfo& GetMovementInfo() const throw() { return m_movementInfo; }
+   const MovementInfo& GetMovementInfo() const { return m_movementInfo; }
 
    /// movement walk angle
-   unsigned int MovementAngle() const throw() { return m_uiMovementAngle; }
+   unsigned int MovementAngle() const { return m_uiMovementAngle; }
 
    /// view angle of mobile
-   unsigned int ViewAngle() const throw() { return m_uiViewAngle; }
+   unsigned int ViewAngle() const { return m_uiViewAngle; }
 
    /// number of health points
-   unsigned int HealthPoints() const throw() { return m_uiHealthPoints; }
+   unsigned int HealthPoints() const { return m_uiHealthPoints; }
 
    /// returns selected mobile
-   const Uuid& Selection() const throw() { return m_selection; }
+   const Uuid& Selection() const { return m_selection; }
 
    // set methods
 
    /// sets display info
-   void DisplayInfo(const MobileDisplayInfo& displayInfo) throw() { m_displayInfo = displayInfo; }
+   void DisplayInfo(const MobileDisplayInfo& displayInfo) { m_displayInfo = displayInfo; }
 
    /// sets view angle
-   void ViewAngle(unsigned int uiViewAngle) throw() { m_uiViewAngle = uiViewAngle; }
+   void ViewAngle(unsigned int uiViewAngle) { m_uiViewAngle = uiViewAngle; }
 
    /// sets movement angle
-   void MovementAngle(unsigned int uiMovementAngle) throw() { m_uiMovementAngle = uiMovementAngle; }
+   void MovementAngle(unsigned int uiMovementAngle) { m_uiMovementAngle = uiMovementAngle; }
 
    /// sets new number of health points
-   void HealthPoints(unsigned int uiHealthPoints) throw() { m_uiHealthPoints = uiHealthPoints; }
+   void HealthPoints(unsigned int uiHealthPoints) { m_uiHealthPoints = uiHealthPoints; }
 
    /// sets new selection
-   void Selection(const Uuid& selection) throw() { m_selection = selection; }
+   void Selection(const Uuid& selection) { m_selection = selection; }
 
    // actions
 

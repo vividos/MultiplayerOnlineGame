@@ -15,21 +15,21 @@ class Vector2d
 {
 public:
    /// ctor
-   Vector2d() throw()
+   Vector2d()
       :m_x(0.0),
        m_y(0.0)
    {
    }
 
    /// copy ctor
-   Vector2d(const Vector2d& vec) throw()
+   Vector2d(const Vector2d& vec)
       :m_x(vec.m_x),
        m_y(vec.m_y)
    {
    }
 
    /// ctor with x and y coordinates
-   Vector2d(double x, double y) throw()
+   Vector2d(double x, double y)
       :m_x(x),
        m_y(y)
    {
@@ -38,7 +38,7 @@ public:
    // operators
 
    /// assign operator
-   Vector2d& operator=(const Vector2d& vec) throw()
+   Vector2d& operator=(const Vector2d& vec)
    {
       if (&vec != this)
       {
@@ -49,7 +49,7 @@ public:
    }
 
    /// add assignment
-   Vector2d& operator+=(const Vector2d& vec) throw()
+   Vector2d& operator+=(const Vector2d& vec)
    {
       m_x += vec.m_x;
       m_y += vec.m_y;
@@ -57,7 +57,7 @@ public:
    }
 
    /// subtract assignment
-   Vector2d& operator-=(const Vector2d& vec) throw()
+   Vector2d& operator-=(const Vector2d& vec)
    {
       m_x -= vec.m_x;
       m_y -= vec.m_y;
@@ -65,7 +65,7 @@ public:
    }
 
    /// multiplication assignment with scale factor
-   Vector2d& operator*=(double dScale) throw()
+   Vector2d& operator*=(double dScale)
    {
       m_x *= dScale;
       m_y *= dScale;
@@ -74,45 +74,45 @@ public:
 
    // methods
 
-   double X() const throw() { return m_x; } ///< returns x value
-   double Y() const throw() { return m_y; } ///< returns y value
+   double X() const { return m_x; } ///< returns x value
+   double Y() const { return m_y; } ///< returns y value
 
-   void X(double x) throw() { m_x = x; } ///< sets vector x value
-   void Y(double y) throw() { m_y = y; } ///< sets vector y value
+   void X(double x) { m_x = x; } ///< sets vector x value
+   void Y(double y) { m_y = y; } ///< sets vector y value
 
    /// sets vector by giving polar coordinates (angle in degree, not radians)
-   void SetPolar(double dLen, double dAngle) throw()
+   void SetPolar(double dLen, double dAngle)
    {
       m_x = dLen * cos(Deg2Rad(dAngle));
       m_y = dLen * sin(Deg2Rad(dAngle));
    }
 
    /// returns length of vector
-   double Length() const throw()
+   double Length() const
    {
       return sqrt(m_x * m_x + m_y * m_y);
    }
 
    /// returns polar angle of vector, in degrees
-   double PolarAngle() const throw()
+   double PolarAngle() const
    {
       return AngleInRange(Rad2Deg(std::atan2(m_y, m_x)));
    }
 
    /// normalizes vector
-   void Normalize() throw()
+   void Normalize()
    {
       this->operator*=(1.0/Length());
    }
 
    /// calculates the inner (dot) product
-   double Dot(const Vector2d& vec) const throw()
+   double Dot(const Vector2d& vec) const
    {
       return m_x * vec.m_x + m_y * vec.m_y;
    }
 
    /// rotates vector; angle in degree
-   void Rotate(double dAngle) throw()
+   void Rotate(double dAngle)
    {
       double temp = m_x * cos(Deg2Rad(dAngle)) - m_y * sin(Deg2Rad(dAngle));
       m_y =         m_x * sin(Deg2Rad(dAngle)) + m_y * cos(Deg2Rad(dAngle));
@@ -128,25 +128,25 @@ private:
 // free functions
 
 /// unary minus
-inline Vector2d operator-(const Vector2d& vec) throw()
+inline Vector2d operator-(const Vector2d& vec)
 {
    return Vector2d(-vec.X(), -vec.Y());
 };
 
 /// add operator
-inline Vector2d operator+(const Vector2d& v1, const Vector2d& v2) throw()
+inline Vector2d operator+(const Vector2d& v1, const Vector2d& v2)
 {
    return Vector2d(v1.X()+v2.X(), v1.Y()+v2.Y());
 }
 
 /// subtract operator
-inline Vector2d operator-(const Vector2d& v1, const Vector2d& v2) throw()
+inline Vector2d operator-(const Vector2d& v1, const Vector2d& v2)
 {
    return Vector2d(v1.X()-v2.X(), v1.Y()-v2.Y());
 }
 
 /// scalar multiplication, vector * scalar
-inline Vector2d operator*(const Vector2d& vec, const double dScale) throw()
+inline Vector2d operator*(const Vector2d& vec, const double dScale)
 {
    Vector2d vRet(vec);
    vRet *= dScale;
@@ -154,7 +154,7 @@ inline Vector2d operator*(const Vector2d& vec, const double dScale) throw()
 }
 
 /// scalar multiplication, scalar * vector
-inline Vector2d operator*(const double dScale, const Vector2d& vec) throw()
+inline Vector2d operator*(const double dScale, const Vector2d& vec)
 {
    Vector2d vRet(vec);
    vRet *= dScale;

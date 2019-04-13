@@ -14,7 +14,7 @@ class IRenderable
 {
 public:
    /// dtor
-   virtual ~IRenderable() throw() {}
+   virtual ~IRenderable() {}
 
    /// returns if Prepare() call is needed (or it's a no-op)
    virtual bool IsPrepareNeeded() const = 0;

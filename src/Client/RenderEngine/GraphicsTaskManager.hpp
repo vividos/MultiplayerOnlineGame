@@ -23,15 +23,15 @@ public:
    /// ctor
    GraphicsTaskManager();
    /// dtor
-   ~GraphicsTaskManager() throw();
+   ~GraphicsTaskManager();
 
    // get methods
 
    /// returns background task group
-   TaskGroup& BackgroundTaskGroup() throw() { return m_backgroundTasks; }
+   TaskGroup& BackgroundTaskGroup() { return m_backgroundTasks; }
 
    /// returns upload task group
-   TaskGroup& UploadTaskGroup() throw() { return m_uploadTasks; }
+   TaskGroup& UploadTaskGroup() { return m_uploadTasks; }
 
    // actions
 

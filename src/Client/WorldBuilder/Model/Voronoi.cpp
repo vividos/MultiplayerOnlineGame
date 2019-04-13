@@ -11,12 +11,12 @@
 
 using namespace Voronoi;
 
-bool Diagram::GreaterThan::operator()(const Site& a, const Site& b) const throw()
+bool Diagram::GreaterThan::operator()(const Site& a, const Site& b) const
 {
    return a.p.x==b.p.x ? a.p.y>b.p.y : a.p.x>b.p.x;
 }
 
-bool Diagram::GreaterThan::operator()(const EventPtr& a, const EventPtr& b) const throw()
+bool Diagram::GreaterThan::operator()(const EventPtr& a, const EventPtr& b) const
 {
    return a->x > b->x;
 }

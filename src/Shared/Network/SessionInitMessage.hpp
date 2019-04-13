@@ -22,10 +22,10 @@ public:
    {
    }
    /// dtor
-   virtual ~SessionInitMessage() throw() {}
+   virtual ~SessionInitMessage() {}
 
    /// returns player object
-   MobilePtr Player() throw() { return m_spPlayer; }
+   MobilePtr Player() { return m_spPlayer; }
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override;

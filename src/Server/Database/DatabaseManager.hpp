@@ -34,10 +34,10 @@ namespace Database
    {
    public:
       /// ctor
-      Manager() throw();
+      Manager();
 
       /// dtor; closes database
-      ~Manager() throw();
+      ~Manager();
 
       /// creates new database
       void CreateDatabase(const CString& cszFilename);

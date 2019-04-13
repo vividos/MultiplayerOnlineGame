@@ -31,9 +31,9 @@ class MainGameScene: public Scene
 
 public:
    /// ctor
-   MainGameScene(ISceneManager& sceneManager, GameClient& gameClient, Game& game) throw();
+   MainGameScene(ISceneManager& sceneManager, GameClient& gameClient, Game& game);
    /// dtor
-   virtual ~MainGameScene() throw() {}
+   virtual ~MainGameScene() {}
 
    /// prepares some assets
    void Prepare(PreloadManager& preloadManager);

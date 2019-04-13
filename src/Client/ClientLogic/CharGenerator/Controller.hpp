@@ -24,7 +24,7 @@ namespace CharGenerator
       Controller(KeyboardActionManager& keyboardActionManager,
          std::shared_ptr<PerspectiveCamera> spCamera);
       /// dtor
-      virtual ~Controller() throw();
+      virtual ~Controller();
 
       // virtual methods from IViewController
 

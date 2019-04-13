@@ -15,7 +15,7 @@ public:
    /// ctor
    ServerSessionImpl(boost::asio::io_service& ioService, IModel& worldModel, SessionManager& sessionManager);
    /// dtor
-   virtual ~ServerSessionImpl() throw() {}
+   virtual ~ServerSessionImpl() {}
 
 private:
    // virtual methods from AuthServerSession

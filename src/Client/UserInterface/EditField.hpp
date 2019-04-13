@@ -30,7 +30,7 @@ class USERINTERFACE_DECLSPEC EditField: public Control
 {
 public:
    /// ctor
-   EditField() throw()
+   EditField()
       :m_uiCaretPos(0),
        m_uiCaretX(0),
        m_uiCaretHeight(0),
@@ -56,7 +56,7 @@ public:
    virtual bool OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int mod) override;
    virtual void OnFocusChanged(bool bGotFocus) override;
 
-   virtual void OnAttributeChanged(const CString& cszAttributeName) throw() override;
+   virtual void OnAttributeChanged(const CString& cszAttributeName) override;
 
    /// virtual function that can be implemented to filter for allowed characters
    virtual bool IsAllowedChar(unsigned int sym, unsigned int mod);
@@ -66,7 +66,7 @@ public:
 
 private:
    /// updates edit field texture
-   void UpdateTexture() throw();
+   void UpdateTexture();
    /// updates caret position
    void UpdateCaretPos();
 

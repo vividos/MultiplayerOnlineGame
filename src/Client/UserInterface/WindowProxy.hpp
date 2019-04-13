@@ -16,7 +16,7 @@ class WindowProxy: public Window
 {
 public:
    /// ctor
-   WindowProxy(Window& wnd) throw()
+   WindowProxy(Window& wnd)
       :m_wnd(wnd)
    {
    }
@@ -27,9 +27,9 @@ public:
       m_wnd.m_spParent.reset();
    }
 
-   virtual Window& RealWindow() throw() override { return m_wnd; }
+   virtual Window& RealWindow() override { return m_wnd; }
 
-   virtual const Window& RealWindow() const throw() override { return m_wnd; }
+   virtual const Window& RealWindow() const override { return m_wnd; }
 
    virtual void RegisterChild(WindowPtr spWnd) override
    {

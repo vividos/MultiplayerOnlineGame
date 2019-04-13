@@ -17,7 +17,7 @@ using namespace PolygonGraph;
 // global functions
 //
 
-Color PolygonGraph::ColorByBiomeType(T_enBiomeType enBiomeType) throw()
+Color PolygonGraph::ColorByBiomeType(T_enBiomeType enBiomeType)
 {
    switch (enBiomeType)
    {
@@ -60,7 +60,7 @@ Color PolygonGraph::ColorByBiomeType(T_enBiomeType enBiomeType) throw()
    return Color::Red();
 }
 
-Color PolygonGraph::ColorByTerrainType(T_enTerrainType enTerrainType) throw()
+Color PolygonGraph::ColorByTerrainType(T_enTerrainType enTerrainType)
 {         
    return enTerrainType == PolygonGraph::typeOcean ? Color(52,58,94) :
       enTerrainType == PolygonGraph::typeLake ? Color(95,134,169) :
@@ -68,13 +68,13 @@ Color PolygonGraph::ColorByTerrainType(T_enTerrainType enTerrainType) throw()
       Color(178,166,148);
 }
 
-Color PolygonGraph::ColorByElevation(double elevation) throw()
+Color PolygonGraph::ColorByElevation(double elevation)
 {
    ATLASSERT(elevation >= 0.0 && elevation <= 1.0);
    return Interpolate(Color(14,142,14), Color(252,253,16), elevation);
 }
 
-Color PolygonGraph::ColorByMoisture(double moisture) throw()
+Color PolygonGraph::ColorByMoisture(double moisture)
 {
    ATLASSERT(moisture >= 0.0 && moisture <= 1.0);
    return Interpolate(Color(177,164,72), Color(81,113,254), moisture);

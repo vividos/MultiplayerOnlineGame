@@ -18,7 +18,7 @@ void TextField::Render(Rect& rectArea)
    m_text.Render(rectArea);
 }
 
-void TextField::OnAttributeChanged(const CString& cszAttributeName) throw()
+void TextField::OnAttributeChanged(const CString& cszAttributeName)
 {
    if (Parent() == NULL)
       return;
@@ -29,7 +29,7 @@ void TextField::OnAttributeChanged(const CString& cszAttributeName) throw()
       UpdateTexture();
 }
 
-void TextField::UpdateTexture() throw()
+void TextField::UpdateTexture()
 {
    try
    {

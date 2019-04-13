@@ -36,7 +36,7 @@ public:
    }
 
    /// checks if an object with given id is in map
-   bool IsInMap(ObjectId id) const throw()
+   bool IsInMap(ObjectId id) const
    {
       T_mapObjects::const_iterator iter = m_mapObjects.find(id);
       return iter != m_mapObjects.end();
@@ -65,10 +65,10 @@ public:
    }
 
    /// returns internal map reference
-   T_mapObjects& GetMap() throw() { return m_mapObjects; }
+   T_mapObjects& GetMap() { return m_mapObjects; }
 
    /// returns internal map reference; const version
-   const T_mapObjects& GetMap() const throw() { return m_mapObjects; }
+   const T_mapObjects& GetMap() const { return m_mapObjects; }
 
 private:
    /// object map

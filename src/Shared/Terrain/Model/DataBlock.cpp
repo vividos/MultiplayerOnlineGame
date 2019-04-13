@@ -17,7 +17,7 @@ DataBlock::DataBlock(unsigned int uiSize)
    ATLASSERT(true == IsPowerOfTwo(uiSize));
 }
 
-double DataBlock::HeightInterpolate(double x, double y) const throw()
+double DataBlock::HeightInterpolate(double x, double y) const
 {
    double p1 = m_elevationData.Height(unsigned(x), unsigned(y));
    double p2 = m_elevationData.Height(unsigned(x+1), unsigned(y));

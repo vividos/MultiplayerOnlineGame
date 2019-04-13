@@ -26,12 +26,12 @@ public:
    DEFINE_INSTANCE(IWindowManager)
 
    /// dtor
-   virtual ~IWindowManager() throw()
+   virtual ~IWindowManager()
    {
    }
 
    /// sets audio event handler
-   virtual void SetAudioEventHandler(T_fnOnUserInterfaceAudioEvent fnOnUserInterfaceAudioEvent) throw() = 0;
+   virtual void SetAudioEventHandler(T_fnOnUserInterfaceAudioEvent fnOnUserInterfaceAudioEvent) = 0;
 
    /// called before rendering user interface
    virtual void PreRender() = 0;
@@ -48,10 +48,10 @@ public:
    virtual void OnResizeScreen(Size newSize) = 0;
 
    /// returns root window ptr
-   virtual WindowPtr GetRootWindow() throw() = 0;
+   virtual WindowPtr GetRootWindow() = 0;
 
    /// finds window by name; returns nullptr when not found
-   virtual WindowPtr FindWindow(LPCTSTR pszWindowName) throw() = 0;
+   virtual WindowPtr FindWindow(LPCTSTR pszWindowName) = 0;
 
    /// finds window by name, and casts it to control class
    template <typename TControl>
@@ -62,10 +62,10 @@ public:
    }
 
    /// sets focus to given window; all other windows in the same panel lose focus
-   virtual void SetFocus(WindowPtr spFocusedWnd = WindowPtr()) throw() = 0;
+   virtual void SetFocus(WindowPtr spFocusedWnd = WindowPtr()) = 0;
 
    /// starts tracking mouse and calls function when leaving rect
-   virtual void TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) throw() = 0;
+   virtual void TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) = 0;
 
    /// starts tracking mouse until mouse button is up, regardless if mouse leaves window
    virtual void TrackMouseUp(WindowPtr spWindow, int iMouseButton) = 0;
@@ -74,5 +74,5 @@ public:
    virtual bool IsTrackedMouseUp(WindowPtr spWindow, int iMouseButton) = 0;
 
    /// plays back audio event
-   virtual void PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) throw() = 0;
+   virtual void PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) = 0;
 };

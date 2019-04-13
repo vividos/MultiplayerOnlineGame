@@ -22,7 +22,7 @@ class RENDERENGINE_DECLSPEC LightSource
 {
 public:
    /// ctor
-   LightSource(const Color& cLight, const Vector3d& vPos) throw();
+   LightSource(const Color& cLight, const Vector3d& vPos);
 
    // actions
 
@@ -32,12 +32,12 @@ public:
    // get methods
 
    /// returns position of light source
-   const Vector3d& Pos() const throw() { return m_vPos; }
+   const Vector3d& Pos() const { return m_vPos; }
 
    // set methods
 
    /// sets new position
-   void Pos(const Vector3d& vPos) throw() { m_vPos = vPos; }
+   void Pos(const Vector3d& vPos) { m_vPos = vPos; }
 
 private:
    Vector3d m_vPos;     ///< light source position
@@ -54,7 +54,7 @@ class RENDERENGINE_DECLSPEC Material
 {
 public:
    /// ctor
-   Material(Color cMaterial) throw()
+   Material(Color cMaterial)
       :m_cMaterial(cMaterial),
        m_cSpecular(Color::White()),
        m_uiShininess(0)
@@ -64,7 +64,7 @@ public:
    // set methods
 
    /// set specular reflection properties
-   void Specular(Color cSpecular, unsigned int uiShininess) throw()
+   void Specular(Color cSpecular, unsigned int uiShininess)
    {
       ATLASSERT(uiShininess <= 128);
 
@@ -75,7 +75,7 @@ public:
    // actions
 
    /// uses material properties
-   void Use() const throw();
+   void Use() const;
 
 private:
    Color m_cMaterial;   ///< material color
@@ -101,30 +101,30 @@ class RENDERENGINE_DECLSPEC LightingManager
 {
 public:
    /// ctor
-   LightingManager() throw();
+   LightingManager();
 
    // get methods
 
    /// returns number of light sources (max. 7)
-   size_t LightSourceCount() const throw() { return m_vecLightSources.size(); }
+   size_t LightSourceCount() const { return m_vecLightSources.size(); }
 
    /// returns a light source
-   LightSource& Source(size_t uiIndex) throw()
+   LightSource& Source(size_t uiIndex)
    {
       ATLASSERT(uiIndex < LightSourceCount());
       return m_vecLightSources[uiIndex];
    }
 
    /// returns if color tracking is enabled
-   bool IsEnabledColorTracking() const throw() { return m_bColorTracking; }
+   bool IsEnabledColorTracking() const { return m_bColorTracking; }
 
    // set methods
 
    /// sets global ambient light color
-   void AmbientLight(Color c) throw() { m_cAmbientLight = c; }
+   void AmbientLight(Color c) { m_cAmbientLight = c; }
 
    /// enables or disables color tracking
-   void ColorTracking(bool bColorTracking) throw() { m_bColorTracking = bColorTracking; }
+   void ColorTracking(bool bColorTracking) { m_bColorTracking = bColorTracking; }
 
    // actions
 

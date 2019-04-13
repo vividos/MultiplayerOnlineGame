@@ -25,7 +25,7 @@ class IPositionalSource
 {
 public:
    /// dtor
-   virtual ~IPositionalSource() throw() {}
+   virtual ~IPositionalSource() {}
 
    /// sets new position
    virtual void SetPosition(const Vector3d& vPos) = 0;
@@ -53,7 +53,7 @@ class IVolumeControl
 {
 public:
    /// dtor
-   virtual ~IVolumeControl() throw() {}
+   virtual ~IVolumeControl() {}
 
    /// volume type
    enum T_enVolumeType
@@ -75,7 +75,7 @@ class IAudioManager
 {
 public:
    /// dtor
-   virtual ~IAudioManager() throw() {}
+   virtual ~IAudioManager() {}
 
    /// returns audio manager instance
    static AUDIO_DECLSPEC IAudioManager& Get();

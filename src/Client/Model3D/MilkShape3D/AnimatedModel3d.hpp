@@ -39,18 +39,18 @@ class AnimatedModel3d: public Model3dBase
 {
 public:
    /// ctor
-   AnimatedModel3d() throw() {}
+   AnimatedModel3d() {}
    /// dtor
-   virtual ~AnimatedModel3d() throw() {}
+   virtual ~AnimatedModel3d() {}
 
    /// find mount joint and return index
    int FindMountJointIndex(LPCTSTR pszName) const;
 
    /// prepares model for rendering
-   virtual void Prepare() throw() override;
+   virtual void Prepare() override;
 
    /// uploads data to graphics card
-   virtual void Upload() throw() override;
+   virtual void Upload() override;
 
 private:
    friend class ModelManager;
@@ -63,9 +63,9 @@ private:
    void PrepareIndexBuffer();
 
    /// returns index buffer; const version
-   const RangedAppendOnlyIndexBuffer& IndexBuffer() const throw() { return m_ibo; }
+   const RangedAppendOnlyIndexBuffer& IndexBuffer() const { return m_ibo; }
    /// returns index buffer
-         RangedAppendOnlyIndexBuffer& IndexBuffer()       throw() { return m_ibo; }
+         RangedAppendOnlyIndexBuffer& IndexBuffer() { return m_ibo; }
 
    /// returns group render data
    const std::vector<GroupRenderData>& GroupRenderDataVector() { return m_vecGroupRenderData; }
@@ -83,11 +83,11 @@ private:
    /// transforms a single vertex for given joint render data
    void TransformVertex(const Vertex& vertex,
       const std::vector<JointRenderData>& vecRenderData,
-      Vector3d& vVertex) const throw();
+      Vector3d& vVertex) const;
 
    /// transforms a normal vector for given joint render data
    void TransformNormal(const Vertex& vertex,
-      const std::vector<JointRenderData>& vecRenderData, Vector3d& vNormal) const throw();
+      const std::vector<JointRenderData>& vecRenderData, Vector3d& vNormal) const;
 
 private:
    /// group render data

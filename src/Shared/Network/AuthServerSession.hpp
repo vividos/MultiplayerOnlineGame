@@ -25,7 +25,7 @@ public:
    {
    }
    /// dtor
-   virtual ~AuthServerSession() throw() {}
+   virtual ~AuthServerSession() {}
 
    /// sets auth module to use when a client tries to log in
    void SetAuthenticationModule(std::shared_ptr<IServerAuthModule> spAuthModule);

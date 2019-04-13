@@ -17,7 +17,7 @@ class IPlayerViewModel
 {
 public:
    /// dtor
-   virtual ~IPlayerViewModel() throw() {}
+   virtual ~IPlayerViewModel() {}
 
    // get methods
 

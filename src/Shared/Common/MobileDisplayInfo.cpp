@@ -38,37 +38,37 @@ void SetBits(WORD& wValue, unsigned int uiNewValue)
    wValue |= WORD(uiNewValue << uiStartBit);
 }
 
-unsigned int MobileDisplayInfo::BaseFigure() const throw() { return GetBits<0,2>(m_wInfo); }
-unsigned int MobileDisplayInfo::SkinColor() const throw() { return GetBits<2,2>(m_wInfo); }
-unsigned int MobileDisplayInfo::HairColor() const throw() { return GetBits<4,3>(m_wInfo); }
-unsigned int MobileDisplayInfo::FaceStyle() const throw() { return GetBits<7,3>(m_wInfo); }
+unsigned int MobileDisplayInfo::BaseFigure() const { return GetBits<0,2>(m_wInfo); }
+unsigned int MobileDisplayInfo::SkinColor() const { return GetBits<2,2>(m_wInfo); }
+unsigned int MobileDisplayInfo::HairColor() const { return GetBits<4,3>(m_wInfo); }
+unsigned int MobileDisplayInfo::FaceStyle() const { return GetBits<7,3>(m_wInfo); }
 
-void MobileDisplayInfo::BaseFigure(unsigned int ui) throw() { return SetBits<0,2>(m_wInfo, ui); }
-void MobileDisplayInfo::SkinColor(unsigned int ui) throw() { return SetBits<2,2>(m_wInfo, ui); }
-void MobileDisplayInfo::HairColor(unsigned int ui) throw() { return SetBits<4,3>(m_wInfo, ui); }
-void MobileDisplayInfo::FaceStyle(unsigned int ui) throw() { return SetBits<7,3>(m_wInfo, ui); }
+void MobileDisplayInfo::BaseFigure(unsigned int ui) { return SetBits<0,2>(m_wInfo, ui); }
+void MobileDisplayInfo::SkinColor(unsigned int ui) { return SetBits<2,2>(m_wInfo, ui); }
+void MobileDisplayInfo::HairColor(unsigned int ui) { return SetBits<4,3>(m_wInfo, ui); }
+void MobileDisplayInfo::FaceStyle(unsigned int ui) { return SetBits<7,3>(m_wInfo, ui); }
 
-unsigned int MobileDisplayInfo::PilosityHairStyle() const throw()
+unsigned int MobileDisplayInfo::PilosityHairStyle() const
 {
    return GetBits<10,6>(m_wInfo) % 5;
 }
 
-void MobileDisplayInfo::PilosityHairStyle(unsigned int uiStyle) throw()
+void MobileDisplayInfo::PilosityHairStyle(unsigned int uiStyle)
 {
    return SetBits<10,6>(m_wInfo, PilosityBrowStyle() * 5 + uiStyle);
 }
 
-unsigned int MobileDisplayInfo::PilosityBrowStyle() const throw()
+unsigned int MobileDisplayInfo::PilosityBrowStyle() const
 {
    return GetBits<10,6>(m_wInfo) / 5;
 }
 
-void MobileDisplayInfo::PilosityBrowStyle(unsigned int uiStyle) throw()
+void MobileDisplayInfo::PilosityBrowStyle(unsigned int uiStyle)
 {
    return SetBits<10,6>(m_wInfo, uiStyle * 5 + PilosityHairStyle());
 }
 
-bool MobileDisplayInfo::IsValid() const throw()
+bool MobileDisplayInfo::IsValid() const
 {
    // the commented out tests are never true due to the bit range in storage
 //   if (BaseFigure() > 3) return false;

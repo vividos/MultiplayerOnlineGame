@@ -17,7 +17,7 @@ class ISessionManager
 {
 public:
    /// dtor
-   virtual ~ISessionManager() throw() {}
+   virtual ~ISessionManager() {}
 
    /// called to create new session
    virtual std::shared_ptr<Session> CreateNewSession() = 0;

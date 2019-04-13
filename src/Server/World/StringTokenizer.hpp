@@ -20,7 +20,7 @@ public:
    CString Next();
 
    /// returns if tokenized string is already empty
-   bool IsEmpty() const throw() { return m_cszText.IsEmpty(); }
+   bool IsEmpty() const { return m_cszText.IsEmpty(); }
 
 private:
    /// string to tokenize

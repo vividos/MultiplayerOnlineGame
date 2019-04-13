@@ -57,7 +57,7 @@ struct JpegDecoder
    }
 
    /// returns if there still are scanlines available
-   bool HasScanlines() const throw()
+   bool HasScanlines() const
    {
       return cinfo.output_scanline < cinfo.output_height;
    }

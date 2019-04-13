@@ -17,13 +17,13 @@ class Matrix4T
 {
 public:
    /// default ctor
-   Matrix4T() throw()
+   Matrix4T()
    {
       std::uninitialized_fill(&m_d[0][0], &m_d[4][0], 0.0);
    }
 
    /// returns identity matrix
-   static Matrix4T Identity() throw()
+   static Matrix4T Identity()
    {
       Matrix4T m;
       m[0][0] = m[1][1] = m[2][2] = m[3][3] = 1.0;
@@ -31,7 +31,7 @@ public:
    }
 
    /// sets column with vector components
-   void Column(unsigned int uiColumn, const Vector3T<T>& vColumn) throw()
+   void Column(unsigned int uiColumn, const Vector3T<T>& vColumn)
    {
       ATLASSERT(uiColumn < 4);
       m_d[uiColumn][0] = vColumn.X();
@@ -40,7 +40,7 @@ public:
    }
 
    /// returns column vector from components
-   Vector3T<T> Column(unsigned int uiColumn) const throw()
+   Vector3T<T> Column(unsigned int uiColumn) const
    {
       ATLASSERT(uiColumn < 4);
       return Vector3T<T>(
@@ -51,7 +51,7 @@ public:
    }
 
    /// returns row vector from components
-   Vector3T<T> Row(unsigned int uiRow) const throw()
+   Vector3T<T> Row(unsigned int uiRow) const
    {
       ATLASSERT(uiRow < 4);
       return Vector3T<T>(
@@ -62,7 +62,7 @@ public:
    }
 
    /// sets row with vector components
-   void Row(unsigned int uiRow, const Vector3T<T>& vRow) throw()
+   void Row(unsigned int uiRow, const Vector3T<T>& vRow)
    {
       ATLASSERT(uiRow < 4);
       m_d[0][uiRow] = vRow.X();
@@ -71,7 +71,7 @@ public:
    }
 
    /// transpose matrix
-   void Transpose() throw()
+   void Transpose()
    {
       std::swap(m_d[0][1], m_d[1][0]);
       std::swap(m_d[0][2], m_d[2][0]);
@@ -84,7 +84,7 @@ public:
    }
 
    /// transpose only the "rotation" components of the matrix
-   void TransposeRotation() throw()
+   void TransposeRotation()
    {
       std::swap(m_d[0][1], m_d[1][0]);
       std::swap(m_d[0][2], m_d[2][0]);
@@ -93,7 +93,7 @@ public:
    }
 
    /// multiply operator
-   Vector3T<T> operator*(const Vector3T<T>& v) const throw()
+   Vector3T<T> operator*(const Vector3T<T>& v) const
    {
       return Vector3T<T>(
          m_d[0][0] * v.X() + m_d[1][0] * v.Y() + m_d[2][0] * v.Z() + m_d[3][0],
@@ -103,7 +103,7 @@ public:
    }
 
    /// multiply two matrices
-   static void Mult(Matrix4T& matOut, const Matrix4T& matLeft, const Matrix4T& matRight) throw()
+   static void Mult(Matrix4T& matOut, const Matrix4T& matLeft, const Matrix4T& matRight)
    {
       matOut[0][0] = matLeft[0][0] * matRight[0][0] + matLeft[0][1] * matRight[1][0] + matLeft[0][2] * matRight[2][0] + matLeft[0][3] * matRight[3][0];
       matOut[0][1] = matLeft[0][0] * matRight[0][1] + matLeft[0][1] * matRight[1][1] + matLeft[0][2] * matRight[2][1] + matLeft[0][3] * matRight[3][1];
@@ -151,10 +151,10 @@ public:
    }
 
    /// access to const data
-   const T* const Data() const throw() { return &m_d[0][0]; }
+   const T* const Data() const { return &m_d[0][0]; }
 
    /// access to non-const data
-   T* const Data() throw() { return &m_d[0][0]; }
+   T* const Data() { return &m_d[0][0]; }
 
    /// proxy class for column access, write; used in operator[]
    class MatrixColumnProxyWrite
@@ -169,7 +169,7 @@ public:
       }
 
       /// write array operator access
-      T& operator[](unsigned int uiRow) throw()
+      T& operator[](unsigned int uiRow)
       {
          ATLASSERT(uiRow < 4);
          return m_matrix.m_d[m_uiColumn][uiRow];
@@ -195,7 +195,7 @@ public:
       }
 
       /// read-only array operator access
-      T operator[](unsigned int uiRow) const throw()
+      T operator[](unsigned int uiRow) const
       {
          ATLASSERT(uiRow < 4);
          return m_matrix.m_d[m_uiColumn][uiRow];
@@ -209,14 +209,14 @@ public:
    };
 
    /// array access operator; write
-   MatrixColumnProxyWrite operator[](unsigned int uiColumn) throw()
+   MatrixColumnProxyWrite operator[](unsigned int uiColumn)
    {
       ATLASSERT(uiColumn < 4);
       return MatrixColumnProxyWrite(*this, uiColumn);
    }
 
    /// array access operator; read-only
-   MatrixColumnProxyRead operator[](unsigned int uiColumn) const throw()
+   MatrixColumnProxyRead operator[](unsigned int uiColumn) const
    {
       ATLASSERT(uiColumn < 4);
       return MatrixColumnProxyRead(*this, uiColumn);

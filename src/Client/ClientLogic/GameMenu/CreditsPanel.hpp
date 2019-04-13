@@ -24,7 +24,7 @@ namespace GameMenu
       /// ctor
       CreditsPanel(IWindowManager& windowManager, IFileSystem& fileSystem, std::function<void()> fnOnReturnMainPanel);
       /// dtor
-      virtual ~CreditsPanel() throw() {}
+      virtual ~CreditsPanel() {}
 
       /// shows sub panel
       virtual void Show(IWindowManager& windowManager) override;

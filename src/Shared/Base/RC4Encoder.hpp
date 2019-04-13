@@ -22,7 +22,7 @@ public:
    /// ctor
    /// \param[in] key key bytes
    /// \param[in] key_length key length
-   Encoder(const unsigned char* key, size_t key_length) throw()
+   Encoder(const unsigned char* key, size_t key_length)
       :m_i(0),
        m_j(0)
    {
@@ -30,14 +30,14 @@ public:
    }
 
    /// returns next byte to xor with
-   unsigned char Get() throw() { return Output(); }
+   unsigned char Get() { return Output(); }
 
    /// encrypts given iterator range
    /// \tparam TForwardIterator forward iterator type
    /// \param itFirst start of range
    /// \param itLast end of range
    template <typename TForwardIterator>
-   void Encrypt(TForwardIterator itFirst, TForwardIterator itLast) throw()
+   void Encrypt(TForwardIterator itFirst, TForwardIterator itLast)
    {
       for (TForwardIterator it = itFirst; it != itLast; it++)
          (*it) ^= Output();
@@ -46,14 +46,14 @@ public:
    /// encrypts given buffer
    /// \param data data to encode
    /// \param length length of data
-   void Encrypt(unsigned char* data, unsigned int length) throw()
+   void Encrypt(unsigned char* data, unsigned int length)
    {
       Encrypt(data, data+length);
    }
 
 private:
    /// inits S-box
-   void Init(const unsigned char* key, size_t key_length) throw()
+   void Init(const unsigned char* key, size_t key_length)
    {
       for (unsigned char i = 0; i < 256; i++)
          S[i] = i;
@@ -66,7 +66,7 @@ private:
    }
 
    /// calculate output
-   unsigned char Output() throw()
+   unsigned char Output()
    {
       m_i = (m_i + 1) & 255;
       m_j = (m_j + S[m_i]) & 255;

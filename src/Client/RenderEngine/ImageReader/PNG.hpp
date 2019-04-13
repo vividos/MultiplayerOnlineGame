@@ -30,17 +30,17 @@ class Crc32
 {
 public:
    /// calculates CRC for the bytes in the buffer
-   static DWORD Calc(const unsigned char* buf, size_t len) throw();
+   static DWORD Calc(const unsigned char* buf, size_t len);
 
    /// updates a running CRC
-   static DWORD Update(DWORD crc, const unsigned char* buf, size_t len) throw();
+   static DWORD Update(DWORD crc, const unsigned char* buf, size_t len);
 
 private:
    /// ctor; not implemented
    Crc32();
 
    /// initializes CRC table
-   static void Init() throw();
+   static void Init();
 
    /// table of CRCs of all 8-bit messages
    static std::array<DWORD, 256> m_crc32Table;
@@ -65,38 +65,38 @@ public:
    void Load(Stream::IStream& stream);
 
    /// checks if chunk name is equal given name
-   bool IsName(LPCSTR pszName) const throw();
+   bool IsName(LPCSTR pszName) const;
 
    /// returns name of chunk
-   LPCSTR Name() const throw() { return m_acName; }
+   LPCSTR Name() const { return m_acName; }
 
    /// returns length of chunk data
-   size_t Length() const throw() { return m_vecData.size(); }
+   size_t Length() const { return m_vecData.size(); }
 
    /// returns chunk data block
-   const std::vector<BYTE>& Data() const throw() { return m_vecData; }
+   const std::vector<BYTE>& Data() const { return m_vecData; }
 
    /// returns if CRC32 is valid
-   bool IsValidCrc32() const throw() { return m_uiCrcRead == m_uiCrcCalc; }
+   bool IsValidCrc32() const { return m_uiCrcRead == m_uiCrcCalc; }
 
    /// returns CRC32 value
-   DWORD Crc32() const throw() { return m_uiCrcCalc; }
+   DWORD Crc32() const { return m_uiCrcCalc; }
 
    /// returns if chunk is an ancilliary one (true) or a critical (false)
-   bool IsAnciliary() const throw();
+   bool IsAnciliary() const;
 
    /// returns if chunk is private
-   bool Private() const throw();
+   bool Private() const;
 
    /// reserved bit; must be 'false' for a valid PNG chunk
-   bool Reserved() const throw();
+   bool Reserved() const;
 
    /// returns if chunk is safe to copy
-   bool SafeToCopy() const throw();
+   bool SafeToCopy() const;
 
 private:
    /// calculates CRC32 of chunk name and data
-   DWORD CalcCrc32() const throw();
+   DWORD CalcCrc32() const;
 
 private:
    CHAR m_acName[5];    ///< chunk name
@@ -177,7 +177,7 @@ struct ImageInfo
 
 private:
    /// checks if image info values are valid
-   bool CheckValid() const throw();
+   bool CheckValid() const;
 };
 
 
@@ -200,7 +200,7 @@ public:
       const ImageInfo& imageInfo, size_t& uiBytesUsed);
 
    /// returns scanline data
-   const std::vector<BYTE>& Data() const throw() { return m_vecScanline; }
+   const std::vector<BYTE>& Data() const { return m_vecScanline; }
 
    /// converts to RGBA data, possibly converting from palette or grayscale mode; not suitable for 16-bit images
    void ReadRGBA(const ImageInfo& imageInfo, std::vector<Color>& vecColorData, size_t offset) const;
@@ -247,14 +247,14 @@ class Decoder
 {
 public:
    /// ctor
-   Decoder(Stream::IStream& stream) throw()
+   Decoder(Stream::IStream& stream)
       :m_stream(stream),
        m_bHeaderDecoded(false),
        m_uiCurrentLine(0)
    {
    }
    /// dtor
-   virtual ~Decoder() throw() {}
+   virtual ~Decoder() {}
 
    /// decodes header so that image info is valid
    void DecodeHeader();
@@ -263,12 +263,12 @@ public:
    void DecodeImage(bool bAllocImageMemory);
 
    /// returns image info
-   const ImageInfo& Info() const throw() { return m_imageInfo; }
+   const ImageInfo& Info() const { return m_imageInfo; }
 
    /// returns image as RGBA array; only when bAllocImageMemory is true in DecodeImage()
-   const std::vector<Color>& Image() const throw() { return m_vecImage; }
+   const std::vector<Color>& Image() const { return m_vecImage; }
    /// returns image as RGBA array; non-const version
-   std::vector<Color>& Image() throw() { return m_vecImage; }
+   std::vector<Color>& Image() { return m_vecImage; }
 
 protected:
    /// called on next chunk loaded

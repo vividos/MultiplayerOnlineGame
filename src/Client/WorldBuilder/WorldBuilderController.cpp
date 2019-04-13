@@ -19,7 +19,7 @@ WorldBuilderController::WorldBuilderController(std::shared_ptr<PerspectiveCamera
    m_spController->SetMovementSpeed(200.0);
 }
 
-WorldBuilderController::~WorldBuilderController() throw()
+WorldBuilderController::~WorldBuilderController()
 {
 }
 

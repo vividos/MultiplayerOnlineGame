@@ -70,12 +70,12 @@ void DataBlockManager::Cleanup(unsigned int xblock, unsigned int yblock)
       std::bind(&DataBlockManager::CleanupBlock, this, xblock, yblock));
 }
 
-unsigned int DataBlockManager::BlockSize() throw()
+unsigned int DataBlockManager::BlockSize()
 {
    return c_uiBlockSize;
 }
 
-double DataBlockManager::Height(double x, double y) throw()
+double DataBlockManager::Height(double x, double y)
 {
    unsigned int xblock = unsigned(x + 1.0) / c_uiBlockSize;
    unsigned int yblock = unsigned(y + 1.0) / c_uiBlockSize;

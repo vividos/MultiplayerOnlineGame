@@ -24,7 +24,7 @@ public:
    Level(){}
 
    /// returns level name
-   CString GetLevelName() const throw() { return m_cszLevelName; }
+   CString GetLevelName() const { return m_cszLevelName; }
 
    /// sets new level name
    void SetLevelName(const CString& cszLevelName){ m_cszLevelName = cszLevelName; }
@@ -32,14 +32,14 @@ public:
    // level contents
 
    /// returns tilemap
-   Tilemap& GetTilemap() throw(){ return m_tilemap; }
+   Tilemap& GetTilemap() { return m_tilemap; }
    /// returns tilemap; const version
-   const Tilemap& GetTilemap() const throw() { return m_tilemap; }
+   const Tilemap& GetTilemap() const { return m_tilemap; }
 
    /// returns object list
-   ObjectList& GetObjectList() throw() { return m_objectList; }
+   ObjectList& GetObjectList() { return m_objectList; }
    /// returns object list; const version
-   const ObjectList& GetObjectList() const throw() { return m_objectList; }
+   const ObjectList& GetObjectList() const { return m_objectList; }
 
    /// returns map notes
    MapNotes& GetMapNotes(){ return m_mapNotes; }

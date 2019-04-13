@@ -14,19 +14,19 @@ class Size
 {
 public:
    /// ctor
-   Size(int width = 0, int height = 0) throw()
+   Size(int width = 0, int height = 0)
       :m_size(width, height)
    {
    }
 
-   int Width() const throw() { return m_size.first; }    ///< returns width
-   int Height() const throw() { return m_size.second; }  ///< returns height
+   int Width() const { return m_size.first; }    ///< returns width
+   int Height() const { return m_size.second; }  ///< returns height
 
-   void Width(int iWidth) throw() { m_size.first = iWidth; }      ///< sets width
-   void Height(int iHeight) throw() { m_size.second = iHeight; }  ///< sets height
+   void Width(int iWidth) { m_size.first = iWidth; }      ///< sets width
+   void Height(int iHeight) { m_size.second = iHeight; }  ///< sets height
 
    /// adds offset to size
-   void Add(int x, int y) throw(){ m_size.first += x; m_size.second += y; }
+   void Add(int x, int y) { m_size.first += x; m_size.second += y; }
 
 private:
    /// size
@@ -38,19 +38,19 @@ class Point
 {
 public:
    /// ctor
-   Point(int x = 0, int y = 0) throw()
+   Point(int x = 0, int y = 0)
       :m_pos(x, y)
    {
    }
 
-   int X() const throw() { return m_pos.first; }   ///< returns x coordinate
-   int Y() const throw() { return m_pos.second; }  ///< returns y coordinate
+   int X() const { return m_pos.first; }   ///< returns x coordinate
+   int Y() const { return m_pos.second; }  ///< returns y coordinate
 
-   void X(int iX) throw() { m_pos.first = iX; }    ///< sets x coordinate
-   void Y(int iY) throw() { m_pos.second = iY; }   ///< sets y coordinate
+   void X(int iX) { m_pos.first = iX; }    ///< sets x coordinate
+   void Y(int iY) { m_pos.second = iY; }   ///< sets y coordinate
 
    /// adds offset to point
-   void Add(int x, int y) throw(){ m_pos.first += x; m_pos.second += y; }
+   void Add(int x, int y) { m_pos.first += x; m_pos.second += y; }
 
 private:
    /// point position
@@ -62,7 +62,7 @@ class Rect
 {
 public:
    /// ctor
-   Rect(int left = 0, int top = 0, int right = 0, int bottom = 0) throw()
+   Rect(int left = 0, int top = 0, int right = 0, int bottom = 0)
    {
       m_aiCoords[left] = left;
       m_aiCoords[top] = top;
@@ -71,7 +71,7 @@ public:
    }
 
    /// ctor; init with point and size
-   Rect(Point pos, Size size) throw()
+   Rect(Point pos, Size size)
    {
       m_aiCoords[left] = pos.X();
       m_aiCoords[top] = pos.Y();
@@ -81,27 +81,27 @@ public:
 
    // get methods
 
-   int Left() const throw() { return m_aiCoords[left]; }    ///< returns left coord
-   int Top() const throw() { return m_aiCoords[top]; }      ///< returns top coord
-   int Right() const throw() { return m_aiCoords[right]; }  ///< returns right coord
-   int Bottom() const throw() { return m_aiCoords[bottom]; }///< returns bottom coord
+   int Left() const { return m_aiCoords[left]; }    ///< returns left coord
+   int Top() const { return m_aiCoords[top]; }      ///< returns top coord
+   int Right() const { return m_aiCoords[right]; }  ///< returns right coord
+   int Bottom() const { return m_aiCoords[bottom]; }///< returns bottom coord
 
-   int Width() const throw() { return m_aiCoords[right] - m_aiCoords[left]; } ///< returns width
-   int Height() const throw() { return m_aiCoords[bottom] - m_aiCoords[top]; }///< returns height
+   int Width() const { return m_aiCoords[right] - m_aiCoords[left]; } ///< returns width
+   int Height() const { return m_aiCoords[bottom] - m_aiCoords[top]; }///< returns height
 
-   Size GetSize() const throw() { return Size(Width(), Height()); }  ///< returns size
+   Size GetSize() const { return Size(Width(), Height()); }  ///< returns size
 
    // set methods
 
-   void Left(int iLeft) throw() { m_aiCoords[left] = iLeft; }       ///< sets left coord
-   void Top(int iTop) throw() { m_aiCoords[top] = iTop; }           ///< sets top coord
-   void Right(int iRight) throw() { m_aiCoords[right] = iRight; }   ///< sets right coord
-   void Bottom(int iBottom) throw() { m_aiCoords[bottom] = iBottom; }///< sets bottom coord
+   void Left(int iLeft) { m_aiCoords[left] = iLeft; }       ///< sets left coord
+   void Top(int iTop) { m_aiCoords[top] = iTop; }           ///< sets top coord
+   void Right(int iRight) { m_aiCoords[right] = iRight; }   ///< sets right coord
+   void Bottom(int iBottom) { m_aiCoords[bottom] = iBottom; }///< sets bottom coord
 
    // operations
 
    /// adds offset
-   void Add(const Point& p) throw()
+   void Add(const Point& p)
    {
       m_aiCoords[left] += p.X();
       m_aiCoords[right] += p.X();
@@ -110,7 +110,7 @@ public:
    }
 
    /// checks if given point is inside rect
-   bool IsInside(const Point& p) const throw()
+   bool IsInside(const Point& p) const
    {
       int x = p.X(), y = p.Y();
       return x >= m_aiCoords[left] && x < m_aiCoords[right] && 

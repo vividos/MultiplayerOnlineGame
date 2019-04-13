@@ -20,19 +20,19 @@ class OggVorbisFileReader
 {
 public:
    /// ctor
-   OggVorbisFileReader() throw();
+   OggVorbisFileReader();
 
    /// reads
    void Read(Stream::IStream& stream);
 
    /// returns samples; when stereo, samples are interleaved, in left right order
-   const std::vector<short>& Samples() const throw() { return m_vecSamples; }
+   const std::vector<short>& Samples() const { return m_vecSamples; }
 
    /// returns number of channels
-   unsigned int Channels() const throw() { return m_uiChannels; }
+   unsigned int Channels() const { return m_uiChannels; }
 
    /// returns sample rate
-   unsigned int Samplerate() const throw() { return m_uiSamplerate; }
+   unsigned int Samplerate() const { return m_uiSamplerate; }
 
 private:
    std::vector<short> m_vecSamples; ///< audio samples

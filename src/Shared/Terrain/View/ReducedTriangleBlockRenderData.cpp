@@ -128,7 +128,7 @@ void CalcMinMax(const std::vector<float>& vecElevationData, float& fMin, float& 
    }
 }
 
-unsigned int ReducedTriangleBlockRenderData::MapDistToLevel(double dist) throw()
+unsigned int ReducedTriangleBlockRenderData::MapDistToLevel(double dist)
 {
    unsigned int uiLevel = 0;
    if (dist > 128.0 && dist < 256.0)

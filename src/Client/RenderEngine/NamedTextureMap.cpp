@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "NamedTextureMap.hpp"
 
-bool NamedTextureMap::IsTextureAvail(const CString& cszName) const throw()
+bool NamedTextureMap::IsTextureAvail(const CString& cszName) const
 {
    T_mapAllTextures::const_iterator iter = m_mapAllTextures.find(cszName);
    return iter != m_mapAllTextures.end();

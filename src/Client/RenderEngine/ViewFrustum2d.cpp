@@ -11,7 +11,7 @@
 #include "Math.hpp"
 
 ViewFrustum2d::ViewFrustum2d(double xpos, double ypos,
-   double angle, double fov, double farplane) throw()
+   double angle, double fov, double farplane)
 {
    m_points[0] = Vector2d(xpos - 3.0*cos(Deg2Rad(angle)), ypos - 3.0*sin(Deg2Rad(angle)));
 
@@ -34,7 +34,7 @@ ViewFrustum2d::ViewFrustum2d(double xpos, double ypos,
 /// \see http://research.microsoft.com/~hollasch/cgindex/math/barycentric.html
 /// \param xpos x position
 /// \param ypos y position
-bool ViewFrustum2d::IsInside(double xpos, double ypos) const throw()
+bool ViewFrustum2d::IsInside(double xpos, double ypos) const
 {
    double b0 =  (m_points[1].X() - m_points[0].X()) * (m_points[2].Y() - m_points[0].Y()) - (m_points[2].X() - m_points[0].X()) * (m_points[1].Y() - m_points[0].Y());
    double b1 = ((m_points[1].X() - xpos) * (m_points[2].Y() - ypos) - (m_points[2].X() - xpos) * (m_points[1].Y() - ypos)) / b0;

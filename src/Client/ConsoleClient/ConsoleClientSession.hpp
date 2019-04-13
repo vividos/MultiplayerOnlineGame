@@ -18,10 +18,10 @@ public:
    ConsoleClientSession(boost::asio::io_service& ioService);
 
    /// ctor
-   virtual ~ConsoleClientSession() throw() {}
+   virtual ~ConsoleClientSession() {}
 
    /// returns event to signal connect success
-   ManualResetEvent& GetConnectSuccessEvent() throw()
+   ManualResetEvent& GetConnectSuccessEvent()
    {
       return m_evtConnectSuccess;
    }

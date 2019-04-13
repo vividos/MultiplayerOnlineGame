@@ -9,7 +9,7 @@
 #include "StdAfx.h"
 #include "ProgressBar.hpp"
 
-void ProgressBar::Render(Rect& rectArea) throw()
+void ProgressBar::Render(Rect& rectArea)
 {
    int iMid = int(rectArea.Left() + DividerPoint());
 
@@ -32,7 +32,7 @@ void ProgressBar::Render(Rect& rectArea) throw()
    glEnd();
 }
 
-void ProgressBar::OnAttributeChanged(const CString& cszAttributeName) throw()
+void ProgressBar::OnAttributeChanged(const CString& cszAttributeName)
 {
    try
    {

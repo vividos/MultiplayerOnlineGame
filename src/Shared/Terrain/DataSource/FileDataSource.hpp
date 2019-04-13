@@ -20,20 +20,20 @@ class TERRAIN_DECLSPEC FileDataSource: public IDataSource
 {
 public:
    /// default ctor
-   FileDataSource() throw();
+   FileDataSource();
 
    /// ctor with square block size
    /// \param uiSize size of side of square block array
-   FileDataSource(unsigned int uiSize) throw();
+   FileDataSource(unsigned int uiSize);
 
    /// dtor
-   virtual ~FileDataSource() throw() {}
+   virtual ~FileDataSource() {}
 
    /// loads block
    virtual std::shared_ptr<Terrain::Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;
 
    /// returns block manager
-   FileBlockManager& GetBlockManager() throw() { return m_blockManager; }
+   FileBlockManager& GetBlockManager() { return m_blockManager; }
 
 private:
    /// block manager

@@ -24,7 +24,7 @@ public:
    FileBlockManager(unsigned int uiSize = 0);
 
    /// returns size of side of square 2D block array
-   unsigned int Size() const throw();
+   unsigned int Size() const;
 
    /// creates a new empty block; clears existing block
    void Create(unsigned int xblock, unsigned int yblock);

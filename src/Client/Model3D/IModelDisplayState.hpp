@@ -67,7 +67,7 @@ class IModelDisplayState
 {
 public:
    /// dtor
-   virtual ~IModelDisplayState() throw() {}
+   virtual ~IModelDisplayState() {}
 
    /// tick calculation
    virtual void Tick() = 0;

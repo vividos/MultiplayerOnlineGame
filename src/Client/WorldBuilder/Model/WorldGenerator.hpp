@@ -31,7 +31,7 @@ public:
    };
 
    /// ctor
-   WorldGenerator(unsigned int uiSize) throw();
+   WorldGenerator(unsigned int uiSize);
 
    /// update function
    typedef std::function<void(const CString& cszStatus, bool bUpdatedGraph)> T_fnOnUpdate;
@@ -45,7 +45,7 @@ public:
    void Generate(T_enIslandShape enIslandShape, unsigned int uiSeed);
 
    /// returns polygon graph
-   const PolygonGraph::Graph& GetGraph() const throw() { return m_graph; }
+   const PolygonGraph::Graph& GetGraph() const { return m_graph; }
 
 private:
    // graph generation

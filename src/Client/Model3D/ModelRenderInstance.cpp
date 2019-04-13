@@ -19,7 +19,7 @@ const double c_dCorrectTimeRange = 0.5;
 /// fade in/out time
 const double c_dFadeTime = 4.5;
 
-ModelRenderInstance::ModelRenderInstance(std::shared_ptr<IModelDisplayState> spDisplayState) throw()
+ModelRenderInstance::ModelRenderInstance(std::shared_ptr<IModelDisplayState> spDisplayState)
 :m_spDisplayState(spDisplayState),
  m_bSelected(false),
  m_dViewAngle(0.0),
@@ -127,7 +127,7 @@ Vector3d ModelRenderInstance::CalculatedPos()
    return m_vPos + dPercentDone * vDist;
 }
 
-double ModelRenderInstance::CalcPlayerTransparency() throw()
+double ModelRenderInstance::CalcPlayerTransparency()
 {
    double dTransparency = m_dTransparency;
 

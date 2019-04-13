@@ -57,7 +57,7 @@ public:
    typedef ::Exception BaseClass;
 
    /// ctor
-   Exception(LPCTSTR pszFunctionName, ALenum enError, LPCSTR pszSourceFile, UINT uiSourceLine) throw()
+   Exception(LPCTSTR pszFunctionName, ALenum enError, LPCSTR pszSourceFile, UINT uiSourceLine)
       :BaseClass(
          ErrorText(enError) + _T(", in ") + pszFunctionName,
          pszSourceFile, uiSourceLine),
@@ -66,10 +66,10 @@ public:
    }
 
    /// returns error
-   ALenum Error() const throw() { return m_enError; }
+   ALenum Error() const { return m_enError; }
 
    /// converts error number to text
-   static CString ErrorText(ALenum enError) throw()
+   static CString ErrorText(ALenum enError)
    {
       switch(enError)
       {
@@ -146,7 +146,7 @@ private:
    friend class Device;
 
    /// ctor
-   Listener() throw()
+   Listener()
    {
    }
 };
@@ -158,7 +158,7 @@ class Buffer
 {
 public:
    /// dtor
-   ~Buffer() throw()
+   ~Buffer()
    {
       AL_CLEAR_ERROR();
 
@@ -237,7 +237,7 @@ private:
    }
 
    /// returns buffer id
-   unsigned int Id() const throw() { return m_uiBuffer; }
+   unsigned int Id() const { return m_uiBuffer; }
 
 private:
    ALuint m_uiBuffer;   ///< buffer id
@@ -249,7 +249,7 @@ class Source
 {
 public:
    /// dtor
-   ~Source() throw()
+   ~Source()
    {
       AL_CLEAR_ERROR();
       alSourceStop(m_uiSource);
@@ -302,7 +302,7 @@ public:
    // get methods
 
    /// returns if source is currently playing
-   bool IsPlaying() const throw()
+   bool IsPlaying() const
    {
       AL_CLEAR_ERROR();
 
@@ -431,7 +431,7 @@ public:
    }
 
    /// dtor
-   ~Device() throw()
+   ~Device()
    {
       alcMakeContextCurrent(NULL);
    }
@@ -487,31 +487,31 @@ public:
    Listener GetListener(){ return Listener(); }
 
    /// returns doppler factor
-   float DopplerFactor() const throw()
+   float DopplerFactor() const
    {
       return alGetFloat(AL_DOPPLER_FACTOR);
    }
 
    /// returns speed of sound, in m/s
-   float SpeedOfSound() const throw()
+   float SpeedOfSound() const
    {
       return alGetFloat(AL_SPEED_OF_SOUND);
    }
 
    /// returns vendor string
-   CString Vendor() const throw()
+   CString Vendor() const
    {
       return CString(alGetString(AL_VENDOR));
    }
 
    /// returns version string
-   CString Version() const throw()
+   CString Version() const
    {
       return CString(alGetString(AL_VERSION));
    }
 
    /// returns renderer string
-   CString Renderer() const throw()
+   CString Renderer() const
    {
       return CString(alGetString(AL_RENDERER));
    }

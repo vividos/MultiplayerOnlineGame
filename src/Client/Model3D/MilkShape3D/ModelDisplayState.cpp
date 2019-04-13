@@ -338,7 +338,7 @@ void ModelDisplayState::Render(RenderOptions& options)
       RenderJoints();
 }
 
-void ModelDisplayState::RenderAnimatedModelImmediateMode(RenderOptions& options) const throw()
+void ModelDisplayState::RenderAnimatedModelImmediateMode(RenderOptions& options) const
 {
    AnimatedModel3d& model = *m_spModel->GetAnimated();
    const Data& data = model.GetData();
@@ -390,7 +390,7 @@ void ModelDisplayState::RenderAnimatedModelImmediateMode(RenderOptions& options)
       OpenGL::RenderBoundingBox(boundingBox.Min(), boundingBox.Max());
 }
 
-void ModelDisplayState::RenderAnimatedModelVertexBuffer(RenderOptions& options) const throw()
+void ModelDisplayState::RenderAnimatedModelVertexBuffer(RenderOptions& options) const
 {
    AnimatedModel3d& model = *m_spModel->GetAnimated();
    const Data& data = model.GetData();
@@ -419,7 +419,7 @@ void ModelDisplayState::RenderAnimatedModelVertexBuffer(RenderOptions& options) 
    m_vbo.Unbind();
 }
 
-void ModelDisplayState::BindMaterial(const Group& group) const throw()
+void ModelDisplayState::BindMaterial(const Group& group) const
 {
    AnimatedModel3d& model = *m_spModel->GetAnimated();
    const Data& data = model.GetData();
@@ -437,7 +437,7 @@ void ModelDisplayState::BindMaterial(const Group& group) const throw()
       texData.m_spTexture->Bind();
 }
 
-void ModelDisplayState::RenderStaticModels(RenderOptions& options) const throw()
+void ModelDisplayState::RenderStaticModels(RenderOptions& options) const
 {
    const std::vector<CompositeModel3d::StaticModelData>& vecStaticModels =
       m_spModel->StaticList();
@@ -477,7 +477,7 @@ void ModelDisplayState::RenderStaticModels(RenderOptions& options) const throw()
    }
 }
 
-void ModelDisplayState::RenderModelNormals(const Group& group) const throw()
+void ModelDisplayState::RenderModelNormals(const Group& group) const
 {
    AnimatedModel3d& model = *m_spModel->GetAnimated();
    const Data& data = model.GetData();
@@ -520,7 +520,7 @@ void ModelDisplayState::RenderModelNormals(const Group& group) const throw()
    glEnd();
 }
 
-void ModelDisplayState::RenderJoints() const throw()
+void ModelDisplayState::RenderJoints() const
 {
    OpenGL::PushedAttributes attrib(GL_POINT_BIT | GL_LINE_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 
@@ -537,7 +537,7 @@ void ModelDisplayState::RenderJoints() const throw()
    RenderJointPoints();
 }
 
-void ModelDisplayState::RenderJointLines() const throw()
+void ModelDisplayState::RenderJointLines() const
 {
    AnimatedModel3d& model = *m_spModel->GetAnimated();
    const Data& data = model.GetData();
@@ -571,7 +571,7 @@ void ModelDisplayState::RenderJointLines() const throw()
    glEnd();
 }
 
-void ModelDisplayState::RenderJointPoints() const throw()
+void ModelDisplayState::RenderJointPoints() const
 {
    glBegin(GL_POINTS);
    for (size_t i=0, iMax = m_vecJointRenderData.size(); i<iMax; i++)
@@ -585,7 +585,7 @@ void ModelDisplayState::RenderJointPoints() const throw()
    glEnd();
 }
 
-void ModelDisplayState::RenderMountPoint() const throw()
+void ModelDisplayState::RenderMountPoint() const
 {
    OpenGL::PushedAttributes attrib(GL_POINT_BIT | GL_ENABLE_BIT | GL_CURRENT_BIT);
 

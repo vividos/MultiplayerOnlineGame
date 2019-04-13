@@ -21,7 +21,7 @@ class IMouseEventReceiver: public boost::noncopyable
 {
 public:
    /// dtor
-   virtual ~IMouseEventReceiver() throw() {}
+   virtual ~IMouseEventReceiver() {}
 
    /// called on mouse button event
    virtual void OnMouseButtonEvent(bool bPressed, T_enMouseButtonType enButtonType, int x, int y) = 0;

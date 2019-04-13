@@ -18,13 +18,13 @@ class IClientAuthModule
 {
 public:
    /// dtor
-   virtual ~IClientAuthModule() throw() {}
+   virtual ~IClientAuthModule() {}
 
    /// initializes authentication
    virtual void InitAuthentication() = 0;
 
    /// returns if already authenticated
-   virtual bool IsAuthenticated() const throw() = 0;
+   virtual bool IsAuthenticated() const = 0;
 
    /// called when new message has arrived (until IsAuthenticated() returns true)
    virtual bool OnReceiveMessage(RawMessage& msg) = 0;

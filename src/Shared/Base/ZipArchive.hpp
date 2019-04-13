@@ -39,7 +39,7 @@ public:
    ~ZipArchive();
 
    /// returns number of files in archive
-   unsigned int FileCount() const throw() { return m_vecInfos.size(); }
+   unsigned int FileCount() const { return m_vecInfos.size(); }
 
    /// returns filename of entry in archive
    const CString& Filename(unsigned int uiIndex, bool bFullPath);

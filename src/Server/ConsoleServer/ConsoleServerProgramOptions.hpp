@@ -30,7 +30,7 @@ public:
    }
 
    /// returns port
-   unsigned short Port() const throw() { return m_usPort; }
+   unsigned short Port() const { return m_usPort; }
 
 private:
    /// parses port

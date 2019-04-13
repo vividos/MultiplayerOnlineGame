@@ -37,7 +37,7 @@ public:
    // get methods
 
    /// returns number of sites or cells; may differ from input vecPoints
-   size_t NumSites() const throw();
+   size_t NumSites() const;
 
    /// returns all edges (no double edges)
    void GetAllEdges(std::vector<Edge>& vecAllEdges);

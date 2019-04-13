@@ -20,7 +20,7 @@ ModelViewer::Scene::Scene(ISceneManager& sceneManager,
    KeyboardActionManager& keyboardActionManager,
    IFileSystem& fileSystem,
    RenderEngine& renderEngine,
-   GraphicsTaskManager& taskManager) throw()
+   GraphicsTaskManager& taskManager)
 :BaseClass(sceneManager),
 m_spView(new View(m_viewModel, fileSystem, renderEngine, taskManager)),
 m_actionBindings(keyboardActionManager)

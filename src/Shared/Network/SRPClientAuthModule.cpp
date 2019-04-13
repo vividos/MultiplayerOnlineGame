@@ -54,7 +54,7 @@ void ClientAuthModule::InitAuthentication()
    SendMessage(msg);
 }
 
-bool ClientAuthModule::IsAuthenticated() const throw()
+bool ClientAuthModule::IsAuthenticated() const
 {
    return m_bIsVerifiedServer;
 }

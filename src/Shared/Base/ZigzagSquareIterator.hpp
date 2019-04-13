@@ -11,7 +11,7 @@ struct ZigzagSquareIterator
 {
 public:
    /// ctor
-   ZigzagSquareIterator(unsigned int uiSize) throw()
+   ZigzagSquareIterator(unsigned int uiSize)
       :m_uiSize(uiSize),
        m_x(uiSize-1),
        m_y(uiSize-1)
@@ -19,12 +19,12 @@ public:
    }
 
    /// returns current x coordinate
-   unsigned int X() const throw() { return m_x; }
+   unsigned int X() const { return m_x; }
    /// returns current y coordinate
-   unsigned int Y() const throw() { return m_y; }
+   unsigned int Y() const { return m_y; }
 
    /// advances to next square tile
-   bool Next() throw()
+   bool Next()
    {
       if (m_x > 0)
       {

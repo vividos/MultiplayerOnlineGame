@@ -45,33 +45,33 @@ namespace
       }
 
       /// called when plus key is pressed
-      void OnPlusKey(bool bKeyDown) throw()
+      void OnPlusKey(bool bKeyDown)
       {
          m_bPlus = bKeyDown;
          m_bPlusPriority = bKeyDown;
       }
 
       /// called when minus key is pressed
-      void OnMinusKey(bool bKeyDown) throw()
+      void OnMinusKey(bool bKeyDown)
       {
          m_bMinus = bKeyDown;
          m_bPlusPriority = !bKeyDown;
       }
 
       /// determines if a key is down
-      bool IsKeyDown() const throw()
+      bool IsKeyDown() const
       {
          return m_bPlus || m_bMinus;
       }
 
       /// determines if plus side is currently active
-      bool IsPlus() const throw()
+      bool IsPlus() const
       {
          return m_bPlusPriority ? m_bPlus : !m_bMinus;
       }
 
       /// resets sides
-      void Reset() throw()
+      void Reset()
       {
          m_bPlus = m_bMinus = false;
       }
@@ -96,18 +96,18 @@ namespace
       // get methods
 
       /// returns if player angle is controllable
-      bool IsPlayerAngleControllable() const throw();
+      bool IsPlayerAngleControllable() const;
 
       /// returns current player movement view angle
-      double GetPlayerAngle() const throw() { return m_dMovementAngle; }
+      double GetPlayerAngle() const { return m_dMovementAngle; }
 
       // set methods
 
       /// sets or resets mouse look mode
-      void SetMouseLookMode(bool bMouseLookMode) throw();
+      void SetMouseLookMode(bool bMouseLookMode);
 
       /// sets new player movement view angle
-      void SetPlayerAngle(double dAngle) throw() { m_dMovementAngle = dAngle; }
+      void SetPlayerAngle(double dAngle) { m_dMovementAngle = dAngle; }
 
       // action methods
 
@@ -115,14 +115,14 @@ namespace
       void OnTick(double dElapsed);
 
    private:
-      void OnKeyMoveForward(bool bKeyDown) throw();   ///< called on move forward key press
-      void OnKeyMoveBackward(bool bKeyDown) throw();  ///< called on move backward key press
-      void OnKeyRotateLeft(bool bKeyDown) throw();    ///< called on rotate left key press
-      void OnKeyRotateRight(bool bKeyDown) throw();   ///< called on rotate right key press
-      void OnKeyAutoMove(bool bKeyDown) throw();      ///< called on auto-move key press
+      void OnKeyMoveForward(bool bKeyDown);   ///< called on move forward key press
+      void OnKeyMoveBackward(bool bKeyDown);  ///< called on move backward key press
+      void OnKeyRotateLeft(bool bKeyDown);    ///< called on rotate left key press
+      void OnKeyRotateRight(bool bKeyDown);   ///< called on rotate right key press
+      void OnKeyAutoMove(bool bKeyDown);      ///< called on auto-move key press
 
       /// returns if currently running
-      bool IsRunning() const throw();
+      bool IsRunning() const;
 
    private:
       /// camera control
@@ -163,10 +163,10 @@ namespace
       // set methods
 
       /// sets running flag
-      void SetRunningFlag(bool bIsRunning) throw();
+      void SetRunningFlag(bool bIsRunning);
 
       /// sets camera view angle
-      void SetViewAngle(double dViewAngle) throw();
+      void SetViewAngle(double dViewAngle);
 
       // action methods
 
@@ -196,13 +196,13 @@ namespace
       void MovePlayerAngle();
 
       /// adjusts view angle while walking
-      void AdjustViewAngleWalking(double dElapsed) throw();
+      void AdjustViewAngleWalking(double dElapsed);
 
       /// calculcates new viewpoint position
-      void CalcPosition() throw();
+      void CalcPosition();
 
       /// calculates player transparency by camera distance
-      double PlayerTransparency() const throw();
+      double PlayerTransparency() const;
 
    private:
       /// position control
@@ -363,13 +363,13 @@ PositionControl::PositionControl(CameraControl& cameraControl,
 {
 }
 
-bool PositionControl::IsPlayerAngleControllable() const throw()
+bool PositionControl::IsPlayerAngleControllable() const
 {
    // when rotating, don't control player angle
    return !m_rotateLeftControl.IsKeyDown();
 }
 
-void PositionControl::OnKeyMoveForward(bool bKeyDown) throw()
+void PositionControl::OnKeyMoveForward(bool bKeyDown)
 {
    m_moveForwardControl.OnPlusKey(bKeyDown);
 
@@ -378,7 +378,7 @@ void PositionControl::OnKeyMoveForward(bool bKeyDown) throw()
       m_bAutoMove = false;
 }
 
-void PositionControl::OnKeyMoveBackward(bool bKeyDown) throw()
+void PositionControl::OnKeyMoveBackward(bool bKeyDown)
 {
    m_moveForwardControl.OnMinusKey(bKeyDown);
 
@@ -386,7 +386,7 @@ void PositionControl::OnKeyMoveBackward(bool bKeyDown) throw()
    m_bAutoMove = false;
 }
 
-void PositionControl::OnKeyRotateLeft(bool bKeyDown) throw()
+void PositionControl::OnKeyRotateLeft(bool bKeyDown)
 {
    if (m_bMouseLookMode)
       m_moveLeftControl.OnPlusKey(bKeyDown);
@@ -394,7 +394,7 @@ void PositionControl::OnKeyRotateLeft(bool bKeyDown) throw()
       m_rotateLeftControl.OnPlusKey(bKeyDown);
 }
 
-void PositionControl::OnKeyRotateRight(bool bKeyDown) throw()
+void PositionControl::OnKeyRotateRight(bool bKeyDown)
 {
    if (m_bMouseLookMode)
       m_moveLeftControl.OnMinusKey(bKeyDown);
@@ -402,7 +402,7 @@ void PositionControl::OnKeyRotateRight(bool bKeyDown) throw()
       m_rotateLeftControl.OnMinusKey(bKeyDown);
 }
 
-void PositionControl::OnKeyAutoMove(bool /*bKeyDown*/) throw()
+void PositionControl::OnKeyAutoMove(bool /*bKeyDown*/)
 {
    // note: when using "numlock", the behavior of that key is different:
    // when pressed and num lock is off, bKeyDown is false, else true, and
@@ -410,12 +410,12 @@ void PositionControl::OnKeyAutoMove(bool /*bKeyDown*/) throw()
    m_bAutoMove = !m_bAutoMove;
 }
 
-bool PositionControl::IsRunning() const throw()
+bool PositionControl::IsRunning() const
 {
    return m_bAutoMove || m_moveForwardControl.IsKeyDown() && m_moveForwardControl.IsPlus();
 }
 
-void PositionControl::SetMouseLookMode(bool bMouseLookMode) throw()
+void PositionControl::SetMouseLookMode(bool bMouseLookMode)
 {
    // changing mouselook mode?
    if (bMouseLookMode != m_bMouseLookMode)
@@ -504,7 +504,7 @@ CameraControl::CameraControl(PositionControl& positionControl,
    m_timer.Start();
 }
 
-void CameraControl::SetRunningFlag(bool bIsRunning) throw()
+void CameraControl::SetRunningFlag(bool bIsRunning)
 {
    if (!bIsRunning && m_bIsRunning)
       m_timer.Stop();
@@ -514,7 +514,7 @@ void CameraControl::SetRunningFlag(bool bIsRunning) throw()
    m_bIsRunning = bIsRunning;
 }
 
-void CameraControl::SetViewAngle(double dViewAngle) throw()
+void CameraControl::SetViewAngle(double dViewAngle)
 {
    if (m_bLeftDragging || m_bRightDragging)
       return; // we are currently in control of view angle, don't set another value
@@ -665,7 +665,7 @@ void CameraControl::MovePlayerAngle()
 }
 
 /// \details try to adjust view angle to match player movement angle
-void CameraControl::AdjustViewAngleWalking(double dElapsed) throw()
+void CameraControl::AdjustViewAngleWalking(double dElapsed)
 {
    if (dElapsed == 0.0)
       return;
@@ -699,7 +699,7 @@ void CameraControl::AdjustViewAngleWalking(double dElapsed) throw()
    CalcPosition();
 }
 
-void CameraControl::CalcPosition() throw()
+void CameraControl::CalcPosition()
 {
    m_vCameraPos = Vector3d(0.0, 0.0, m_dDistance);
    m_vCameraPos.RotateX(m_dViewAngleUp);
@@ -712,7 +712,7 @@ void CameraControl::CalcPosition() throw()
       m_fnSetCameraPosition(m_vCameraPos, m_dViewAngleDirection, m_dViewAngleUp);
 }
 
-double CameraControl::PlayerTransparency() const throw()
+double CameraControl::PlayerTransparency() const
 {
    const double dMax = 3.0; // distance where player starts to get transparent
    const double dMin = 1.0; // distance where player is fully transparent

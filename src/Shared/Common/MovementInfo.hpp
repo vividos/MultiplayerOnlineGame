@@ -42,41 +42,41 @@ public:
    };
 
    /// ctor
-   MovementInfo(T_enMovementMode enMovementMode = movementStand) throw();
+   MovementInfo(T_enMovementMode enMovementMode = movementStand);
 
    // getter
 
    /// returns movement mode
-   T_enMovementMode MovementMode() const throw() { return m_enMovementMode; }
+   T_enMovementMode MovementMode() const { return m_enMovementMode; }
 
    /// returns movement type
-   T_enMovementType MovementType() const throw();
+   T_enMovementType MovementType() const;
 
    /// returns position at start of update of movement info
-   const Vector3d& Position() const throw() { return m_vCurPos; }
+   const Vector3d& Position() const { return m_vCurPos; }
 
    /// returns destination position
-   const Vector3d& Destination() const throw() { return m_vDestPos; }
+   const Vector3d& Destination() const { return m_vDestPos; }
 
    /// returns speed
-   double Speed() const throw() { return m_dSpeedInUnitsPerSec; }
+   double Speed() const { return m_dSpeedInUnitsPerSec; }
 
    /// returns view angle to destination
-   double ViewAngle() const throw();
+   double ViewAngle() const;
 
    // setter
 
    /// sets current position
-   void Position(const Vector3d& pos) throw() { m_vCurPos = pos; }
+   void Position(const Vector3d& pos) { m_vCurPos = pos; }
 
    /// sets destination coordinates
-   void Destination(Vector3d destPos) throw() { m_vDestPos = destPos; }
+   void Destination(Vector3d destPos) { m_vDestPos = destPos; }
 
    /// sets movement direction; for movementDirection mode
-   void Direction(double dDirection) throw() { m_dDirection = dDirection; }
+   void Direction(double dDirection) { m_dDirection = dDirection; }
 
    /// sets speed
-   void Speed(double dSpeedInUnitsPerSec) throw() { m_dSpeedInUnitsPerSec = dSpeedInUnitsPerSec; }
+   void Speed(double dSpeedInUnitsPerSec) { m_dSpeedInUnitsPerSec = dSpeedInUnitsPerSec; }
 
    /// sets forward movement (forward or backward)
    void SetForwardMovement(bool bMovement, bool bMoveForward);
@@ -103,10 +103,10 @@ public:
    // operators
 
    /// equality operator
-   bool operator==(const MovementInfo& rhs) const throw();
+   bool operator==(const MovementInfo& rhs) const;
 
    /// inequality operator
-   bool operator!=(const MovementInfo& rhs) const throw()
+   bool operator!=(const MovementInfo& rhs) const
    {
       return !operator==(rhs);
    }

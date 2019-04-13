@@ -20,11 +20,11 @@
 
 using namespace Database;
 
-Manager::Manager() throw()
+Manager::Manager()
 {
 }
 
-Manager::~Manager() throw()
+Manager::~Manager()
 {
 }
 

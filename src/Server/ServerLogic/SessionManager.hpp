@@ -26,7 +26,7 @@ public:
    /// ctor
    SessionManager(IAuthManager& authManager, IModel& worldModel, boost::asio::io_service& ioService);
    /// dtor
-   virtual ~SessionManager() throw() {}
+   virtual ~SessionManager() {}
 
    /// inits a new session
    void InitSession(std::shared_ptr<Session> spSession);

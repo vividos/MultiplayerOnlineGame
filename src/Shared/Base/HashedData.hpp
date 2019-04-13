@@ -21,7 +21,7 @@ public:
    void Add(const std::vector<unsigned char>& vecData);
 
    /// returns hashed data; 32 data bytes (256 bits)
-   std::vector<unsigned char> Get() const throw();
+   std::vector<unsigned char> Get() const;
 
 private:
    /// private data; hash context

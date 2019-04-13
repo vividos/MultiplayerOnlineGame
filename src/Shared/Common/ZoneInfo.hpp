@@ -25,20 +25,20 @@ public:
    // getter
 
    /// returns zone name
-   const CString& Name() const throw() { return m_cszName; }
+   const CString& Name() const { return m_cszName; }
    /// returns background color
-   const Color BackgroundColor() const throw() { return m_cBackgroundColor; }
+   const Color BackgroundColor() const { return m_cBackgroundColor; }
    /// returns brightness
-   float Brightness() const throw() { return m_fBrightness; }
+   float Brightness() const { return m_fBrightness; }
 
    // setter
 
    /// sets zone name
-   void Name(const CString& cszName) throw() { m_cszName = cszName; }
+   void Name(const CString& cszName) { m_cszName = cszName; }
    /// sets background color
-   void BackgroundColor(const Color& cBackgroundColor) throw() { m_cBackgroundColor = cBackgroundColor; }
+   void BackgroundColor(const Color& cBackgroundColor) { m_cBackgroundColor = cBackgroundColor; }
    /// sets brightness
-   void Brightness(float fBrightness) throw() { m_fBrightness = fBrightness; }
+   void Brightness(float fBrightness) { m_fBrightness = fBrightness; }
 
    // serialization
 

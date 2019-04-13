@@ -15,7 +15,7 @@ class IController
 {
 public:
    /// dtor
-   virtual ~IController() throw() {}
+   virtual ~IController() {}
 
    /// sends command
    virtual void SendCommand(Command& c) = 0;

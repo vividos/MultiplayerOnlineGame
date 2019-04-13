@@ -23,7 +23,7 @@ public:
    /// ctor
    WorldRenderManager(RenderEngine& renderEngine, WorldGenerator& worldGenerator);
    /// dtor
-   ~WorldRenderManager() throw();
+   ~WorldRenderManager();
 
    /// returns camera
    std::shared_ptr<PerspectiveCamera> GetCamera() { return m_spCamera; }

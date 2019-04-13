@@ -14,7 +14,7 @@ class IActionQueue
 {
 public:
    /// dtor
-   virtual ~IActionQueue() throw() {}
+   virtual ~IActionQueue() {}
 
    /// post action
    virtual void Post(ActionPtr spAction) = 0;

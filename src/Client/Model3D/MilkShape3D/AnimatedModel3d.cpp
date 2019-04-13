@@ -104,7 +104,7 @@ int AnimatedModel3d::FindMountJointIndex(LPCTSTR pszName) const
    return FindJointByName(pszName);
 }
 
-void AnimatedModel3d::Prepare() throw()
+void AnimatedModel3d::Prepare()
 {
    SetupJoints();
    SetupTangents();
@@ -112,7 +112,7 @@ void AnimatedModel3d::Prepare() throw()
    PrepareIndexBuffer();
 }
 
-void AnimatedModel3d::Upload() throw()
+void AnimatedModel3d::Upload()
 {
    m_ibo.Update();
 }
@@ -358,7 +358,7 @@ void AnimatedModel3d::EvaluateRotation(const Joint& joint, double dFrame, Quater
 
 void AnimatedModel3d::TransformVertex(const Vertex& vertex,
                                       const std::vector<JointRenderData>& vecRenderData,
-                                      Vector3d& vVertex) const throw()
+                                      Vector3d& vVertex) const
 {
    if (vertex.m_iJointIndex < 0)
    {
@@ -377,7 +377,7 @@ void AnimatedModel3d::TransformVertex(const Vertex& vertex,
 
 void AnimatedModel3d::TransformNormal(const Vertex& vertex,
                                       const std::vector<JointRenderData>& vecRenderData,
-                                      Vector3d& vNormal) const throw()
+                                      Vector3d& vNormal) const
 {
    if (vertex.m_iJointIndex < 0)
       return;

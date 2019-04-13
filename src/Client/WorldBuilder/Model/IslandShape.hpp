@@ -14,10 +14,10 @@ class IslandShape
 {
 public:
    /// dtor
-   virtual ~IslandShape() throw() {}
+   virtual ~IslandShape() {}
 
    /// determines if point is on the island; x and y are in range [-0.5;0.5]
-   virtual bool IsInIsland(const Vector2d& point) const throw() = 0;
+   virtual bool IsInIsland(const Vector2d& point) const = 0;
 };
 
 /// The square shape fills the entire space with land
@@ -25,10 +25,10 @@ class SquareIslandShape: public IslandShape
 {
 public:
    /// dtor
-   virtual ~SquareIslandShape() throw() {}
+   virtual ~SquareIslandShape() {}
 
    /// determines if point is on the island
-   virtual bool IsInIsland(const Vector2d& /*point*/) const throw() override
+   virtual bool IsInIsland(const Vector2d& /*point*/) const override
    {
       return true;
    }
@@ -61,9 +61,9 @@ public:
    }
 
    /// dtor
-   virtual ~RadialIslandShape() throw() {}
+   virtual ~RadialIslandShape() {}
 
-   virtual bool IsInIsland(const Vector2d& point) const throw() override
+   virtual bool IsInIsland(const Vector2d& point) const override
    {
       double angle = Deg2Rad(point.PolarAngle());
       double length = 0.5 * (std::max(fabs(point.X()), fabs(point.Y())) + point.Length());
@@ -105,9 +105,9 @@ public:
    }
 
    /// dtor
-   virtual ~PerlinIslandShape() throw() {}
+   virtual ~PerlinIslandShape() {}
 
-   virtual bool IsInIsland(const Vector2d& point) const throw() override
+   virtual bool IsInIsland(const Vector2d& point) const override
    {
       // convert x and y from [-0.5; 0.5] to [0.0; 4.0]
       LinearTransform<double> ltxy(-0.5, 0.5, 0.0, 4.0);

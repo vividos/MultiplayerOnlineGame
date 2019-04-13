@@ -20,7 +20,7 @@ class RenderEngine::Impl: public boost::noncopyable
 {
 public:
    /// ctor
-   Impl() throw()
+   Impl()
    {
    }
 
@@ -76,7 +76,7 @@ RenderEngine::~RenderEngine()
    m_spImpl.reset();
 }
 
-void RenderEngine::SetScenegraph(std::shared_ptr<IScenegraph> spScenegraph) throw()
+void RenderEngine::SetScenegraph(std::shared_ptr<IScenegraph> spScenegraph)
 {
    ATLASSERT(m_spImpl != nullptr);
 

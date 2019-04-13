@@ -21,7 +21,7 @@ public:
    }
 
    /// dtor
-   virtual ~Player() throw() {}
+   virtual ~Player() {}
 
 private:
    /// inventory

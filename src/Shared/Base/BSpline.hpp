@@ -17,17 +17,17 @@ class BSpline: public boost::noncopyable
 {
 public:
    /// ctor
-   BSpline(unsigned int uiOrder = 3) throw();
+   BSpline(unsigned int uiOrder = 3);
 
    /// generates the b-spline curve
-   void Generate(const std::vector<float>& vecPoints) throw();
+   void Generate(const std::vector<float>& vecPoints);
 
    /// returns the value at a specific point; 0.0 <= at <= 1.0
-   float Get(float at) const throw();
+   float Get(float at) const;
 
 private:
    /// calculates b-spline base vector
-   void CalcBase(float at) throw();
+   void CalcBase(float at);
 
 private:
    int m_uiOrder; ///< order of the bspline equation
@@ -53,7 +53,7 @@ class BSpline3D: public boost::noncopyable
 {
 public:
    /// ctor
-   BSpline3D(unsigned int uiOrder = 3) throw()
+   BSpline3D(unsigned int uiOrder = 3)
       :m_bx(uiOrder),
        m_by(uiOrder),
        m_bz(uiOrder)
@@ -61,10 +61,10 @@ public:
    }
 
    /// generates the 3d b-spline
-   void Generate(const std::vector<Vector3d>& vecPoints) throw();
+   void Generate(const std::vector<Vector3d>& vecPoints);
 
    /// returns bspline vector
-   Vector3d Get(float at) const throw()
+   Vector3d Get(float at) const
    {
       return Vector3d(
          m_bx.Get(at),

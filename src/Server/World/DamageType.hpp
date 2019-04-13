@@ -35,10 +35,10 @@ public:
    static DamageType FromString(LPCTSTR pszType);
 
    /// returns damage type
-   T_enDamageType Type() const throw() { return m_enDamageType; }
+   T_enDamageType Type() const { return m_enDamageType; }
 
    /// formats type as string
-   LPCTSTR ToString() const throw();
+   LPCTSTR ToString() const;
 
 private:
    /// damage type

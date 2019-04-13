@@ -40,13 +40,13 @@ public:
    }
 
    /// dtor
-   ~FontImpl() throw()
+   ~FontImpl()
    {
       FT_Done_Face(m_face);
    }
 
    /// returns font face
-   FT_Face& Get() throw() { return m_face; }
+   FT_Face& Get() { return m_face; }
 
 private:
    /// font face
@@ -66,13 +66,13 @@ public:
    }
 
    /// dtor
-   ~FontManagerImpl() throw()
+   ~FontManagerImpl()
    {
       FT_Done_FreeType(m_library);
    }
 
    /// returns library instance
-   FT_Library& Get() throw() { return m_library; }
+   FT_Library& Get() { return m_library; }
 
 private:
    /// library instance

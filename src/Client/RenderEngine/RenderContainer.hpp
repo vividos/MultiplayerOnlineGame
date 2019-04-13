@@ -68,7 +68,7 @@ private:
       std::shared_ptr<IRenderable> m_spRenderable;
 
       /// less operator
-      bool operator<(const QueueItem& rhs) const throw()
+      bool operator<(const QueueItem& rhs) const
       {
          if (m_uiPriority != rhs.m_uiPriority)
             return m_uiPriority < rhs.m_uiPriority;

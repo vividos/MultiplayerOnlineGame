@@ -11,15 +11,15 @@ namespace CharGenerator
    {
    public:
       /// ctor
-      ViewModel() throw()
+      ViewModel()
          :m_dMovementAngle(0.0)
       {
       }
       /// dtor
-      virtual ~ViewModel() throw() {}
+      virtual ~ViewModel() {}
 
       /// returns movement angle
-      double MovementAngle() const throw() { return m_dMovementAngle; }
+      double MovementAngle() const { return m_dMovementAngle; }
 
    private:
       // virtual methods from IPlayerViewModel

@@ -34,10 +34,10 @@ public:
    // get methods
 
    /// returns item id
-   const Uuid& Id() const throw() { return m_id; }
+   const Uuid& Id() const { return m_id; }
 
    /// returns current durability; only set for weapons and armor
-   unsigned int Durability() const throw() { return m_uiDurability; }
+   unsigned int Durability() const { return m_uiDurability; }
 
    // serialize
 

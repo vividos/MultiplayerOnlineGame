@@ -51,7 +51,7 @@ public:
       IPlayerViewModel& playerViewModel,
       T_fnSetCameraPosition fnSetCameraPosition = T_fnSetCameraPosition());
    /// dtor
-   virtual ~ThirdPersonViewController() throw() {}
+   virtual ~ThirdPersonViewController() {}
 
    // virtual methods from IViewController
 

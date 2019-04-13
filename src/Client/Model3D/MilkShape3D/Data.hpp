@@ -39,7 +39,7 @@ struct Vertex
 struct Triangle
 {
    /// ctor
-   Triangle() throw()
+   Triangle()
    {
       std::uninitialized_fill(auiVertexIndices, auiVertexIndices+3, 0);
    }
@@ -115,12 +115,12 @@ public:
       m_aData[2] = dAngleZ;
    }
 
-   double X() const throw() { return m_aData[0]; } ///< returns x axis rotation angle
-   double Y() const throw() { return m_aData[1]; } ///< returns y axis rotation angle
-   double Z() const throw() { return m_aData[2]; } ///< returns z axis rotation angle
+   double X() const { return m_aData[0]; } ///< returns x axis rotation angle
+   double Y() const { return m_aData[1]; } ///< returns y axis rotation angle
+   double Z() const { return m_aData[2]; } ///< returns z axis rotation angle
 
    /// returns raw data values
-   const double* Data() const throw() { return m_aData.data(); }
+   const double* Data() const { return m_aData.data(); }
 
 private:
    /// angles
@@ -134,22 +134,22 @@ class KeyframeRot
 {
 public:
    /// default ctor
-   KeyframeRot(double dTime = 0.0) throw()
+   KeyframeRot(double dTime = 0.0)
       :m_dTime(dTime)
    {
    }
    /// ctor
-   KeyframeRot(double dTime, RotAngle3d key) throw()
+   KeyframeRot(double dTime, RotAngle3d key)
       :m_dTime(dTime),
        m_key(key)
    {
    }
 
    /// returns time value
-   double Time() const throw() { return m_dTime; }
+   double Time() const { return m_dTime; }
 
    /// returns rotation key
-   const RotAngle3d& Key() const throw() { return m_key; }
+   const RotAngle3d& Key() const { return m_key; }
 
 private:
    double m_dTime;   ///< time value
@@ -162,22 +162,22 @@ class KeyframeTrans
 {
 public:
    /// default ctor
-   KeyframeTrans(double dTime = 0.0) throw()
+   KeyframeTrans(double dTime = 0.0)
       :m_dTime(dTime)
    {
    }
    /// ctor
-   KeyframeTrans(double dTime, const Vector3d& vKey) throw()
+   KeyframeTrans(double dTime, const Vector3d& vKey)
       :m_dTime(dTime),
        m_vKey(vKey)
    {
    }
 
    /// returns time value
-   double Time() const throw() { return m_dTime; }
+   double Time() const { return m_dTime; }
 
    /// returns translation value
-   const Vector3d& Key() const throw() { return m_vKey; }
+   const Vector3d& Key() const { return m_vKey; }
 
 private:
    double m_dTime;   ///< time value
@@ -189,21 +189,21 @@ class Tangent
 {
 public:
    /// default ctor
-   Tangent() throw()
+   Tangent()
    {
    }
    /// ctor
-   Tangent(const Vector3d& vTangentIn, const Vector3d& vTangentOut) throw()
+   Tangent(const Vector3d& vTangentIn, const Vector3d& vTangentOut)
       :m_vTangentIn(vTangentIn),
        m_vTangentOut(vTangentOut)
    {
    }
 
    /// returns in tangent
-   const Vector3d& TangentIn() const throw() { return m_vTangentIn; }
+   const Vector3d& TangentIn() const { return m_vTangentIn; }
 
    /// returns out tangent
-   const Vector3d& TangentOut() const throw() { return m_vTangentOut; }
+   const Vector3d& TangentOut() const { return m_vTangentOut; }
 
 private:
    Vector3d m_vTangentIn;  ///< in tangent
@@ -216,36 +216,36 @@ class Joint
 {
 public:
    /// ctor
-   Joint() throw()
+   Joint()
       :bFlags(0),
        m_iParentIndex(-1)
    {
    }
 
    /// parent index, or -1 when none
-   int ParentIndex() const throw() { return m_iParentIndex; }
+   int ParentIndex() const { return m_iParentIndex; }
 
    /// sets new parent index
-   void ParentIndex(int iParentIndex) throw()
+   void ParentIndex(int iParentIndex)
    {
       ATLASSERT(iParentIndex >= -1);
       m_iParentIndex = iParentIndex;
    }
 
-   const Matrix4d& LocalSkeletonMatrix() const throw() { return m_matLocalSkeleton; } ///< returns local skeleton matrix; const-version
-         Matrix4d& LocalSkeletonMatrix()       throw() { return m_matLocalSkeleton; } ///< returns local skeleton matrix
+   const Matrix4d& LocalSkeletonMatrix() const { return m_matLocalSkeleton; } ///< returns local skeleton matrix; const-version
+         Matrix4d& LocalSkeletonMatrix() { return m_matLocalSkeleton; } ///< returns local skeleton matrix
 
-   const Matrix4d& GlobalSkeletonMatrix() const throw() { return m_matGlobalSkeleton; } ///< returns global skeleton matrix; const-version
-         Matrix4d& GlobalSkeletonMatrix()       throw() { return m_matGlobalSkeleton; } ///< returns global skeleton matrix
+   const Matrix4d& GlobalSkeletonMatrix() const { return m_matGlobalSkeleton; } ///< returns global skeleton matrix; const-version
+         Matrix4d& GlobalSkeletonMatrix() { return m_matGlobalSkeleton; } ///< returns global skeleton matrix
 
-   const std::vector<KeyframeRot>& RotationKeys() const throw() { return m_vecRotationKeys; } ///< returns list of rotation keys; const-version
-         std::vector<KeyframeRot>& RotationKeys()       throw() { return m_vecRotationKeys; } ///< returns list of rotation keys
+   const std::vector<KeyframeRot>& RotationKeys() const { return m_vecRotationKeys; } ///< returns list of rotation keys; const-version
+         std::vector<KeyframeRot>& RotationKeys() { return m_vecRotationKeys; } ///< returns list of rotation keys
 
-   const std::vector<KeyframeTrans>& PositionKeys() const throw() { return m_vecPositionKeys; } ///< returns list of translation keys; const-version
-         std::vector<KeyframeTrans>& PositionKeys()       throw() { return m_vecPositionKeys; } ///< returns list of translation keys
+   const std::vector<KeyframeTrans>& PositionKeys() const { return m_vecPositionKeys; } ///< returns list of translation keys; const-version
+         std::vector<KeyframeTrans>& PositionKeys() { return m_vecPositionKeys; } ///< returns list of translation keys
 
-   const std::vector<Tangent>& Tangents() const throw() { return m_vecTangents; } ///< returns list of tangents; const-version
-         std::vector<Tangent>& Tangents()       throw() { return m_vecTangents; } ///< returns list of tangents
+   const std::vector<Tangent>& Tangents() const { return m_vecTangents; } ///< returns list of tangents; const-version
+         std::vector<Tangent>& Tangents() { return m_vecTangents; } ///< returns list of tangents
 
 public:
    /// joint flags

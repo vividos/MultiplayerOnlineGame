@@ -23,7 +23,7 @@ public:
    }
 
    /// update axis aligned box when used as a bounding box
-   void UpdateBound(const Vector3d& vPoint) throw()
+   void UpdateBound(const Vector3d& vPoint)
    {
       m_adMin[0] = std::min(m_adMin[0], vPoint.X());
       m_adMin[1] = std::min(m_adMin[1], vPoint.Y());
@@ -35,10 +35,10 @@ public:
    }
 
    /// returns min vector
-   Vector3d Min() const throw() { return Vector3d(m_adMin); }
+   Vector3d Min() const { return Vector3d(m_adMin); }
 
    /// returns max vector
-   Vector3d Max() const throw() { return Vector3d(m_adMax); }
+   Vector3d Max() const { return Vector3d(m_adMax); }
 
 private:
    /// min values

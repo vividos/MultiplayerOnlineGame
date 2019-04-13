@@ -17,7 +17,7 @@ class IFileSystem
 {
 public:
    /// dtor
-   virtual ~IFileSystem() throw() {}
+   virtual ~IFileSystem() {}
 
    /// returns folder name of user data folder; writable
    virtual CString UserDataFolder() const = 0;

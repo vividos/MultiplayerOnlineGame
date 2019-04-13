@@ -14,7 +14,7 @@
 
 using namespace MilkShape3D;
 
-void CompositeModel3d::Prepare() throw()
+void CompositeModel3d::Prepare()
 {
    ATLASSERT(m_spAnimated != NULL);
    m_spAnimated->Prepare();
@@ -23,7 +23,7 @@ void CompositeModel3d::Prepare() throw()
       modelData.m_spStatic->Prepare();
 }
 
-void CompositeModel3d::Upload() throw()
+void CompositeModel3d::Upload()
 {
    ATLASSERT(m_spAnimated != NULL);
    m_spAnimated->Upload();
@@ -32,7 +32,7 @@ void CompositeModel3d::Upload() throw()
       modelData.m_spStatic->Upload();
 }
 
-void CompositeModel3d::AddStatic(LPCTSTR pszMountJoint, std::shared_ptr<StaticModel3d> spStatic) throw()
+void CompositeModel3d::AddStatic(LPCTSTR pszMountJoint, std::shared_ptr<StaticModel3d> spStatic)
 {
    ATLASSERT(m_spAnimated != NULL);
 

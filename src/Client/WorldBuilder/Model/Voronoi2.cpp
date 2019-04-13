@@ -39,7 +39,7 @@ Diagram::Diagram(const std::vector<Vector2d>& vecPoints, const Vector2d& vBounds
    builder.construct(&m_diagram);
 }
 
-size_t Diagram::NumSites() const throw()
+size_t Diagram::NumSites() const
 {
    return m_diagram.cells().size();
 }

@@ -14,22 +14,22 @@
 
 static_assert(sizeof(Uuid) == 16, "Uuid must have a size of 16 bytes");
 
-Uuid::Uuid(LPCTSTR pszUuid) throw()
+Uuid::Uuid(LPCTSTR pszUuid)
 {
    *this = FromString(pszUuid);
 }
 
-Uuid::Uuid(GUID& g) throw()
+Uuid::Uuid(GUID& g)
 {
    memcpy(this, &g, sizeof(g));
 }
 
-Uuid::Uuid(const BYTE* abData) throw()
+Uuid::Uuid(const BYTE* abData)
 {
    memcpy(this, abData, sizeof(*this));
 }
 
-Uuid Uuid::Null() throw()
+Uuid Uuid::Null()
 {
    GUID u = {0};
    return Uuid(u);
@@ -44,7 +44,7 @@ Uuid Uuid::New()
    return Uuid(u);
 }
 
-Uuid Uuid::FromString(LPCTSTR pszUuid) throw()
+Uuid Uuid::FromString(LPCTSTR pszUuid)
 {
    // note: the next cast only works when TCHAR == WCHAR
    static_assert(sizeof(TCHAR) == sizeof(WCHAR), "must compile using Unicode");
@@ -55,7 +55,7 @@ Uuid Uuid::FromString(LPCTSTR pszUuid) throw()
    return Uuid(u);
 }
 
-CString Uuid::ToString() const throw()
+CString Uuid::ToString() const
 {
    // we can pass "this" as UUID, since Uuid derives from GUID, and UUID is a
    // typedef of it.
@@ -69,17 +69,17 @@ CString Uuid::ToString() const throw()
    return cszUuid;
 }
 
-bool Uuid::operator==(const Uuid& lhs) const throw()
+bool Uuid::operator==(const Uuid& lhs) const
 {
    return 0 == memcmp(this, &lhs, sizeof(*this));
 }
 
-bool Uuid::operator!=(const Uuid& lhs) const throw()
+bool Uuid::operator!=(const Uuid& lhs) const
 {
    return 0 != memcmp(this, &lhs, sizeof(*this));
 }
 
-bool Uuid::operator<(const Uuid& lhs) const throw()
+bool Uuid::operator<(const Uuid& lhs) const
 {
    return memcmp(this, &lhs, sizeof(*this)) < 0;
 }

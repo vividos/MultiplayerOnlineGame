@@ -13,7 +13,7 @@ extern void AngleMatrix(const MilkShape3D::RotAngle3d& rotation, Matrix4d& matri
 
 using namespace MilkShape3D;
 
-int Model3dBase::FindJointByName(const CString& cszJointName) const throw()
+int Model3dBase::FindJointByName(const CString& cszJointName) const
 {
    for (size_t i=0, iMax=m_data.m_vecJoints.size(); i<iMax; i++)
       if (m_data.m_vecJoints[i].cszName == cszJointName)

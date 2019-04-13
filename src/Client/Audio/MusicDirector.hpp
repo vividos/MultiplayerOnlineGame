@@ -53,12 +53,12 @@ class AUDIO_DECLSPEC MusicDirector
 {
 public:
    /// ctor
-   MusicDirector(IAudioManager& audioManager, IFileSystem& fileSystem) throw();
+   MusicDirector(IAudioManager& audioManager, IFileSystem& fileSystem);
    /// dtor
    ~MusicDirector();
 
    /// returns configuration
-   MusicDirectorConfig& Config() throw() { return m_config; }
+   MusicDirectorConfig& Config() { return m_config; }
 
    /// reads music config file
    void ReadMusicConfig();

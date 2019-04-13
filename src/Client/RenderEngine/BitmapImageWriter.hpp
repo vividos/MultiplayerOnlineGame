@@ -17,7 +17,7 @@ class RENDERENGINE_DECLSPEC BitmapImageWriter: public boost::noncopyable
 {
 public:
    /// ctor
-   BitmapImageWriter(const Bitmap& bmp) throw()
+   BitmapImageWriter(const Bitmap& bmp)
       :m_bmp(bmp)
    {
    }

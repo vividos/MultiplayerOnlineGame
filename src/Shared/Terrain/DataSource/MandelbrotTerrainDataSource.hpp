@@ -18,16 +18,16 @@ class TERRAIN_DECLSPEC MandelbrotTerrainDataSource: public IDataSource
 {
 public:
    /// ctor
-   MandelbrotTerrainDataSource() throw() {}
+   MandelbrotTerrainDataSource() {}
    /// dtor
-   virtual ~MandelbrotTerrainDataSource() throw() {}
+   virtual ~MandelbrotTerrainDataSource() {}
 
    /// calculates and returns block
    virtual std::shared_ptr<Terrain::Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;
 
 private:
    /// iterates complex number
-   static unsigned int Iterate(double x, double y) throw();
+   static unsigned int Iterate(double x, double y);
 };
 
 } // namespace Terrain

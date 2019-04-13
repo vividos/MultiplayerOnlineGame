@@ -22,10 +22,10 @@ public:
    SelectionList();
 
    /// returns if selection is valid (or null)
-   bool IsSelectionValid() const throw();
+   bool IsSelectionValid() const;
 
    /// returns if object is in selection list
-   bool InList(const ObjectId& objId) const throw();
+   bool InList(const ObjectId& objId) const;
 
    /// selects object
    void Select(const ObjectId& objId);

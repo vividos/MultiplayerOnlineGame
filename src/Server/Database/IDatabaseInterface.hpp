@@ -34,7 +34,7 @@ class IDatabaseProvider
 {
 public:
    /// dtor
-   virtual ~IDatabaseProvider() throw() {}
+   virtual ~IDatabaseProvider() {}
 
    /// returns provider for given database type
    static IDatabaseProviderPtr GetProvider(EDatabaseProvider enProvider = databaseProviderSqlite3);
@@ -59,7 +59,7 @@ class IDatabase
 {
 public:
    /// dtor
-   virtual ~IDatabase() throw() {}
+   virtual ~IDatabase() {}
 
    /// opens a new query with given sql command
    virtual ICommandPtr OpenQuery(LPCTSTR pszCommandText) = 0;
@@ -81,7 +81,7 @@ class ICommand
 {
 public:
    /// dtor
-   virtual ~ICommand() throw() {}
+   virtual ~ICommand() {}
 
    /// returns parameter count of prepared statement
    virtual unsigned int GetParamCount() = 0;
@@ -111,7 +111,7 @@ class IResultSet
 {
 public:
    /// dtor
-   virtual ~IResultSet() throw() {}
+   virtual ~IResultSet() {}
 
    /// returns column count of result
    virtual unsigned int GetColumnCount() = 0;

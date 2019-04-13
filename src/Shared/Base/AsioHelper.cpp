@@ -33,7 +33,7 @@ CString EndpointToString(boost::asio::ip::tcp::endpoint& endpoint)
    return cszEndpoint;
 }
 
-bool IsAvailIPv6() throw()
+bool IsAvailIPv6()
 {
    // try to resolve IPv6 localhost; only works when at least
    // one network card with IPv6 is installed.

@@ -65,9 +65,9 @@ public:
    }
 
    /// returns vertex buffer entries array
-         std::vector<VertexBufferEntry>& Vertices()       throw() { return m_vecVertices; }
+   std::vector<VertexBufferEntry>& Vertices() { return m_vecVertices; }
    /// returns vertex buffer entries array; const version
-   const std::vector<VertexBufferEntry>& Vertices() const throw() { return m_vecVertices; }
+   const std::vector<VertexBufferEntry>& Vertices() const { return m_vecVertices; }
 
    /// uploads vertex buffer
    void Upload(bool bClearStorage = true)

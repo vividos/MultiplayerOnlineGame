@@ -14,13 +14,13 @@ class IModel3d
 {
 public:
    /// dtor
-   virtual ~IModel3d() throw() {}
+   virtual ~IModel3d() {}
 
    /// prepares model for rendering
-   virtual void Prepare() throw() = 0;
+   virtual void Prepare() = 0;
 
    /// uploads data to graphics card
-   virtual void Upload() throw() = 0;
+   virtual void Upload() = 0;
 };
 
 /// 3d model smart ptr

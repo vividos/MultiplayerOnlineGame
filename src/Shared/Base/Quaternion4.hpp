@@ -14,33 +14,33 @@ class BASE_DECLSPEC Quaternion4d
 {
 public:
    /// ctor, taking vector and w component
-   Quaternion4d(const Vector3d& vXyz, double dW) throw()
+   Quaternion4d(const Vector3d& vXyz, double dW)
       :m_vXyz(vXyz),
        m_dW(dW)
    {
    }
 
    /// ctor, taking components
-   Quaternion4d(double dX = 0.0, double dY = 0.0, double dZ = 0.0, double dW = 0.0) throw()
+   Quaternion4d(double dX = 0.0, double dY = 0.0, double dZ = 0.0, double dW = 0.0)
       :m_vXyz(dX, dY, dZ),
        m_dW(dW)
    {
    }
 
    /// calculates length of quaternion
-   double Length() const throw();
+   double Length() const;
 
    /// returns xyz components
-   const Vector3d& Xyz() const throw() { return m_vXyz; }
+   const Vector3d& Xyz() const { return m_vXyz; }
 
    /// returns w component
-   double W() const throw() { return m_dW; }
+   double W() const { return m_dW; }
 
    /// scales quaternion to unit length
-   void Normalize() throw();
+   void Normalize();
 
    /// converts quaternion to axis and rotation angle
-   void ToAxisAngle(Vector3d& vAxis, double& dAngle) const throw();
+   void ToAxisAngle(Vector3d& vAxis, double& dAngle) const;
 
    /// calculate quaternion from angles
    void FromAngles(const double adAngles[3]);
@@ -50,13 +50,13 @@ public:
 
 private:
    /// read-write access to components
-   double& operator[](size_t i) throw()
+   double& operator[](size_t i)
    {
       ATLASSERT(i<4);
       return i<3 ? m_vXyz.Data()[i] : m_dW;
    }
    /// read-only access to components
-   const double& operator[](size_t i) const throw()
+   const double& operator[](size_t i) const
    {
       ATLASSERT(i<4);
       return i<3 ? m_vXyz.Data()[i] : m_dW;

@@ -23,12 +23,12 @@ class MODEL3D_DECLSPEC ModelRenderInstance
 {
 public:
    /// ctor
-   ModelRenderInstance(std::shared_ptr<IModelDisplayState> spDisplayState) throw();
+   ModelRenderInstance(std::shared_ptr<IModelDisplayState> spDisplayState);
 
    // get methods
 
    /// returns display state
-   std::shared_ptr<IModelDisplayState> DisplayState() throw() { return m_spDisplayState; }
+   std::shared_ptr<IModelDisplayState> DisplayState() { return m_spDisplayState; }
 
    // set methods
 
@@ -42,7 +42,7 @@ public:
    void SetTransparency(double dTransparency);
 
    /// sets selection
-   void SetSelected(bool bSelected) throw() { m_bSelected = bSelected; }
+   void SetSelected(bool bSelected) { m_bSelected = bSelected; }
 
    /// sets scale
    void SetScale(const Vector3d& vScale = Vector3d(1.0, 1.0, 1.0));
@@ -61,7 +61,7 @@ private:
    Vector3d CalculatedPos();
 
    /// returns calculated player transparency
-   double CalcPlayerTransparency() throw();
+   double CalcPlayerTransparency();
 
 private:
    enum T_enFadeMode

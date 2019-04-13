@@ -85,7 +85,7 @@ ViewFrustum3d::ViewFrustum3d(const Vector3d& vPos, double dAngleDir, double dAng
 }
 
 /// \see http://www.lighthouse3d.com/tutorials/view-frustum-culling/geometric-approach-testing-points-and-spheres/
-bool ViewFrustum3d::IsPointInside(const Vector3d& vPos) const throw()
+bool ViewFrustum3d::IsPointInside(const Vector3d& vPos) const
 {
    for (unsigned int i=0; i<6; i++)
       if (m_aPlanes[i].Distance(vPos) < 0)
@@ -94,7 +94,7 @@ bool ViewFrustum3d::IsPointInside(const Vector3d& vPos) const throw()
    return true;
 }
 
-ViewFrustum3d::T_enIntersectResult ViewFrustum3d::IsSphereInside(const Vector3d& vPos, double dRadius) const throw()
+ViewFrustum3d::T_enIntersectResult ViewFrustum3d::IsSphereInside(const Vector3d& vPos, double dRadius) const
 {
    T_enIntersectResult result = resultInside;
    for (unsigned int i=0; i<6; i++)
@@ -111,7 +111,7 @@ ViewFrustum3d::T_enIntersectResult ViewFrustum3d::IsSphereInside(const Vector3d&
 }
 
 /// \see http://www.lighthouse3d.com/tutorials/view-frustum-culling/geometric-approach-testing-boxes/
-ViewFrustum3d::T_enIntersectResult ViewFrustum3d::IsBoxInside(const AABox& box) const throw()
+ViewFrustum3d::T_enIntersectResult ViewFrustum3d::IsBoxInside(const AABox& box) const
 {
    T_enIntersectResult result = resultInside;
 

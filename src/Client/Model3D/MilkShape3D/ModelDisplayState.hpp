@@ -33,10 +33,10 @@ struct ModelBlueprint;
 struct JointRenderData
 {
 public:
-   const Matrix4d& LocalMatrix() const throw() { return m_matLocal; } ///< returns current local matrix; const version
-         Matrix4d& LocalMatrix()       throw() { return m_matLocal; } ///< returns current local matrix
-   const Matrix4d& GlobalMatrix() const throw() { return m_matGlobal; } ///< returns current global matrix; const version
-         Matrix4d& GlobalMatrix()       throw() { return m_matGlobal; } ///< returns current global matrix
+   const Matrix4d& LocalMatrix() const { return m_matLocal; } ///< returns current local matrix; const version
+         Matrix4d& LocalMatrix() { return m_matLocal; } ///< returns current local matrix
+   const Matrix4d& GlobalMatrix() const { return m_matGlobal; } ///< returns current global matrix; const version
+         Matrix4d& GlobalMatrix() { return m_matGlobal; } ///< returns current global matrix
 
 private:
    /// local matrix; modified by ElevateJoints()
@@ -89,7 +89,7 @@ public:
    /// ctor
    ModelDisplayState(std::shared_ptr<CompositeModel3d> spModel);
    /// dtor
-   virtual ~ModelDisplayState() throw() {}
+   virtual ~ModelDisplayState() {}
 
    /// prepares display state
    void Prepare(ModelManager& modelManager, const ModelBlueprint& blueprint);
@@ -146,31 +146,31 @@ private:
    void EvaluateJoint(Joint& joint, JointRenderData& renderData, double dFrame);
 
    /// renders animated model, using immediate mode
-   void RenderAnimatedModelImmediateMode(RenderOptions& options) const throw();
+   void RenderAnimatedModelImmediateMode(RenderOptions& options) const;
 
    /// renders animated model, using vertex buffer
-   void RenderAnimatedModelVertexBuffer(RenderOptions& options) const throw();
+   void RenderAnimatedModelVertexBuffer(RenderOptions& options) const;
 
    /// binds material for group
-   void BindMaterial(const Group& group) const throw();
+   void BindMaterial(const Group& group) const;
 
    /// renders all static models
-   void RenderStaticModels(RenderOptions& options) const throw();
+   void RenderStaticModels(RenderOptions& options) const;
 
    /// renders model normals
-   void RenderModelNormals(const Group& group) const throw();
+   void RenderModelNormals(const Group& group) const;
 
    /// renders joints
-   void RenderJoints() const throw();
+   void RenderJoints() const;
 
    /// renders joint lines
-   void RenderJointLines() const throw();
+   void RenderJointLines() const;
 
    /// renders joint points
-   void RenderJointPoints() const throw();
+   void RenderJointPoints() const;
 
    /// renders mount point for static object
-   void RenderMountPoint() const throw();
+   void RenderMountPoint() const;
 
 private:
    /// timer for display state

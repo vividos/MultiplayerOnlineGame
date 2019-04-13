@@ -46,12 +46,12 @@ public:
    }
 
    /// dtor
-   ~Bitmap() throw() {}
+   ~Bitmap() {}
 
    /// returns x resolution
-   unsigned int XRes() const throw() { return m_xres; }
+   unsigned int XRes() const { return m_xres; }
    /// returns < resolution
-   unsigned int YRes() const throw() { return m_yres; }
+   unsigned int YRes() const { return m_yres; }
 
    /// sets single pixel
    void Set(unsigned int x, unsigned int y, Color c);
@@ -64,10 +64,10 @@ public:
       unsigned int left = 0, unsigned int top = 0, unsigned int bottom = 0, unsigned int right = 0);
 
    /// access to underlying data; non-const version
-   Color* Data() throw() { return &m_vecData[0]; }
+   Color* Data() { return &m_vecData[0]; }
 
    /// access to underlying data; const version
-   const Color* Data() const throw() { return &m_vecData[0]; }
+   const Color* Data() const { return &m_vecData[0]; }
 
 private:
    unsigned int m_xres; ///< x resolution

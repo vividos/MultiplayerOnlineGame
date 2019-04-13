@@ -20,6 +20,6 @@ Controller::Controller(KeyboardActionManager& /*keyboardActionManager*/,
    spCamera->SetPosition(Vector3d(0.0, 2.0, -2.5), 180.0, -20.0);
 }
 
-Controller::~Controller() throw()
+Controller::~Controller()
 {
 }

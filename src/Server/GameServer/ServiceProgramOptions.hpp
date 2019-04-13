@@ -48,11 +48,11 @@ public:
    }
 
    /// returns service action
-   T_enServiceAction ServiceAction() const throw() { return m_enServiceAction; }
+   T_enServiceAction ServiceAction() const { return m_enServiceAction; }
 
 private:
    /// sets service action; used in RegisterOption() call
-   bool SetServiceAction(T_enServiceAction enServiceAction) throw()
+   bool SetServiceAction(T_enServiceAction enServiceAction)
    {
       m_enServiceAction = enServiceAction;
       return true;

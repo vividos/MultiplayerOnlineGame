@@ -43,7 +43,7 @@ public:
    }
 
    /// returns io service used
-   boost::asio::io_service& GetIoService() throw() { return m_ioService; }
+   boost::asio::io_service& GetIoService() { return m_ioService; }
 
 private:
    /// io service for queue

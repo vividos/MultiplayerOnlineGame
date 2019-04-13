@@ -24,7 +24,7 @@ class USERINTERFACE_DECLSPEC TextField: public Control
 {
 public:
    /// ctor
-   TextField() throw()
+   TextField()
    {
    }
 
@@ -41,11 +41,11 @@ public:
    virtual void OnMouseMotionEvent(unsigned int /*x*/, unsigned int /*y*/) override {}
    virtual bool OnKeyboardEvent(bool /*bKeyDown*/, unsigned int /*sym*/, unsigned int /*mod*/) override { return false; }
 
-   virtual void OnAttributeChanged(const CString& cszAttributeName) throw() override;
+   virtual void OnAttributeChanged(const CString& cszAttributeName) override;
 
 private:
    /// updates texture
-   void UpdateTexture() throw();
+   void UpdateTexture();
 
 private:
    /// texture

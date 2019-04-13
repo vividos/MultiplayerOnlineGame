@@ -17,7 +17,7 @@ CommandTranslator::CommandTranslator(IModel& model)
 {
 }
 
-CommandTranslator::~CommandTranslator() throw()
+CommandTranslator::~CommandTranslator()
 {
 }
 

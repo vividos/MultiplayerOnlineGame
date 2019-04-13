@@ -24,7 +24,7 @@ class ElevationData
 public:
    /// ctor
    /// \param uiSize size of (square) data block; must be power of two
-   ElevationData(unsigned int uiSize) throw();
+   ElevationData(unsigned int uiSize);
 
    // set methods
 
@@ -38,7 +38,7 @@ public:
    // get methods
 
    /// returns size of (square) data block
-   unsigned int Size() const throw() { return m_uiSize; }
+   unsigned int Size() const { return m_uiSize; }
 
    /// returns height at given integer coordinate
    double Height(unsigned int x, unsigned int y) const
@@ -57,13 +57,13 @@ public:
    double InterpolatedHeight(double x, double y) const;
 
    /// returns height array
-   std::vector<float>& RawData() throw() { return m_vecElevation; }
+   std::vector<float>& RawData() { return m_vecElevation; }
 
    /// returns height array; const version
-   const std::vector<float>& RawData() const throw() { return m_vecElevation; }
+   const std::vector<float>& RawData() const { return m_vecElevation; }
 
    /// returns vertex by index
-   Vector3d VertexByIndex(size_t index) const throw()
+   Vector3d VertexByIndex(size_t index) const
    {
       unsigned int x, y;
       m_arrayMapper.IndexToCoord(index, x, y);
@@ -71,7 +71,7 @@ public:
    }
 
    /// returns array mapper
-   const ArrayMapper2D& ArrayMapper() const throw() { return m_arrayMapper; }
+   const ArrayMapper2D& ArrayMapper() const { return m_arrayMapper; }
 
 private:
    /// elevation data array

@@ -19,10 +19,10 @@ public:
    DEFINE_INSTANCE(IAuthManager)
 
    /// dtor
-   virtual ~IAuthManager() throw() {}
+   virtual ~IAuthManager() {}
 
    /// checks if account is available
-   virtual bool IsAccountAvail(const CString& cszUsername) throw() = 0;
+   virtual bool IsAccountAvail(const CString& cszUsername) = 0;
 
    /// returns account info
    virtual Account GetAccount(const CString& cszUsername) = 0;

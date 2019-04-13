@@ -36,7 +36,7 @@ public:
    DatabaseSqlite3(LPCTSTR pszFilename);
 
    /// dtor
-   ~DatabaseSqlite3() throw();
+   ~DatabaseSqlite3();
 
    virtual Database::ICommandPtr OpenQuery(LPCTSTR pszCommandText) override;
 
@@ -45,7 +45,7 @@ public:
    virtual CString GetLastError() override;
 
    /// returns db instance
-   sqlite3* GetDb() const throw() { return m_pDb; }
+   sqlite3* GetDb() const { return m_pDb; }
 
 private:
    /// db instance
@@ -76,10 +76,10 @@ public:
    virtual long long GetLastInsertRowId() override;
 
    /// returns db instance
-   sqlite3* GetDb() const throw() { return m_spDatabase->GetDb(); }
+   sqlite3* GetDb() const { return m_spDatabase->GetDb(); }
 
    /// returns db statement instance
-   sqlite3_stmt* GetStatement() const throw() { return m_pStmt; }
+   sqlite3_stmt* GetStatement() const { return m_pStmt; }
 
 private:
    /// db statement instance
@@ -100,7 +100,7 @@ public:
    }
 
    /// dtor
-   virtual ~ResultSet() throw() {}
+   virtual ~ResultSet() {}
 
    virtual unsigned int GetColumnCount() override;
 
@@ -110,7 +110,7 @@ public:
    virtual bool MoveNext() override;
 
    /// returns db statement instance
-   sqlite3_stmt* GetStatement() const throw() { return m_spCommand->GetStatement(); }
+   sqlite3_stmt* GetStatement() const { return m_spCommand->GetStatement(); }
 
 private:
    /// command instance

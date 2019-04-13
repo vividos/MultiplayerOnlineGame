@@ -24,7 +24,7 @@ PFNGLDELETEBUFFERSARBPROC BufferObjectBase::glDeleteBuffersARB = 0;
 PFNGLMAPBUFFERARBPROC BufferObjectBase::glMapBufferARB = 0;
 PFNGLUNMAPBUFFERARBPROC BufferObjectBase::glUnmapBufferARB = 0;
 
-BufferObjectBase::BufferObjectBase() throw()
+BufferObjectBase::BufferObjectBase()
 {
    // buffer object must be constructed in render context
    ATLASSERT(true == OpenGL::IsRenderThread());
@@ -32,7 +32,7 @@ BufferObjectBase::BufferObjectBase() throw()
    boost::call_once(&BufferObjectBase::Init, g_initFlag);
 }
 
-void BufferObjectBase::Init() throw()
+void BufferObjectBase::Init()
 {
    glGenBuffersARB = (PFNGLGENBUFFERSARBPROC)wglGetProcAddress("glGenBuffersARB");
    glBindBufferARB = (PFNGLBINDBUFFERARBPROC)wglGetProcAddress("glBindBufferARB");

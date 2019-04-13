@@ -10,7 +10,7 @@
 #include "PerlinNoise.hpp"
 #include "Math.hpp"
 
-double CosineInterpolate(double d0, double d1, double delta) throw()
+double CosineInterpolate(double d0, double d1, double delta)
 {
    ATLASSERT(delta >= 0.0 && delta <= 1.0);
 
@@ -20,20 +20,20 @@ double CosineInterpolate(double d0, double d1, double delta) throw()
 }
 
 
-double Noise1D(int x) throw()
+double Noise1D(int x)
 {
    x = (x<<13) ^ x;
    int xx = (x * (x * x * 15731 + 789221) + 1376312589) & 0x7fffffff;
    return 1.0 - xx / 1073741824.0;
 }
 
-double PerlinNoise2D::Noise2D(int x, int y) throw()
+double PerlinNoise2D::Noise2D(int x, int y)
 {
    int n = x + y * 57;
    return Noise1D(n);
 }
 
-double PerlinNoise2D::SmoothNoise2D(int x, int y) const throw()
+double PerlinNoise2D::SmoothNoise2D(int x, int y) const
 {
    double corners = ( m_fnNoise2D(x-1, y-1) + m_fnNoise2D(x+1, y-1) + m_fnNoise2D(x-1, y+1) + m_fnNoise2D(x+1, y+1) ) / 16.0;
    double sides   = ( m_fnNoise2D(x-1, y)   + m_fnNoise2D(x+1, y)   + m_fnNoise2D(x, y-1)   + m_fnNoise2D(x, y+1) ) /  8.0;
@@ -42,7 +42,7 @@ double PerlinNoise2D::SmoothNoise2D(int x, int y) const throw()
    return corners + sides + center;
 }
 
-double PerlinNoise2D::InterpolatedNoise(double x, double y) const throw()
+double PerlinNoise2D::InterpolatedNoise(double x, double y) const
 {
    int intx = int(floor(x));
    double fractx = x - intx;
@@ -61,7 +61,7 @@ double PerlinNoise2D::InterpolatedNoise(double x, double y) const throw()
    return Interpolate(i1, i2, fracty);
 }
 
-double PerlinNoise2D::Get(double x, double y) const throw()
+double PerlinNoise2D::Get(double x, double y) const
 {
    double total = 0.0;
 

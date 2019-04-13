@@ -30,7 +30,7 @@ void ReduceAlgorithmBase::Reduce(IActiveVertexMap& activeVertexMap)
    }
 }
 
-Vector3d ReduceAlgorithmBase::MapPoint(unsigned int x,unsigned  int y) const throw()
+Vector3d ReduceAlgorithmBase::MapPoint(unsigned int x,unsigned  int y) const
 {
    ATLASSERT(x <= m_uiSize);
    ATLASSERT(y <= m_uiSize);
@@ -148,7 +148,7 @@ coplanar the quad is.  The elevation of the corners are averaged, and compared
 to the elevation of the center.  The greater the difference between these two 
 values, the more non-coplanar this quad is.
 */
-double ReduceAlgorithmCameraDistance::CalcDelta(unsigned int x1, unsigned int y1, unsigned int uiQuadSize) throw()
+double ReduceAlgorithmCameraDistance::CalcDelta(unsigned int x1, unsigned int y1, unsigned int uiQuadSize)
 {
    unsigned int half = uiQuadSize / 2;
    unsigned int xc = x1 + half;

@@ -16,7 +16,7 @@ Filesystem::Filesystem()
 {
 }
 
-CString Filesystem::FontsFolder() throw()
+CString Filesystem::FontsFolder()
 {
    // returns windows fonts folder
    CString cszFolder = Path::SpecialFolder(CSIDL_FONTS);

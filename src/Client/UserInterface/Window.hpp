@@ -39,14 +39,14 @@ class Window:
 {
 public:
    /// ctor
-   Window() throw() {}
+   Window() {}
    /// dtor
-   virtual ~Window() throw() {}
+   virtual ~Window() {}
 
    /// returns real window; only used for proxy window
-   virtual Window& RealWindow() throw() { return *this; }
+   virtual Window& RealWindow() { return *this; }
    /// returns real window; only used for proxy window; const version
-   virtual const Window& RealWindow() const throw() { return *this; }
+   virtual const Window& RealWindow() const { return *this; }
 
    // event map
    BEGIN_EVENT_MAP()

@@ -68,7 +68,7 @@ void PerspectiveCamera::SetNearFarPlaneDistance(double dNearPlaneDist, double dF
    m_dFarPlaneDist = dFarPlaneDist;
 }
 
-ViewFrustum3d PerspectiveCamera::GetViewFrustum() const throw()
+ViewFrustum3d PerspectiveCamera::GetViewFrustum() const
 {
    GLint viewport[4];
    glGetIntegerv(GL_VIEWPORT, viewport);

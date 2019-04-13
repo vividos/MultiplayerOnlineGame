@@ -40,12 +40,12 @@ AttachedConsole::AttachedConsole()
    SetupRedirect();
 }
 
-AttachedConsole::~AttachedConsole() throw()
+AttachedConsole::~AttachedConsole()
 {
    Detach();
 }
 
-void AttachedConsole::Detach() throw()
+void AttachedConsole::Detach()
 {
    if (m_bCalledFromConsole && !m_cszPrompt.IsEmpty())
    {

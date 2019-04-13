@@ -24,11 +24,11 @@ class USERINTERFACE_DECLSPEC Panel: public Window
 {
 public:
    /// ctor
-   Panel() throw()
+   Panel()
    {
    }
    /// dtor
-   virtual ~Panel() throw() {}
+   virtual ~Panel() {}
 
    BEGIN_ATTR_MAP()
       INHERIT_ATTR_MAP(Window)
@@ -56,7 +56,7 @@ public:
       }
    }
 
-   virtual void Render(Rect& rectArea) throw() override;
+   virtual void Render(Rect& rectArea) override;
 
    virtual bool OnMouseButtonEvent(bool bPressed, int iMouseButton, unsigned int x, unsigned int y) override;
    virtual void OnMouseMotionEvent(unsigned int x, unsigned int y) override;
@@ -88,10 +88,10 @@ public:
    }
 
    /// returns if background is shown
-   bool IsShowBackground() throw();
+   bool IsShowBackground();
 
    /// returns background color
-   Color BackgroundColor() throw();
+   Color BackgroundColor();
 
 private:
    /// all child windows (in order)

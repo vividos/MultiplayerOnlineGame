@@ -73,7 +73,7 @@ void Spell::Deserialize(ByteStream& stream)
       m_spEffect2.reset();
 }
 
-CString Spell::ToString() const throw()
+CString Spell::ToString() const
 {
    CString cszText, cszTemp;
 

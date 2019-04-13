@@ -21,9 +21,9 @@ class TERRAIN_DECLSPEC ScatteredPointDataSource: public IDataSource
 {
 public:
    /// ctor
-   ScatteredPointDataSource() throw();
+   ScatteredPointDataSource();
    /// dtor
-   virtual ~ScatteredPointDataSource() throw() {}
+   virtual ~ScatteredPointDataSource() {}
 
    /// calculates and returns block
    virtual std::shared_ptr<Terrain::Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;

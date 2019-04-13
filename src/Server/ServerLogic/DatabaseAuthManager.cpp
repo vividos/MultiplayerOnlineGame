@@ -15,7 +15,7 @@
 #include "IDatabaseInterface.hpp"
 #include <functional>
 
-bool DatabaseAuthManager::IsAccountAvail(const CString& cszUsername) throw()
+bool DatabaseAuthManager::IsAccountAvail(const CString& cszUsername)
 {
    std::shared_ptr<Database::IDatabase> spDatabase = m_databaseManager.GetDatabase();
 

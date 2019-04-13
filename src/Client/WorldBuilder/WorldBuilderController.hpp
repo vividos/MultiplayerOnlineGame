@@ -21,7 +21,7 @@ public:
    /// ctor
    WorldBuilderController(std::shared_ptr<PerspectiveCamera> spCamera);
    /// dtor
-   ~WorldBuilderController() throw();
+   ~WorldBuilderController();
 
    /// does idle processing
    void OnIdle();

@@ -1,21 +1,21 @@
 #include "StdAfx.h"
 #include "EquipItemMap.hpp"
 
-EquipItemMap::EquipItemMap() throw()
+EquipItemMap::EquipItemMap()
 {
 }
 
-void EquipItemMap::PutSlot(T_enEquipSlotType /*enEquipSlotType*/, ItemPtr /*spItem*/) throw()
-{
-   // TODO impl
-}
-
-void EquipItemMap::ClearSlot(T_enEquipSlotType /*enEquipSlotType*/) throw()
+void EquipItemMap::PutSlot(T_enEquipSlotType /*enEquipSlotType*/, ItemPtr /*spItem*/)
 {
    // TODO impl
 }
 
-ItemPtr EquipItemMap::GetSlot(T_enEquipSlotType /*enEquipSlotType*/) const throw()
+void EquipItemMap::ClearSlot(T_enEquipSlotType /*enEquipSlotType*/)
+{
+   // TODO impl
+}
+
+ItemPtr EquipItemMap::GetSlot(T_enEquipSlotType /*enEquipSlotType*/) const
 {
    // TODO impl
    return ItemPtr();

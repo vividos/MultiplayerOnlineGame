@@ -23,7 +23,7 @@ public:
    /// ctor
    EnemyMobile(LocalModel& model, const Vector3d& vOffset = Vector3d());
    /// dtor
-   virtual ~EnemyMobile() throw() {}
+   virtual ~EnemyMobile() {}
 
    // actions
 

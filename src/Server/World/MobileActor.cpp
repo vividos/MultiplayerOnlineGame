@@ -10,7 +10,7 @@
 #include "MobileActor.hpp"
 #include "ThreatList.hpp"
 
-MobileActor::MobileActor(const ObjectId& id) throw()
+MobileActor::MobileActor(const ObjectId& id)
 :Mobile(id),
  m_spThreatList(new ThreatList)
 {

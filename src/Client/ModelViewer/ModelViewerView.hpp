@@ -34,7 +34,7 @@ namespace ModelViewer
          GraphicsTaskManager& taskManager);
 
       /// returns camera
-      std::shared_ptr<PerspectiveCamera> GetCamera() throw() { return m_spCamera; }
+      std::shared_ptr<PerspectiveCamera> GetCamera() { return m_spCamera; }
 
    private:
       /// called when model description changed

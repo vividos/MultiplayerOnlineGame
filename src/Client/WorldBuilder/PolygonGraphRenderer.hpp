@@ -21,10 +21,10 @@ class PolygonGraphRenderer : public IRenderable
 {
 public:
    /// ctor
-   PolygonGraphRenderer(const PolygonGraph::Graph& graph) throw();
+   PolygonGraphRenderer(const PolygonGraph::Graph& graph);
 
    /// dtor
-   virtual ~PolygonGraphRenderer() throw() {}
+   virtual ~PolygonGraphRenderer() {}
 
    // virtual methods from IRenderable
 

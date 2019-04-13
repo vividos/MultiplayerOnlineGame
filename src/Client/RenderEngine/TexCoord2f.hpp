@@ -13,23 +13,23 @@ class TexCoord2f
 {
 public:
    /// ctor
-   TexCoord2f(float u = 0.0f, float v = 0.0f) throw()
+   TexCoord2f(float u = 0.0f, float v = 0.0f)
    {
       m_afPos[0] = u;
       m_afPos[1] = v;
    }
 
    /// returns U coordinate
-   float U() const throw() { return m_afPos[u]; }
+   float U() const { return m_afPos[u]; }
 
    /// returns V coordinate
-   float V() const throw() { return m_afPos[v]; }
+   float V() const { return m_afPos[v]; }
 
    /// returns data, e.g. for a call to glTexCoord2fv()
-   const float* Data() const throw() { return m_afPos; }
+   const float* Data() const { return m_afPos; }
 
    /// returns data, e.g. for a call to glTexCoord2fv()
-   float* Data() throw() { return m_afPos; }
+   float* Data() { return m_afPos; }
 
 private:
    /// enum to access texture pos components per name

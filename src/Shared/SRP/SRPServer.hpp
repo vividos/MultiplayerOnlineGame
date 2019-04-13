@@ -34,7 +34,7 @@ public:
    BinaryData VerifyClient(const BinaryData& Mclient);
 
    /// returns K
-   const BinaryData& GetK() const throw()
+   const BinaryData& GetK() const
    {
       ATLASSERT(!m_K.empty());
       return m_K;

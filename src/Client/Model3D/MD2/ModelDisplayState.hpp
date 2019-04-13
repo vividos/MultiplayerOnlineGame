@@ -37,10 +37,10 @@ public:
    /// ctor
    ModelDisplayState(std::shared_ptr<ModelData> spModelData, TexturePtr spTexture);
    /// dtor
-   virtual ~ModelDisplayState() throw() {}
+   virtual ~ModelDisplayState() {}
 
    /// prepares display state
-   void Prepare() throw();
+   void Prepare();
 
    // virtual methods from IModelDisplayState
 
@@ -63,18 +63,18 @@ public:
 
 private:
    /// renders a frame of the model
-   void RenderFrame(RenderOptions& options) const throw();
+   void RenderFrame(RenderOptions& options) const;
 
    /// prepares an "on-demand" frame step
    void PrepareFrameStep(OpenGL::DisplayListArray& dla, bool bCompileAndRender,
-      unsigned int uiFrame, unsigned int uiStep) throw();
+      unsigned int uiFrame, unsigned int uiStep);
 
    /// directly renders frame by percent elapsed between current and next frame
    void RenderFramePercent(unsigned int uiNumFrame, unsigned int uiNextFrame,
-      double dPercent, unsigned int& uiPolycount) const throw();
+      double dPercent, unsigned int& uiPolycount) const;
 
    /// renders bounding box
-   void RenderBoundingBox(unsigned int uiCurrentFrame) const throw();
+   void RenderBoundingBox(unsigned int uiCurrentFrame) const;
 
    /// sets new animation
    void SetAnimation(int type);

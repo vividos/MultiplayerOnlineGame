@@ -25,13 +25,13 @@ public:
    // get methods
 
    /// returns height at given coordinates inside the block
-   double HeightInterpolate(double x, double y) const throw();
+   double HeightInterpolate(double x, double y) const;
 
    /// returns elevation data
-   const ElevationData& GetElevationData() const throw() { return m_elevationData; }
+   const ElevationData& GetElevationData() const { return m_elevationData; }
 
    /// returns elevation data; non-const version
-   ElevationData& GetElevationData() throw() { return m_elevationData; }
+   ElevationData& GetElevationData() { return m_elevationData; }
 
 private:
    /// elevation data

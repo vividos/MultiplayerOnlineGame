@@ -14,7 +14,7 @@
 
 /// starts new event map; parent classes event map is ignored
 #define BEGIN_EVENT_MAP() \
-   virtual void GetEvents(std::set<CString>& setEvents) const throw() { setEvents;
+   virtual void GetEvents(std::set<CString>& setEvents) const { setEvents;
 
 /// extends event map from parent
 #define INHERIT_EVENT_MAP(BaseClass) \
@@ -41,13 +41,13 @@ public:
    typedef std::function<void()> T_fnEventHandler;
 
    /// ctor
-   Observable() throw()
+   Observable()
       :m_bInited(false)
    {
    }
 
    /// returns events; implemented by BEGIN_EVENT_MAP macro
-   virtual void GetEvents(std::set<CString>& /*setEvents*/) const throw() = 0
+   virtual void GetEvents(std::set<CString>& /*setEvents*/) const = 0
    {
       ATLASSERT(false); // must use BEGIN_EVENT_MAP macro to implement event map!
    }
@@ -92,7 +92,7 @@ public:
    }
 
    /// returns if object supports event with given name
-   bool IsAvailEvent(const CString& cszEventName) const throw()
+   bool IsAvailEvent(const CString& cszEventName) const
    {
       Init();
       return m_setAllEvents.find(cszEventName) != m_setAllEvents.end();
@@ -145,7 +145,7 @@ public:
 
 private:
    /// initializes event system
-   void Init() const throw()
+   void Init() const
    {
       if (m_bInited)
          return;

@@ -27,14 +27,14 @@ void ViewModel::GetAnimationFrames(const CString& cszAnimationName,
       cszAnimationName, uiStartFrame, uiEndFrame);
 }
 
-void ViewModel::DisplayInfo(const MobileDisplayInfo& displayInfo) throw()
+void ViewModel::DisplayInfo(const MobileDisplayInfo& displayInfo)
 {
    m_player.DisplayInfo(displayInfo);
 
    ModelDescriptionChangedEvent().Call(m_player);
 }
 
-void ViewModel::CurrentAnimation(unsigned int uiCurrentAnimation) throw()
+void ViewModel::CurrentAnimation(unsigned int uiCurrentAnimation)
 {
    ATLASSERT(uiCurrentAnimation < m_vecAnimationNames.size());
    m_uiCurrentAnimation = uiCurrentAnimation;

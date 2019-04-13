@@ -27,7 +27,7 @@ class IBlockRenderData
 {
 public:
    /// dtor
-   virtual ~IBlockRenderData() throw() {}
+   virtual ~IBlockRenderData() {}
 
    /// prepares render data; called only once
    virtual void Prepare(std::shared_ptr<Model::DataBlock> spDataBlock) = 0;

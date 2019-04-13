@@ -31,12 +31,12 @@ public:
    }
 
    /// dtor
-   virtual ~MovePlayerMessage() throw() {}
+   virtual ~MovePlayerMessage() {}
 
    // get methods
 
    /// returns player movement info
-   const MovementInfo& Info() const throw() { return m_movementInfo; }
+   const MovementInfo& Info() const { return m_movementInfo; }
 
    // serialization
 

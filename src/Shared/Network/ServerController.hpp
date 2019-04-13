@@ -22,9 +22,9 @@ class NETWORK_DECLSPEC ServerController:
 {
 public:
    /// ctor
-   ServerController(ServerModel& serverModel, IModel& worldModel) throw();
+   ServerController(ServerModel& serverModel, IModel& worldModel);
    /// dtor
-   virtual ~ServerController() throw() {}
+   virtual ~ServerController() {}
 
    /// inits controller
    void Init(ObjectId playerId);

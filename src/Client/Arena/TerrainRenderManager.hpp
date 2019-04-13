@@ -25,7 +25,7 @@ namespace Arena
       /// ctor
       TerrainRenderManager(RenderEngine& engine, GraphicsTaskManager& taskManager);
       /// dtor
-      virtual ~TerrainRenderManager() throw() {}
+      virtual ~TerrainRenderManager() {}
 
    private:
       /// data source

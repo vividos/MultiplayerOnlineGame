@@ -67,7 +67,7 @@ public:
    typedef std::function<void()> T_fnOnKeyboardActionKeyEvent;
 
    /// ctor
-   KeyboardActionManager() throw()
+   KeyboardActionManager()
       :m_uiNextHandlerId(0)
    {}
 
@@ -131,7 +131,7 @@ private:
       T_fnOnKeyboardAction m_fnOnKeyboardAction;
 
       /// less operator
-      bool operator<(const ActionHandlerEntry& rhs) const throw()
+      bool operator<(const ActionHandlerEntry& rhs) const
       {
          return m_enAction < rhs.m_enAction;
       }

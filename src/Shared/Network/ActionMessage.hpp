@@ -25,10 +25,10 @@ public:
    {
    }
    /// dtor
-   virtual ~ActionMessage() throw() {}
+   virtual ~ActionMessage() {}
 
    /// returns action
-   ActionPtr GetAction() throw() { return m_spAction; }
+   ActionPtr GetAction() { return m_spAction; }
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override;

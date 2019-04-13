@@ -42,8 +42,8 @@ class TERRAIN_DECLSPEC ReducedTriangleBlockRenderData : public IBlockRenderData
 public:
    /// ctor
    ReducedTriangleBlockRenderData(GraphicsTaskManager& taskManager,
-      BlockTextureGenerator& blockTextureGenerator) throw();
-   virtual ~ReducedTriangleBlockRenderData() throw() {}
+      BlockTextureGenerator& blockTextureGenerator);
+   virtual ~ReducedTriangleBlockRenderData() {}
 
 private:
    // virtual methods from IBlockRenderData
@@ -68,7 +68,7 @@ private:
       std::shared_ptr<Terrain::Model::DataBlock> spDataBlock);
 
    /// maps camera distance to level
-   static unsigned int MapDistToLevel(double dist) throw();
+   static unsigned int MapDistToLevel(double dist);
 
    /// fills zone level data
    void FillZoneLevelData(ZoneLevelData& data, std::shared_ptr<Terrain::Model::DataBlock> spZoneBlock,
@@ -86,7 +86,7 @@ private:
    /// zone data, per level
    struct ZoneLevelData
    {
-      ZoneLevelData() throw()
+      ZoneLevelData()
          :m_bValid(false)
       {
       }

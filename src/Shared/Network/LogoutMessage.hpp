@@ -34,7 +34,7 @@ public:
    }
 
    /// returns logout reason
-   T_enLogoutReason LogoutReason() const throw() { return m_enLogoutReason; }
+   T_enLogoutReason LogoutReason() const { return m_enLogoutReason; }
 
    // serialization
 

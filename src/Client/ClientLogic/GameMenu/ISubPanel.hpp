@@ -24,7 +24,7 @@ namespace GameMenu
       {
       }
       /// dtor
-      virtual ~ISubPanel() throw() {}
+      virtual ~ISubPanel() {}
 
       /// shows sub panel
       virtual void Show(IWindowManager& windowManager) = 0;

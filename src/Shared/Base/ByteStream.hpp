@@ -24,7 +24,7 @@ public:
    }
 
    /// dtor
-   virtual ~ByteStream() throw()
+   virtual ~ByteStream()
    {
    }
 
@@ -293,13 +293,13 @@ public:
    // misc. methods
 
    /// returns remaining data
-   std::vector<unsigned char>& Data() throw() { return m_vecData; }
+   std::vector<unsigned char>& Data() { return m_vecData; }
 
    /// returns current pos
-   size_t Pos() const throw() { return m_uiPos; }
+   size_t Pos() const { return m_uiPos; }
 
    /// returns size
-   size_t Size() const throw() { return m_vecData.size(); }
+   size_t Size() const { return m_vecData.size(); }
 
 private:
    /// data

@@ -29,13 +29,13 @@ public:
 
    // get methods
 
-   LPCTSTR ServiceName() const throw() { return m_cszServiceName; } ///< returns service name
-   LPCTSTR DisplayName() const throw() { return m_cszDisplayName; } ///< returns service display name
-   LPCTSTR Description() const throw() { return m_cszDescription; } ///< returns service description
+   LPCTSTR ServiceName() const { return m_cszServiceName; } ///< returns service name
+   LPCTSTR DisplayName() const { return m_cszDisplayName; } ///< returns service display name
+   LPCTSTR Description() const { return m_cszDescription; } ///< returns service description
 
-   LPCTSTR LogCategory() const throw() { return m_cszLogCategory; } ///< returns log category
+   LPCTSTR LogCategory() const { return m_cszLogCategory; } ///< returns log category
 
-   LPCTSTR CommandLine() const throw() { return m_cszCommandLine; } ///< returns command line
+   LPCTSTR CommandLine() const { return m_cszCommandLine; } ///< returns command line
 
 private:
    CString m_cszServiceName; ///< service name

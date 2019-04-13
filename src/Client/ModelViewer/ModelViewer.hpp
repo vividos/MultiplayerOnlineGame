@@ -22,7 +22,7 @@ namespace ModelViewer
       {
       }
       /// dtor
-      virtual ~Client() throw() {}
+      virtual ~Client() {}
 
       /// starts viewer
       void Start();

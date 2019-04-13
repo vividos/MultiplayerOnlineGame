@@ -40,10 +40,10 @@ public:
    TerrainRenderManager(RenderEngine& engine, GraphicsTaskManager& taskManager,
       Terrain::Model::DataBlockManager& dataBlockManager);
    /// dtor
-   virtual ~TerrainRenderManager() throw() {}
+   virtual ~TerrainRenderManager() {}
 
    /// sets new LOD center position
-   void SetPosition(const Vector3d& vPosition, double dAngleDir) throw();
+   void SetPosition(const Vector3d& vPosition, double dAngleDir);
 
    // virtual methods from IRenderable
    virtual bool IsPrepareNeeded() const override { return true; }

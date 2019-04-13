@@ -29,18 +29,18 @@ class StaticModel3d: public Model3dBase
 {
 public:
    /// ctor
-   StaticModel3d() throw()
+   StaticModel3d()
       :m_vbo(0)
    {
    }
    /// dtor
-   virtual ~StaticModel3d() throw() {}
+   virtual ~StaticModel3d() {}
 
    /// prepares model for rendering
-   virtual void Prepare() throw() override;
+   virtual void Prepare() override;
 
    /// uploads data to graphics card
-   virtual void Upload() throw() override;
+   virtual void Upload() override;
 
    /// returns the texture name of the (hopefully) only one material of the model
    CString SingleMaterialTextureName() const;

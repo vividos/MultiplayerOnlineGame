@@ -40,7 +40,7 @@ std::shared_ptr<Terrain::Model::DataBlock> MandelbrotTerrainDataSource::LoadBloc
    return spDataBlock;
 }
 
-unsigned int MandelbrotTerrainDataSource::Iterate(double x, double y) throw()
+unsigned int MandelbrotTerrainDataSource::Iterate(double x, double y)
 {
    const unsigned int c_uiMaxIter = 64;
    unsigned int uiIter = 0;

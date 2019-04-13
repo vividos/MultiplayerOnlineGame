@@ -17,7 +17,7 @@ public:
    typedef std::vector<unsigned char>::iterator TIterator;
 
    /// dtor
-   virtual ~IEncryptModule() throw() {}
+   virtual ~IEncryptModule() {}
 
    /// decrypts received bytes
    virtual void DecryptRead(TIterator itFirst, TIterator itLast) = 0;

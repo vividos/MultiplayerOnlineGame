@@ -11,7 +11,7 @@ class Account
 {
 public:
    /// ctor
-   Account() throw()
+   Account()
       :m_bLogonAllowed(false),
        m_iAccountId(-1)
    {
@@ -20,36 +20,36 @@ public:
    // get methods
 
    /// returns username
-   const CString& Username() const throw() { return m_cszUsername; }
+   const CString& Username() const { return m_cszUsername; }
 
    /// returns password or encrypted password key
-   const CString& Password() const throw() { return m_cszPassword; }
+   const CString& Password() const { return m_cszPassword; }
 
    /// returns salt of password key
-   const CString& Salt() const throw() { return m_cszSalt; }
+   const CString& Salt() const { return m_cszSalt; }
 
    /// returns if login is allowed
-   bool LogonAllowed() const throw() { return m_bLogonAllowed; }
+   bool LogonAllowed() const { return m_bLogonAllowed; }
 
    /// returns account id
-   int AccountId() const throw() { return m_iAccountId; }
+   int AccountId() const { return m_iAccountId; }
 
    // set methods
 
    /// sets username
-   void Username(const CString& cszUsername) throw() { m_cszUsername = cszUsername; }
+   void Username(const CString& cszUsername) { m_cszUsername = cszUsername; }
 
    /// sets password or encrypted password key
-   void Password(const CString& cszPassword) throw() { m_cszPassword = cszPassword; }
+   void Password(const CString& cszPassword) { m_cszPassword = cszPassword; }
 
    /// sets salt of password key
-   void Salt(const CString& cszSalt) throw() { m_cszSalt = cszSalt; }
+   void Salt(const CString& cszSalt) { m_cszSalt = cszSalt; }
 
    /// sets if login is allowed
-   void LogonAllowed(bool bLogonAllowed) throw() { m_bLogonAllowed = bLogonAllowed; }
+   void LogonAllowed(bool bLogonAllowed) { m_bLogonAllowed = bLogonAllowed; }
 
    /// sets account id
-   void AccountId(int iAccountId) throw() { m_iAccountId = iAccountId; }
+   void AccountId(int iAccountId) { m_iAccountId = iAccountId; }
 
 private:
    CString m_cszUsername;  ///< username

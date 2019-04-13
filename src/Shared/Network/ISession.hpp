@@ -14,7 +14,7 @@ class ISession: public boost::noncopyable
 {
 public:
    /// dtor
-   virtual ~ISession() throw() {}
+   virtual ~ISession() {}
 
    /// sends message to recipient
    virtual void SendMessage(const Message& msg) = 0;

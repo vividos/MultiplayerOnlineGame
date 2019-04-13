@@ -55,7 +55,7 @@ public:
    }
 
    /// returns value
-   unsigned int Value() const throw() { return m_uiValue; }
+   unsigned int Value() const { return m_uiValue; }
 
 private:
    friend class MetricsManager;

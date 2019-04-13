@@ -18,7 +18,7 @@ class NETWORK_DECLSPEC ClientModel:
 {
 public:
    /// ctor
-   ClientModel() throw() {}
+   ClientModel() {}
 
    // virtual functions from LocalModel
 

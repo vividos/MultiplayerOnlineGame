@@ -79,7 +79,7 @@ public:
    /// ctor
    ModelManager(IFileSystem& fileSystem, GraphicsTaskManager& taskManager);
    /// dtor
-   ~ModelManager() throw() {}
+   ~ModelManager() {}
 
    /// creates model instance from mobile
    std::shared_ptr<IModelDisplayState> Create(const Mobile& mobile);

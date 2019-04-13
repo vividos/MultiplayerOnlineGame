@@ -25,13 +25,13 @@ public:
    {
    }
    /// dtor
-   virtual ~DatabaseAuthManager() throw() {}
+   virtual ~DatabaseAuthManager() {}
 
 private:
    // virtual methods from IAuthManager
 
    /// checks if account is available
-   virtual bool IsAccountAvail(const CString& cszUsername) throw() override;
+   virtual bool IsAccountAvail(const CString& cszUsername) override;
 
    /// returns account info
    virtual Account GetAccount(const CString& cszUsername) override;

@@ -26,7 +26,7 @@ public:
    /// ctor
    TextureLoader(GraphicsTaskManager& taskManager, IFileSystem& fileSystem);
    /// dtor
-   virtual ~TextureLoader() throw() {}
+   virtual ~TextureLoader() {}
 
    /// loads texture from source and uploads it asynchronously; extension is used to find loader
    void Load(const CString& cszFilename, std::shared_ptr<Texture> spTexture, bool bGenerateMipmap);

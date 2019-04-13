@@ -31,26 +31,26 @@ public:
    }
 
    /// dtor
-   virtual ~Object() throw() {}
+   virtual ~Object() {}
 
    // getter
 
    /// unique object id
-   const ObjectId& Id() const throw() { return m_id; }
+   const ObjectId& Id() const { return m_id; }
 
    /// position
-   const Vector3d& Pos() const throw() { return m_pos; }
+   const Vector3d& Pos() const { return m_pos; }
 
    /// object name
-   const CString& Name() const throw() { return m_cszName; }
+   const CString& Name() const { return m_cszName; }
 
    // setter
 
    /// position
-   void Pos(const Vector3d& pos) throw() { m_pos = pos; }
+   void Pos(const Vector3d& pos) { m_pos = pos; }
 
    /// object name
-   void Name(const CString& cszName) throw() { m_cszName = cszName; }
+   void Name(const CString& cszName) { m_cszName = cszName; }
 
    // serialize
 

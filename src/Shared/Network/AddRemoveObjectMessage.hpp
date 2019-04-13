@@ -32,7 +32,7 @@ public:
    }
 
    /// dtor
-   virtual ~AddRemoveObjectMessage() throw() {}
+   virtual ~AddRemoveObjectMessage() {}
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override;
@@ -43,10 +43,10 @@ public:
    // get methods
 
    /// returns list of objects to add
-   const std::vector<ObjectPtr>& GetObjectsToAdd() const throw() { return m_vecObjectsToAdd; }
+   const std::vector<ObjectPtr>& GetObjectsToAdd() const { return m_vecObjectsToAdd; }
 
    /// returns list of objects to remove
-   const std::vector<ObjectId>& GetObjectsToRemove() const throw() { return m_vecObjectsToRemove; }
+   const std::vector<ObjectId>& GetObjectsToRemove() const { return m_vecObjectsToRemove; }
 
 private:
    /// list of objects to add

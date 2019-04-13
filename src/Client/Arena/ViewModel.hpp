@@ -29,14 +29,14 @@ public:
    /// ctor
    ViewModel(IModel& model);
    /// dtor
-   ~ViewModel() throw() {}
+   ~ViewModel() {}
 
    // get methods
 
    /// returns local model
-         LocalModel& GetLocalModel()       throw();
+         LocalModel& GetLocalModel();
    /// returns local model
-   const LocalModel& GetLocalModel() const throw();
+   const LocalModel& GetLocalModel() const;
 
    /// returns player object
    std::shared_ptr<Player> GetPlayer();
@@ -48,7 +48,7 @@ public:
    const ObjectMap& GetObjectMap() const;
 
    /// returns player transparency
-   double GetPlayerTransparency() const throw() { return m_dPlayerTransparency; }
+   double GetPlayerTransparency() const { return m_dPlayerTransparency; }
 
 
    // set methods
@@ -69,16 +69,16 @@ public:
    typedef Subject<void(const Player&)> T_UpdatePlayerEvent;
 
    /// returns add object event
-   T_AddObjectEvent& AddObjectEvent() throw() { return m_addObjectEvent; }
+   T_AddObjectEvent& AddObjectEvent() { return m_addObjectEvent; }
 
    /// returns remove object event
-   T_RemoveObjectEvent& RemoveObjectEvent() throw() { return m_removeObjectEvent; }
+   T_RemoveObjectEvent& RemoveObjectEvent() { return m_removeObjectEvent; }
 
    /// returns update object event
-   T_UpdateObjectEvent& UpdateObjectEvent() throw() { return m_updateObjectEvent; }
+   T_UpdateObjectEvent& UpdateObjectEvent() { return m_updateObjectEvent; }
 
    /// returns update object event
-   T_UpdatePlayerEvent& UpdatePlayerEvent() throw() { return m_updatePlayerEvent; }
+   T_UpdatePlayerEvent& UpdatePlayerEvent() { return m_updatePlayerEvent; }
 
    // actions
 

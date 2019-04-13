@@ -24,7 +24,7 @@ private:
    friend class Singleton<ConsoleServer>;
 
    /// ctor
-   ConsoleServer() throw()
+   ConsoleServer()
    {
    }
 

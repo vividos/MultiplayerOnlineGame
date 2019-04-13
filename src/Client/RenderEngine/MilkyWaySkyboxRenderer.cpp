@@ -95,7 +95,7 @@ static GLdouble g_adTexCoords[6][4][2] =
 };
 
 
-MilkyWaySkyboxRenderer::MilkyWaySkyboxRenderer(GraphicsTaskManager& taskManager, IFileSystem& fileSystem) throw()
+MilkyWaySkyboxRenderer::MilkyWaySkyboxRenderer(GraphicsTaskManager& taskManager, IFileSystem& fileSystem)
 :m_taskManager(taskManager),
  m_fileSystem(fileSystem),
  m_dRotateAngle(0.0)

@@ -37,7 +37,7 @@ SocketListener::SocketListener(ISessionManager& sessionManager, boost::asio::io_
          boost::asio::placeholders::error));
 }
 
-SocketListener::~SocketListener() throw()
+SocketListener::~SocketListener()
 {
    try
    {

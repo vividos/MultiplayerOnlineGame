@@ -42,7 +42,7 @@ public:
    /// ctor
    AudioManager();
    /// dtor
-   virtual ~AudioManager() throw();
+   virtual ~AudioManager();
 
    /// registers a positional source
    void RegisterPositionalSource(OpenAL::SourcePtr spSource);

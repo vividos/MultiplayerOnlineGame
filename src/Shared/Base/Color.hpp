@@ -13,13 +13,13 @@
 struct Color
 {
    /// ctor
-   Color() throw() {}
+   Color() {}
 
    /// ctor that takes array of RGBA components
-   Color(const unsigned char c[4]) throw() { memcpy(m_color, c, sizeof(m_color)); }
+   Color(const unsigned char c[4]) { memcpy(m_color, c, sizeof(m_color)); }
 
    /// ctor that takes RGBA components as separate parameters
-   Color(unsigned char cRed, unsigned char cGreen, unsigned char cBlue, unsigned char cAlpha = 255) throw()
+   Color(unsigned char cRed, unsigned char cGreen, unsigned char cBlue, unsigned char cAlpha = 255)
    {
       m_color[red] = cRed;
       m_color[green] = cGreen;
@@ -27,12 +27,12 @@ struct Color
       m_color[alpha] = cAlpha;
    }
 
-   static Color White() throw() { unsigned char c[4] = { 255, 255, 255, 255}; return Color(c); } ///< predefined color white
-   static Color Black() throw() { unsigned char c[4] = {   0,   0,   0, 255}; return Color(c); } ///< predefined color black
-   static Color Red() throw() {   unsigned char c[4] = { 255,   0,   0, 255}; return Color(c); } ///< predefined color red
-   static Color Green() throw() { unsigned char c[4] = {   0, 255,   0, 255}; return Color(c); } ///< predefined color green
-   static Color Blue() throw() {  unsigned char c[4] = {   0,   0, 255, 255}; return Color(c); } ///< predefined color blue
-   static Color Transparent() throw() {   unsigned char c[4] = { 0, 0, 0, 0}; return Color(c); } ///< predefined color "transparent"
+   static Color White() { unsigned char c[4] = { 255, 255, 255, 255}; return Color(c); } ///< predefined color white
+   static Color Black() { unsigned char c[4] = {   0,   0,   0, 255}; return Color(c); } ///< predefined color black
+   static Color Red() {   unsigned char c[4] = { 255,   0,   0, 255}; return Color(c); } ///< predefined color red
+   static Color Green() { unsigned char c[4] = {   0, 255,   0, 255}; return Color(c); } ///< predefined color green
+   static Color Blue() {  unsigned char c[4] = {   0,   0, 255, 255}; return Color(c); } ///< predefined color blue
+   static Color Transparent() {   unsigned char c[4] = { 0, 0, 0, 0}; return Color(c); } ///< predefined color "transparent"
 
    /// color channel enum to access m_color
    enum T_enColorChannel
@@ -47,7 +47,7 @@ struct Color
    unsigned char m_color[4];
 
    /// calculates luminance with fixed factors
-   unsigned char Luminance() const throw()
+   unsigned char Luminance() const
    {
       return static_cast<unsigned char>(
          0.299 * m_color[red] + 0.587 * m_color[green] + 0.114 *  m_color[blue] );

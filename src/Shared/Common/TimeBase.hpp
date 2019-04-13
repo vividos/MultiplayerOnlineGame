@@ -21,10 +21,10 @@ public:
    }
 
    /// returns current time index
-   double Get() const throw() { return m_dTime; }
+   double Get() const { return m_dTime; }
 
    /// less operator
-   bool operator<(const TimeIndex& rhs) const throw() { return m_dTime < rhs.m_dTime; }
+   bool operator<(const TimeIndex& rhs) const { return m_dTime < rhs.m_dTime; }
 
 private:
    /// time index value
@@ -36,10 +36,10 @@ class COMMON_DECLSPEC TimeBase
 {
 public:
    /// ctor; initializes time base
-   TimeBase() throw();
+   TimeBase();
 
    /// returns seconds and fractions since epoch;
-   TimeIndex Now() const throw();
+   TimeIndex Now() const;
 
 private:
    /// offset to epoch in seconds

@@ -15,7 +15,7 @@ class Control: public Window
 {
 public:
    /// dtor
-   virtual ~Control() throw() {}
+   virtual ~Control() {}
 
    /// registers child; always throws exception: Control cannot be used as parent class for child windows
    virtual void RegisterChild(WindowPtr) override

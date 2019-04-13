@@ -32,21 +32,21 @@ public:
    typedef Subject<void(const ObjectId& id)> T_SubjectOnRemoveObject;
    typedef Subject<void(const ObjectId& id, const MovementInfo& info)> T_SubjectOnUpdateObject;
 
-   T_SubjectOnAddObject& SubjectOnAddObject() throw() { return m_subjectOnAddObject; }
-   T_SubjectOnRemoveObject& SubjectOnRemoveObject() throw() { return m_subjectOnRemoveObject; }
-   T_SubjectOnUpdateObject& SubjectOnUpdateObject() throw() { return m_subjectOnUpdateObject; }
+   T_SubjectOnAddObject& SubjectOnAddObject() { return m_subjectOnAddObject; }
+   T_SubjectOnRemoveObject& SubjectOnRemoveObject() { return m_subjectOnRemoveObject; }
+   T_SubjectOnUpdateObject& SubjectOnUpdateObject() { return m_subjectOnUpdateObject; }
 
    // access to model objects
 
    /// returns player object
-   MobilePtr Player() throw() { return m_spPlayer; }
+   MobilePtr Player() { return m_spPlayer; }
    /// returns player object; const version
-   const MobilePtr Player() const throw() { return m_spPlayer; }
+   const MobilePtr Player() const { return m_spPlayer; }
 
    /// returns object map
-   ObjectMap& GetObjectMap() throw() { return m_objectMap; }
+   ObjectMap& GetObjectMap() { return m_objectMap; }
    /// returns object map; const version
-   const ObjectMap& GetObjectMap() const throw() { return m_objectMap; }
+   const ObjectMap& GetObjectMap() const { return m_objectMap; }
 
    // virtual functions from IModel
 

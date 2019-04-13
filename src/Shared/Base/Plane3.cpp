@@ -9,14 +9,14 @@
 #include "StdAfx.h"
 #include "Plane3.hpp"
 
-Plane3d::Plane3d(const Vector3d& vPos, const Vector3d& vNormal) throw()
+Plane3d::Plane3d(const Vector3d& vPos, const Vector3d& vNormal)
 :m_vNormal(vNormal)
 {
    m_vNormal.Normalize();
    m_dDist = -m_vNormal.Dot(vPos);
 }
 
-Plane3d::Plane3d(const Vector3d& vPos1, const Vector3d& vPos2, const Vector3d& vPos3) throw()
+Plane3d::Plane3d(const Vector3d& vPos1, const Vector3d& vPos2, const Vector3d& vPos3)
 {
    // calculate normal
    Vector3d vDir1 = vPos2 - vPos1;
@@ -31,7 +31,7 @@ Plane3d::Plane3d(const Vector3d& vPos1, const Vector3d& vPos2, const Vector3d& v
 /// as the normal is pointing towards; when it is negative, point lies on the
 /// opposite side of the plane.
 /// \see http://www.lighthouse3d.com/cg-topics/maths/plane/
-double Plane3d::Distance(const Vector3d& vPos) const throw()
+double Plane3d::Distance(const Vector3d& vPos) const
 {
    return m_vNormal.Dot(vPos) + m_dDist;
 }

@@ -48,12 +48,12 @@ ZoneManager::ZoneManager(GraphicsTaskManager& taskManager,
    m_vecRenderData.resize(c_uiNumZones * c_uiNumZones);
 }
 
-unsigned int ZoneManager::NumZones() const throw()
+unsigned int ZoneManager::NumZones() const
 {
    return c_uiNumZones;
 }
 
-bool ZoneManager::IsCurrentLevel(unsigned int uiZoneIndex, unsigned int uiLevel) const throw()
+bool ZoneManager::IsCurrentLevel(unsigned int uiZoneIndex, unsigned int uiLevel) const
 {
    const RenderData& renderData = m_vecRenderData[uiZoneIndex];
    // TODO remove const_cast: CurrentLevel() can be const?
@@ -183,12 +183,12 @@ ZoneManager::RenderData::RenderData()
    m_vecIsPrepared.resize(c_uiNumLevels, 0);
 }
 
-bool ZoneManager::RenderData::IsLevelPrepared(unsigned int uiLevel) const throw()
+bool ZoneManager::RenderData::IsLevelPrepared(unsigned int uiLevel) const
 {
    return m_vecIsPrepared[uiLevel] != 0;
 }
 
-void ZoneManager::RenderData::CurrentLevel(unsigned int uiLevel) throw()
+void ZoneManager::RenderData::CurrentLevel(unsigned int uiLevel)
 {
    ATLASSERT(IsLevelPrepared(uiLevel) == true);
 
@@ -196,7 +196,7 @@ void ZoneManager::RenderData::CurrentLevel(unsigned int uiLevel) throw()
       m_uiCurrentLevel = uiLevel;
 }
 
-void ZoneManager::RenderData::SetPreparedFlag(unsigned int uiLevel) throw()
+void ZoneManager::RenderData::SetPreparedFlag(unsigned int uiLevel)
 {
    m_vecIsPrepared[uiLevel] = 1;
 }

@@ -29,7 +29,7 @@ class USERINTERFACE_DECLSPEC ProgressBar: public Control
 {
 public:
    /// ctor
-   ProgressBar() throw()
+   ProgressBar()
       :m_uiPos(0),
        m_uiMax(100)
    {
@@ -38,18 +38,18 @@ public:
    // get methods
 
    /// returns current pos
-   unsigned int Current() const throw() { return m_uiPos; }
+   unsigned int Current() const { return m_uiPos; }
 
    /// returns max pos
-   unsigned int Max() const throw() { return m_uiMax; }
+   unsigned int Max() const { return m_uiMax; }
 
    // set methods
 
    /// sets new current pos
-   void Current(unsigned int uiPos) throw() { m_uiPos = uiPos; }
+   void Current(unsigned int uiPos) { m_uiPos = uiPos; }
 
    /// sets new max pos
-   void Max(unsigned int uiMax) throw() { m_uiMax = uiMax; }
+   void Max(unsigned int uiMax) { m_uiMax = uiMax; }
 
    BEGIN_EVENT_MAP()
    END_EVENT_MAP()
@@ -64,7 +64,7 @@ public:
 
    virtual void Render(Rect& rectArea) override;
 
-   virtual void OnAttributeChanged(const CString& cszAttributeName) throw() override;
+   virtual void OnAttributeChanged(const CString& cszAttributeName) override;
 
 protected:
    /// calculates divider point; relative to x pos

@@ -35,9 +35,9 @@ namespace ModelViewer
          KeyboardActionManager& keyboardActionManager,
          IFileSystem& fileSystem,
          RenderEngine& renderEngine,
-         GraphicsTaskManager& taskManager) throw();
+         GraphicsTaskManager& taskManager);
       /// dtor
-      virtual ~Scene() throw() {}
+      virtual ~Scene() {}
 
    private:
       /// sets up UI panel

@@ -24,7 +24,7 @@ namespace GameMenu
       /// ctor
       VideoPanel(IWindowManager& windowManager, IFileSystem& fileSystem, std::function<void()> fnOnReturnMainPanel);
       /// dtor
-      virtual ~VideoPanel() throw() {}
+      virtual ~VideoPanel() {}
 
       /// shows sub panel
       virtual void Show(IWindowManager& windowManager) override;

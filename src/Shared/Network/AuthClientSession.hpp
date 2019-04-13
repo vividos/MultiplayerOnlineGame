@@ -25,7 +25,7 @@ public:
    /// ctor
    AuthClientSession(boost::asio::io_service& ioService);
    /// dtor
-   virtual ~AuthClientSession() throw() {}
+   virtual ~AuthClientSession() {}
 
    /// sets auth info
    void SetAuthInfo(const AuthInfo& info);

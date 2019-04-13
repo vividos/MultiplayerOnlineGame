@@ -22,7 +22,7 @@ PFNGLFRAMEBUFFERTEXTUREARBPROC FrameBuffer::glFrameBufferTextureARB = nullptr;
 PFNGLDRAWBUFFERSARBPROC FrameBuffer::glDrawBuffersARB = nullptr;
 PFNGLFRAMEBUFFERRENDERBUFFERPROC FrameBuffer::glFramebufferRenderbufferARB = nullptr;
 
-FrameBuffer::FrameBuffer() throw()
+FrameBuffer::FrameBuffer()
 :m_uiFrameBufferName(0)
 {
    // buffer object must be constructed in render context
@@ -31,7 +31,7 @@ FrameBuffer::FrameBuffer() throw()
    boost::call_once(&FrameBuffer::Init, g_initFlag);
 }
 
-void FrameBuffer::Init() throw()
+void FrameBuffer::Init()
 {
    glGenFramebuffersARB = (PFNGLGENBUFFERSARBPROC)wglGetProcAddress("glGenFramebuffers");
    glBindFramebufferARB = (PFNGLBINDFRAMEBUFFERPROC)wglGetProcAddress("glBindFramebuffer");

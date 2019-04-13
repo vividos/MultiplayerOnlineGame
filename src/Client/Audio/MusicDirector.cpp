@@ -20,7 +20,7 @@ using namespace Audio;
 /// minimum break length, in seconds
 const unsigned int c_iMinBreakLength = 0;
 
-MusicDirector::MusicDirector(IAudioManager& audioManager, IFileSystem& fileSystem) throw()
+MusicDirector::MusicDirector(IAudioManager& audioManager, IFileSystem& fileSystem)
 :m_audioManager(audioManager),
  m_fileSystem(fileSystem),
  m_timer(audioManager.GetIoService()),
@@ -31,7 +31,7 @@ MusicDirector::MusicDirector(IAudioManager& audioManager, IFileSystem& fileSyste
          time(NULL) & std::numeric_limits<boost::uint32_t>::max()));
 }
 
-MusicDirector::~MusicDirector() throw()
+MusicDirector::~MusicDirector()
 {
    m_timer.cancel();
 }

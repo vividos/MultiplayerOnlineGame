@@ -18,10 +18,10 @@ namespace MilkShape3D
    {
    public:
       /// ctor
-      Model3dCache() throw() {}
+      Model3dCache() {}
 
       /// checks if given named model is in cache
-      bool IsAvail(const CString& cszName) const throw()
+      bool IsAvail(const CString& cszName) const
       {
          LightweightMutex::LockType lock(m_mtxMap);
 
@@ -29,7 +29,7 @@ namespace MilkShape3D
       }
 
       /// returns named model; must be in cache
-      std::shared_ptr<TModelType> Get(const CString& cszName) const throw()
+      std::shared_ptr<TModelType> Get(const CString& cszName) const
       {
          ATLASSERT(IsAvail(cszName));
 
@@ -39,7 +39,7 @@ namespace MilkShape3D
       }
 
       /// adds (or replaces) model
-      void Add(const CString& cszName, std::shared_ptr<TModelType> spData) throw()
+      void Add(const CString& cszName, std::shared_ptr<TModelType> spData)
       {
          LightweightMutex::LockType lock(m_mtxMap);
 

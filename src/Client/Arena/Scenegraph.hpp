@@ -39,7 +39,7 @@ public:
    virtual void Render(RenderOptions& options) override;
 
    /// sets new LOD center position
-   void SetPosition(const Vector3d& vPosition, double dAngleDir) throw();
+   void SetPosition(const Vector3d& vPosition, double dAngleDir);
 
    /// add objects to prepare using preload manager
    void Prepare(PreloadManager& preloadManager);

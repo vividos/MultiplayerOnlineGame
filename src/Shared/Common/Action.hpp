@@ -40,16 +40,16 @@ public:
    }
 
    /// dtor
-   virtual ~Action() throw() {}
+   virtual ~Action() {}
 
    /// returns action id
-   unsigned short ActionId() const throw() { return m_usActionId; }
+   unsigned short ActionId() const { return m_usActionId; }
 
    /// returns unique id of object that is the actor of this action
-   ObjectId& ActorId() throw() { return m_actorId; }
+   ObjectId& ActorId() { return m_actorId; }
 
    /// returns object ref of argument to this action
-   ObjectRef& ArgumentRef() throw() { return m_argumentRef; }
+   ObjectRef& ArgumentRef() { return m_argumentRef; }
 
 
    /// carries out action with locked objects

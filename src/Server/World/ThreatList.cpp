@@ -9,12 +9,12 @@
 #include "StdAfx.h"
 #include "ThreatList.hpp"
 
-bool ThreatList::IsEmpty() const throw()
+bool ThreatList::IsEmpty() const
 {
    return m_mapThreatList.empty();
 }
 
-bool ThreatList::IsInList(ObjectId id) const throw()
+bool ThreatList::IsInList(ObjectId id) const
 {
    return m_mapThreatList.find(id) != m_mapThreatList.end();
 }

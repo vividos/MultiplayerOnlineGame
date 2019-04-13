@@ -27,9 +27,9 @@ class MODEL3D_DECLSPEC ModelRenderManager: public IRenderable
 {
 public:
    /// ctor
-   ModelRenderManager(IFileSystem& fileSystem, GraphicsTaskManager& taskManager) throw();
+   ModelRenderManager(IFileSystem& fileSystem, GraphicsTaskManager& taskManager);
    /// dtor
-   virtual ~ModelRenderManager() throw() {}
+   virtual ~ModelRenderManager() {}
 
    /// inits player model
    void InitPlayer(const Player& player);

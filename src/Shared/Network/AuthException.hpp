@@ -23,7 +23,7 @@ public:
    };
 
    /// ctor
-   AuthException(T_enAuthError enAuthError, const CString& cszMessage, LPCSTR pszSourceFile, UINT uiSourceLine) throw()
+   AuthException(T_enAuthError enAuthError, const CString& cszMessage, LPCSTR pszSourceFile, UINT uiSourceLine)
       :Exception(CString(_T("Authentication error: ")) + AuthErrorText(enAuthError) + _T(": ") + cszMessage,
          pszSourceFile, uiSourceLine),
        m_enAuthError(authInternalError)
@@ -31,10 +31,10 @@ public:
    }
 
    /// returns authentication error
-   T_enAuthError AuthError() const throw() { return m_enAuthError; }
+   T_enAuthError AuthError() const { return m_enAuthError; }
 
    /// converts auth error to error text
-   static LPCTSTR AuthErrorText(T_enAuthError enAuthError) throw()
+   static LPCTSTR AuthErrorText(T_enAuthError enAuthError)
    {
       switch(enAuthError)
       {

@@ -27,7 +27,7 @@ class USERINTERFACE_DECLSPEC JsonWindowLoader
 {
 public:
    /// ctor
-   JsonWindowLoader() throw() {}
+   JsonWindowLoader() {}
 
    /// loads window from JSON text, using parent to create all windows
    void Load(WindowPtr spParent, const CString& cszJsonText);

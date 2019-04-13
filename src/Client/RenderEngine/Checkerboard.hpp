@@ -33,7 +33,7 @@ public:
    virtual void Done(){}
 
    /// render checkerboard
-   void Render(RenderOptions& options) throw();
+   void Render(RenderOptions& options);
 
 private:
    int m_xMin; ///< min x value

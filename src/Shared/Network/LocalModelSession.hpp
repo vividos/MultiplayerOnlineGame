@@ -21,7 +21,7 @@ public:
    LocalModelSession(LocalModel& model, boost::asio::io_service& ioService);
 
    /// dtor
-   virtual ~LocalModelSession() throw() {}
+   virtual ~LocalModelSession() {}
 
 private:
    // virtual methods from ClientSession

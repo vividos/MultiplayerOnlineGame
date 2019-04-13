@@ -18,7 +18,7 @@ public:
    /// ctor
    TrianglesCompiler(IActiveVertexMap& activeVertexMap);
    /// dtor
-   virtual ~TrianglesCompiler() throw() {}
+   virtual ~TrianglesCompiler() {}
 
    /// compiles triangles by given active vertex map
    void Compile(unsigned int uiSize);
@@ -53,7 +53,7 @@ private:
       unsigned int x5, unsigned int y5);
 
    /// returns if point at coordinate is active
-   bool IsActive(unsigned int x, unsigned int y) const throw();
+   bool IsActive(unsigned int x, unsigned int y) const;
 
 private:
    /// active vertex map

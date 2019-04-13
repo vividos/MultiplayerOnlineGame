@@ -101,7 +101,7 @@ namespace Helper
    BinaryData CalcM2(BinaryData m1, const BigInteger& A, const BinaryData& K);
 
    /// returns number of preset group parameters
-   unsigned int GetMaxCountPresetGroupParameter() throw();
+   unsigned int GetMaxCountPresetGroupParameter();
 
    /// returns prepared modulus/generator pairs, by index
    GroupParameter GetPresetGroupParameter(unsigned int uiIndex);
@@ -111,7 +111,7 @@ namespace Helper
    {
    public:
       /// ctor
-      HashDataSha1() throw();
+      HashDataSha1();
 
       /// adds more data
       void Add(const BinaryData& data);

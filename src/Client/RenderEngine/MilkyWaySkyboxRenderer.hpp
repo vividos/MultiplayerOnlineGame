@@ -24,9 +24,9 @@ class RENDERENGINE_DECLSPEC MilkyWaySkyboxRenderer: public IRenderable
 {
 public:
    /// ctor
-   MilkyWaySkyboxRenderer(GraphicsTaskManager& taskManager, IFileSystem& fileSystem) throw();
+   MilkyWaySkyboxRenderer(GraphicsTaskManager& taskManager, IFileSystem& fileSystem);
    /// dtor
-   virtual ~MilkyWaySkyboxRenderer() throw() {}
+   virtual ~MilkyWaySkyboxRenderer() {}
 
    /// sets current date/time
    void SetCurrentDateTime(const DateTime& dtNow);

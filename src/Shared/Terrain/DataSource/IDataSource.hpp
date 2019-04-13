@@ -20,7 +20,7 @@ class IDataSource
 {
 public:
    /// dtor
-   virtual ~IDataSource() throw() {}
+   virtual ~IDataSource() {}
 
    /// loads a square block of terrain data
    virtual std::shared_ptr<Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) = 0;

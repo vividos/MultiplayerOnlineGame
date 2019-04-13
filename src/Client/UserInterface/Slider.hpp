@@ -33,7 +33,7 @@ class USERINTERFACE_DECLSPEC Slider: public ProgressBar
 
 public:
    /// ctor
-   Slider() throw()
+   Slider()
       :m_bMouseButtonDown(false),
        m_iDragOffset(0),
        m_bFocused(false)
@@ -56,17 +56,17 @@ public:
    virtual bool OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int mod) override;
    virtual void OnFocusChanged(bool bGotFocus) override;
 
-   virtual void OnAttributeChanged(const CString& cszAttributeName) throw() override;
+   virtual void OnAttributeChanged(const CString& cszAttributeName) override;
 
 private:
    /// renders progress bar part of slider
-   void RenderProgressBar(Rect& rectArea) throw();
+   void RenderProgressBar(Rect& rectArea);
 
    /// renders slider part
-   void RenderSlider(Rect& rectArea) throw();
+   void RenderSlider(Rect& rectArea);
 
    /// determines if point is in slider area
-   bool IsInsideSliderArea(Point pt) const throw();
+   bool IsInsideSliderArea(Point pt) const;
 
    /// calculates slider pos by absolute x offset
    unsigned int SliderPosByOffset(unsigned int uiAbsPosX);

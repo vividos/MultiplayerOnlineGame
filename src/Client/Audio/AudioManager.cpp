@@ -85,7 +85,7 @@ AudioManager::AudioManager()
    RestartCleanupTimer();
 }
 
-AudioManager::~AudioManager() throw()
+AudioManager::~AudioManager()
 {
    m_timerCleanupBufferMap.cancel();
 

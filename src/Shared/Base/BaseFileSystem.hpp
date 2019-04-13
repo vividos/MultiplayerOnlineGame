@@ -14,7 +14,7 @@ class BASE_DECLSPEC BaseFileSystem: public IFileSystem
 {
 public:
    /// dtor
-   virtual ~BaseFileSystem() throw() {}
+   virtual ~BaseFileSystem() {}
 
    /// returns folder name of user data folder; writable
    virtual CString UserDataFolder() const override;

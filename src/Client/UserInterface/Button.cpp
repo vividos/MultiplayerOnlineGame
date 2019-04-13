@@ -153,7 +153,7 @@ bool Button::OnKeyboardEvent(bool bKeyDown, unsigned int sym, unsigned int mod)
    return true;
 }
 
-void Button::OnAttributeChanged(const CString& cszAttributeName) throw()
+void Button::OnAttributeChanged(const CString& cszAttributeName)
 {
    if (Parent() == NULL)
       return;
@@ -167,7 +167,7 @@ void Button::OnMouseLeft()
    m_bStatePressed = false;
 }
 
-void Button::UpdateTexture() throw()
+void Button::UpdateTexture()
 {
    try
    {

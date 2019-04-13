@@ -14,7 +14,7 @@ class KeyboardActionBindings
 {
 public:
    /// ctor
-   KeyboardActionBindings(KeyboardActionManager& keyboardActionManager) throw()
+   KeyboardActionBindings(KeyboardActionManager& keyboardActionManager)
       :m_keyboardActionManager(keyboardActionManager)
    {
    }

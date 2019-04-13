@@ -19,16 +19,16 @@ class IActiveVertexMap
 {
 public:
    /// dtor
-   virtual ~IActiveVertexMap() throw() {}
+   virtual ~IActiveVertexMap() {}
 
    /// returns if a given point is inside the map
-   virtual bool IsInMap(unsigned int x, unsigned int y) const throw() = 0;
+   virtual bool IsInMap(unsigned int x, unsigned int y) const = 0;
 
    /// returns if vertex at given point is active
-   virtual bool IsActive(unsigned int x, unsigned int y) const throw() = 0;
+   virtual bool IsActive(unsigned int x, unsigned int y) const = 0;
 
    /// activates vertex at given point
-   virtual void SetActive(unsigned int x, unsigned int y) throw() = 0;
+   virtual void SetActive(unsigned int x, unsigned int y) = 0;
 };
 
 /// base class for IActiveVertexMap implementations
@@ -43,10 +43,10 @@ public:
    }
 
    /// dtor
-   virtual ~ActiveVertexMapBase() throw() {}
+   virtual ~ActiveVertexMapBase() {}
 
    /// returns size of map
-   unsigned int Size() const throw() { return m_uiSize; }
+   unsigned int Size() const { return m_uiSize; }
 
    /// inits vertex map
    void Init();
@@ -56,7 +56,7 @@ public:
 
    /// returns boundary value
    /// \see http://bits.stephan-brumme.com/lowestBitSet.html
-   unsigned int GetBoundary(unsigned int n) const throw()
+   unsigned int GetBoundary(unsigned int n) const
    {
       return n == 0 ? m_uiSize : (n & -int(n));
    }

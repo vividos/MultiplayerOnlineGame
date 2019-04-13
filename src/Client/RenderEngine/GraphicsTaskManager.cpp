@@ -18,7 +18,7 @@ GraphicsTaskManager::GraphicsTaskManager()
    m_ioServiceBackgroundThread.Run();
 }
 
-GraphicsTaskManager::~GraphicsTaskManager() throw()
+GraphicsTaskManager::~GraphicsTaskManager()
 {
    Cancel();
 

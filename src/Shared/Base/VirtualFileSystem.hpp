@@ -26,7 +26,7 @@ public:
    DEFINE_INSTANCE(VirtualFileSystem)
 
    /// ctor
-   VirtualFileSystem() throw();
+   VirtualFileSystem();
 
    /// adds another archive to the VFS
    void AddArchive(const CString& cszFilename);

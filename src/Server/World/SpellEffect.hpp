@@ -28,16 +28,16 @@ public:
    // get methods
 
    /// indicates if effect values is a range
-   bool IsRange() const throw() { return m_bRange; }
+   bool IsRange() const { return m_bRange; }
 
    /// indicates if effect values or range is in percent
-   bool IsPercent() const throw() { return m_bPercent; }
+   bool IsPercent() const { return m_bPercent; }
 
    /// returns value or range start
-   int Value() const throw() { return m_iValues[0]; }
+   int Value() const { return m_iValues[0]; }
 
    /// returns range end
-   int RangeEnd() const throw()
+   int RangeEnd() const
    {
       ATLASSERT(IsRange() == true);
       return m_iValues[1];
@@ -46,7 +46,7 @@ public:
    // set methods
 
    /// sets new value
-   void SetValue(bool bPercent, int iValue) throw()
+   void SetValue(bool bPercent, int iValue)
    {
       m_bRange = false;
       m_bPercent = bPercent;
@@ -54,7 +54,7 @@ public:
    }
 
    /// sets new range
-   void SetRange(bool bPercent, int iValue1, int iValue2) throw()
+   void SetRange(bool bPercent, int iValue1, int iValue2)
    {
       m_bRange = true;
       m_bPercent = bPercent;
@@ -71,7 +71,7 @@ public:
    void Deserialize(ByteStream& stream);
 
    /// formats value/range as string
-   CString ToString() const throw();
+   CString ToString() const;
 
 private:
    /// indicates if we have a range
@@ -113,15 +113,15 @@ public:
    // get methods
 
    /// returns effect type
-   T_enEffectType EffectType() const throw() { return m_enEffectType; }
+   T_enEffectType EffectType() const { return m_enEffectType; }
 
    /// returns effect value / range
-   EffectValueOrRange ValueOrRange() const throw() { return m_valueOrRange; }
+   EffectValueOrRange ValueOrRange() const { return m_valueOrRange; }
 
    // set methods
 
    /// sets effect value / range
-   void ValueOrRange(const EffectValueOrRange& valueOrRange) throw() { m_valueOrRange = valueOrRange; }
+   void ValueOrRange(const EffectValueOrRange& valueOrRange) { m_valueOrRange = valueOrRange; }
 
 
    // serialize
@@ -136,7 +136,7 @@ public:
    virtual void Deserialize(ByteStream& stream);
 
    /// formats effect as string
-   virtual CString ToString() const throw() = 0;
+   virtual CString ToString() const = 0;
 
 private:
    /// effect type
@@ -165,17 +165,17 @@ public:
    // get methods
 
    /// returns if effect is instant (when false, it's over time)
-   bool IsInstant() const throw() { return m_bIsInstant; }
+   bool IsInstant() const { return m_bIsInstant; }
 
    /// when not instant, returns spell duration in seconds
-   unsigned int Duration() const throw()
+   unsigned int Duration() const
    {
       ATLASSERT(IsInstant() == false);
       return m_uiDuration;
    }
 
    /// when not instant, returns effect tick time in seconds
-   unsigned int TickTime() const throw()
+   unsigned int TickTime() const
    {
       ATLASSERT(IsInstant() == false);
       return m_uiTickTime;
@@ -184,17 +184,17 @@ public:
    // set methods
 
    /// sets if effect is instant
-   void Instant(bool bInstant) throw() { m_bIsInstant = bInstant; }
+   void Instant(bool bInstant) { m_bIsInstant = bInstant; }
 
    /// sets spell duration in seconds
-   void Duration(unsigned int uiDuration) throw()
+   void Duration(unsigned int uiDuration)
    {
       ATLASSERT(IsInstant() == false);
       m_uiDuration = uiDuration;
    }
 
    /// sets effect tick time in seconds
-   void TickTime(unsigned int uiTickTime) throw()
+   void TickTime(unsigned int uiTickTime)
    {
       ATLASSERT(IsInstant() == false);
       m_uiTickTime = uiTickTime;
@@ -222,7 +222,7 @@ class WORLD_DECLSPEC DamageSpellEffect: public DamageHealSpellEffectBase
 
 public:
    /// ctor
-   DamageSpellEffect() throw()
+   DamageSpellEffect()
       :DamageHealSpellEffectBase(SpellEffect::typeDamage),
        m_ucRestriction(0)
    {
@@ -238,7 +238,7 @@ public:
    // get methods
 
    /// returns damage type
-   DamageType GetDamageType() const throw() { return m_damageType; }
+   DamageType GetDamageType() const { return m_damageType; }
 
    /// returns restriction setting
    bool Restriction(T_enDamageEffectRestriction enRestriction) const;
@@ -246,7 +246,7 @@ public:
    // set method
 
    /// sets damage type
-   void SetDamageType(const DamageType& damageType) throw() { m_damageType = damageType; }
+   void SetDamageType(const DamageType& damageType) { m_damageType = damageType; }
 
    /// sets restriction flag
    void Restriction(T_enDamageEffectRestriction enRestriction, bool bRestrict);
@@ -260,7 +260,7 @@ public:
    virtual void Deserialize(ByteStream& stream) override;
 
    /// formats effect as string
-   virtual CString ToString() const throw() override;
+   virtual CString ToString() const override;
 
 private:
    /// damage type
@@ -277,7 +277,7 @@ class WORLD_DECLSPEC HealSpellEffect: public DamageHealSpellEffectBase
 
 public:
    /// ctor
-   HealSpellEffect() throw()
+   HealSpellEffect()
       :DamageHealSpellEffectBase(SpellEffect::typeHeal)
    {
    }
@@ -291,7 +291,7 @@ public:
    virtual void Deserialize(ByteStream& stream) override;
 
    /// formats effect as string
-   virtual CString ToString() const throw() override;
+   virtual CString ToString() const override;
 };
 
 /// spell effect that modifies attributes in player that has that buff/debuff
@@ -302,7 +302,7 @@ class WORLD_DECLSPEC ModifyAttrSpellEffect: public SpellEffect
 
 public:
    /// ctor
-   ModifyAttrSpellEffect() throw()
+   ModifyAttrSpellEffect()
       :SpellEffect(SpellEffect::typeModify)
    {
    }
@@ -316,7 +316,7 @@ public:
    virtual void Deserialize(ByteStream& stream) override;
 
    /// formats effect as string
-   virtual CString ToString() const throw() override;
+   virtual CString ToString() const override;
 
 private:
 };
@@ -329,7 +329,7 @@ class WORLD_DECLSPEC ResistSpellEffect: public SpellEffect
 
 public:
    /// ctor
-   ResistSpellEffect() throw()
+   ResistSpellEffect()
       :SpellEffect(SpellEffect::typeResist)
    {
    }
@@ -343,7 +343,7 @@ public:
    virtual void Deserialize(ByteStream& stream) override;
 
    /// formats effect as string
-   virtual CString ToString() const throw() override;
+   virtual CString ToString() const override;
 
 private:
 };
@@ -367,7 +367,7 @@ public:
    };
 
    /// ctor
-   DisableSpellEffect() throw()
+   DisableSpellEffect()
       :SpellEffect(SpellEffect::typeDisable),
       m_enDisableType(disableAll)
    {
@@ -376,12 +376,12 @@ public:
    // get methods
 
    /// returns disable type
-   T_enDisableType DisableType() const throw() { return m_enDisableType; }
+   T_enDisableType DisableType() const { return m_enDisableType; }
 
    // set methods
 
    /// sets new disable type
-   void DisableType(T_enDisableType enDisableType) throw() { m_enDisableType = enDisableType; }
+   void DisableType(T_enDisableType enDisableType) { m_enDisableType = enDisableType; }
 
    // serialize
 
@@ -392,7 +392,7 @@ public:
    virtual void Deserialize(ByteStream& stream) override;
 
    /// formats effect as string
-   virtual CString ToString() const throw() override;
+   virtual CString ToString() const override;
 
    /// returns disable type enum by string
    static T_enDisableType DisableTypeFromString(LPCTSTR pszDisableType);

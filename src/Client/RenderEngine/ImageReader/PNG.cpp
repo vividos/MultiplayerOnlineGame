@@ -47,7 +47,7 @@ bool Crc32::m_bTableCalculated = false;
 
 std::array<DWORD, 256> Crc32::m_crc32Table;
 
-void Crc32::Init() throw()
+void Crc32::Init()
 {
    for (size_t n = 0; n < 256; n++)
    {
@@ -68,7 +68,7 @@ void Crc32::Init() throw()
 /// \param buf buffer with bytes to calculate CRC from
 /// \param len number of bytes to use for CRC calculation, in bytes
 /// \return calculated CRC value
-DWORD Crc32::Calc(const unsigned char* buf, size_t len) throw()
+DWORD Crc32::Calc(const unsigned char* buf, size_t len)
 {
    return Update(0, buf, len);
 }
@@ -80,7 +80,7 @@ DWORD Crc32::Calc(const unsigned char* buf, size_t len) throw()
 /// \param buf buffer with more bytes to calculate CRC from
 /// \param len number of bytes to use for CRC calculation, in bytes
 /// \return calculated CRC value
-DWORD Crc32::Update(DWORD crc, const unsigned char* buf, size_t len) throw()
+DWORD Crc32::Update(DWORD crc, const unsigned char* buf, size_t len)
 {
    if (!m_bTableCalculated)
       Init();
@@ -98,7 +98,7 @@ DWORD Crc32::Update(DWORD crc, const unsigned char* buf, size_t len) throw()
 // Chunk
 //
 
-bool Chunk::IsName(LPCSTR pszName) const throw()
+bool Chunk::IsName(LPCSTR pszName) const
 {
    ATLASSERT(strlen(pszName) == 4);
    return memcmp(m_acName, pszName, 4) == 0;
@@ -127,27 +127,27 @@ void Chunk::Load(Stream::IStream& stream)
    m_uiCrcCalc = CalcCrc32();
 }
 
-bool Chunk::IsAnciliary() const throw()
+bool Chunk::IsAnciliary() const
 {
    return ((m_acName[0] >> 5) & 1) != 0;
 }
 
-bool Chunk::Private() const throw()
+bool Chunk::Private() const
 {
    return ((m_acName[1] >> 5) & 1) != 0;
 }
 
-bool Chunk::Reserved() const throw()
+bool Chunk::Reserved() const
 {
    return ((m_acName[2] >> 5) & 1) != 0;
 }
 
-bool Chunk::SafeToCopy() const throw()
+bool Chunk::SafeToCopy() const
 {
    return ((m_acName[3] >> 5) & 1) != 0;
 }
 
-DWORD Chunk::CalcCrc32() const throw()
+DWORD Chunk::CalcCrc32() const
 {
    DWORD crc32 = Crc32::Calc(reinterpret_cast<const unsigned char*>(&m_acName[0]), 4);
    if (!m_vecData.empty())
@@ -215,7 +215,7 @@ void ImageInfo::ParseHeader(const Chunk& ihdr)
       throw Exception(_T("PNG images with bits per pixel < 8 not supported"), __FILE__, __LINE__);
 }
 
-bool ImageInfo::CheckValid() const throw()
+bool ImageInfo::CheckValid() const
 {
    if (m_uiWidth == 0 || m_uiHeight == 0)
       return false;

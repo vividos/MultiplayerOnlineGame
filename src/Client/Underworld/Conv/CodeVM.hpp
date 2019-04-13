@@ -59,7 +59,7 @@ class CodeCallback
 {
 public:
    /// ctor
-   CodeCallback() throw() {}
+   CodeCallback() {}
 
    /// prints "say" string
    virtual void Say(Uint16 index) = 0;

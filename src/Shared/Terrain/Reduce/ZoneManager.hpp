@@ -39,10 +39,10 @@ public:
       unsigned int uiBlockSize);
 
    /// returns number of zones in one direction (square zone matrix)
-   unsigned int NumZones() const throw();
+   unsigned int NumZones() const;
 
    /// returns if given level is current level, for given zone index
-   bool IsCurrentLevel(unsigned int uiZoneIndex, unsigned int uiLevel) const throw();
+   bool IsCurrentLevel(unsigned int uiZoneIndex, unsigned int uiLevel) const;
 
    /// prepares render data for given zone; non-blocking call
    void PrepareZone(unsigned int xzone, unsigned int yzone,
@@ -99,21 +99,21 @@ private:
       // get methods
 
       /// returns current level of detail
-      unsigned int CurrentLevel() const throw() { return m_uiCurrentLevel; }
+      unsigned int CurrentLevel() const { return m_uiCurrentLevel; }
 
       /// returns if given level is already prepared for rendering
-      bool IsLevelPrepared(unsigned int uiLevel) const throw();
+      bool IsLevelPrepared(unsigned int uiLevel) const;
 
       /// returns bounding box
-      const AABox& GetBoundingBox() const throw() { return m_boundingBox; }
+      const AABox& GetBoundingBox() const { return m_boundingBox; }
 
       // actions
 
       /// sets current level
-      void CurrentLevel(unsigned int uiLevel) throw();
+      void CurrentLevel(unsigned int uiLevel);
 
       /// sets prepared flag
-      void SetPreparedFlag(unsigned int uiLevel) throw();
+      void SetPreparedFlag(unsigned int uiLevel);
 
       /// starts preparing new level
       void Prepare(unsigned int uiNewLevel,

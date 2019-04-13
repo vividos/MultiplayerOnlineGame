@@ -32,7 +32,7 @@ FileBlockManager::FileBlockManager(unsigned int uiSize)
    m_vecBlockData.resize(m_uiSize*m_uiSize);
 }
 
-unsigned int FileBlockManager::Size() const throw()
+unsigned int FileBlockManager::Size() const
 {
    return m_uiSize;
 }

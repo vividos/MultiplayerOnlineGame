@@ -34,38 +34,38 @@ public:
    // get methods
 
    /// returns spell id
-   unsigned int Id() const throw() { return m_uiSpellId; }
+   unsigned int Id() const { return m_uiSpellId; }
 
    /// returns cooldown time in seconds; 0 means off
-   unsigned int Cooldown() const throw() { return m_uiCooldown; }
+   unsigned int Cooldown() const { return m_uiCooldown; }
 
    /// returns cast time in seconds; 0 means instant cast
-   unsigned int CastTime() const throw() { return m_uiCastTime; }
+   unsigned int CastTime() const { return m_uiCastTime; }
 
    /// range needed to cast spell on; 0 means no range checks performed
-   unsigned int Range() const throw() { return m_uiRange; }
+   unsigned int Range() const { return m_uiRange; }
 
    /// indicates if it's an area spell; then Range() defines area radius
-   bool IsAreaSpell() const throw() { return m_bAreaSpell; }
+   bool IsAreaSpell() const { return m_bAreaSpell; }
 
    /// indicates if effect is stackable
-   bool IsStackable() const throw() { return m_bStackable; }
+   bool IsStackable() const { return m_bStackable; }
 
    /// indicates if spell has Effect2, too (Effect1 is always set)
-   bool HasEffect2() const throw()
+   bool HasEffect2() const
    {
       return m_spEffect2 != nullptr;
    }
 
    /// returns first effect
-   const SpellEffect& Effect1() const throw()
+   const SpellEffect& Effect1() const
    {
       ATLASSERT(m_spEffect1 != nullptr);
       return *m_spEffect1;
    }
 
    /// returns second effect
-   const SpellEffect& Effect2() const throw()
+   const SpellEffect& Effect2() const
    {
       ATLASSERT(HasEffect2() == true);
       return *m_spEffect2;
@@ -74,22 +74,22 @@ public:
    // set methods
 
    /// sets cooldown time in seconds; 0 means off
-   void Cooldown(unsigned int uiCooldown) throw() { m_uiCooldown = uiCooldown; }
+   void Cooldown(unsigned int uiCooldown) { m_uiCooldown = uiCooldown; }
 
    /// sets cast time in seconds; 0 means instant cast
-   void CastTime(unsigned int uiCastTime) throw() { m_uiCastTime = uiCastTime; }
+   void CastTime(unsigned int uiCastTime) { m_uiCastTime = uiCastTime; }
 
    /// sets range needed to cast spell on
-   void Range(unsigned int uiRange) throw() { m_uiRange = uiRange; }
+   void Range(unsigned int uiRange) { m_uiRange = uiRange; }
 
    /// sets if it's an area spell
-   void AreaSpell(bool bAreaSpell) throw() { m_bAreaSpell = bAreaSpell; }
+   void AreaSpell(bool bAreaSpell) { m_bAreaSpell = bAreaSpell; }
 
    /// sets if effect is stackable
-   void Stackable(bool bStackable) throw() { m_bStackable = bStackable; }
+   void Stackable(bool bStackable) { m_bStackable = bStackable; }
 
    /// sets second effect
-   void Effect2(std::shared_ptr<SpellEffect> spEffect2) throw() { m_spEffect2 = spEffect2; }
+   void Effect2(std::shared_ptr<SpellEffect> spEffect2) { m_spEffect2 = spEffect2; }
 
    // serialize
 
@@ -103,7 +103,7 @@ public:
    void Deserialize(ByteStream& stream);
 
    /// formats value/range as string
-   CString ToString() const throw();
+   CString ToString() const;
 
 private:
    /// private ctor; used by Construct()

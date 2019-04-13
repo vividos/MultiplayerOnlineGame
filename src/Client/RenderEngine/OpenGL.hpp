@@ -133,13 +133,13 @@ namespace OpenGL
    {
    public:
       /// ctor; stores current viewport
-      ViewportRestorer() throw()
+      ViewportRestorer()
       {
          glGetIntegerv(GL_VIEWPORT, &m_aiViewportInfo.front());
          glTraceError("glGetIntegerv");
       }
       /// dtor; restores viewport
-      ~ViewportRestorer() throw()
+      ~ViewportRestorer()
       {
          glViewport(
             m_aiViewportInfo[0],

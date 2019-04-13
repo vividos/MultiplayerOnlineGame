@@ -18,19 +18,19 @@ class Model3dBase: public IModel3d
 {
 public:
    /// ctor
-   Model3dBase() throw() {}
+   Model3dBase() {}
    /// dtor
-   virtual ~Model3dBase() throw() {}
+   virtual ~Model3dBase() {}
 
 protected:
    friend class ModelManager;
    friend class ModelDisplayState;
 
-   const Data& GetData() const throw() { return m_data; } ///< returns model data; const version
-         Data& GetData()       throw() { return m_data; } ///< returns model data
+   const Data& GetData() const { return m_data; } ///< returns model data; const version
+         Data& GetData() { return m_data; } ///< returns model data
 
    /// finds joint index by joint name, or returns -1
-   int FindJointByName(const CString& cszJointName) const throw();
+   int FindJointByName(const CString& cszJointName) const;
 
    /// sets up joints
    void SetupJoints();

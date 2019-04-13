@@ -13,7 +13,7 @@
 
 using namespace Terrain;
 
-ScatteredPointDataSource::ScatteredPointDataSource() throw()
+ScatteredPointDataSource::ScatteredPointDataSource()
 {
    std::vector<Vector3d> vecRefPoints;
    vecRefPoints.push_back(Vector3d(1.0, 1.0, 200.0));

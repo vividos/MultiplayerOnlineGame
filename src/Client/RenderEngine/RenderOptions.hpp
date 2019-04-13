@@ -62,7 +62,7 @@ public:
    // get methods
 
    /// returns boolean render option
-   bool Get(T_enRenderOption enRenderOption) const throw()
+   bool Get(T_enRenderOption enRenderOption) const
    {
       ATLASSERT(enRenderOption < optionMax);
       return m_aOptions[enRenderOption];
@@ -71,7 +71,7 @@ public:
    // set methods
 
    /// sets boolean render option
-   void Set(T_enRenderOption enRenderOption, bool bNewValue) throw()
+   void Set(T_enRenderOption enRenderOption, bool bNewValue)
    {
       ATLASSERT(enRenderOption < optionMax);
       m_aOptions[enRenderOption] = bNewValue;

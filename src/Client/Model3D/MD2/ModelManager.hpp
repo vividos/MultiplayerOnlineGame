@@ -24,13 +24,13 @@ class ModelManager
 {
 public:
    /// ctor
-   ModelManager(IFileSystem& fileSystem, GraphicsTaskManager& taskManager) throw()
+   ModelManager(IFileSystem& fileSystem, GraphicsTaskManager& taskManager)
       :m_fileSystem(fileSystem),
       m_taskManager(taskManager)
    {
    }
    /// dtor
-   ~ModelManager() throw() {}
+   ~ModelManager() {}
 
    /// creates model instance from mobile
    std::shared_ptr<IModelDisplayState> Create(const Mobile& mobile);

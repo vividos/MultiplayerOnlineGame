@@ -257,7 +257,7 @@ void GameClientBase::ShowCursor(bool bShow)
    SDL_ShowCursor(bShow ? 1 : 0);
 }
 
-Size GameClientBase::GetScreenSize() const throw()
+Size GameClientBase::GetScreenSize() const
 {
    int iWidth = 0, iHeight = 0;
 

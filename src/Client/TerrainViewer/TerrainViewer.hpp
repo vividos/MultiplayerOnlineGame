@@ -16,7 +16,7 @@ namespace TerrainViewer
    {
    public:
       /// ctor
-      Client() throw()
+      Client()
          :GameClientBase(_T("Terrain Viewer"))
       {
       }

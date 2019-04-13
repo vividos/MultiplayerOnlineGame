@@ -20,7 +20,7 @@ public:
    /// ctor
    CommandTranslator(IModel& model);
    /// dtor
-   ~CommandTranslator() throw();
+   ~CommandTranslator();
 
    /// translate command and forward to model
    void ReceiveCommand(Command& cmd);

@@ -15,7 +15,7 @@ class GameServerService
 {
 public:
    /// ctor
-   GameServerService() throw()
+   GameServerService()
    {
    }
 

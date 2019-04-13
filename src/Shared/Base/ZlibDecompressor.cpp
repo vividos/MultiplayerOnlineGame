@@ -19,7 +19,7 @@ class ZlibException: public Exception
 {
 public:
    /// ctor
-   ZlibException(int iZlibErrorValue, LPCSTR pszSourceFile, UINT uiSourceLine) throw()
+   ZlibException(int iZlibErrorValue, LPCSTR pszSourceFile, UINT uiSourceLine)
       :Exception(FormatMessage(iZlibErrorValue), pszSourceFile, uiSourceLine)
    {
    }
@@ -73,7 +73,7 @@ ZlibDecompressor::ZlibDecompressor(bool bWindowSizeFromStream)
       throw ZlibException(iRet, __FILE__, __LINE__);
 }
 
-ZlibDecompressor::~ZlibDecompressor() throw()
+ZlibDecompressor::~ZlibDecompressor()
 {
    inflateEnd(m_spStream.get());
    m_spStream.reset();
@@ -117,13 +117,13 @@ bool ZlibDecompressor::Uncompress(const BYTE* pbData, size_t uiLength,
    return true; // not at end yet
 }
 
-unsigned int ZlibDecompressor::TotalIn() const throw()
+unsigned int ZlibDecompressor::TotalIn() const
 {
    ATLASSERT(m_spStream != NULL);
    return m_spStream->total_in;
 }
 
-unsigned int ZlibDecompressor::TotalOut() const throw()
+unsigned int ZlibDecompressor::TotalOut() const
 {
    ATLASSERT(m_spStream != NULL);
    return m_spStream->total_out;
@@ -143,7 +143,7 @@ void ZlibDecompressor::CheckVersion()
          __FILE__, __LINE__);
 }
 
-CString ZlibDecompressor::ZlibVersion() throw()
+CString ZlibDecompressor::ZlibVersion()
 {
    return CString(_T(ZLIB_VERSION));
 }

@@ -37,7 +37,7 @@ public:
    void SelectMobile(ObjectId mobileId);
 
    /// returns player object id
-   ObjectId PlayerId() const throw() { return m_playerId; }
+   ObjectId PlayerId() const { return m_playerId; }
 
    // virtual methods from IController
 

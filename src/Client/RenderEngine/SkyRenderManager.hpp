@@ -34,7 +34,7 @@ public:
    /// ctor
    SkyRenderManager(GraphicsTaskManager& taskManager, IFileSystem& fileSystem);
    /// dtor
-   virtual ~SkyRenderManager() throw() {}
+   virtual ~SkyRenderManager() {}
 
    // set methods
 

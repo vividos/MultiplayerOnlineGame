@@ -30,14 +30,14 @@ public:
    }
 
    /// dtor
-   virtual ~ActiveVertexMap() throw() {}
+   virtual ~ActiveVertexMap() {}
 
-   virtual bool IsInMap(unsigned int x, unsigned int y) const throw() override
+   virtual bool IsInMap(unsigned int x, unsigned int y) const override
    {
       return x < Size() && y < Size();
    }
 
-   virtual bool IsActive(unsigned int x, unsigned int y) const throw() override
+   virtual bool IsActive(unsigned int x, unsigned int y) const override
    {
       if (x >= Size() || y >= Size())
          return true;
@@ -45,7 +45,7 @@ public:
       return m_activeVertexMap.test(MapCoordinates(x,y));
    }
 
-   virtual void SetActive(unsigned int x, unsigned int y) throw() override
+   virtual void SetActive(unsigned int x, unsigned int y) override
    {
       ATLASSERT(x < Size());
       ATLASSERT(y < Size());
@@ -55,7 +55,7 @@ public:
 
 private:
    /// maps coordinate to array index
-   size_t MapCoordinates(unsigned int x, unsigned int y) const throw()
+   size_t MapCoordinates(unsigned int x, unsigned int y) const
    {
       ATLASSERT(x < Size());
       ATLASSERT(y < Size());
@@ -91,9 +91,9 @@ public:
    }
 
    /// dtor
-   virtual ~ActiveVertexMapWithEdgeInfo() throw() {}
+   virtual ~ActiveVertexMapWithEdgeInfo() {}
 
-   virtual bool IsInMap(unsigned int x, unsigned int y) const throw() override
+   virtual bool IsInMap(unsigned int x, unsigned int y) const override
    {
 /*
       // TODO temporary
@@ -129,7 +129,7 @@ public:
       return true; // in map
    }
 
-   virtual bool IsActive(unsigned int x, unsigned int y) const throw() override
+   virtual bool IsActive(unsigned int x, unsigned int y) const override
    {
       ATLASSERT(x <= 2*Size() && y <= 2*Size());
 
@@ -151,7 +151,7 @@ public:
       return spVertexMap->IsActive(x,y);
    }
 
-   virtual void SetActive(unsigned int x, unsigned int y) throw() override
+   virtual void SetActive(unsigned int x, unsigned int y) override
    {
       if (x > Size() && y > Size())
          return; // above and right of our block; do nothing
@@ -174,13 +174,13 @@ public:
 
 private:
    /// const version of MapVertexMap(); uses const_cast (ugly, but saves code)
-   std::shared_ptr<const ActiveVertexMap> MapVertexMap(unsigned int x, unsigned int y) const throw()
+   std::shared_ptr<const ActiveVertexMap> MapVertexMap(unsigned int x, unsigned int y) const
    {
       return std::shared_ptr<const ActiveVertexMap>(
          const_cast<ActiveVertexMapWithEdgeInfo&>(*this).MapVertexMap(x,y));
    }
 
-   std::shared_ptr<ActiveVertexMap> MapVertexMap(unsigned int x, unsigned int y) throw()
+   std::shared_ptr<ActiveVertexMap> MapVertexMap(unsigned int x, unsigned int y)
    {
       ATLASSERT(x < 2*Size());
       ATLASSERT(y < 2*Size());

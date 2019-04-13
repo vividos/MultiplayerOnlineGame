@@ -17,40 +17,40 @@ public:
    MobileDisplayInfo(WORD wInfo);
 
    /// checks if all values are valid
-   bool IsValid() const throw();
+   bool IsValid() const;
 
    /// returns base figure; values 0-3 (0: muscular, 1: fat, 2: wizard, 3: female)
-   unsigned int BaseFigure() const throw();
+   unsigned int BaseFigure() const;
    /// sets base figure
-   void BaseFigure(unsigned int uiBaseFigure) throw();
+   void BaseFigure(unsigned int uiBaseFigure);
 
    /// returns skin color; values 0-2
-   unsigned int SkinColor() const throw();
+   unsigned int SkinColor() const;
    /// sets skin color
-   void SkinColor(unsigned int uiSkinColor) throw();
+   void SkinColor(unsigned int uiSkinColor);
 
    /// returns face style; values 0-7
-   unsigned int FaceStyle() const throw();
+   unsigned int FaceStyle() const;
    /// sets face style
-   void FaceStyle(unsigned int uiStyle) throw();
+   void FaceStyle(unsigned int uiStyle);
 
    /// returns hair color; values 0-4
-   unsigned int HairColor() const throw();
+   unsigned int HairColor() const;
    /// sets hair color
-   void HairColor(unsigned int uiColor) throw();
+   void HairColor(unsigned int uiColor);
 
    /// returns pilosity hair style; values 0-4
-   unsigned int PilosityHairStyle() const throw();
+   unsigned int PilosityHairStyle() const;
    /// sets pilosity hair style
-   void PilosityHairStyle(unsigned int uiStyle) throw();
+   void PilosityHairStyle(unsigned int uiStyle);
 
    /// returns pilosity brow style; vaues 0-11
-   unsigned int PilosityBrowStyle() const throw();
+   unsigned int PilosityBrowStyle() const;
    /// sets pilosity brow style
-   void PilosityBrowStyle(unsigned int uiStyle) throw();
+   void PilosityBrowStyle(unsigned int uiStyle);
 
    /// returns info word
-   WORD Info() const throw() { return m_wInfo; }
+   WORD Info() const { return m_wInfo; }
 
 private:
    /// display info word

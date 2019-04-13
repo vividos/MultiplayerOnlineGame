@@ -17,7 +17,7 @@ namespace CharGenerator
    {
    public:
       View();
-      virtual ~View() throw() {}
+      virtual ~View() {}
    };
 
 } // namespace CharGenerator

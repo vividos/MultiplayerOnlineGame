@@ -20,13 +20,13 @@ class EncryptModule: public IEncryptModule
 {
 public:
    /// ctor
-   EncryptModule(std::vector<unsigned char> vecSharedKey) throw()
+   EncryptModule(std::vector<unsigned char> vecSharedKey)
       :m_rc4Read(&vecSharedKey[0], vecSharedKey.size()),
        m_rc4Write(&vecSharedKey[0], vecSharedKey.size())
    {
    }
    /// dtor
-   virtual ~EncryptModule() throw() {}
+   virtual ~EncryptModule() {}
 
    /// decrypts received data
    virtual void DecryptRead(TIterator itFirst, TIterator itLast) override

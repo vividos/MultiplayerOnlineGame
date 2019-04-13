@@ -34,9 +34,9 @@ class TERRAIN_DECLSPEC BlockRenderDataTexturedVertexBuffer: public View::IBlockR
 {
 public:
    /// ctor
-   BlockRenderDataTexturedVertexBuffer(GraphicsTaskManager& taskManager) throw();
+   BlockRenderDataTexturedVertexBuffer(GraphicsTaskManager& taskManager);
    /// dtor
-   virtual ~BlockRenderDataTexturedVertexBuffer() throw() {}
+   virtual ~BlockRenderDataTexturedVertexBuffer() {}
 
    /// prepares render data; called only once
    virtual void Prepare(std::shared_ptr<Model::DataBlock> spDataBlock) override;
@@ -62,7 +62,7 @@ private:
    void UpdateBlocks(const Vector3d& vCamera);
 
    /// maps camera distance to zone level
-   static unsigned int MapDistToLevel(double dist) throw();
+   static unsigned int MapDistToLevel(double dist);
 
 private:
    /// task manager

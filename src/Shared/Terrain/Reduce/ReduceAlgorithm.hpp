@@ -35,13 +35,13 @@ public:
 protected:
    /// returns boundary value
    /// \see http://bits.stephan-brumme.com/lowestBitSet.html
-   unsigned int GetBoundary(unsigned int n) const throw()
+   unsigned int GetBoundary(unsigned int n) const
    {
       return n == 0 ? m_uiSize : (n & -int(n));
    }
 
    /// returns map size
-   unsigned int GetSize() const throw() { return m_uiSize; }
+   unsigned int GetSize() const { return m_uiSize; }
 
    /// examines quad and reduces triangles
    virtual void DoQuad(IActiveVertexMap& activeVertexMap, unsigned int x1, unsigned int y1, unsigned int size) = 0;
@@ -50,7 +50,7 @@ protected:
    void ActivatePoint(IActiveVertexMap& activeVertexMap, int x, int y);
 
    /// map point to elevation data
-   Vector3d MapPoint(unsigned int x, unsigned  int y) const throw();
+   Vector3d MapPoint(unsigned int x, unsigned  int y) const;
 
 private:
    /// block size
@@ -73,7 +73,7 @@ public:
    {
    }
    /// dtor
-   virtual ~ReduceAlgorithmCameraDistance() throw() {}
+   virtual ~ReduceAlgorithmCameraDistance() {}
 
    /// reduces triangles for all blocks, based on camera position
    void Reduce(IActiveVertexMap& activeVertexMap, const Vector3d& vCamera);
@@ -82,7 +82,7 @@ public:
    virtual void DoQuad(IActiveVertexMap& activeVertexMap, unsigned int x1, unsigned int y1, unsigned int size) override;
 
 protected:
-   double CalcDelta(unsigned int x1, unsigned int y1, unsigned int size) throw();
+   double CalcDelta(unsigned int x1, unsigned int y1, unsigned int size);
 
 private:
    /// maps distance from position
@@ -103,7 +103,7 @@ public:
        m_uiLevel(0)
    {
    }
-   virtual ~ReduceAlgorithmLevelOfDetail() throw() {}
+   virtual ~ReduceAlgorithmLevelOfDetail() {}
 
    /// reduces triangles for all blocks, based on level of detail
    void Reduce(IActiveVertexMap& activeVertexMap, unsigned int uiLevel);

@@ -25,7 +25,7 @@ DamageType DamageType::FromString(LPCTSTR pszType)
    throw Exception(_T("invalid damage type"), __FILE__, __LINE__);
 }
 
-LPCTSTR DamageType::ToString() const throw()
+LPCTSTR DamageType::ToString() const
 {
    switch (m_enDamageType)
    {

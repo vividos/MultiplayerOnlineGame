@@ -14,19 +14,19 @@
 const double g_dPi = 3.141592653589793;
 
 /// converts angle from degree values (0°..360°) to radians (0..2pi)
-inline double Deg2Rad(double a) throw() { return (static_cast<double>(a)/180.0)*g_dPi; }
+inline double Deg2Rad(double a) { return (static_cast<double>(a)/180.0)*g_dPi; }
 
 /// converts angle from randians (0..2pi) values to degrees (0°..360°)
-inline double Rad2Deg(double a) throw() { return (static_cast<double>(a)/g_dPi)*180.0; }
+inline double Rad2Deg(double a) { return (static_cast<double>(a)/g_dPi)*180.0; }
 
 /// keeps angle in range of [0°;360°[
-inline double AngleInRange(double dDegrees) throw()
+inline double AngleInRange(double dDegrees)
 {
    return dDegrees < 0 ? (360.0-fmod(-dDegrees, 360.0)) : fmod(dDegrees, 360.0);
 }
 
 /// compares two double values and return if they're equal, with an epsilon margin
-inline bool DoublesEqual(double d0, double d1, double epsilon = 1e-6) throw()
+inline bool DoublesEqual(double d0, double d1, double epsilon = 1e-6)
 {
    return fabs(d0 - d1) < epsilon;
 }
@@ -55,7 +55,7 @@ struct LinearTransform
    }
 
    /// returns linear transformed value from range
-   T operator()(T val) const throw()
+   T operator()(T val) const
    {
       return T((val - m_sub) * m_mul + m_add);
    }
@@ -69,7 +69,7 @@ struct LinearTransform
 /// \brief calculates greatest common divisor
 /// \tparam T data type
 template <typename T>
-T GreatestCommonDivisor(T n, T m) throw()
+T GreatestCommonDivisor(T n, T m)
 {
    T rest = m;
    while (rest != 0)
@@ -84,7 +84,7 @@ T GreatestCommonDivisor(T n, T m) throw()
 /// calculates least common multiple
 /// \tparam T data type
 template <typename T>
-T LeastCommonMultiple(T n, T m) throw()
+T LeastCommonMultiple(T n, T m)
 {
    return (n * m) / GreatestCommonDivisor<T>(n, m);
 }

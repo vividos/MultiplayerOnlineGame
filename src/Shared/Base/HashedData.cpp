@@ -26,7 +26,7 @@ void HashedData::Add(const std::vector<unsigned char>& vecData)
    SHA256_Update(m_spData.get(), const_cast<u_int8_t*>(&vecData[0]), vecData.size());
 }
 
-std::vector<unsigned char> HashedData::Get() const throw()
+std::vector<unsigned char> HashedData::Get() const
 {
    u_int8_t abData[SHA256_DIGEST_LENGTH];
    SHA256_Final(abData, m_spData.get());

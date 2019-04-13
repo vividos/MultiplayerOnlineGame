@@ -36,7 +36,7 @@ void LogFileAppender::DoAppend(const Log::LoggingEventPtr spLoggingEvent)
    fflush(m_spLogFile.get());
 }
 
-CString LogFileAppender::CreateLogFileName() throw()
+CString LogFileAppender::CreateLogFileName()
 {
    CString cszFolderName = Path::Combine(Filesystem::UserFolder(), _T("log"));
 

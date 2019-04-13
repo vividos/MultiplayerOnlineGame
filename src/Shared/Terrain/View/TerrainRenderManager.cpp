@@ -38,7 +38,7 @@ TerrainRenderManager::TerrainRenderManager(RenderEngine& engine, GraphicsTaskMan
 {
 }
 
-void TerrainRenderManager::SetPosition(const Vector3d& vPosition, double /*dAngleDir*/) throw()
+void TerrainRenderManager::SetPosition(const Vector3d& vPosition, double /*dAngleDir*/)
 {
    m_vPosition = vPosition;
 }

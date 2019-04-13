@@ -16,7 +16,7 @@ class Vector3T
 {
 public:
    /// ctor, taking vector components
-   Vector3T(T dX = 0.0, T dY = 0.0, T dZ = 0.0) throw()
+   Vector3T(T dX = 0.0, T dY = 0.0, T dZ = 0.0)
    {
       m_adVec[x] = dX;
       m_adVec[y] = dY;
@@ -24,39 +24,39 @@ public:
    }
 
    /// ctor, taking vector components as array
-   Vector3T(const T adVec[3]) throw()
+   Vector3T(const T adVec[3])
    {
       Set(adVec);
    }
 
    /// copy ctor
-   Vector3T(const Vector3T& vec) throw()
+   Vector3T(const Vector3T& vec)
    {
       Set(vec.m_adVec);
    }
 
    /// sets new vector components as array
-   void Set(const T adVec[3]) throw()
+   void Set(const T adVec[3])
    {
       memcpy(m_adVec, adVec, sizeof(m_adVec));
    }
 
-   T X() const throw() { return m_adVec[x]; } ///< vector x value
-   T Y() const throw() { return m_adVec[y]; } ///< vector y value
-   T Z() const throw() { return m_adVec[z]; } ///< vector z value
+   T X() const { return m_adVec[x]; } ///< vector x value
+   T Y() const { return m_adVec[y]; } ///< vector y value
+   T Z() const { return m_adVec[z]; } ///< vector z value
 
-   void X(T dX) throw() { m_adVec[x] = dX; } ///< sets vector x value
-   void Y(T dY) throw() { m_adVec[y] = dY; } ///< sets vector y value
-   void Z(T dZ) throw() { m_adVec[z] = dZ; } ///< sets vector z value
+   void X(T dX) { m_adVec[x] = dX; } ///< sets vector x value
+   void Y(T dY) { m_adVec[y] = dY; } ///< sets vector y value
+   void Z(T dZ) { m_adVec[z] = dZ; } ///< sets vector z value
 
 
    // operators
 
    /// assign operator
-   Vector3T& operator=(const Vector3T& vec) throw() { Set(vec.m_adVec); return *this; }
+   Vector3T& operator=(const Vector3T& vec) { Set(vec.m_adVec); return *this; }
 
    /// add assignment
-   Vector3T& operator+=(const Vector3T& vec) throw()
+   Vector3T& operator+=(const Vector3T& vec)
    {
       m_adVec[x] += vec.m_adVec[x];
       m_adVec[y] += vec.m_adVec[y];
@@ -65,7 +65,7 @@ public:
    }
 
    /// subtract assignment
-   Vector3T& operator-=(const Vector3T& vec) throw()
+   Vector3T& operator-=(const Vector3T& vec)
    {
       m_adVec[x] -= vec.m_adVec[x];
       m_adVec[y] -= vec.m_adVec[y];
@@ -74,7 +74,7 @@ public:
    }
 
    /// multiplication assignment with scale factor
-   Vector3T& operator*=(T dScale) throw()
+   Vector3T& operator*=(T dScale)
    {
       m_adVec[x] *= dScale;
       m_adVec[y] *= dScale;
@@ -86,16 +86,16 @@ public:
    // operations
 
    /// returns length of vector
-   T Length() const throw() { return sqrt(m_adVec[x]*m_adVec[x] + m_adVec[y]*m_adVec[y] + m_adVec[z]*m_adVec[z]); }
+   T Length() const { return sqrt(m_adVec[x]*m_adVec[x] + m_adVec[y]*m_adVec[y] + m_adVec[z]*m_adVec[z]); }
 
    /// normalizes vector
-   void Normalize() throw() { operator*=(1.0/Length()); }
+   void Normalize() { operator*=(1.0/Length()); }
 
    /// calculates inner (dot) product
-   T Dot(const Vector3T& vec) const throw() { return m_adVec[x]*vec.m_adVec[x] + m_adVec[y]*vec.m_adVec[y] + m_adVec[z]*vec.m_adVec[z]; }
+   T Dot(const Vector3T& vec) const { return m_adVec[x]*vec.m_adVec[x] + m_adVec[y]*vec.m_adVec[y] + m_adVec[z]*vec.m_adVec[z]; }
 
    /// calculates outer (cross) product
-   void Cross(const Vector3T& lhs, const Vector3T& rhs) throw()
+   void Cross(const Vector3T& lhs, const Vector3T& rhs)
    {
       m_adVec[x] = lhs.m_adVec[y] * rhs.m_adVec[z] - lhs.m_adVec[z] * rhs.m_adVec[y];
       m_adVec[y] = lhs.m_adVec[z] * rhs.m_adVec[x] - lhs.m_adVec[x] * rhs.m_adVec[z];
@@ -103,7 +103,7 @@ public:
    }
 
    /// calculates outer (cross) product
-   Vector3T Cross(const Vector3T& rhs) const throw()
+   Vector3T Cross(const Vector3T& rhs) const
    {
       Vector3T vResult;
       vResult.Cross(*this, rhs);
@@ -111,7 +111,7 @@ public:
    }
 
    /// rotate vector around x axis
-   void RotateX(T dAngle) throw()
+   void RotateX(T dAngle)
    {
       T dTempY = m_adVec[y], dAngleRad = Deg2Rad(dAngle);
       m_adVec[y] = dTempY * cos(dAngleRad) - m_adVec[z]*sin(dAngleRad);
@@ -119,7 +119,7 @@ public:
    }
 
    /// rotate vector around y axis
-   void RotateY(T dAngle) throw()
+   void RotateY(T dAngle)
    {
       T dTempX = m_adVec[x], dAngleRad = Deg2Rad(dAngle);
       m_adVec[x] =   dTempX * cos(dAngleRad) + m_adVec[z] * sin(dAngleRad);
@@ -127,7 +127,7 @@ public:
    }
 
    /// rotate vector around z axis
-   void RotateZ(T dAngle) throw()
+   void RotateZ(T dAngle)
    {
       T dTempX = m_adVec[x], dAngleRad = Deg2Rad(dAngle);
       m_adVec[x] = dTempX * cos(dAngleRad) - m_adVec[y] * sin(dAngleRad);
@@ -138,10 +138,10 @@ public:
    // data access
 
    /// access to vector data; const version
-   const T* Data() const throw() { return m_adVec; }
+   const T* Data() const { return m_adVec; }
 
    /// access to vector data; non-const version
-   T* Data() throw() { return m_adVec; }
+   T* Data() { return m_adVec; }
 
 private:
    /// enum to access vector components by name
@@ -159,28 +159,28 @@ private:
 
 /// unary minus
 template <typename T>
-inline Vector3T<T> operator-(const Vector3T<T>& vec) throw()
+inline Vector3T<T> operator-(const Vector3T<T>& vec)
 {
    return Vector3T<T>(-vec.X(), -vec.Y(), -vec.Z());
 };
 
 /// add operator
 template <typename T>
-inline Vector3T<T> operator+(const Vector3T<T>& v1, const Vector3T<T>& v2) throw()
+inline Vector3T<T> operator+(const Vector3T<T>& v1, const Vector3T<T>& v2)
 {
    return Vector3T<T>(v1.X() + v2.X(), v1.Y() + v2.Y(), v1.Z() + v2.Z());
 }
 
 /// subtract operator
 template <typename T>
-inline Vector3T<T> operator-(const Vector3T<T>& v1, const Vector3T<T>& v2) throw()
+inline Vector3T<T> operator-(const Vector3T<T>& v1, const Vector3T<T>& v2)
 {
    return Vector3T<T>(v1.X() - v2.X(), v1.Y() - v2.Y(), v1.Z() - v2.Z());
 }
 
 /// scalar multiplication, vector * scalar
 template <typename T>
-inline Vector3T<T> operator*(const Vector3T<T>& vec, const T dScale) throw()
+inline Vector3T<T> operator*(const Vector3T<T>& vec, const T dScale)
 {
    Vector3T<T> vRet(vec);
    vRet *= dScale;
@@ -189,7 +189,7 @@ inline Vector3T<T> operator*(const Vector3T<T>& vec, const T dScale) throw()
 
 /// scalar multiplication, scalar * vector
 template <typename T>
-inline Vector3T<T> operator*(const T dScale, const Vector3T<T>& vec) throw()
+inline Vector3T<T> operator*(const T dScale, const Vector3T<T>& vec)
 {
    Vector3T<T> vRet(vec);
    vRet *= dScale;

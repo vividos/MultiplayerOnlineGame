@@ -340,7 +340,7 @@ void TrianglesCompiler::CompileFanCond(
    }
 }
 
-bool TrianglesCompiler::IsActive(unsigned int x, unsigned int y) const throw()
+bool TrianglesCompiler::IsActive(unsigned int x, unsigned int y) const
 {
    return m_activeVertexMap.IsActive(x, y);
 }

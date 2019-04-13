@@ -24,17 +24,17 @@ class RENDERENGINE_DECLSPEC BufferObjectBase
 {
 public:
    /// ctor
-   BufferObjectBase() throw();
+   BufferObjectBase();
 
    /// returns if VBO extension is supported by OpenGL
-   static bool IsAvailable() throw()
+   static bool IsAvailable()
    {
       return OpenGL::IsExtensionSupported(OpenGL::Extension::ARB_vertex_buffer_object);
    }
 
 private:
    /// inits function pointers
-   static void Init() throw();
+   static void Init();
 
 protected:
    // static data for access to vertex buffer object extension

@@ -16,7 +16,7 @@
 struct OggVorbisStreamCallbacks: public ov_callbacks
 {
    /// ctor
-   OggVorbisStreamCallbacks(bool bAutoClose, bool bSeekable) throw()
+   OggVorbisStreamCallbacks(bool bAutoClose, bool bSeekable)
    {
       read_func = &OggVorbisStreamCallbacks::Read;
 

@@ -19,7 +19,7 @@ class IoServiceThread: public boost::noncopyable
 {
 public:
    /// ctor
-   IoServiceThread(bool bDefaultWork = false, LPCTSTR pszThreadName = NULL) throw()
+   IoServiceThread(bool bDefaultWork = false, LPCTSTR pszThreadName = NULL)
 #ifdef _DEBUG
       :m_pszThreadName(pszThreadName)
 #endif
@@ -31,13 +31,13 @@ public:
    }
 
    /// dtor
-   ~IoServiceThread() throw()
+   ~IoServiceThread()
    {
       Join();
    }
 
    /// returns io_service object
-   boost::asio::io_service& Get() throw() { return m_ioService; }
+   boost::asio::io_service& Get() { return m_ioService; }
 
    /// runs background thread
    void Run()

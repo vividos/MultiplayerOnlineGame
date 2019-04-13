@@ -10,20 +10,20 @@
 #include "Quaternion4.hpp"
 #include "Math.hpp"
 
-double Quaternion4d::Length() const throw()
+double Quaternion4d::Length() const
 {
    double dLen = m_vXyz.Length();
    return std::sqrt(m_dW * m_dW + dLen * dLen);
 }
 
-void Quaternion4d::Normalize() throw()
+void Quaternion4d::Normalize()
 {
    double dScale = 1.0 / Length();
    m_vXyz *= dScale;
    m_dW *= dScale;
 }
 
-void Quaternion4d::ToAxisAngle(Vector3d& vAxis, double& dAngle) const throw()
+void Quaternion4d::ToAxisAngle(Vector3d& vAxis, double& dAngle) const
 {
    Quaternion4d q(*this);
    if (q.W() > 1.0)

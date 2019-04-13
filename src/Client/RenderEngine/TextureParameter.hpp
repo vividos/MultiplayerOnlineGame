@@ -55,7 +55,7 @@ class TextureParameter
 
 public:
    /// activate texture parameter
-   static void Use() throw()
+   static void Use()
    {
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapTypeS);
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapTypeT);

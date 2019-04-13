@@ -39,7 +39,7 @@ void EffectValueOrRange::Deserialize(ByteStream& stream)
       m_iValues[1] = static_cast<int>(stream.Read32());
 }
 
-CString EffectValueOrRange::ToString() const throw()
+CString EffectValueOrRange::ToString() const
 {
    CString cszText;
 
@@ -182,7 +182,7 @@ void DamageSpellEffect::Deserialize(ByteStream& stream)
       throw Exception(_T("invalid damage restriction flags"), __FILE__, __LINE__);
 }
 
-CString DamageSpellEffect::ToString() const throw()
+CString DamageSpellEffect::ToString() const
 {
    CString cszText;
 
@@ -207,7 +207,7 @@ void HealSpellEffect::Deserialize(ByteStream& stream)
    BaseClass::Deserialize(stream);
 }
 
-CString HealSpellEffect::ToString() const throw()
+CString HealSpellEffect::ToString() const
 {
    CString cszText;
 
@@ -234,7 +234,7 @@ void ModifyAttrSpellEffect::Deserialize(ByteStream& stream)
    // TODO impl.
 }
 
-CString ModifyAttrSpellEffect::ToString() const throw()
+CString ModifyAttrSpellEffect::ToString() const
 {
    CString cszText;
 
@@ -261,7 +261,7 @@ void ResistSpellEffect::Deserialize(ByteStream& stream)
    // TODO impl.
 }
 
-CString ResistSpellEffect::ToString() const throw()
+CString ResistSpellEffect::ToString() const
 {
    CString cszText;
 
@@ -292,7 +292,7 @@ void DisableSpellEffect::Deserialize(ByteStream& stream)
    m_enDisableType = static_cast<T_enDisableType>(ucDisableType);
 }
 
-CString DisableSpellEffect::ToString() const throw()
+CString DisableSpellEffect::ToString() const
 {
    CString cszText;
 

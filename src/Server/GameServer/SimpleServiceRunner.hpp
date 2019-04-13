@@ -25,7 +25,7 @@ public:
    typedef SimpleServiceRunner<TService> ThisType;
 
    /// ctor
-   SimpleServiceRunner() throw()
+   SimpleServiceRunner()
    {
    }
 

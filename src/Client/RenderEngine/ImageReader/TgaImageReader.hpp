@@ -15,7 +15,7 @@ class RENDERENGINE_DECLSPEC TgaImageReader: public IImageReader
 {
 public:
    /// dtor
-   virtual ~TgaImageReader() throw()
+   virtual ~TgaImageReader()
    {
    }
 
@@ -25,7 +25,7 @@ public:
    // get methods
 
    /// returns color map (if any)
-   const std::vector<Color>& GetColorMap() const throw() { return m_vecColorMap; }
+   const std::vector<Color>& GetColorMap() const { return m_vecColorMap; }
 
 private:
    /// loads color map from stream

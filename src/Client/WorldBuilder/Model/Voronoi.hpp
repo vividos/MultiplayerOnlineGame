@@ -21,7 +21,7 @@ namespace Voronoi
 /// Notation for working with points
 struct Point
 {
-   Point(double x_ = 0.0, double y_ = 0.0) throw()
+   Point(double x_ = 0.0, double y_ = 0.0)
       :x(x_),
        y(y_)
    {
@@ -53,7 +53,7 @@ struct EdgeSorter
    {
    }
 
-   bool operator()(const Edge& lhs, const Edge& rhs) const throw()
+   bool operator()(const Edge& lhs, const Edge& rhs) const
    {
       Vector2d lhv = m_center - Vector2d(lhs.start.x, lhs.start.y);
       Vector2d rhv = m_center - Vector2d(rhs.start.x, rhs.start.y);
@@ -163,8 +163,8 @@ private:
    /// "Greater than" comparison, for reverse sorting in priority queue.
    struct GreaterThan
    {
-      bool operator()(const Site& a, const Site& b) const throw();
-      bool operator()(const EventPtr& a, const EventPtr& b) const throw();
+      bool operator()(const Site& a, const Site& b) const;
+      bool operator()(const EventPtr& a, const EventPtr& b) const;
    };
 
 private:

@@ -27,14 +27,14 @@ public:
       ATLASSERT(IsPowerOfTwo(uiMapSize));
    }
    /// dtor
-   virtual ~ActiveVertexBlockMap() throw() {}
+   virtual ~ActiveVertexBlockMap() {}
 
-   virtual bool IsInMap(unsigned int x, unsigned int y) const throw() override
+   virtual bool IsInMap(unsigned int x, unsigned int y) const override
    {
       return x < m_uiMapSize*m_uiNumBlocks && y < m_uiMapSize*m_uiNumBlocks;
    }
 
-   virtual bool IsActive(unsigned int x, unsigned int y) const throw() override
+   virtual bool IsActive(unsigned int x, unsigned int y) const override
    {
       if (x >= m_uiMapSize*m_uiNumBlocks || y >= m_uiMapSize*m_uiNumBlocks)
          return true;
@@ -50,7 +50,7 @@ public:
       return m_vecAllBlocks[iIndex]->IsActive(x,y);
    }
 
-   virtual void SetActive(unsigned int x, unsigned int y) throw() override
+   virtual void SetActive(unsigned int x, unsigned int y) override
    {
       size_t iIndex = MapCoordinates(x, y);
 
@@ -106,7 +106,7 @@ public:
    }
 
 private:
-   size_t MapCoordinates(unsigned int& x, unsigned int& y) const throw()
+   size_t MapCoordinates(unsigned int& x, unsigned int& y) const
    {
       size_t uiBlockNum = (y / m_uiMapSize) * m_uiNumBlocks | (x / m_uiMapSize);
       x %= m_uiMapSize;

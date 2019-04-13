@@ -11,22 +11,22 @@ class AuthInfo
 {
 public:
    /// default ctor
-   AuthInfo() throw()
+   AuthInfo()
    {
    }
 
    /// ctor that takes username and password
-   AuthInfo(const CString& cszUsername, const CString& cszPassword) throw()
+   AuthInfo(const CString& cszUsername, const CString& cszPassword)
       :m_cszUsername(cszUsername),
        m_cszPassword(cszPassword)
    {
    }
 
    /// returns username
-   CString Username() const throw() { return m_cszUsername; }
+   CString Username() const { return m_cszUsername; }
 
    /// returns password
-   CString Password() const throw() { return m_cszPassword; }
+   CString Password() const { return m_cszPassword; }
 
 private:
    CString m_cszUsername;  ///< username

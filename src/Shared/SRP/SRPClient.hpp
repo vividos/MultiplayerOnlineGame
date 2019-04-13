@@ -31,7 +31,7 @@ public:
       const BigInteger& s, const BigInteger& B);
 
    /// checks if the server knows us
-   bool VerifyServer(const BinaryData& Mserver) const throw();
+   bool VerifyServer(const BinaryData& Mserver) const;
 
    /// returns session key K, calculated by CalcM()
    const BinaryData& GetK()

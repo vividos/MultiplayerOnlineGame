@@ -36,7 +36,7 @@ public:
    }
 
    /// dtor
-   virtual ~RootWindow() throw() {}
+   virtual ~RootWindow() {}
 
    /// returns window manager
    virtual IWindowManager& GetWindowManager() override
@@ -228,13 +228,13 @@ void WindowManager::OnResizeScreen(Size newSize)
    m_screenSize = newSize;
 }
 
-WindowPtr WindowManager::GetRootWindow() throw()
+WindowPtr WindowManager::GetRootWindow()
 {
    ATLASSERT(m_spRootWindow != NULL);
    return m_spRootWindow;
 }
 
-WindowPtr WindowManager::FindWindow(LPCTSTR pszWindowName) throw()
+WindowPtr WindowManager::FindWindow(LPCTSTR pszWindowName)
 {
    // check root window
    WindowPtr spWindow = m_spRootWindow;
@@ -249,7 +249,7 @@ WindowPtr WindowManager::FindWindow(LPCTSTR pszWindowName) throw()
    return spPanel->FindByName(pszWindowName);
 }
 
-void WindowManager::SetFocus(WindowPtr spFocusedWnd) throw()
+void WindowManager::SetFocus(WindowPtr spFocusedWnd)
 {
    if (m_spFocusedWindow != NULL)
       m_spFocusedWindow->OnFocusChanged(false);
@@ -260,7 +260,7 @@ void WindowManager::SetFocus(WindowPtr spFocusedWnd) throw()
       m_spFocusedWindow->OnFocusChanged(true);
 }
 
-void WindowManager::TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback) throw()
+void WindowManager::TrackMouseLeave(const Rect& rect, std::function<void()> fnCallback)
 {
    m_listAllTrackMouseLeaveEntries.push_back(std::make_pair(rect, fnCallback));
 }
@@ -284,7 +284,7 @@ bool WindowManager::IsTrackedMouseUp(WindowPtr spWindow, int iMouseButton)
    return setWindows.find(spWindow) != setWindows.end();
 }
 
-void WindowManager::PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent) throw()
+void WindowManager::PlayAudioEvent(T_enUserInterfaceAudioEvents enUserInterfaceAudioEvent)
 {
    if (m_fnOnUserInterfaceAudioEvent != NULL)
    {

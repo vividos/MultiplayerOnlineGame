@@ -28,10 +28,10 @@ public:
    /// ctor
    ClientAuthModule(const AuthInfo& authInfo);
    /// dtor
-   virtual ~ClientAuthModule() throw() {}
+   virtual ~ClientAuthModule() {}
 
    virtual void InitAuthentication() override;
-   virtual bool IsAuthenticated() const throw() override;
+   virtual bool IsAuthenticated() const override;
    virtual bool OnReceiveMessage(RawMessage& msg) override;
    virtual std::shared_ptr<IEncryptModule> GetEncryptModule() override;
 

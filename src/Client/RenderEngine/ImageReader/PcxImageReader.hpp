@@ -14,7 +14,7 @@ class PcxImageReader: public IImageReader
 {
 public:
    /// dtor
-   virtual ~PcxImageReader() throw()
+   virtual ~PcxImageReader()
    {
    }
 

@@ -14,24 +14,24 @@ public:
    typedef unsigned char BaseType;
 
    /// ctor
-   Flags8(unsigned char ucValue = 0) throw()
+   Flags8(unsigned char ucValue = 0)
       :m_ucValue(ucValue)
    {
    }
 
    /// returns flags value
-   unsigned char Value() const throw() { return m_ucValue; }
+   unsigned char Value() const { return m_ucValue; }
 
    /// returns a bit in the flags
    template <unsigned int NBit>
-   bool GetBit() const throw()
+   bool GetBit() const
    {
       return (m_ucValue & (1 << NBit)) != 0;
    }
 
    /// sets a bit in the flags
    template <unsigned int NBit>
-   void SetBit(bool bBit) throw()
+   void SetBit(bool bBit)
    {
       if (bBit)
          m_ucValue |= (1 << NBit);

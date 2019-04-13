@@ -30,7 +30,7 @@ namespace SVG
          m_mapStyles.insert(std::make_pair(pszName, cszTemp));
       }
 
-      CString GetAttrib() const throw()
+      CString GetAttrib() const
       {
          CString cszAttrib, cszTemp;
          for (std::map<CString, CString>::const_iterator iter = m_mapStyles.begin(); iter != m_mapStyles.end(); ++iter)
@@ -63,7 +63,7 @@ namespace SVG
             width, height);
       }
       /// dtor
-      ~Writer() throw()
+      ~Writer()
       {
          _ftprintf(m_fd, _T("</svg>\n"));
          fclose(m_fd);

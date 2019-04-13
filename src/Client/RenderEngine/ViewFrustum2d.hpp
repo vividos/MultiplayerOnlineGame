@@ -15,10 +15,10 @@ class RENDERENGINE_DECLSPEC ViewFrustum2d
 public:
    /// ctor; takes position, camera angle, field of view and far plane distance
    ViewFrustum2d(double xpos, double ypos,
-      double angle, double fov, double farplane) throw();
+      double angle, double fov, double farplane);
 
    /// checks if a given point is inside the frustum
-   bool IsInside(double xpos, double ypos) const throw();
+   bool IsInside(double xpos, double ypos) const;
 
 private:
    /// frustum points

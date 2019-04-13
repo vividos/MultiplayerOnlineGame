@@ -12,11 +12,11 @@
 
 using Terrain::FileDataSource;
 
-FileDataSource::FileDataSource() throw()
+FileDataSource::FileDataSource()
 {
 }
 
-FileDataSource::FileDataSource(unsigned int uiSize) throw()
+FileDataSource::FileDataSource(unsigned int uiSize)
 :m_blockManager(uiSize)
 {
 }

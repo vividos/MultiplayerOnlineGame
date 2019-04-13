@@ -41,7 +41,7 @@ public:
    }
 
    /// returns triangle indices
-   const std::vector<unsigned int>& GetIndices() const throw() { return m_vecIndex; }
+   const std::vector<unsigned int>& GetIndices() const { return m_vecIndex; }
 
    /// reduce triangles
    void Reduce();

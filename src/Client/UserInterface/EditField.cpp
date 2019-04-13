@@ -13,7 +13,7 @@
 #include "IMouseEventReceiver.hpp"
 #include <SDL.h>
 
-void EditField::Render(Rect& rectArea) throw()
+void EditField::Render(Rect& rectArea)
 {
    if (!m_text.IsInit())
       UpdateTexture();
@@ -146,7 +146,7 @@ bool EditField::IsAllowedChar(unsigned int sym, unsigned int /*mod*/)
    return false;
 }
 
-void EditField::OnAttributeChanged(const CString& cszAttributeName) throw()
+void EditField::OnAttributeChanged(const CString& cszAttributeName)
 {
    bool bUpdate = false;
 
@@ -174,7 +174,7 @@ CString EditField::GetDisplayText() const
    return m_cszText;
 }
 
-void EditField::UpdateTexture() throw()
+void EditField::UpdateTexture()
 {
    try
    {

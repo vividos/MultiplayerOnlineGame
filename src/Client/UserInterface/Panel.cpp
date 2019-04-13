@@ -10,7 +10,7 @@
 #include "Panel.hpp"
 #include "IWindowManager.hpp"
 
-void Panel::Render(Rect& rectArea) throw()
+void Panel::Render(Rect& rectArea)
 {
    if (IsShowBackground())
    {
@@ -117,7 +117,7 @@ WindowPtr Panel::FindByName(LPCTSTR pszWindowName)
    return WindowPtr();
 }
 
-bool Panel::IsShowBackground() throw()
+bool Panel::IsShowBackground()
 {
    try
    {
@@ -129,7 +129,7 @@ bool Panel::IsShowBackground() throw()
    }
 }
 
-Color Panel::BackgroundColor() throw()
+Color Panel::BackgroundColor()
 {
    try
    {

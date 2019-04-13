@@ -23,14 +23,14 @@ public:
    /// ctor; takes filename of image file
    ImageFileTerrainDataSource(LPCTSTR pszImageFilename);
    /// dtor
-   virtual ~ImageFileTerrainDataSource() throw() {}
+   virtual ~ImageFileTerrainDataSource() {}
 
    /// loads block
    virtual std::shared_ptr<Terrain::Model::DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;
 
 private:
    /// maps coordinates to index in image file color buffer
-   static size_t MapCoordToIndex(unsigned int x, unsigned int y) throw();
+   static size_t MapCoordToIndex(unsigned int x, unsigned int y);
 
 private:
    /// file image reader
@@ -43,16 +43,16 @@ class TERRAIN_DECLSPEC MandelbrotTerrainDataSource: public IDataSource
 {
 public:
    /// ctor
-   MandelbrotTerrainDataSource() throw() {}
+   MandelbrotTerrainDataSource() {}
    /// dtor
-   virtual ~MandelbrotTerrainDataSource() throw() {}
+   virtual ~MandelbrotTerrainDataSource() {}
 
    /// calculates and returns block
    virtual std::shared_ptr<DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;
 
 private:
    /// iterates complex number
-   static unsigned int Iterate(double x, double y) throw();
+   static unsigned int Iterate(double x, double y);
 };
 
 
@@ -62,9 +62,9 @@ class TERRAIN_DECLSPEC ScatteredPointDataSource: public IDataSource
 {
 public:
    /// ctor
-   ScatteredPointDataSource() throw();
+   ScatteredPointDataSource();
    /// dtor
-   virtual ~ScatteredPointDataSource() throw() {}
+   virtual ~ScatteredPointDataSource() {}
 
    /// calculates and returns block
    virtual std::shared_ptr<DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;
@@ -81,9 +81,9 @@ class TERRAIN_DECLSPEC ZoneDataSource: public IDataSource
 {
 public:
    /// ctor
-   ZoneDataSource(const DataBlock& baseDataBlock, unsigned int uiZoneSize) throw();
+   ZoneDataSource(const DataBlock& baseDataBlock, unsigned int uiZoneSize);
    /// dtor
-   virtual ~ZoneDataSource() throw() {}
+   virtual ~ZoneDataSource() {}
 
    /// returns block
    virtual std::shared_ptr<DataBlock> LoadBlock(unsigned int x, unsigned int y, unsigned int size) override;

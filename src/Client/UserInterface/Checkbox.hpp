@@ -33,11 +33,11 @@ class USERINTERFACE_DECLSPEC Checkbox : public Control
 {
 public:
    /// ctor
-   Checkbox() throw()
+   Checkbox()
    {
    }
    /// dtor
-   virtual ~Checkbox() throw() {}
+   virtual ~Checkbox() {}
 
    BEGIN_ATTR_MAP()
       INHERIT_ATTR_MAP(Control)
@@ -56,7 +56,7 @@ public:
    }
 
    /// sets check
-   void SetCheck(bool bChecked) throw()
+   void SetCheck(bool bChecked)
    {
       SetAttrBool(CheckboxAttr::Checked, bChecked);
    }
@@ -67,11 +67,11 @@ public:
    virtual void OnMouseMotionEvent(unsigned int /*x*/, unsigned int /*y*/) override {}
    virtual bool OnKeyboardEvent(bool /*bKeyDown*/, unsigned int /*sym*/, unsigned int /*mod*/) override;
 
-   virtual void OnAttributeChanged(const CString& cszAttributeName) throw() override;
+   virtual void OnAttributeChanged(const CString& cszAttributeName) override;
 
 private:
    /// updates texture
-   void UpdateTexture() throw();
+   void UpdateTexture();
 
    /// renders box and check
    void RenderCheck(Rect& rectArea);

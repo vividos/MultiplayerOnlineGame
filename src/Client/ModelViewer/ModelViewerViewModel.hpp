@@ -21,18 +21,18 @@ namespace ModelViewer
       /// ctor
       ViewModel();
       /// dtor
-      virtual ~ViewModel() throw() {}
+      virtual ~ViewModel() {}
 
       // get methods
 
       /// returns current display info
-      const MobileDisplayInfo& DisplayInfo() const throw() { return m_player.DisplayInfo(); }
+      const MobileDisplayInfo& DisplayInfo() const { return m_player.DisplayInfo(); }
 
       /// returns current animation
-      unsigned int CurrentAnimation() const throw() { return m_uiCurrentAnimation; }
+      unsigned int CurrentAnimation() const { return m_uiCurrentAnimation; }
 
       /// returns max. animation number
-      unsigned int MaxAnimationNumber() const throw() { return m_vecAnimationNames.size(); }
+      unsigned int MaxAnimationNumber() const { return m_vecAnimationNames.size(); }
 
       /// returns animation name
       CString AnimationName(unsigned int uiAnimation)
@@ -48,10 +48,10 @@ namespace ModelViewer
       // set methods
 
       /// sets new display info
-      void DisplayInfo(const MobileDisplayInfo& displayInfo) throw();
+      void DisplayInfo(const MobileDisplayInfo& displayInfo);
 
       /// sets current animation
-      void CurrentAnimation(unsigned int uiCurrentAnimation) throw();
+      void CurrentAnimation(unsigned int uiCurrentAnimation);
 
       // events
 
@@ -62,10 +62,10 @@ namespace ModelViewer
       typedef Subject<void(unsigned int)> T_AnimationChangedEvent;
 
       /// returns "model description changed" event object
-      T_ModelDescriptionChangedEvent& ModelDescriptionChangedEvent() throw() { return m_modelDescriptionChangedEvent; }
+      T_ModelDescriptionChangedEvent& ModelDescriptionChangedEvent() { return m_modelDescriptionChangedEvent; }
 
       /// returns "animation changed" event object
-      T_AnimationChangedEvent& AnimationChangedEvent() throw() { return m_animationChangedEvent; }
+      T_AnimationChangedEvent& AnimationChangedEvent() { return m_animationChangedEvent; }
 
    private:
       /// current animation

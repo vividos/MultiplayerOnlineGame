@@ -145,7 +145,7 @@ BinaryData Helper::CalcM2(BinaryData m1, const BigInteger& A, const BinaryData& 
 
 using SRP::Helper::HashDataSha1;
 
-HashDataSha1::HashDataSha1() throw()
+HashDataSha1::HashDataSha1()
 :m_spContext(new SHA_CTX)
 {
    SHA1_Init(m_spContext.get());

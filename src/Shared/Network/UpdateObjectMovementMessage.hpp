@@ -32,15 +32,15 @@ public:
    }
 
    /// dtor
-   virtual ~UpdateObjectMovementMessage() throw() {}
+   virtual ~UpdateObjectMovementMessage() {}
 
    // get methods
 
    /// returns object id
-   const ObjectId& Id() const throw() { return m_objId; }
+   const ObjectId& Id() const { return m_objId; }
 
    /// returns movement info
-   const MovementInfo& Info() const throw() { return m_movementInfo; }
+   const MovementInfo& Info() const { return m_movementInfo; }
 
 
    /// serialize message by putting bytes to stream

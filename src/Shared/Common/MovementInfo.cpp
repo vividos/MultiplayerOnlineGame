@@ -32,7 +32,7 @@ MovementInfo::MovementInfo(T_enMovementMode enMovementMode)
       m_timerStartMovement.Start();
 }
 
-MovementInfo::T_enMovementType MovementInfo::MovementType() const throw()
+MovementInfo::T_enMovementType MovementInfo::MovementType() const
 {
    if (m_enMovementMode == movementStand)
       return moveTypeStand;
@@ -64,7 +64,7 @@ MovementInfo::T_enMovementType MovementInfo::MovementType() const throw()
    return moveTypeStand;
 }
 
-double MovementInfo::ViewAngle() const throw()
+double MovementInfo::ViewAngle() const
 {
    if (m_enMovementMode == movementStand || m_enMovementMode == movementDirection)
       return m_dDirection;
@@ -276,7 +276,7 @@ void MovementInfo::Deserialize(ByteStream& stream)
    }
 }
 
-bool MovementInfo::operator==(const MovementInfo& rhs) const throw()
+bool MovementInfo::operator==(const MovementInfo& rhs) const
 {
    if (rhs.m_enMovementMode != m_enMovementMode)
       return false;

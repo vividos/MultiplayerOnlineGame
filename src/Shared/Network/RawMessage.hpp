@@ -16,21 +16,21 @@ class RawMessage: public Message
 {
 public:
    /// ctor
-   RawMessage(unsigned short usMessageId, const unsigned char* pData, size_t uiLength) throw()
+   RawMessage(unsigned short usMessageId, const unsigned char* pData, size_t uiLength)
       :Message(usMessageId),
        m_vecData(pData, pData + uiLength)
    {
    }
 
    /// ctor
-   RawMessage(unsigned short usMessageId, const std::vector<unsigned char>& vecData) throw()
+   RawMessage(unsigned short usMessageId, const std::vector<unsigned char>& vecData)
       :Message(usMessageId),
        m_vecData(vecData)
    {
    }
 
    /// dtor
-   virtual ~RawMessage() throw() {}
+   virtual ~RawMessage() {}
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override
@@ -45,7 +45,7 @@ public:
    }
 
    /// returns raw data
-   const std::vector<unsigned char>& Data() const throw() { return m_vecData; }
+   const std::vector<unsigned char>& Data() const { return m_vecData; }
 
 private:
    /// raw data

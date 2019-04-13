@@ -14,7 +14,7 @@ class IViewController: public IMouseEventReceiver
 {
 public:
    /// dtor
-   virtual ~IViewController() throw() {}
+   virtual ~IViewController() {}
 
    /// tick processing
    virtual void Tick() = 0;

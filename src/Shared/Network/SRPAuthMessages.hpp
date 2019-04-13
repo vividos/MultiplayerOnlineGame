@@ -54,7 +54,7 @@ public:
    }
 
    /// ctor; use for sending
-   AuthRequestMessage(const CString& cszUsername, const TByteArray& A) throw()
+   AuthRequestMessage(const CString& cszUsername, const TByteArray& A)
       :Message(msgSRPAuthRequest),
        m_cszUsername(cszUsername),
        m_A(A)
@@ -62,7 +62,7 @@ public:
    }
 
    /// dtor
-   virtual ~AuthRequestMessage() throw() {}
+   virtual ~AuthRequestMessage() {}
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override
@@ -83,10 +83,10 @@ public:
    // get methods
 
    /// returns username
-   const CString& GetUsername() const throw() { return m_cszUsername; }
+   const CString& GetUsername() const { return m_cszUsername; }
 
    /// returns A value
-   const TByteArray& GetA() const throw() { return m_A; }
+   const TByteArray& GetA() const { return m_A; }
 
 private:
    CString m_cszUsername;  ///< username
@@ -99,13 +99,13 @@ class SRPAuthResponseMessage: public Message
 {
 public:
    /// ctor; use for receiving
-   SRPAuthResponseMessage() throw()
+   SRPAuthResponseMessage()
       :Message(msgSRPAuthResponse)
    {
    }
 
    /// ctor; use for sending
-   SRPAuthResponseMessage(const TByteArray& Salt, const TByteArray& B) throw()
+   SRPAuthResponseMessage(const TByteArray& Salt, const TByteArray& B)
       :Message(msgSRPAuthResponse),
        m_Salt(Salt),
        m_B(B)
@@ -113,7 +113,7 @@ public:
    }
 
    /// dtor
-   virtual ~SRPAuthResponseMessage() throw() {}
+   virtual ~SRPAuthResponseMessage() {}
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override
@@ -140,10 +140,10 @@ public:
    // get methods
 
    /// returns salt value
-   const TByteArray& GetSalt() const throw() { return m_Salt; }
+   const TByteArray& GetSalt() const { return m_Salt; }
 
    /// returns B value
-   const TByteArray& GetB() const throw() { return m_B; }
+   const TByteArray& GetB() const { return m_B; }
 
 private:
    TByteArray m_Salt;   ///< salt value
@@ -156,20 +156,20 @@ class SRPAuthVerifyClientMessage: public Message
 {
 public:
    /// ctor; use for receiving
-   SRPAuthVerifyClientMessage() throw()
+   SRPAuthVerifyClientMessage()
       :Message(msgSRPAuthVerifyRequest)
    {
    }
 
    /// ctor; use for sending
-   SRPAuthVerifyClientMessage(const TByteArray& Hc) throw()
+   SRPAuthVerifyClientMessage(const TByteArray& Hc)
       :Message(msgSRPAuthVerifyRequest),
        m_Hc(Hc)
    {
    }
 
    /// dtor
-   virtual ~SRPAuthVerifyClientMessage() throw() {}
+   virtual ~SRPAuthVerifyClientMessage() {}
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override
@@ -186,7 +186,7 @@ public:
    // get methods
 
    /// returns client hash value
-   const TByteArray& GetHc() const throw() { return m_Hc; }
+   const TByteArray& GetHc() const { return m_Hc; }
 
 private:
    TByteArray m_Hc;  ///< client hash value
@@ -198,20 +198,20 @@ class SRPAuthVerifyServerMessage: public Message
 {
 public:
    /// ctor; use for receiving
-   SRPAuthVerifyServerMessage() throw()
+   SRPAuthVerifyServerMessage()
       :Message(msgSRPAuthVerifyResponse)
    {
    }
 
    /// ctor; use for sending
-   SRPAuthVerifyServerMessage(const TByteArray& Hs) throw()
+   SRPAuthVerifyServerMessage(const TByteArray& Hs)
       :Message(msgSRPAuthVerifyResponse),
        m_Hs(Hs)
    {
    }
 
    /// dtor
-   virtual ~SRPAuthVerifyServerMessage() throw() {}
+   virtual ~SRPAuthVerifyServerMessage() {}
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const override
@@ -228,7 +228,7 @@ public:
    // get methods
 
    /// returns server hash value
-   const TByteArray& GetHs() const throw() { return m_Hs; }
+   const TByteArray& GetHs() const { return m_Hs; }
 
 private:
    TByteArray m_Hs;  ///< server hash value

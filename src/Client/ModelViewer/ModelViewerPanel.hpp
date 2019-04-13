@@ -24,7 +24,7 @@ public:
    /// ctor
    Panel(IWindowManager& windowManager, IFileSystem& fileSystem);
    /// dtor
-   ~Panel() throw() {}
+   ~Panel() {}
 
    /// type of slider that is moved
    enum T_enSliderType
@@ -44,7 +44,7 @@ public:
    typedef std::function<void(T_enSliderType, unsigned int)> T_fnOnChangeSlider;
 
    /// sets callbacks
-   void SetCallbacks(T_fnOnChangeAnimation fnOnChangeAnimation, T_fnOnChangeSlider fnOnChangeSlider) throw()
+   void SetCallbacks(T_fnOnChangeAnimation fnOnChangeAnimation, T_fnOnChangeSlider fnOnChangeSlider)
    {
       m_fnOnChangeAnimation = fnOnChangeAnimation;
       m_fnOnChangeSlider = fnOnChangeSlider;

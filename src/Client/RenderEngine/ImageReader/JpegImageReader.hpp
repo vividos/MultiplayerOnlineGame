@@ -15,7 +15,7 @@ class RENDERENGINE_DECLSPEC JpegImageReader : public IImageReader
 {
 public:
    /// dtor
-   virtual ~JpegImageReader() throw()
+   virtual ~JpegImageReader()
    {
    }
 

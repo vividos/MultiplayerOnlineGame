@@ -26,7 +26,7 @@
 
 using namespace Arena;
 
-MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient, Game& game) throw()
+MainGameScene::MainGameScene(ISceneManager& sceneManager, GameClient& gameClient, Game& game)
 :Scene(sceneManager),
  m_viewModel(game.GetModel()),
  m_musicDirector(Audio::IAudioManager::Get(), game.GetFileSystem()),

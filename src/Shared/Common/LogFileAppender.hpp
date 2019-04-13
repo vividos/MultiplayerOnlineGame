@@ -18,14 +18,14 @@ public:
    /// ctor
    LogFileAppender();
    /// dtor
-   virtual ~LogFileAppender() throw() {}
+   virtual ~LogFileAppender() {}
 
    /// outputs logging event to log file
    virtual void DoAppend(const Log::LoggingEventPtr spLoggingEvent);
 
 private:
    /// returns log file name
-   static CString CreateLogFileName() throw();
+   static CString CreateLogFileName();
 
 private:
    /// log file

@@ -16,39 +16,39 @@ namespace OpenGL
    {
    public:
       /// ctor
-      DisplayList() throw()
+      DisplayList()
          :m_listId(0)
       {
       }
       /// dtor
-      ~DisplayList() throw()
+      ~DisplayList()
       {
          Delete();
       }
 
       /// initializes display list
-      void Init() throw()
+      void Init()
       {
          Delete();
          m_listId = glGenLists(1);
       }
 
       /// opens display list for compiling
-      void Open(bool bCompileAndExecute = false) throw()
+      void Open(bool bCompileAndExecute = false)
       {
          ATLASSERT(m_listId != 0);
          glNewList(m_listId, bCompileAndExecute ? GL_COMPILE_AND_EXECUTE : GL_COMPILE);
       }
 
       /// closes display list
-      void Close() throw()
+      void Close()
       {
          ATLASSERT(m_listId != 0);
          glEndList();
       }
 
       /// calls display list
-      void Call() const throw()
+      void Call() const
       {
          ATLASSERT(m_listId != 0);
          glCallList(m_listId);
@@ -56,7 +56,7 @@ namespace OpenGL
 
    private:
       /// deletes display list
-      void Delete() throw()
+      void Delete()
       {
          if (m_listId != 0)
             glDeleteLists(m_listId, 1);
@@ -71,28 +71,28 @@ namespace OpenGL
    {
    public:
       /// ctor
-      DisplayListArray() throw()
+      DisplayListArray()
          :m_listId(0),
           m_listLength(0)
       {
       }
 
       /// dtor
-      ~DisplayListArray() throw()
+      ~DisplayListArray()
       {
          if (m_listId != 0)
             glDeleteLists(m_listId, m_listLength);
       }
 
       /// initializes display list array
-      void Init(GLsizei uiSize) throw()
+      void Init(GLsizei uiSize)
       {
          m_listId = glGenLists(uiSize);
          m_listLength = static_cast<GLuint>(uiSize);
       }
 
       /// opens single display list for compiling
-      void Open(GLuint uiRelIndex, bool bCompileAndExecute = false) throw()
+      void Open(GLuint uiRelIndex, bool bCompileAndExecute = false)
       {
          ATLASSERT(m_listId != 0);
          ATLASSERT(uiRelIndex < m_listLength);
@@ -100,14 +100,14 @@ namespace OpenGL
       }
 
       /// closes currently opened display list
-      void Close() throw()
+      void Close()
       {
          ATLASSERT(m_listId != 0);
          glEndList();
       }
 
       /// calls display list
-      void Call(GLuint uiRelIndex) const throw()
+      void Call(GLuint uiRelIndex) const
       {
          ATLASSERT(m_listId != 0);
          ATLASSERT(uiRelIndex < m_listLength);

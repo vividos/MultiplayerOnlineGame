@@ -16,7 +16,7 @@ class WORLD_DECLSPEC ItemTemplateParser
 {
 public:
    /// ctor
-   ItemTemplateParser() throw() {}
+   ItemTemplateParser() {}
 
    /// parses item description
    std::shared_ptr<ItemTemplate> Parse(LPCTSTR pszText);

@@ -10,7 +10,7 @@
 #include "Checkerboard.hpp"
 #include "OpenGL.hpp"
 
-void Checkerboard::Render(RenderOptions& /*options*/) throw()
+void Checkerboard::Render(RenderOptions& /*options*/)
 {
    glDisable(GL_TEXTURE_2D);
 

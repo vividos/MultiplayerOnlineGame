@@ -37,32 +37,32 @@ public:
    };
 
    /// ctor
-   CompositeModel3d() throw() {}
+   CompositeModel3d() {}
    /// dtor
-   virtual ~CompositeModel3d() throw() {}
+   virtual ~CompositeModel3d() {}
 
    // virtual methods from IModel3d
 
    /// prepares model for rendering
-   virtual void Prepare() throw() override;
+   virtual void Prepare() override;
 
    /// uploads data to graphics card
-   virtual void Upload() throw() override;
+   virtual void Upload() override;
 
    /// sets animated model
-   void SetAnimated(std::shared_ptr<AnimatedModel3d> spAnimated) throw() { m_spAnimated = spAnimated; }
+   void SetAnimated(std::shared_ptr<AnimatedModel3d> spAnimated) { m_spAnimated = spAnimated; }
 
    /// returns animated model
-   std::shared_ptr<AnimatedModel3d> GetAnimated() throw() { return m_spAnimated; }
+   std::shared_ptr<AnimatedModel3d> GetAnimated() { return m_spAnimated; }
 
    /// adds static model
-   void AddStatic(LPCTSTR pszMountJoint, std::shared_ptr<StaticModel3d> spStatic) throw();
+   void AddStatic(LPCTSTR pszMountJoint, std::shared_ptr<StaticModel3d> spStatic);
 
    /// returns list of static models
-   const std::vector<StaticModelData>& StaticList() const throw() { return m_vecStatics; }
+   const std::vector<StaticModelData>& StaticList() const { return m_vecStatics; }
 
    /// returns list of static models; non-const version
-   std::vector<StaticModelData>& StaticList() throw() { return m_vecStatics; }
+   std::vector<StaticModelData>& StaticList() { return m_vecStatics; }
 
 private:
    /// animated model

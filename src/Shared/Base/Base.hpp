@@ -48,11 +48,10 @@
 
 /// macro to define class that can be managed with InstanceManager
 #define DEFINE_INSTANCE(ClassName) \
-   static LPCTSTR GetClassName() throw() { return _T(#ClassName); }
+   static LPCTSTR GetClassName() { return _T(#ClassName); }
 
-// when running cppcheck, ignore throw() and override specifier
+// when running cppcheck, ignore override specifier
 #ifdef CPPCHECK
-#define throw()
 #define override
 #define TEST_CLASS(x) class ##x
 #define TEST_METHOD(x) void ##x()

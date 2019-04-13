@@ -69,10 +69,10 @@ enum T_enBiomeType
    biomeSubtropicalDesert,   
 };
 
-Color ColorByBiomeType(T_enBiomeType enBiomeType) throw();
-Color ColorByTerrainType(T_enTerrainType enTerrainType) throw();
-Color ColorByElevation(double elevation) throw();
-Color ColorByMoisture(double elevation) throw();
+Color ColorByBiomeType(T_enBiomeType enBiomeType);
+Color ColorByTerrainType(T_enTerrainType enTerrainType);
+Color ColorByElevation(double elevation);
+Color ColorByMoisture(double elevation);
 
 /// polygon center point
 struct Center
@@ -202,7 +202,7 @@ struct CornerSorter
    {
    }
 
-   bool operator()(const CornerPtr& lhs, const CornerPtr& rhs) const throw()
+   bool operator()(const CornerPtr& lhs, const CornerPtr& rhs) const
    {
       Vector2d lhv = m_center - lhs->point;
       Vector2d rhv = m_center - rhs->point;
@@ -222,7 +222,7 @@ struct PolygonPointSorter
    {
    }
 
-   bool operator()(const Vector2d& lhs, const Vector2d& rhs) const throw()
+   bool operator()(const Vector2d& lhs, const Vector2d& rhs) const
    {
       Vector2d lhv = m_center - lhs;
       Vector2d rhv = m_center - rhs;
@@ -266,7 +266,7 @@ public:
 private:
    struct LessThan
    {
-      bool operator()(const PointType& lhs, const PointType& rhs) const throw()
+      bool operator()(const PointType& lhs, const PointType& rhs) const
       {
          if (DoublesEqual((lhs-rhs).Length(), 0.0))
             return false; // equal
@@ -295,7 +295,7 @@ public:
    }
 
    /// dtor
-   ~Graph() throw()
+   ~Graph()
    {
       try
       {
@@ -316,10 +316,10 @@ public:
    void Clear();
 
    /// returns number of centers
-   size_t NumCenters() const throw() { return m_centers.size(); }
+   size_t NumCenters() const { return m_centers.size(); }
 
    /// returns number of corners
-   size_t NumCorners() const throw() { return m_corners.size(); }
+   size_t NumCorners() const { return m_corners.size(); }
 
    /// return corner for point; create when not already there
    CornerPtr MakeCorner(const Vector2d& p);

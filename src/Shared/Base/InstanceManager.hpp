@@ -37,7 +37,7 @@ public:
    /// returns if an interface instance is available
    /// \tparam TInterface type of interface to check
    template <typename TInterface>
-   bool IsAvail() const throw()
+   bool IsAvail() const
    {
       CString cszName = SInstanceNameFromInterface<TInterface>()();
       T_mapAllInstances::iterator iter = m_mapAllInstances.find(cszName);
@@ -61,7 +61,7 @@ private:
    struct SInstanceNameFromInterface
    {
       /// returns interface class name
-      LPCTSTR operator()() const throw()
+      LPCTSTR operator()() const
       {
          return TInterface::GetClassName();
       }

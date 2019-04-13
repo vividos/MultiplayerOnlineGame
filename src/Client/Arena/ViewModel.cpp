@@ -21,12 +21,12 @@ ViewModel::ViewModel(IModel& model)
 {
 }
 
-LocalModel& ViewModel::GetLocalModel() throw()
+LocalModel& ViewModel::GetLocalModel()
 {
    return dynamic_cast<LocalModel&>(m_model);
 }
 
-const LocalModel& ViewModel::GetLocalModel() const throw()
+const LocalModel& ViewModel::GetLocalModel() const
 {
    return dynamic_cast<const LocalModel&>(m_model);
 }

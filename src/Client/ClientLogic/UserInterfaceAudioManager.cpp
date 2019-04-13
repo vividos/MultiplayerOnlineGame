@@ -31,7 +31,7 @@ void UserInterfaceAudioManager::Connect(IWindowManager& windowManager, IFileSyst
       true));
 }
 
-void UserInterfaceAudioManager::OnUserInterfaceAudioEvent(T_enUserInterfaceAudioEvents enAudioEvent) throw()
+void UserInterfaceAudioManager::OnUserInterfaceAudioEvent(T_enUserInterfaceAudioEvents enAudioEvent)
 {
    switch (enAudioEvent)
    {

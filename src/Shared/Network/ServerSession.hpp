@@ -22,7 +22,7 @@ public:
    {
    }
    /// dtor
-   virtual ~ServerSession() throw() {}
+   virtual ~ServerSession() {}
 
    /// logs out session
    void Logout(LogoutMessage::T_enLogoutReason enLogoutReason);

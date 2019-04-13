@@ -62,7 +62,7 @@ PresetGroupParameter g_aGroupParameter [] =
    },
 };
 
-unsigned int Helper::GetMaxCountPresetGroupParameter() throw()
+unsigned int Helper::GetMaxCountPresetGroupParameter()
 {
    return sizeof(g_aGroupParameter)/sizeof(*g_aGroupParameter);
 }

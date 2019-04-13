@@ -22,7 +22,7 @@ using Terrain::Model::DataBlock;
 using Terrain::BlockRenderDataTexturedVertexBuffer;
 
 BlockRenderDataTexturedVertexBuffer::BlockRenderDataTexturedVertexBuffer(
-   GraphicsTaskManager& taskManager) throw()
+   GraphicsTaskManager& taskManager)
 :m_taskManager(taskManager),
  m_vertData(0),
  m_bFirstUpdate(true)
@@ -218,7 +218,7 @@ void BlockRenderDataTexturedVertexBuffer::Render(const RenderOptions& renderOpti
    m_vertData.Unbind();
 }
 
-unsigned int BlockRenderDataTexturedVertexBuffer::MapDistToLevel(double dist) throw()
+unsigned int BlockRenderDataTexturedVertexBuffer::MapDistToLevel(double dist)
 {
    unsigned int uiLevel = 0;
    if (dist > 128.0 && dist < 256.0)

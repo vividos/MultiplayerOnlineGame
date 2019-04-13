@@ -27,7 +27,7 @@ const double c_dLakeThreshold = 0.3;
 /// barely shows up on the map, so we set it to 1.1.
 const double c_dElevationScaleFactor = 1.1;
 
-WorldGenerator::WorldGenerator(unsigned int uiSize) throw()
+WorldGenerator::WorldGenerator(unsigned int uiSize)
 :m_uiSize(uiSize)
 {
    m_graph.SetSize(uiSize, uiSize);
@@ -543,7 +543,7 @@ void WorldGenerator::AssignOceanCoastAndLand()
 template <typename TElementPtr>
 struct ElevationSorter
 {
-   bool operator()(const TElementPtr& lhs, const TElementPtr& rhs) const throw()
+   bool operator()(const TElementPtr& lhs, const TElementPtr& rhs) const
    {
       return lhs->elevation < rhs->elevation;
    }
@@ -765,7 +765,7 @@ void WorldGenerator::AssignCornerMoisture()
 template <typename TElementPtr>
 struct MoistureSorter
 {
-   bool operator()(const TElementPtr& lhs, const TElementPtr& rhs) const throw()
+   bool operator()(const TElementPtr& lhs, const TElementPtr& rhs) const
    {
       return lhs->moisture < rhs->moisture;
    }

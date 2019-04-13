@@ -13,7 +13,7 @@
 // BSpline
 //
 
-BSpline::BSpline(unsigned int uiOrder) throw()
+BSpline::BSpline(unsigned int uiOrder)
 :m_uiOrder(uiOrder),
  m_vecPoints(0),
  m_uiNumControlPoints(0)
@@ -21,7 +21,7 @@ BSpline::BSpline(unsigned int uiOrder) throw()
    ATLASSERT(uiOrder >= 2);
 }
 
-void BSpline::Generate(const std::vector<float>& vecPoints) throw()
+void BSpline::Generate(const std::vector<float>& vecPoints)
 {
    m_uiNumControlPoints = vecPoints.size();
    size_t nplusc = m_uiNumControlPoints + m_uiOrder;
@@ -45,7 +45,7 @@ void BSpline::Generate(const std::vector<float>& vecPoints) throw()
    }
 }
 
-float BSpline::Get(float at) const throw()
+float BSpline::Get(float at) const
 {
    ATLASSERT(m_uiNumControlPoints > 0);
 
@@ -112,7 +112,7 @@ void BSpline::CalcBase(float param)
 //
 
 /// generates the 3D B-spline
-void BSpline3D::Generate(const std::vector<Vector3d>& vecPoints) throw()
+void BSpline3D::Generate(const std::vector<Vector3d>& vecPoints)
 {
    std::vector<float> vecData(vecPoints.size(), 0.0f);
 

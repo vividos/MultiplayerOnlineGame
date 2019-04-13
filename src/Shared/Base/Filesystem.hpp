@@ -17,16 +17,16 @@ public:
    Filesystem();
 
    /// returns file system base folder, including trailing slash
-   CString BaseFolder() const throw() { return m_cszBaseFolder; }
+   CString BaseFolder() const { return m_cszBaseFolder; }
 
    /// returns database script folder, including trailing slash
-   CString DatabaseScriptFolder() const throw() { return BaseFolder() + _T("script\\"); }
+   CString DatabaseScriptFolder() const { return BaseFolder() + _T("script\\"); }
 
    /// returns a per-user path to a (writable) folder; creates folder if it doesn't exist
    static CString UserFolder();
 
    /// returns fonts folder
-   static CString FontsFolder() throw();
+   static CString FontsFolder();
 
 private:
    /// base folder

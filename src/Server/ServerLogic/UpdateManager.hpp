@@ -29,7 +29,7 @@ public:
    /// ctor
    UpdateManager(ISessionManager& sessionManager);
    /// dtor
-   ~UpdateManager() throw() {}
+   ~UpdateManager() {}
 
    /// shares movement update
    void ShareUpdateMovement(const ObjectId& objId, const MovementInfo& info);

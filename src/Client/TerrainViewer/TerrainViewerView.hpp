@@ -38,7 +38,7 @@ public:
    View(RenderEngine& engine, GraphicsTaskManager& taskManager,
       IFileSystem& fileSystem);
    /// dtor
-   virtual ~View() throw(){}
+   virtual ~View() {}
 
    // get methods
 
@@ -46,12 +46,12 @@ public:
    std::shared_ptr<PerspectiveCamera> GetCamera() { return m_spCamera; }
 
    /// returns fill mode
-   bool FillMode() const throw() { return m_bFillMode; }
+   bool FillMode() const { return m_bFillMode; }
 
    // set methods
 
    /// sets fill mode
-   void FillMode(bool bFillMode) throw() { m_bFillMode = bFillMode; }
+   void FillMode(bool bFillMode) { m_bFillMode = bFillMode; }
 
 private:
    // virtual methods from IView

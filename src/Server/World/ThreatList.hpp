@@ -19,7 +19,7 @@ class WORLD_DECLSPEC ThreatList
 {
 public:
    /// ctor
-   ThreatList() throw()
+   ThreatList()
    {
    }
 
@@ -35,10 +35,10 @@ public:
    // get methods
 
    /// returns if threat list is empty
-   bool IsEmpty() const throw();
+   bool IsEmpty() const;
 
    /// checks if an object is in the list
-   bool IsInList(ObjectId id) const throw();
+   bool IsInList(ObjectId id) const;
 
    // action methods
 
@@ -72,7 +72,7 @@ private:
       unsigned int m_uiThreat;
 
       /// less operator to order by threat
-      bool operator<(const Entry& rhs) const throw()
+      bool operator<(const Entry& rhs) const
       {
          // we want bigger threat entries first in ordering
          return m_uiThreat >= rhs.m_uiThreat;

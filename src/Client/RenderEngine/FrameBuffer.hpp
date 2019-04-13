@@ -19,7 +19,7 @@ class RENDERENGINE_DECLSPEC FrameBuffer
 {
 public:
    /// ctor
-   FrameBuffer() throw();
+   FrameBuffer();
    /// dtor
    ~FrameBuffer()
    {
@@ -27,7 +27,7 @@ public:
    }
 
    /// returns if frame buffer extension is supported by OpenGL
-   static bool IsAvailable() throw()
+   static bool IsAvailable()
    {
       return
          OpenGL::IsExtensionSupported(OpenGL::Extension::ARB_framebuffer_object) &&
@@ -107,7 +107,7 @@ public:
 
 private:
    /// inits function pointers
-   static void Init() throw();
+   static void Init();
 
 private:
    /// framebuffer name

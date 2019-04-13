@@ -20,13 +20,13 @@ const unsigned int c_uiSliderWidth = 25;
 /// square root of 2, from Wolfram Alpha
 const double c_dSquareRoot2 = 1.4142135623730950488016887242096980785696718753769480;
 
-void Slider::Render(Rect& rectArea) throw()
+void Slider::Render(Rect& rectArea)
 {
    RenderProgressBar(rectArea);
    RenderSlider(rectArea);
 }
 
-void Slider::RenderProgressBar(Rect& rectArea) throw()
+void Slider::RenderProgressBar(Rect& rectArea)
 {
    Rect rectBar(rectArea);
    rectBar.Top(rectBar.Bottom() - int(rectBar.Height() * c_dBarHeightPercent));
@@ -34,7 +34,7 @@ void Slider::RenderProgressBar(Rect& rectArea) throw()
    BaseClass::Render(rectBar);
 }
 
-void Slider::RenderSlider(Rect& rectArea) throw()
+void Slider::RenderSlider(Rect& rectArea)
 {
    int iMid = rectArea.Left() + int(DividerPoint());
 
@@ -142,7 +142,7 @@ void Slider::OnFocusChanged(bool bGotFocus)
    m_bFocused = bGotFocus;
 }
 
-void Slider::OnAttributeChanged(const CString& cszAttributeName) throw()
+void Slider::OnAttributeChanged(const CString& cszAttributeName)
 {
    try
    {
@@ -158,7 +158,7 @@ void Slider::OnAttributeChanged(const CString& cszAttributeName) throw()
    }
 }
 
-bool Slider::IsInsideSliderArea(Point pt) const throw()
+bool Slider::IsInsideSliderArea(Point pt) const
 {
    try
    {

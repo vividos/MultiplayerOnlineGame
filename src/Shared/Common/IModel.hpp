@@ -105,7 +105,7 @@ public:
    DEFINE_INSTANCE(IModel)
 
    /// dtor
-   virtual ~IModel() throw() {}
+   virtual ~IModel() {}
 
    /// initializes model
    virtual void InitialUpdate(MobilePtr spPlayer) = 0;

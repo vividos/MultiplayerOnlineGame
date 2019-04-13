@@ -19,7 +19,7 @@ class ISceneManager
 {
 public:
    /// dtor
-   virtual ~ISceneManager() throw()
+   virtual ~ISceneManager()
    {
    }
 
@@ -39,5 +39,5 @@ public:
    virtual void ShowCursor(bool bShow) = 0;
 
    /// returns current screen size in pixels
-   virtual Size GetScreenSize() const throw() = 0;
+   virtual Size GetScreenSize() const = 0;
 };

@@ -38,7 +38,7 @@ public:
    };
 
    /// ctor; used for sending
-   TextMessage(T_enTextMessageType enTextMessageType, const CString& cszText, const CString& cszRecipient = CString()) throw()
+   TextMessage(T_enTextMessageType enTextMessageType, const CString& cszText, const CString& cszRecipient = CString())
       :Message(msgText),
        m_enTextMessageType(enTextMessageType),
        m_cszText(cszText),
@@ -51,25 +51,25 @@ public:
    }
 
    /// ctor; used for receiving
-   TextMessage() throw()
+   TextMessage()
       :Message(msgText),
        m_enTextMessageType(textMsgInvalid)
    {
    }
 
    // dtor
-   virtual ~TextMessage() throw() {}
+   virtual ~TextMessage() {}
 
    // get methods
 
    /// text message type
-   T_enTextMessageType Type() const throw() { return m_enTextMessageType; }
+   T_enTextMessageType Type() const { return m_enTextMessageType; }
 
    /// returns message text
-   const CString& Text() const throw() { return m_cszText; }
+   const CString& Text() const { return m_cszText; }
 
    /// returns message recipient
-   const CString& Recipient() const throw()
+   const CString& Recipient() const
    {
       ATLASSERT(m_enTextMessageType == textMsgWhisper);
       return m_cszRecipient;

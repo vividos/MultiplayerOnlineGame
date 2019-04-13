@@ -26,7 +26,7 @@ public:
    };
 
    /// returns if texture is already initialized
-   bool IsInit() const throw() { return m_tex.Size() != 0; }
+   bool IsInit() const { return m_tex.Size() != 0; }
 
    /// renders texture quad
    void Render(Rect rc);

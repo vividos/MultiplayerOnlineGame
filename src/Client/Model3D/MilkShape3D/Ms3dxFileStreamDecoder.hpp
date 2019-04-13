@@ -16,16 +16,16 @@ public:
    /// ctor
    Ms3dxFileStreamDecoder(std::shared_ptr<Stream::IStream> spSourceStream, const std::vector<BYTE>& vecXorKey);
    /// dtor
-   virtual ~Ms3dxFileStreamDecoder() throw() {}
+   virtual ~Ms3dxFileStreamDecoder() {}
 
-   virtual bool CanRead() const throw() { return m_spStream->CanRead(); }
-   virtual bool CanWrite() const throw() { return false; }
-   virtual bool CanSeek() const throw() { return false; }
+   virtual bool CanRead() const { return m_spStream->CanRead(); }
+   virtual bool CanWrite() const { return false; }
+   virtual bool CanSeek() const { return false; }
 
    /// reads amount of data into given buffer; returns if stream is at its end
    virtual bool Read(void* bBuffer, DWORD dwMaxBufferLength, DWORD& dwBytesRead) override;
 
-   virtual bool AtEndOfStream() const throw() { return m_spStream->AtEndOfStream(); }
+   virtual bool AtEndOfStream() const { return m_spStream->AtEndOfStream(); }
 
    virtual void Write(const void* /*bData*/, DWORD /*dwLength*/, DWORD& /*dwBytesWritten*/) { ATLASSERT(false); }
    virtual void WriteByte(BYTE /*b*/) { ATLASSERT(false); }

@@ -17,7 +17,7 @@ SelectionList::SelectionList()
 {
 }
 
-bool SelectionList::InList(const ObjectId& objId) const throw()
+bool SelectionList::InList(const ObjectId& objId) const
 {
    for (size_t i=0, iMax=m_vecSelectionList.size(); i<iMax; i++)
       if (m_vecSelectionList[i] == objId)

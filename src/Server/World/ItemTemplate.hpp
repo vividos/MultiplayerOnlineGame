@@ -17,7 +17,7 @@ class WORLD_DECLSPEC WeaponItemInfo
 {
 public:
    /// ctor
-   WeaponItemInfo() throw()
+   WeaponItemInfo()
       :m_enAttackType(attackTypeMelee),
        m_uiAttackSpeed(1),
        m_uiAttackValue(1),
@@ -35,16 +35,16 @@ public:
    // get methods
 
    /// returns attack type
-   T_enAttackType AttackType() const throw() { return m_enAttackType; }
+   T_enAttackType AttackType() const { return m_enAttackType; }
 
    /// returns attack speed, in tenths of seconds
-   unsigned int AttackSpeed() const throw() { return m_uiAttackSpeed; }
+   unsigned int AttackSpeed() const { return m_uiAttackSpeed; }
 
    /// returns attack value
-   unsigned int AttackValue() const throw() { return m_uiAttackValue; }
+   unsigned int AttackValue() const { return m_uiAttackValue; }
 
    /// returns attack variance (3 sigma)
-   unsigned int AttackVariance() const throw() { return m_uiAttackVariance; }
+   unsigned int AttackVariance() const { return m_uiAttackVariance; }
 
    // serialize
 
@@ -73,7 +73,7 @@ class WORLD_DECLSPEC ArmorItemInfo
 {
 public:
    /// ctor
-   ArmorItemInfo() throw()
+   ArmorItemInfo()
       :m_enArmorType(armorTypeCloth),
        m_uiArmorValue(1)
    {
@@ -91,10 +91,10 @@ public:
    // get methods
 
    /// returns armor type
-   T_enArmorType ArmorType() const throw() { return m_enArmorType; }
+   T_enArmorType ArmorType() const { return m_enArmorType; }
 
    /// returns armor value
-   unsigned int ArmorValue() const throw() { return m_uiArmorValue; }
+   unsigned int ArmorValue() const { return m_uiArmorValue; }
 
    // serialize
 
@@ -117,7 +117,7 @@ class WORLD_DECLSPEC ConsumableItemInfo
 {
 public:
    /// ctor
-   ConsumableItemInfo() throw()
+   ConsumableItemInfo()
    {
    }
 
@@ -137,7 +137,7 @@ class WORLD_DECLSPEC UsableItemInfo
 {
 public:
    /// ctor
-   UsableItemInfo() throw()
+   UsableItemInfo()
    {
    }
 
@@ -157,7 +157,7 @@ class WORLD_DECLSPEC QuestItemInfo
 {
 public:
    /// ctor
-   QuestItemInfo() throw()
+   QuestItemInfo()
    {
    }
 
@@ -218,16 +218,16 @@ public:
    // get methods
 
    /// returns item template id
-   unsigned int TemplateId() const throw() { return m_uiTemplateId; }
+   unsigned int TemplateId() const { return m_uiTemplateId; }
 
    /// returns item type
-   T_enItemType ItemType() const throw() { return m_enItemType; }
+   T_enItemType ItemType() const { return m_enItemType; }
 
    /// returns inventory slot type
-   T_enEquipSlotType EquipSlotType() const throw() { return m_enEquipSlotType; }
+   T_enEquipSlotType EquipSlotType() const { return m_enEquipSlotType; }
 
    /// returns max. durability; 0 for durable item; only set for weapons and armor
-   unsigned int MaxDurability() const throw() { return m_uiMaxDurability; }
+   unsigned int MaxDurability() const { return m_uiMaxDurability; }
 
    /// returns weapon item info
    const WeaponItemInfo& WeaponItem()

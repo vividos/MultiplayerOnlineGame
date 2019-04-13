@@ -14,18 +14,18 @@ class EquipItemMap
 {
 public:
    /// ctor
-   EquipItemMap() throw();
+   EquipItemMap();
 
    // actions
 
    /// put item in slot
-   void PutSlot(T_enEquipSlotType enEquipSlotType, ItemPtr spItem) throw();
+   void PutSlot(T_enEquipSlotType enEquipSlotType, ItemPtr spItem);
 
    /// clear slot
-   void ClearSlot(T_enEquipSlotType enEquipSlotType) throw();
+   void ClearSlot(T_enEquipSlotType enEquipSlotType);
 
    /// returns item in slot
-   ItemPtr GetSlot(T_enEquipSlotType enEquipSlotType) const throw();
+   ItemPtr GetSlot(T_enEquipSlotType enEquipSlotType) const;
 
    // serialize
 

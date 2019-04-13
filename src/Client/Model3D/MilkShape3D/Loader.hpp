@@ -22,7 +22,7 @@ class Loader
 {
 public:
    /// ctor
-   Loader(Data& data) throw()
+   Loader(Data& data)
       :m_data(data)
    {
    }

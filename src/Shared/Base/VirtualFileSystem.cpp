@@ -12,7 +12,7 @@
 #include "ZipArchive.hpp"
 #include <ulib/Path.hpp>
 
-VirtualFileSystem::VirtualFileSystem() throw()
+VirtualFileSystem::VirtualFileSystem()
 {
 }
 

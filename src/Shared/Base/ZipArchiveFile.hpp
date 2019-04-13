@@ -14,14 +14,14 @@
 class ReadOnlyNoWriteNoSeekStream: public Stream::IStream
 {
 public:
-   virtual ~ReadOnlyNoWriteNoSeekStream() throw() {}
+   virtual ~ReadOnlyNoWriteNoSeekStream() {}
 
    /// returns if read is possible
-   virtual bool CanRead() const throw() override { return true; }
+   virtual bool CanRead() const override { return true; }
    /// returns if write is possible; not supported
-   virtual bool CanWrite() const throw() override { return false; }
+   virtual bool CanWrite() const override { return false; }
    /// returns if seek is possible; not supported
-   virtual bool CanSeek() const throw() override { return false; }
+   virtual bool CanSeek() const override { return false; }
 
    // write support
 
@@ -70,10 +70,10 @@ public:
    }
 
    /// dtor
-   virtual ~ZipArchiveFile() throw() {}
+   virtual ~ZipArchiveFile() {}
 
    /// returns if seek is possible; only forward seek supported
-   virtual bool CanSeek() const throw() override { return true; }
+   virtual bool CanSeek() const override { return true; }
 
    // read support
 
@@ -84,7 +84,7 @@ public:
    virtual BYTE ReadByte() override;
 
    /// indicates if at end of file in zip archive
-   virtual bool AtEndOfStream() const throw() override
+   virtual bool AtEndOfStream() const override
    {
       return /*m_bEndOfInputStream &&*/ m_bEndOfOutputStream && m_vecOutBuffer.empty();
    }

@@ -55,16 +55,16 @@ class Message
 {
 public:
    /// ctor
-   Message(unsigned short usMessageId) throw()
+   Message(unsigned short usMessageId)
       :m_usMessageId(usMessageId)
    {
    }
 
    /// dtor
-   virtual ~Message() throw() {}
+   virtual ~Message() {}
 
    /// returns message id
-   unsigned short MessageId() const throw() { return m_usMessageId; }
+   unsigned short MessageId() const { return m_usMessageId; }
 
    /// serialize message by putting bytes to stream
    virtual void Serialize(ByteStream& stream) const = 0;

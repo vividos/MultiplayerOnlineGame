@@ -16,36 +16,36 @@ class BASE_DECLSPEC Uuid: public GUID
 {
 public:
    /// default ctor; creates empty uuid
-   Uuid(LPCTSTR pszUuid) throw();
+   Uuid(LPCTSTR pszUuid);
 
    /// ctor; takes 16 bytes of data used as GUID
-   Uuid(const BYTE* abData) throw();
+   Uuid(const BYTE* abData);
 
    /// returns empty id
-   static Uuid Null() throw();
+   static Uuid Null();
 
    /// returns new unique id
    static Uuid New();
 
    /// generates id from GUID-style formatted string
-   static Uuid FromString(LPCTSTR pszUuid) throw();
+   static Uuid FromString(LPCTSTR pszUuid);
 
    /// converts unique id to GUID-style formatted string
-   CString ToString() const throw();
+   CString ToString() const;
 
    /// equality comparison
-   bool operator==(const Uuid& lhs) const throw();
+   bool operator==(const Uuid& lhs) const;
 
    /// inequality comparison
-   bool operator!=(const Uuid& lhs) const throw();
+   bool operator!=(const Uuid& lhs) const;
 
    /// less comparison
-   bool operator<(const Uuid& lhs) const throw();
+   bool operator<(const Uuid& lhs) const;
 
    /// reutrns pointer to 16 bytes of raw data
-   const BYTE* Raw() const throw() { return reinterpret_cast<const BYTE*>(this); }
+   const BYTE* Raw() const { return reinterpret_cast<const BYTE*>(this); }
 
 private:
    /// private ctor; initializes unique id from GUID
-   Uuid(GUID& g) throw();
+   Uuid(GUID& g);
 };

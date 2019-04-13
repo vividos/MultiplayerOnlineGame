@@ -55,10 +55,10 @@ public:
    void Cleanup(unsigned int xblock, unsigned int yblock);
 
    /// returns block size
-   static unsigned int BlockSize() throw();
+   static unsigned int BlockSize();
 
    /// returns height for given coordinate
-   double Height(double x, double y) throw();
+   double Height(double x, double y);
 
 private:
    /// thread procedure for Prepare() call

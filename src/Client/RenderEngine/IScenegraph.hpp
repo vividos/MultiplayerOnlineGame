@@ -17,12 +17,12 @@ class IScenegraph: public IRenderable
 {
 public:
    /// ctor
-   IScenegraph() throw()
+   IScenegraph()
    {
    }
 
    /// dtor
-   virtual ~IScenegraph() throw()
+   virtual ~IScenegraph()
    {
    }
 
