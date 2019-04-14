@@ -11,14 +11,14 @@
     <Name>ClientSetup</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <OutputPath>..\..\..\bin\$(Configuration)\</OutputPath>
+    <OutputPath>..\..\..\bin\$(Platform)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>Debug</DefineConstants>
     <Cultures>en-US</Cultures>
     <SuppressIces>ICE03</SuppressIces>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <OutputPath>..\..\..\bin\$(Configuration)\</OutputPath>
+    <OutputPath>..\..\..\bin\$(Platform)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <Cultures>en-US</Cultures>
     <SuppressIces>ICE03</SuppressIces>
