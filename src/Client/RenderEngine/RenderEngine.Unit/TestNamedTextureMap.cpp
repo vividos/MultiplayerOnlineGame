@@ -74,8 +74,8 @@ namespace UnitTest
          TexturePtr spTex2 = m.Get(c_pszTextureName1);
          Assert::IsTrue(spTex.get() == spTex2.get(), _T("textures must be the same"));
 
-         Assert::IsFalse(spTex.unique(), _T("texture smart pointer must not be unique"));
-         Assert::IsFalse(spTex2.unique(), _T("texture smart pointer must not be unique"));
+         Assert::IsTrue(spTex.use_count() != 1, _T("texture smart pointer must not be unique"));
+         Assert::IsTrue(spTex2.use_count() != 1, _T("texture smart pointer must not be unique"));
       }
 
       /// tests Unregister() method on empty map
